@@ -1,0 +1,1 @@
+export let mockProgress = Array.from({length: 11}, (_, i) => i * 10);
