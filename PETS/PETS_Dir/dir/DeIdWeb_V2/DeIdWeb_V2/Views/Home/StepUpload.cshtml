@@ -1,0 +1,330 @@
+﻿@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "StepUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section_top">
+</section>
+<section class="project_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <div class="project_title">
+                        <h4>@ViewData["Project_cht"]</h4>
+                    </div>
+                    <div class="status_bar">
+                        <h4 class="method">去識別化流程</h4>
+                        <div class="status">
+                            <div class="status_no_line active">
+                                <h6>@localizer.Text.step0</h6>
+                                <p>@localizer.Text.upload_menu_list</p>
+                                <h3>1</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>@localizer.Text.stepDir</h6>
+                                <p>@localizer.Text.stepDir_menu_list</p>
+                                <h3>2</h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-9 upload">
+                    <div class="project_content">
+                        <h4 class="title">@localizer.Text.step1<span class="step_inf">@localizer.Text.step1_info</span></h4>
+                    </div>
+                    <div>
+
+                        <form class="form" id="uploadForm" action="" method="post" enctype="multipart/form-data" role="form" onchange="">
+                            <div class="file_upload">
+                                <!-- 第一个文件选择 -->
+                                <div class="file_select">
+                                    <div class="file_select_button" id="fileName">選擇檔案</div>
+                                    <div class="file_select_name" id="noFile">未選擇任何檔案</div>
+                                    @*<input id="csrf_token" name="csrf_token" type="hidden" value="your_csrf_token">*@
+                                    <input id="choose_file" name="file" class="file-upload-field" required="" type="file" value="">
+                                </div>
+
+                                <!-- 第二个文件选择 -->
+                                <div class="file_select">
+                                    <div class="file_select_button" id="file_key">選擇金鑰檔案</div>
+                                    <div class="file_select_name" id="noFile_key">未選擇任何檔案</div>
+                                    @*<input id="csrf_token" name="csrf_token" type="hidden" value="your_csrf_token">*@
+                                    <input id="choose_key" name="file" class="file-upload-field" required="" type="file" value="">
+                                </div>
+                                <ol class="rawdata_info">
+                                    <li>僅接受csv檔案格式，不能有空值(null value)，不能有合併儲存格。其資料欄位(metadata)只能為英文，且不能有空格<br>(例如：department_address為資料欄位，department address為不合格之資料欄位)。</li>
+                                    <li>檔名僅可使用英文字母、數字、半型底線'_'上述三種元素之結合，例如：hadoop123_example。</li>
+                                    <li>檔案大小上限：1G，請確保您的檔案不超過此限制。</li>
+                                    <li>日期格式：YYYY-MM-DD。</li>
+                                </ol>
+                                <input class="btn btn_mgs" id="submit" name="submit" type="submit" value="匯入" onclick="">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--資料無誤，成功-->
+    <div class="modal fade scene" id="dataupload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLongTitle">直接識別資料處理中</h4>
+                </div>
+                <div class="modal-body">
+                    資料上傳處理中，依資料大小不同需花費數分鐘到數小時。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--資料檢查中動畫-->
+    <div class="modal fade scene" id="datachecking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <svg id="dc-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width:"38="" height:"38="" viewBox="0 0 38 38" preserveAspectRatio="xMinYMin meet">
+            <text x="14" y="21" font-size="2.5px" style="letter-spacing:0.2;" fill="grey">
+                資料上傳中
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"></animate>
+            </text>
+            <path fill="#cccccc" d="M20,35c-8.271,0-15-6.729-15-15S11.729,5,20,5s15,6.729,15,15S28.271,35,20,35z M20,5.203    C11.841,5.203,5.203,11.841,5.203,20c0,8.159,6.638,14.797,14.797,14.797S34.797,28.159,34.797,20    C34.797,11.841,28.159,5.203,20,5.203z"></path>
+            <path fill="#cccccc" d="M20,33.125c-7.237,0-13.125-5.888-13.125-13.125S12.763,6.875,20,6.875S33.125,12.763,33.125,20    S27.237,33.125,20,33.125z M20,7.078C12.875,7.078,7.078,12.875,7.078,20c0,7.125,5.797,12.922,12.922,12.922    S32.922,27.125,32.922,20C32.922,12.875,27.125,7.078,20,7.078z"></path>
+            <path fill="#2AA198" stroke="#253FB9" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20    c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
+                <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" calcMode="spline" keySplines="0.4, 0, 0.2, 1" keyTimes="0;1" dur="2s" repeatCount="indefinite"></animatetransform>
+            </path>
+            <path fill="#859900" stroke="#C2CFFE" stroke-width="0.5" stroke-miterlimit="10" d="M7.078,20    c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203    C12.875,32.922,7.078,27.125,7.078,20z">
+                <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="1.8s" repeatCount="indefinite"></animatetransform>
+            </path>
+        </svg>
+    </div>
+    <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
+    <label id="pcht" style="display: none">@ViewData["Project_cht"]</label>
+    <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
+    <label id="memberAcc" style="display:none">@ViewData["memberAcc"]</label>
+    <label id="memberId" style="display:none">@ViewData["memberId"]</label>
+</section>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+<script>
+    $(document).ready(function () {
+        $('#datachecking').hide();
+        $('#dataupload').hide();
+        });
+
+
+</script>
+<script>
+    function validateFileName(fileName) {
+        var regex = /^[a-zA-Z0-9_]+$/;
+        return regex.test(fileName);
+    }
+
+
+    function read_key()
+    {
+        var fileKeyInput = document.getElementById('choose_key');
+    var fileKeyData=fileKeyInput.files[0];
+    console.log("fileKeyData:", fileKeyData);
+    var filekeyPath = fileKeyInput.value;
+    var enc_key="";
+    var filenkeyame = filekeyPath.replace(/^.*[\\\/]/, '');
+     if (fileKeyData) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        try {
+            // 解析 JSON
+            var jsonData = JSON.parse(e.target.result);
+          //  alert(jsonData);
+            // 取得 enc_key
+            enc_key = jsonData.enc_key;
+
+            // 在這裡使用 encKey，例如顯示在控制台
+            console.log('enc_key:', enc_key);
+        } catch (error) {
+            console.error('解析 JSON 失敗:', error);
+        }
+    };
+
+    // 讀取檔案
+    reader.readAsText(fileKeyData);
+}
+ console.log('enc_key:', enc_key);
+return enc_key;
+    }
+
+
+    $('#uploadForm').submit(function (e) {
+    e.preventDefault(); // 阻止表单的默认提交行为
+    var fileInput = document.getElementById('choose_file');
+    var fileKeyInput = document.getElementById('choose_key');
+    var fileKeyData=fileKeyInput.files[0];
+    console.log("fileKeyData:", fileKeyData);
+    var filekeyPath = fileKeyInput.value;
+    var filePath = fileInput.value;
+    var filename = filePath.replace(/^.*[\\\/]/, '');
+    //var filenkeyame = filekeyPath.replace(/^.*[\\\/]/, '');
+    var chineseRegex = /[\u4e00-\u9fa5]/gm;
+     
+    if (fileInput.files.length > 0) {
+    
+
+        var fileSize = fileInput.files[0].size;
+        var maxSize = 1073741824; // 1 MB
+        var validFileType = ".csv";
+        var fileExtension = fileInput.value.split('.').pop();
+
+        var fname = fileInput.value.substring(fileInput.value.lastIndexOf('\\') + 1, fileInput.value.lastIndexOf('.'));
+        if (fileSize > maxSize) {
+            alert('檔案超過上傳限制，請聯絡系統管理員進行處理!');
+            return false;
+        }
+
+        if (!validFileType.includes(fileExtension)) {
+            alert('只能上傳CSV檔案!');
+            return false;
+        }
+
+        if (chineseRegex.test(filename)) {
+            alert('文件名不允許包含中文');
+            fileInput.value = '';
+            return false;
+        }
+        if (!validateFileName(fname)) {
+
+            alert('文件名只能英數字與底線!');
+
+            return false;
+        }
+    
+          if (!fileInput.files.length || !fileKeyInput.files.length) {
+            alert('請選擇檔案和金鑰檔案');
+          return false;
+        }
+    
+        // 檢查檔案副檔名
+        var allowedExtensions = /(\.csv)$/i;
+        if (!allowedExtensions.test(fileInput.files[0].name)) {
+            alert('檔案必須是 CSV 格式');
+            return false;
+        }
+    
+          // 檢查檔案二的副檔名
+        var allowedJsonExtension = /(\.json)$/i;
+        if (!allowedJsonExtension.test(fileKeyInput.files[0].name)) {
+            alert('金鑰檔必須是 JSON 格式');
+           return false;
+        }
+        var keys=read_key();
+        var enc_key=keys;
+       console.log('key');
+       console.log(keys);
+       console.log(enc_key);
+        alert(enc_key);
+        var formData = new FormData($(this)[0]);
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+        reader.readAsText(file, 'Big5');
+        //alert('9');
+        reader.onload = function (event) {
+            var csv = event.target.result;
+            var csvRows = csv.split('\n');
+            var firstRow = csvRows[0];
+            var firstRowdata = csvRows[0].split(',');
+            var secondRow = csvRows[1].split(','); // 将第二行拆分为列数组
+
+             if (firstRowdata.length !== secondRow.length) {
+             alert('檔案欄位資料與資料內容不一致!!');
+             return false;
+             }
+
+              for (var i = 0; i < firstRowdata.length; i++) {
+                 // alert();
+                  if (!firstRowdata[i].trim()) {
+                      alert(firstRowdata[i]);
+                      //console.log('第一行或第二行存在空列');
+                  alert('檔案欄位資料為空!');
+                  return false;
+                  }
+              }
+
+            // 將第一行資料加入FormData
+            var strWithoutNewLine = firstRow.replace(/(\r\n|\n|\r)/gm, "");
+            formData.append('firekey', enc_key);
+            formData.append('fireheader', strWithoutNewLine);
+            formData.append('filename', filename);
+            
+
+            //	alert('6');
+            $('#datachecking').modal('show');
+            $('#datachecking').modal({ backdrop: 'static', keyboard: false });
+            //e.preventDefault();
+            // console.log('start upload !');
+            //alert('start upload !');
+            $.ajax({
+                url: '/Home/Upload',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
+                    return xhr;
+                },
+                success: function (result) {
+             
+                    $('#datachecking').modal('hide');
+                    location.href = "@Url.Action("DirSetting", "Home")/?fileheader="+encodeURIComponent(strWithoutNewLine)+ "&file_key=" + encodeURIComponent(enc_key);
+
+                },
+                error: function (xhr, status, error) {
+                    // handle error
+                    console.log(xhr.responseText); // 這裡可以看到回傳的錯誤訊息
+                    alert('上傳檔案失敗!!');
+                }
+            });
+
+        }
+    }
+    else {
+        alert('上傳失敗，檔案大小為0!');
+    }
+});
+</script>
+<script>
+    $('#choose_file').bind('change', function () {
+      var filename = $("#choose_file").val();
+      if (/^\s*$/.test(filename)) {
+        $(".file_upload").removeClass('active');
+        $("#noFile").text("未選擇任何檔案");
+      }
+      else {
+        $(".file_upload").addClass('active');
+        $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
+      }
+    });
+
+     $('#choose_key').bind('change', function () {
+      var filename = $("#choose_key").val();
+      if (/^\s*$/.test(filename)) {
+        $(".file_upload").removeClass('active');
+        $("#noFile_key").text("未選擇任何檔案");
+      }
+      else {
+        $(".file_upload").addClass('active');
+        $("#noFile_key").text(filename.replace("C:\\fakepath\\", ""));
+      }
+    });
+    </Script>

@@ -1,0 +1,97 @@
+//tab
+.profile_middle
+  .container
+    +size(1240px,100%)
+    background-color: $color_white
+    font-size: $font_base_size*1.8
+    font-weight: 500
+    padding: 0 40px
+    ul
+      list-style-type: none
+      margin: 0
+      padding: 10px 10px 0 10px
+      overflow: hidden
+      background-color: $color_white
+      border-bottom: $base_border
+      .active
+        border-bottom: 4px solid $color_main
+        color: $color_main
+        transition: 0.3s
+        a
+          color: $color_main
+          transition: 0.3s
+      li
+        float: left
+        &:hover:not(.active)
+          border-bottom: 4px solid $color_main
+          color: $color_main
+        a
+          display: block
+          color: $color_darkgray
+          text-align: center
+          padding: 14px 26px
+          text-decoration: none
+          background-color: transparent
+
+
+
+
+//tab格式
+.r_table
+  margin: 20px 0 80px 0
+  clear: both
+  .tabs
+    display: flex
+    overflow: hidden
+    .tab
+      position: relative
+      width: 200px
+      height: 45px
+      overflow: hidden
+      margin: 0 -15px 0 0
+      cursor: pointer
+      &.active
+        z-index: 40
+        position: relative
+  .title
+    position: absolute
+    top: 60%
+    left: 30px
+    right: 30px
+    overflow: hidden
+    transform: translateY(-50%)
+    white-space: nowrap
+    color: $color_white
+    font-size: $font_base_size*1.6
+  .tab-box
+    height: 50px
+    background: $color_aid
+    border-radius: 4px
+    margin: 0 10px 0
+    box-shadow: 0 0 2px #fff inset
+    -webkit-transform: perspective(100px) rotateX(30deg)
+    -moz-transform: perspective(100px) rotateX(30deg)
+  .tab.active
+    //z-index: 40
+    //position: relative
+    //padding-bottom: 1px
+    .tab-box
+      background-color: $color_main
+      box-shadow: 0 2px 7px rgba(51, 51, 51, 0.1)
+  .contents
+    position: relative
+    width: 100%
+    height: 880px
+  .content
+    z-index: 1
+    background: $color_white
+    box-shadow: 0 2px 7px rgba(51, 51, 51, 0.1)
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    padding: 10px
+    box-sizing: border-box
+    min-height: 500px
+    &.active
+      z-index: 100

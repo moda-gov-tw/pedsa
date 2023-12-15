@@ -1,0 +1,138 @@
+﻿@model IEnumerable<ProjectSampleDBData>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Step5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <li>
+
+                @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("Step5", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">@ViewData["ProjectName"]</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+  <div class="container">
+	<div class="row">
+	  <div class="col-sm-12">
+		<div class="col-sm-3">
+			<div class="status_bar">
+				<h4 class="title">@ViewData["ProjectName"]</h4>
+				<div class="status">
+					<div class="status_f">
+						<h6>@localizer.Text.step1</h6>
+						<p>@localizer.Text.step1_menu_list</p>
+						<h3>1</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step2</h6>
+						<p>@localizer.Text.step2_menu_list</p>
+						<h3>2</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step3</h6>
+						<p>@localizer.Text.step3_menu_list</p>
+						<h3>3</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step4</h6>
+						<p>@localizer.Text.step4_menu_list</p>
+						<h3>4</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step5</h6>
+						<p>@localizer.Text.step5_menu_list</p>
+						<h3>5</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="project_content">
+				<h4 class="title">@localizer.Text.step5<span class="step_inf">@localizer.Text.export</span></h4>
+				<div class="container">
+					<div class="select_table">
+						<ul class="unstyled">
+							@{
+								int i = 1;
+								string labelname = "finaltb_" + i.ToString();
+								foreach (var item in Model)
+								{
+									<li>
+										<label for="styled-checkbox-1" id="@labelname">@item.finaltblName</label>
+									</li>
+									i++;
+								}
+							}
+						</ul>
+					</div>
+				</div>
+				<label id="tbcount" style="display:none">@Model.Count()</label>
+				<label id="pid" style="display:none">@ViewData["ProjectId"]</label>
+				<label id="pname" style="display:none">@ViewData["ProjectName"]</label>
+				<label id="dataexport" style="display:none">@localizer.Message.export</label>
+				<label id="deiderror" style="display:none">@localizer.Message.deid_error</label>
+				<div class="btn btn_mbs btn_next" id="next">
+					@*<a class="a_unstyled" href="step5_02.html">下一步</a>*@
+                    <a class="a_unstyled" href="javascript:void(0)" onclick="exportFile();">@localizer.Text.export</a>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+ </div>
+</section>
+<script>
+    function exportFile()
+    {
+     var pid = $('#pid').text();;
+            var pname = $('#pname').text();
+        var tbcount = $('#tbcount').text();
+        var deiderror = $('#deiderror').text();
+        var dataexport = $('#dataexport').text();
+        alert(dataexport);
+    $.ajax({
+                    type: "get",
+                  url: "/api/WebAPI/ExportData",
+                    contentType: "application/json",
+                  data:
+                  {
+                      pid: pid, pname: pname
+                  },
+        success: function (status) {
+            //alert(status);
+                        //document.location.href = "@Url.Action("Index","Home")";
+                        if (status) {
+
+                            location.href = "@Url.Action("ProjectIndex", "Home")";
+                        }
+                        else {
+                            alert(deiderror);
+
+                        }
+                    },
+                    error: function (status) {
+                        alert(deiderror);
+                    }
+
+                });
+
+    }
+</script>

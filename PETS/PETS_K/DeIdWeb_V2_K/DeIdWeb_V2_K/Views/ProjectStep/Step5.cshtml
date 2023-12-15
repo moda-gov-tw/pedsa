@@ -1,0 +1,335 @@
+﻿@model IEnumerable<ProjectSampleDBData>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Step5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <li>
+                @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("Step5", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"],project_cht=ViewData["Project_cht"] })">@ViewData["Project_cht"]</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <div class="project_title">
+                        <h4>@ViewData["Project_Cht"]</h4>
+                    </div>
+                    <div class="status_bar">
+                        <h4 class="method">可用性分析流程</h4>
+                        <div class="status">
+                            <div class="status_no_line active">
+                                <h6>@localizer.Text.step5_1</h6>
+                                <p>@localizer.Text.step5_1_menu_list</p>
+                                <h3>1</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>@localizer.Text.step5_2</h6>
+                                <p>@localizer.Text.step5_2_menu_list</p>
+                                <h3>2</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="project_content">
+                        <h4 class="title">@localizer.Text.step5<span class="step_inf">@localizer.Text.step5_info</span></h4>
+                        <label id="project_id" style="display:none">@ViewData["ProjectId"]</label>
+                        <label id="project_name" style="display:none">@ViewData["ProjectName"]</label>
+                        <label id="project_status" style="display:none">@ViewData["projectstatus"]</label>
+                        <div id="utility" class="container">
+                            @{
+                                int x = 1;
+                                foreach (var item in Model)
+                                {
+                                    var tbname = "";
+                                    var tbcount = "";
+                                    string tablenum = "table_" + x.ToString();
+                                    string lbtable = "lbtable_" + x.ToString();
+                                    string lbtbid = "lbtbid_" + x.ToString();
+                                    string tb_col = "tbcol_" + x.ToString();
+                                    string tb_colcht = "tbcolcht_" + x.ToString();
+                                    string tbimport_col = "tbim_" + x.ToString();
+                                    string result_col = "tbresult_" + x.ToString();
+                                    string formaterr = "tbforerror_" + x.ToString();
+                                    string selectvalue = "tbselectvalue_" + x.ToString();
+                                    tbname = item.pro_tb.ToString();
+                                    tbcount = item.tableCount.ToString();
+                                    var tb_col_cht = item.pro_col_cht;
+                                    var col_cht_array = tb_col_cht.Split(',');
+                                    var tb_col_en = item.pro_col_cht;
+                                    var col_en_array = tb_col_en.Split(',');
+                                    var col_value = item.after_col_value;
+                                    var col_value_arr = col_value.Split(',');
+                                    var tbdata = item.kdata;
+                                    // var datafield = "";
+
+                                    <div class="table_info">
+                                        <div class="col-sm-8 data_info">
+                                            <h6>
+                                                @localizer.Text.dataset_name：<label id="@lbtable">@tbname</label>
+                                                <label id="@lbtbid" style="display: none">@item.ps_id</label>
+                                                <label id="@tb_colcht" style="display: none">@item.pro_col_cht</label>
+                                                <label id="@selectvalue" style="display: none">@item.after_col_value</label>
+                                            </h6>
+                                            <h6>@localizer.Text.total_records：@tbcount</h6>
+                                        </div>
+
+                                        <label id="@tb_col" style="display: none">@tb_col_en</label>
+                                        <table id="@tablenum" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="title" align="center">@localizer.Text.ch_col_name</th>
+                                                    @{
+                                                        for (int i = 0; i < col_cht_array.Length; i++)
+                                                        {
+                                                            var datafield = col_cht_array[i].ToString();
+                                                            var cbname = "cb" + datafield;
+                                                            if(col_value_arr[i].ToString()=="0")
+                                                            {
+                                                                  <th data-field=@datafield class="hidden"></th>
+                                                            }
+                                                            else
+                                                            {
+                                                                <th data-field=@datafield><label class="data_label"><input type="checkbox" name="btSelectItem" id="@cbname" /><span>@col_en_array[i].ToString()</span></label></th>
+                                                            } 
+                                                        }
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <th data-field="title" align="center">@localizer.Text.en_col_name</th>
+                                                    @{
+                                                        for (int i = 0; i < col_en_array.Length; i++)
+                                                        {
+                                                            var datafield = col_cht_array[i].ToString();
+                                                             if(col_value_arr[i].ToString()=="0")
+                                                            {
+                                                                  <th data-field=@datafield class="hidden"></th>
+                                                            }
+                                                            else
+                                                            {
+                                                                 <th data-field=@datafield>@col_cht_array[i].ToString()</th>
+                                                            } 
+                                                           
+                                                        }
+
+                                                    }
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    string tbdatas = "tbData_" + x.ToString();
+                                    <label id="@tbdatas" style="display: none">@item.data</label>
+                                    x++;
+                                }
+                            }
+                        </div>
+                        <label id="tbDatacount" style="display: none">@Model.Count()</label>
+                        <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
+                        <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
+                        <label id="pname_cht" style="display: none">@ViewData["Project_Cht"]</label>
+                        <label id="gan_selectname" style="display: none">@ViewData["ganselect_colname"]</label>
+                        <label id="savecolerror" style="display: none">@localizer.Message.save_col_error</label>
+                        @*<div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>*@
+                        <div class="btn btn_mbs btn_next" id="next"><a class="a_unstyled" href="javascript:void(0)" onclick="getMLutility();">@localizer.Text.run</a></div>
+                        @*<button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal" onclick="getMLutility()">@localizer.Text.next</button>*@
+
+                        <!--資料無誤，成功-->
+                        <div class="modal fade scene" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLongTitle">可用性分析</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        資料可用性分析中，依資料大小不同需花費數分鐘到數小時不等，完成後將以鈴鐺通知。
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- 這邊要連結到ProjectIndex -->
+                                        <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--資料檢查中動畫-->
+                        <div class="modal fade scene" id="datachecking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <svg id="dc-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width:"38="" height:"38="" viewBox="0 0 38 38" preserveAspectRatio="xMinYMin meet">
+                                <text x="14" y="21" font-size="2.5px" style="letter-spacing:0.2;" fill="grey">
+                                    資料檢查中
+                                    <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"></animate>
+                                </text>
+                                <path fill="#cccccc" d="M20,35c-8.271,0-15-6.729-15-15S11.729,5,20,5s15,6.729,15,15S28.271,35,20,35z M20,5.203    C11.841,5.203,5.203,11.841,5.203,20c0,8.159,6.638,14.797,14.797,14.797S34.797,28.159,34.797,20    C34.797,11.841,28.159,5.203,20,5.203z"></path>
+                                <path fill="#cccccc" d="M20,33.125c-7.237,0-13.125-5.888-13.125-13.125S12.763,6.875,20,6.875S33.125,12.763,33.125,20    S27.237,33.125,20,33.125z M20,7.078C12.875,7.078,7.078,12.875,7.078,20c0,7.125,5.797,12.922,12.922,12.922    S32.922,27.125,32.922,20C32.922,12.875,27.125,7.078,20,7.078z"></path>
+                                <path fill="#2AA198" stroke="#1890ff" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20    c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
+                                    <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" calcMode="spline" keySplines="0.4, 0, 0.2, 1" keyTimes="0;1" dur="2s" repeatCount="indefinite"></animatetransform>
+                                </path>
+                                <path fill="#859900" stroke="#C2CFFE" stroke-width="0.5" stroke-miterlimit="10" d="M7.078,20    c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203    C12.875,32.922,7.078,27.125,7.078,20z">
+                                    <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="1.8s" repeatCount="indefinite"></animatetransform>
+                                </path>
+                            </svg>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<script>
+    $(document).ready(function () {
+       // $('#table_1').bootstrapTable('hideColumn', 'Age');
+        $('#utility').show();
+        $('#datachecking').hide();
+        $('#exampleModalCenter').hide();
+    });
+</script>
+<script>
+    var tbDatacount = $('#tbDatacount').text();
+    
+    for (i = 0; i < parseInt(tbDatacount); i++) {
+        var tbData = "#tbData_" + (i + 1).toString();
+        var tablenum = "#table_" + (i + 1).toString();
+        var tbvalunm ="#tbselectvalue_"+ (i + 1).toString();
+        var tbcolchtnm ="#tbcolcht_"+ (i + 1).toString();
+    
+        var tbvalue = $(tbvalunm).text();
+    
+        var tbcolcht = $(tbcolchtnm).text();
+    
+        var colname_arr = new Array();
+        colname_arr = tbcolcht.split(',');
+        var colvalue_arr = new Array();
+        colvalue_arr = tbvalue.split(',');
+        
+        for(x=0;x<colvalue_arr.length;x++)
+        {
+            if(colvalue_arr[x].toString()=="0")
+            {
+                $(tablenum).bootstrapTable('hideColumn', colname_arr[x].toString());
+            }
+        }
+        var tbcol_value =$(tbvalue).text(); // get value
+
+        var tbDatas = JSON.parse($(tbData).text());
+
+        $(tablenum).bootstrapTable({
+            data: tbDatas
+        });
+    }
+
+    function getMLutility() {
+        $('#datachecking').modal('show');
+        $('#datachecking').modal({ backdrop: 'static', keyboard: false });
+
+        var cbcount = 0;
+        var cbcolname = "";
+        var tbDatacount = $('#tbDatacount').text();
+        //多表格
+        for (i = 0; i < parseInt(tbDatacount); i++) {
+            var tbData = "#tbData_" + (i + 1).toString();
+            var tablenum = "#table_" + (i + 1).toString();
+        }
+        var tbcol = "#gan_selectname";
+        var col_data = $(tbcol).text();
+        var col_arr = new Array();
+        col_arr = col_data.split(',');
+        //alert('ff');
+        for (i = 0; i < col_arr.length; i++) {
+            // alert('ccccc');
+            var newcbnm = '#cb' + col_arr[i].toString();
+
+            if ($(newcbnm).prop('checked')) {
+                // alert('ccfffffccc');
+                cbcount++;
+                cbcolname += col_arr[i].toString() + ',';
+            }
+            else {
+
+            }
+
+        }
+        
+        if (cbcount > 3 || cbcount == 0) {
+            alert('選擇欄位必須介於1~3個');
+            return;
+        }
+        if (cbcolname.length > 2) {
+            if (cbcolname.substring(cbcolname.length - 1, cbcolname.length) == ",") {
+                cbcolname = cbcolname.substring(0, cbcolname.length - 1);
+            }
+        }
+        //alert('111')
+        //準備call api
+        //recover 設定值
+        var pid = $('#project_id').text();
+        var fname = $('#fname').text();
+        var col_data = $('#col_data').text();
+        var pname = $('#project_name').text();
+        //alert('ML')
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/SendMLutility",
+            contentType: "application/json",
+            // async: false,
+            data:
+            {
+                pid: pid, pname: pname, fname: fname, targernm: cbcolname
+            },
+            success: function (response) {
+                //成功
+                $('#datachecking').modal('hide');
+
+                $('#exampleModalCenter').modal({ backdrop: 'static', keyboard: false });
+                $('#exampleModalCenter').modal('show');
+            },
+            error: function (response) {
+                //alert(savecolerror);
+                $('#datachecking').modal('hide');
+
+            }
+        });
+    }
+
+    function returntopage() {
+        location.href = "/Home/ProjectIndex";
+    }
+</script>
+<script>
+    function SaveProjectTableStep() {
+        // alert('2');
+        var projectstatus = $('#project_status').text();
+        var savecolerror = $('#savecolerror').text();
+        var colen = '';
+        var pid = $('#pid').text();
+        var pname = $('#pname').text();
+        var tbDatacount = $('#tbDatacount').text();
+        var finalselectvalue = "";
+        //alert('4');
+        //alert(tbDatacount);
+        for (i = 0; i < parseInt(tbDatacount); i++) {
+
+            //alert(i);
+            var tbname = "#lbtable_" + (i + 1).toString();
+            var lbtb_col = "#tbcol_" + (i + 1).toString();
+
+            //alert(tbname);
+            //alert(lbtb_col);
+
+        }
+        return false;
+    }
+</script>
+

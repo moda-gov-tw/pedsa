@@ -1,0 +1,196 @@
+﻿@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "MemberList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="inside member_list">
+    <div class="container">
+        <h4 class="title">人員管理</h4>
+        <div class="col-sm-12">
+            <form class="search_form">
+                <input type="text" placeholder="輸入關鍵字"><a class="search-button" href="javascript:void(0);"></a>
+                <!--i.fa.fa-search-->
+            </form>
+            <button class="btn btn_mbs" id="new_member">新增人員</button>
+            <div class="modal" id="member">
+                <div class="textarea">
+                    <div class="close" id="member_close">✖</div>
+                    <h4 class="title">新增人員</h4>
+                    @*<p>確認新增後將寄送臨時密碼給該使用者</p>*@
+                    <form class="form" action="" method="post" role="form">
+                        <input id="csrf_token" name="csrf_token" type="hidden" value="IjY1NTQzYzJjNWEwMzBlYWU5YmZjY2RiMTM5ZWZiNDg3ZTFhM2QxMWIi.DVv-gw.lB3kAc8_kwJv6Z2L-_mlgExWIcA">
+                        <div class="form-group required">
+                            <label class="control-label">User ID</label>
+                            <input class="form-control" id="useraccount">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label">User Password</label>
+                            <input class="form-control" id="userpwd" type="password">
+                        </div>
+                        @*<div class="form-group required">
+            <label class="control-label">E-mail</label>
+            <input class="form-control" id="a_email">
+        </div>*@
+                        <div class="form-group required">
+                            <label class="control-label">單位</label>
+                            <select class="form-control" id="deptlist"
+                                    name="powner" asp-items="@(new SelectList(@ViewBag.listmember, "Id", "dept_name"))"></select>
+                        </div>
+                        <input class="btn btn-default" id="submit_new_member" name="submit" type="submit" value="確定" onclick="AddUser(); return false;">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-hover" id="member_active">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>單位</th>
+                        <th>是否為管理員</th>
+                        <th>建立時間</th>
+                        <th>刪除</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <label id="memberlst" style="display:none">@ViewData["memberlist"]</label>
+
+</section>
+<script>
+    var member_modal = document.getElementById('member');
+    var new_member_btn = document.getElementById("new_member");
+    var member_close_span = document.getElementById("member_close");
+
+    new_member_btn.onclick = function () {
+        member_modal.style.display = "block";
+    }
+
+    member_close_span.onclick = function () {
+        member_modal.style.display = "none";
+    }
+
+    var lstmember = $('#memberlst').text();
+    $("#member_active").append(lstmember);
+    
+</script>
+<script>
+    function delmember(uid) {
+        if (confirm('請確認是否要刪除使用者!')) {
+            $.ajax({
+                type: "get",
+                url: "/api/WebAPI/delUser",
+                contentType: "application/json",
+                data: { usrid: uid },
+                success: function (status) {
+                    alert('刪除成功!');
+                    location.reload();
+                },
+                error: function (status) {
+                    alert('刪除失敗!');
+                }
+            });
+        }
+        else {
+            return;
+        }
+    }
+
+    function AddUser() {
+        var usracc = $("#useraccount").val();
+        var usrpwd = $("#userpwd").val();
+        // var pinput = $("#p_input").val();
+        //var poutput = $("#p_output").val();
+        var userdept = $("#deptlist option:selected").val();
+        var useradmin="0";
+        if (usracc == "") {
+            alert('請輸入帳號名稱');
+            return false;
+        }
+
+        if (userdept == 0) {
+            alert('請選擇帳號所屬單位!');
+            return false;
+
+        }
+        $.ajax({
+				type: "get",
+            url: "/api/WebAPI/AddMember",
+				contentType: "application/json",
+				async: false,
+				     data: {
+                usracc: usracc,
+                usrpwd: usrpwd,
+                userdept: userdept,
+                useradmin:useradmin
+            },
+            success: function (response) {
+                if (response == "-5") {
+                    alert('帳號名稱重複!');
+                    return false;
+                }
+                else if (response == "1") {
+                    //alert('2');
+                    //var member_modal = document.getElementById('member');
+                    //member_modal.style.display = "none";
+                    location.reload();
+                }
+                else {
+                    alert('新增失敗');
+                    return false;
+                }
+					//alert(response);
+					@*if (!response) {
+						alert(generror);
+					}
+					else {
+						location.href = "@Url.Action("ProjectIndex", "Home")";
+					}*@
+
+				},
+				error: function (response) {
+                    alert(response);
+				}
+			});
+        //$.ajax({
+        //    type: "get",
+        //    url: "/api/WebAPI/AddMember",
+        //    contentType: "application/json",
+        //    data: {
+        //        usracc: usracc,
+        //        usrpwd: usrpwd,
+        //        userdept: userdept
+        //    },
+        //    success: function (response) {
+        //        // alert('project load success');
+        //        alert('111');
+        //        alert(response);
+        //        //alert(data);
+        //        //    $("#projectlist").html(data);
+        //        if (response == "-2") {
+        //            alert('帳號名稱重複!');
+        //            return false;
+        //        }
+        //        else if (response == "1") {
+        //            alert('2');
+        //            var member_modal = document.getElementById('member');
+        //            member_modal.style.display = "none";
+        //            location.reload();
+        //        }
+        //        else {
+        //            alert('新增失敗');
+        //            return false;
+        //        }
+        //    },
+        //    error: function (response) {
+        //        alert('Error');
+        //    }
+
+        //});
+    }
+</script>

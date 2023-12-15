@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>關於</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="add_member" xml:space="preserve">
+    <value>加入協作人員</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>上一步</value>
+  </data>
+  <data name="check_ed" xml:space="preserve">
+    <value>檢查完成</value>
+  </data>
+  <data name="ch_col_name" xml:space="preserve">
+    <value>原始欄位名稱</value>
+  </data>
+  <data name="col_attr" xml:space="preserve">
+    <value>欄位屬性</value>
+  </data>
+  <data name="col_name" xml:space="preserve">
+    <value>欄位名稱</value>
+  </data>
+  <data name="customize" xml:space="preserve">
+    <value>自訂</value>
+  </data>
+  <data name="customize_info" xml:space="preserve">
+    <value>請先下載raw data 類別，並依制定格式上傳txt檔</value>
+  </data>
+  <data name="dataset_name" xml:space="preserve">
+    <value>資料集名稱</value>
+  </data>
+  <data name="data_attr" xml:space="preserve">
+    <value>資料集屬性判定</value>
+  </data>
+  <data name="data_g" xml:space="preserve">
+    <value>資料生成</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="deid_ing" xml:space="preserve">
+    <value>去識別化處理中</value>
+  </data>
+  <data name="deid_risk" xml:space="preserve">
+    <value>去識別化處理及風險評估</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="do_k" xml:space="preserve">
+    <value>做K匿名</value>
+  </data>
+  <data name="en_col_name" xml:space="preserve">
+    <value>系統欄位名稱</value>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>資料匯出</value>
+  </data>
+  <data name="finish" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="format" xml:space="preserve">
+    <value>格式檔</value>
+  </data>
+  <data name="g_and_sensitive" xml:space="preserve">
+    <value>概化/敏感處理</value>
+  </data>
+  <data name="g_setting" xml:space="preserve">
+    <value>概化規則設定</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="import" xml:space="preserve">
+    <value>資料匯入</value>
+  </data>
+  <data name="job_info" xml:space="preserve">
+    <value>選擇資料集處理方式以供合併表格用</value>
+  </data>
+  <data name="join" xml:space="preserve">
+    <value>合併處理</value>
+  </data>
+  <data name="join_method" xml:space="preserve">
+    <value>合併方法</value>
+  </data>
+  <data name="key_words" xml:space="preserve">
+    <value>專案關鍵字</value>
+  </data>
+  <data name="k_anonymity" xml:space="preserve">
+    <value>K匿名</value>
+  </data>
+  <data name="k_delete" xml:space="preserve">
+    <value>K &lt; 刪除</value>
+  </data>
+  <data name="k_sup" xml:space="preserve">
+    <value>K &lt; Suppression</value>
+  </data>
+  <data name="k_value" xml:space="preserve">
+    <value>風險基準值 (K值)</value>
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="max_sup_r" xml:space="preserve">
+    <value>設定最大壓抑率</value>
+  </data>
+  <data name="method" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="method_setting" xml:space="preserve">
+    <value>設定方法</value>
+  </data>
+  <data name="minimum" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="muti_key" xml:space="preserve">
+    <value>多重主鍵</value>
+  </data>
+  <data name="next" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="nonproject" xml:space="preserve">
+    <value>尚無專案</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>快訊</value>
+  </data>
+  <data name="no_data" xml:space="preserve">
+    <value>專案資料夾無資料</value>
+  </data>
+  <data name="no_k" xml:space="preserve">
+    <value>不做K匿名</value>
+  </data>
+  <data name="no_process" xml:space="preserve">
+    <value>不處理</value>
+  </data>
+  <data name="numerical_interval" xml:space="preserve">
+    <value>數字區間</value>
+  </data>
+  <data name="numerical_interval_gr" xml:space="preserve">
+    <value>數字區間概化規則</value>
+  </data>
+  <data name="numerical_interval_group_name" xml:space="preserve">
+    <value>設定數字區間及群組名稱</value>
+  </data>
+  <data name="num_min" xml:space="preserve">
+    <value>數字小區間</value>
+  </data>
+  <data name="num_max" xml:space="preserve">
+    <value>數字大區間</value>
+  </data>
+  <data name="num_updown" xml:space="preserve">
+    <value>數字區間含上下界</value>
+  </data>
+  <data name="outlier_upper_bound" xml:space="preserve">
+    <value>離群值上界</value>
+  </data>
+  <data name="primary_data" xml:space="preserve">
+    <value>選擇主資料集</value>
+  </data>
+  <data name="project_list" xml:space="preserve">
+    <value>專案列表</value>
+  </data>
+  <data name="report_management" xml:space="preserve">
+    <value>報表管理</value>
+  </data>
+  <data name="run" xml:space="preserve">
+    <value>執行</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>暫存中</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>請選擇</value>
+  </data>
+  <data name="select_dataset" xml:space="preserve">
+    <value>選擇資料集</value>
+  </data>
+  <data name="select_method" xml:space="preserve">
+    <value>選擇方法</value>
+  </data>
+  <data name="setting_ed" xml:space="preserve">
+    <value>已設定</value>
+  </data>
+  <data name="single" xml:space="preserve">
+    <value>單張處理</value>
+  </data>
+  <data name="single_key" xml:space="preserve">
+    <value>單一主鍵</value>
+  </data>
+  <data name="step2_info" xml:space="preserve">
+    <value>請分別設定直接識別、間接識別、敏感資料、其他資料及不選用資料欄位</value>
+  </data>
+  <data name="substring" xml:space="preserve">
+    <value>擷取字串</value>
+  </data>
+  <data name="sup" xml:space="preserve">
+    <value>遮罩</value>
+  </data>
+  <data name="total_records" xml:space="preserve">
+    <value>資料總筆數</value>
+  </data>
+  <data name="unit_interval" xml:space="preserve">
+    <value>數字位數</value>
+  </data>
+  <data name="upload_ed" xml:space="preserve">
+    <value>上傳完成</value>
+  </data>
+  <data name="utility" xml:space="preserve">
+    <value>可用性分析</value>
+  </data>
+  <data name="vice_data" xml:space="preserve">
+    <value>選擇副資料集</value>
+  </data>
+  <data name="dir_id" xml:space="preserve">
+    <value>直接識別</value>
+  </data>
+  <data name="gen_preview" xml:space="preserve">
+    <value>概化規則預覽</value>
+  </data>
+  <data name="others" xml:space="preserve">
+    <value>不處理</value>
+  </data>
+  <data name="qi_id" xml:space="preserve">
+    <value>間接識別</value>
+  </data>
+  <data name="sensitive_id" xml:space="preserve">
+    <value>敏感資料</value>
+  </data>
+  <data name="step1" xml:space="preserve">
+    <value>資料匯入及處理</value>
+  </data>
+  <data name="step1_info" xml:space="preserve">
+    <value>*請將要做去識別化之文件匯入系統</value>
+  </data>
+  <data name="step2" xml:space="preserve">
+    <value>資料集屬性判定</value>
+  </data>
+  <data name="step3" xml:space="preserve">
+    <value>概化規則設定</value>
+  </data>
+  <data name="step4" xml:space="preserve">
+    <value>去識別化處理</value>
+  </data>
+  <data name="step5" xml:space="preserve">
+    <value>資料彙整與評估</value>
+  </data>
+  <data name="unuse" xml:space="preserve">
+    <value>不選用</value>
+  </data>
+  <data name="add_project" xml:space="preserve">
+    <value>新增專案</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="cust_key" xml:space="preserve">
+    <value>自訂主鍵</value>
+  </data>
+  <data name="data_path" xml:space="preserve">
+    <value>資料路徑</value>
+  </data>
+  <data name="data_suprate" xml:space="preserve">
+    <value>資料壓抑率</value>
+  </data>
+  <data name="desc" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="distinct" xml:space="preserve">
+    <value>欄位萃取</value>
+  </data>
+  <data name="export_path" xml:space="preserve">
+    <value>匯出路徑</value>
+  </data>
+  <data name="gen_setting" xml:space="preserve">
+    <value>資料處理結構</value>
+  </data>
+  <data name="min_kvalue" xml:space="preserve">
+    <value>最小等價類大小</value>
+  </data>
+  <data name="new_project" xml:space="preserve">
+    <value>新專案</value>
+  </data>
+  <data name="no_col" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="process_flow" xml:space="preserve">
+    <value>處理過程</value>
+  </data>
+  <data name="project_leader" xml:space="preserve">
+    <value>專案負責人</value>
+  </data>
+  <data name="project_name" xml:space="preserve">
+    <value>專案名稱</value>
+  </data>
+  <data name="project_dataset_name" xml:space="preserve">
+    <value>專案資料集名稱</value>
+  </data>
+  <data name="raw_data" xml:space="preserve">
+    <value>原始資料</value>
+  </data>
+  <data name="k_checking_data" xml:space="preserve">
+    <value>K匿名資料</value>
+  </data>
+  <data name="count" xml:space="preserve">
+    <value>筆數</value>
+  </data>
+  <data name="dis_count" xml:space="preserve">
+    <value>個體數</value>
+  </data>
+  <data name="raw_data_count" xml:space="preserve">
+    <value>原資料筆數</value>
+  </data>
+  <data name="un_keycount" xml:space="preserve">
+    <value>檢定後資料個體數</value>
+  </data>
+  <data name="result_deid" xml:space="preserve">
+    <value>資料去識別化處理結果</value>
+  </data>
+  <data name="tb" xml:space="preserve">
+    <value>表格</value>
+  </data>
+  <data name="union" xml:space="preserve">
+    <value>資料集串聯</value>
+  </data>
+  <data name="account" xml:space="preserve">
+    <value>帳號</value>
+  </data>
+  <data name="account_man" xml:space="preserve">
+    <value>人員管理</value>
+  </data>
+  <data name="dataset_attr" xml:space="preserve">
+    <value>資料集屬性判定</value>
+  </data>
+  <data name="dataset_attr_check" xml:space="preserve">
+    <value>資料生成欄位選定</value>
+  </data>
+  <data name="data_gen_setting" xml:space="preserve">
+    <value>資料生成中</value>
+  </data>
+  <data name="data_importing" xml:space="preserve">
+    <value>資料匯入中</value>
+  </data>
+  <data name="data_info" xml:space="preserve">
+    <value>資料彙整</value>
+  </data>
+  <data name="data_processing" xml:space="preserve">
+    <value>資料匯入及處理</value>
+  </data>
+  <data name="data_processing_no" xml:space="preserve">
+    <value>資料處理尚未完成</value>
+  </data>
+  <data name="deid_finish" xml:space="preserve">
+    <value>專案程序完成</value>
+  </data>
+  <data name="deid_process" xml:space="preserve">
+    <value>去識別化處理</value>
+  </data>
+  <data name="del_project" xml:space="preserve">
+    <value>刪除專案</value>
+  </data>
+  <data name="index_feature_01" xml:space="preserve">
+    <value>能包容各種資料類型處理</value>
+  </data>
+  <data name="index_feature_02" xml:space="preserve">
+    <value>針對不同去識別化方式分批處理</value>
+  </data>
+  <data name="index_feature_03" xml:space="preserve">
+    <value>分散式後台能平行化處理大量資料</value>
+  </data>
+  <data name="index_feature_04" xml:space="preserve">
+    <value>通過去隱私個資安全認證</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="management" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="passwd" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>個人檔案</value>
+  </data>
+  <data name="project_man" xml:space="preserve">
+    <value>專案管理</value>
+  </data>
+  <data name="project_text" xml:space="preserve">
+    <value>專案</value>
+  </data>
+  <data name="reset_project" xml:space="preserve">
+    <value>修改專案</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>CITC PRIVACY PROPHET</value>
+  </data>
+  <data name="web_contentlist" xml:space="preserve">
+    <value>版權所有 © 2017–2018 工業技術研究院 任何意見想提供給我們的，歡迎寫信告訴平台管理員 brucepan@itri.org.tw</value>
+  </data>
+  <data name="jobname" xml:space="preserve">
+    <value>工作</value>
+  </data>
+  <data name="step4_distinct" xml:space="preserve">
+    <value>Distinct Value</value>
+  </data>
+  <data name="step4_join" xml:space="preserve">
+    <value>多個資料集合併處理</value>
+  </data>
+  <data name="step4_single" xml:space="preserve">
+    <value>一次僅處理一個資料集</value>
+  </data>
+  <data name="step4_union" xml:space="preserve">
+    <value>Union</value>
+  </data>
+  <data name="step1_menu_list" xml:space="preserve">
+    <value>Data import and job create</value>
+  </data>
+  <data name="step2_menu_list" xml:space="preserve">
+    <value>Data property settings</value>
+  </data>
+  <data name="step3_menu_list" xml:space="preserve">
+    <value>Generate synthetic data</value>
+  </data>
+  <data name="step4_menu_list" xml:space="preserve">
+    <value>Interested field settings</value>
+  </data>
+  <data name="step5_menu_list" xml:space="preserve">
+    <value>Availability analysis</value>
+  </data>
+    <data name="step6_menu_list" xml:space="preserve">
+    <value>Report and data export</value>
+  </data>
+  <data name="chose_config" xml:space="preserve">
+    <value>選擇匯入設定檔</value>
+  </data>
+  <data name="col_check" xml:space="preserve">
+    <value>偵測到</value>
+  </data>
+  <data name="col_map_success" xml:space="preserve">
+    <value>所有欄位均有匹配成功</value>
+  </data>
+  <data name="col_map_fail" xml:space="preserve">
+    <value>格式錯誤或沒有匹配到任何欄位</value>
+  </data>
+  <data name="config_error" xml:space="preserve">
+    <value>資料格式錯誤</value>
+  </data>
+  <data name="json_txt_check" xml:space="preserve">
+    <value>僅接受JSON、.txt格式的檔案</value>
+  </data>
+  <data name="load_config" xml:space="preserve">
+    <value>匯入設定檔</value>
+  </data>
+  <data name="load_data" xml:space="preserve">
+    <value>匯入</value>
+  </data>
+  <data name="load_finish" xml:space="preserve">
+    <value>匯入完成</value>
+  </data>
+  <data name="load_error" xml:space="preserve">
+    <value>匯入失敗</value>
+  </data>
+  <data name="map_error" xml:space="preserve">
+    <value>不匹配欄位</value>
+  </data>
+  <data name="no_select_file" xml:space="preserve">
+    <value>未選擇任何檔案</value>
+  </data>
+  <data name="select_file" xml:space="preserve">
+    <value>選擇檔案</value>
+  </data>
+  <data name="data_count" xml:space="preserve">
+    <value>資料筆數</value>
+  </data>
+  <data name="report_info1" xml:space="preserve">
+    <value>報表一：資料集基本資訊</value>
+  </data>
+  <data name="report_info2" xml:space="preserve">
+    <value>報表二：風險評估報表</value>
+  </data>
+  <data name="warning_info" xml:space="preserve">
+    <value>有隱私洩漏風險的資料筆數</value>
+  </data>
+  <data name="checkyes_msg" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="dept_title" xml:space="preserve">
+    <value>單位管理</value>
+  </data>
+  <data name="rp_id_col" xml:space="preserve">
+    <value>已過濾疑似直接識別的欄位</value>
+  </data>
+  <data name="Index_Error" xml:space="preserve">
+    <value>專案處理錯誤</value>
+  </data>
+  <data name="Index_GanReport" xml:space="preserve">
+    <value>專案生成報表查看</value>
+  </data>
+  <data name="Index_Gan_Processing" xml:space="preserve">
+    <value>資料生成中</value>
+  </data>
+  <data name="Index_Gan_Setting" xml:space="preserve">
+    <value>資料生成欄位設定</value>
+  </data>
+  <data name="Index_ML_Processing" xml:space="preserve">
+    <value>可用性分析設定中</value>
+  </data>
+  <data name="Index_ML_Setting" xml:space="preserve">
+    <value>感興趣欄位設定</value>
+  </data>
+  <data name="Index_Gan_Error" xml:space="preserve">
+    <value>資料生成錯誤</value>
+  </data>
+  <data name="Index_ML_Error" xml:space="preserve">
+    <value>可用性分析錯誤</value>
+  </data>
+  <data name="Index_Project_Create" xml:space="preserve">
+    <value>專案建立完成、專案開始</value>
+  </data>
+  <data name="Index_Gan_Export_Processing" xml:space="preserve">
+    <value>資料匯出中</value>
+  </data>
+</root>

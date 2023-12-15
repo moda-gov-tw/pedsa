@@ -1,0 +1,244 @@
+﻿@using Resources
+@using Microsoft.AspNetCore.Mvc;
+@using System.Security.Claims;
+@inject ILocalizer localizer
+<!DOCTYPE html>
+<!--import bootstrap/wtf.html-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@localizer.Text.title</title>
+    <link rel="stylesheet prefetch" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="~/css/iconfont.css">
+    @*<script src="~/js/jquery.min.js"></script>*@
+    <script nonce="iclw200" src="~/js/jquery-3.6.3.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <script src="~/js/bootstrap-table.min.js"></script>
+
+    @*<script src="~/js/modernizr.min.js"></script>
+        <script src="~/js/all.js"></script>*@
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top at_top">
+        <div class="container">
+            <div class="navbar-header navbar-brand">
+                <img src="~/images/logo_b.png" alt="">
+            </div>
+            <div id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <li><a href="@Url.Action("About", "Home")">@localizer.Text.About</a></li>
+                    <li>
+                        @*<a href="project_list.html">專案</a>*@
+                        @Html.ActionLink(localizer.Text.project_text, "ProjectIndex", "Home")
+                    </li>
+                    @{
+                       @* var isAdmim = "";
+                        foreach (Claim claim in Context.User.Claims)
+                        {
+                            if (claim.Type == "IsAdmin")
+                            {
+                                isAdmim = claim.Value;
+                            }
+                        }*@
+                    }
+
+                    
+                    <li class="nav-item-dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">@localizer.Text.management</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menu-item"><a href="javascript:void()" onclick="redirectMemberUrl('','Member')">@localizer.Text.account_man</a></li>
+                            <li class="dropdown-menu-item"><a href="javascript:void()" onclick="redirectMemberUrl('','Dept')">@localizer.Text.dept_title</a></li>
+                            <li class="dropdown-menu-item"><a href="#">@localizer.Text.project_man</a></li>
+                        </ul>
+                    </li> -->
+                    
+                    <!-- <li class="language">
+                        <img class="menu_icon" src="~/images/menu_language.png" alt="">
+                    </li>
+                    <li class="notification notification_section noti_dropdown">
+                        <img class="menu_icon" src="~/images/menu_notification.png" onclick="isReadStatus()" alt="">
+                        <span class="num" id="notcount" style="display:none"></span>
+                        <ul class="notification_dropdown" id="notdrop"></ul>
+                    </li> -->
+                    <li class="nav-item-dropdown">
+                        <img class="menu_icon" src="~/images/menu_account.png" alt="">
+
+                        @{
+                            var useracc = "";
+                            var lslogin = "";
+                            useracc = ViewBag.LoginName;
+                            //foreach (Claim claim in Context.User.Claims)
+                            //{
+                            //    if (claim.Type == "Account")
+                            //    {
+                            //        useracc = claim.Value;
+                            //        lslogin = claim.Value;
+                            //    }
+                            //}
+
+                            //if(lslogin=="")
+                            //{
+                            //    lslogin = "display:none";
+                            //}
+                        }
+
+                        <h6 class="account" id="useracc">@useracc</h6>
+                      @*  <ul class="dropdown-menu" style="@lslogin">
+                            <li class="dropdown-menu-item"><a href="@Url.Action("MemberProfile","Member")">@localizer.Text.profile</a></li>
+                            <li class="dropdown-menu-item" ><a href="@Url.Action("Logout","Home")">@localizer.Text.logout</a></li>
+                        </ul>*@
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script>
+        var modal = document.getElementById('myModal');
+    </script>
+    @RenderBody()
+    <script>
+        var project_modal = document.getElementById('project');
+        var new_project_btn = document.getElementById("new_project");
+        var project_close_span = document.getElementById("project_close");
+
+        //new_project_btn.onclick = function () {
+        //    project_modal.style.display = "block";
+        //}
+
+        //project_close_span.onclick = function () {
+        //    project_modal.style.display = "none";
+        //}
+    </script>
+    <script>
+        $(function () {
+            $('.noti_dropdown').on('click', function (event) {
+                if ($(this).hasClass('is_active') === false)
+                    $('.noti_dropdown').removeClass('is_active');
+                $(this).toggleClass('is_active');
+                event.stopPropagation();
+                changeStatus();
+            });
+
+            $(document).click(function () {
+                $('.noti_dropdown').removeClass('is_active');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            GetNotificationData();
+            //tw
+            //  changlan('tw');
+            setInterval("GetNotificationData()", 30000);
+        });
+
+        function redirectMemberUrl(isadmin, step) {
+            if (isadmin == '0') {
+                alert('非系統管理員無法操作此功能!');
+                return;
+            }
+            else {
+                if (step == "Member") {
+                    location.href = "@Url.Action("MemberList", "Member")";
+                }
+                else {
+                    location.href = "@Url.Action("DeptList", "Dept")";
+
+                }
+            }
+        }
+        function GetNotificationData() {
+
+            $.ajax({
+                type: "get",
+                url: "/api/WebAPI/GetGanNotification",
+                contentType: "application/json",
+                async: false,
+                success: function (response) {
+                    //成功
+                    notcount = response;
+                    //alert(response);
+                },
+                error: function (response) {
+                    //alert(savecolerror);
+                }
+            });
+            if (notcount != "") {
+                if (notcount != "0") {
+
+                    var notarr = notcount.split('*');
+                    //alert(colqiarr.length);
+                    if (notarr[0] == 0) {
+
+                    }
+                    else {
+                        $("#notcount").removeAttr("style");
+                        $("#notcount").text(notarr[0]);
+                        // location.reload();
+                    }
+
+                    //alert(notarr[1])
+                    $("#notdrop").html(notarr[1]);
+                }
+
+            }
+            else {
+                //   alert('111');
+                //$("#notcount").text(String(notcount));
+            }
+        }
+
+        function isReadStatus() {
+            var counts = $("#notcount").text();
+
+            $.ajax({
+                type: "get",
+                url: "/api/WebAPI/UpdateGanStatsRead",
+                contentType: "application/json",
+                async: false,
+                success: function (response) {
+                    //成功
+                    if (response == true) {
+                        $("#notcount").text('')
+                        $("#notcount").css('display', 'none');
+                    }
+                },
+                error: function (response) {
+                    //alert(savecolerror);
+                }
+            });
+        }
+    </script>
+    <script>
+        function changlan(c) {
+            // alert(c);
+            $.ajax({
+                type: "get",
+
+                url: "/api/WebAPI/ChangeLang",
+                contentType: "application/json",
+                async: false,
+                data: {
+                    lan: c
+                },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (response) {
+
+                }
+
+            });
+        }
+    </script>
+    <section class="section_footer">
+        <div class="container">
+            <p>@localizer.Text.web_contentlist</p>
+        </div>
+    </section>
+</body>
+</html>

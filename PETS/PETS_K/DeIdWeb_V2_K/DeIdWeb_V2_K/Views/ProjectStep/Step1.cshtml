@@ -1,0 +1,266 @@
+﻿@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Step1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    function CheckJobStatus() {
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/CheckJobStatus",
+            contentType: "application/json",
+            data: {
+                pname: pname,
+                pid: pdes
+            },
+            success: function (data, status) {
+                // alert('project load success'); ViewData["Project_cht"] = project_cht;
+                //alert(data);
+                //    $("#projectlist").html(data);
+                if (data == "100") {
+                    //轉換頁面
+               //     location.href = '@Url.Action("Step2", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })';
+                }
+                else {
+                    alert('匯入資料尚未完成請稍後!');
+                }
+
+            },
+            error: function (data, status) {
+
+            }
+
+        });
+
+        return false;
+    }
+</script>
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <li><a href="@Url.Action("ProjectIndex","Home")">@localizer.Text.project_list</a></li>
+            <li><a href="@Url.Action("Step1", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"],project_cht=ViewData["Project_cht"] })">@ViewData["Project_cht"]</a></li>
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+  <div class="container">
+	<div class="row">
+	  <div class="col-sm-12">
+		<div class="col-sm-3">
+			<div class="project_title">
+				<h4>@ViewData["Project_cht"]</h4>
+			</div>
+			<div class="status_bar">
+				<h4 class="method">去識別化流程</h4>
+				<div class="status">
+					<div class="status_no_line active">
+						<h6>@localizer.Text.step1</h6>
+						<p>@localizer.Text.step1_menu_list</p>
+						<h3>1</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_notnow">
+						<h6>@localizer.Text.step2</h6>
+						<p>@localizer.Text.step2_menu_list</p>
+						<h3>2</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_notnow">
+						<h6>@localizer.Text.step3</h6>
+						<p>@localizer.Text.step3_menu_list</p>
+						<h3>3</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_notnow">
+						<h6>@localizer.Text.step4</h6>
+						<p>@localizer.Text.step4_menu_list</p>
+						<h3>4</h3>
+					</div>
+				</div>
+				@* <div class="status">
+					<div class="status_notnow">
+						<h6>@localizer.Text.step5</h6>
+						<p>@localizer.Text.step5_menu_list</p>
+						<h3>5</h3>
+					</div>
+				</div> *@
+				<div class="status">
+					<div class="status_notnow">
+						<h6>@localizer.Text.step6</h6>
+						<p>@localizer.Text.step6_menu_list</p>
+						<h3>5</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+            <div class="project_content">
+                <div class="project_info">
+                    <h2>@ViewData["Project_cht"]</h2>
+                    <p>
+                        @ViewData["ProjectDesc"]
+                    </p>
+                </div>
+                <h4 class="title">@localizer.Text.step1<span class="step_inf">@localizer.Text.step1_info</span></h4>
+                <div id="showdata" class="container">
+                    <div class="select_table">
+                        @{
+                            var filelist = ViewData["file"].ToString();
+                            if (filelist != "")
+                            {
+                                var filearray = filelist.Split(',');
+                                if (filearray.Length > 0)
+                                {
+                                    for (int i = 0; i < filearray.Length; i++)
+                                    {
+                                        var id = "styled-checkbox-" + (i + 1);
+                                        <ul class="unstyled">
+                                            <li>
+                                                <img src="~/images/file.png" alt=""><label for="@id">@filearray[i].ToString()</label>
+                                            </li>
+                                        </ul>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <div class="empty_status text-center">
+                                    <img src="~/images/no_data.png" alt="">
+                                    <h6>@localizer.Text.no_data</h6>
+                                </div>
+                            }
+                        }
+                    </div>
+					<div class="btn btn_mbs btn_next" id="importbtn"><a href="javascript:void(0);" onclick="ImportFile()">@localizer.Text.next</a></div>
+                </div>
+                <label id="pid" style="display:none">@ViewData["ProjectId"]</label>
+                <label id="pname" style="display:none">@ViewData["ProjectName"]</label>
+                <label id="pname_cht" style="display:none">@ViewData["Project_cht"]</label>
+                <label id="pstep" style="display:none">@ViewData["ProjectStep"]</label>
+                <label id="importno" style="display:none">@localizer.Message.import_not_finish</label>
+                <label id="dimport" style="display:none">@localizer.Message.import</label>
+                @*<div class="btn btn_sbe btn_back" id="back">@localizer.Text.back</div>*@
+                @*<div class="btn btn_sbe btn_back" id="save">儲存</div>*@
+                @*<div class="btn btn_mbs btn_next" id="next"><a class="a_unstyled" href=" @Url.Action("Step2", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">下一步</a></div>*@
+                @*<button type="button" class="btn btn_mbs btn_next" id="importbtn" data-toggle="modal" onclick="ImportFile()">@localizer.Text.next</button>*@
+                <!--資料無誤，成功-->
+                <div class="modal fade scene" id="dataimport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLongTitle">資料匯入</h4>
+                            </div>
+                            <div class="modal-body">
+                                資料匯入中，依資料大小不同需花費數分鐘到數小時不等，完成後將以鈴鐺通知。
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--資料檢查中動畫-->
+                <div class="modal fade scene" id="datachecking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <svg id="dc-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width:"38="" height:"38="" viewBox="0 0 38 38" preserveAspectRatio="xMinYMin meet">
+                        <text x="14" y="21" font-size="2.5px" style="letter-spacing:0.2;" fill="grey">
+                            資料檢查中
+                            <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"></animate>
+                        </text>
+                        <path fill="#cccccc" d="M20,35c-8.271,0-15-6.729-15-15S11.729,5,20,5s15,6.729,15,15S28.271,35,20,35z M20,5.203    C11.841,5.203,5.203,11.841,5.203,20c0,8.159,6.638,14.797,14.797,14.797S34.797,28.159,34.797,20    C34.797,11.841,28.159,5.203,20,5.203z"></path>
+                        <path fill="#cccccc" d="M20,33.125c-7.237,0-13.125-5.888-13.125-13.125S12.763,6.875,20,6.875S33.125,12.763,33.125,20    S27.237,33.125,20,33.125z M20,7.078C12.875,7.078,7.078,12.875,7.078,20c0,7.125,5.797,12.922,12.922,12.922    S32.922,27.125,32.922,20C32.922,12.875,27.125,7.078,20,7.078z"></path>
+                        <path fill="#2AA198" stroke="#1890ff" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20    c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
+                            <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" calcMode="spline" keySplines="0.4, 0, 0.2, 1" keyTimes="0;1" dur="2s" repeatCount="indefinite"></animatetransform>
+                        </path>
+                        <path fill="#859900" stroke="#C2CFFE" stroke-width="0.5" stroke-miterlimit="10" d="M7.078,20    c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203    C12.875,32.922,7.078,27.125,7.078,20z">
+                            <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="1.8s" repeatCount="indefinite"></animatetransform>
+                        </path>
+                    </svg>
+                </div>
+
+            </div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#showdata').show();
+        $('#datachecking').hide();
+		$('#dataimport').hide();
+    });
+</script>
+<script>
+    function stopStep() {
+        var importno = $('#importno').text();
+
+        alert(importno);
+        return false;
+    }
+    function ImportFile() {
+       // alert(pid);
+        $('#datachecking').modal('show');
+        $('#datachecking').modal({ backdrop: 'static', keyboard: false });
+       // sleep(3000);
+        var pstep = $('#pstep').text();
+        var pname = $('#pname').text();
+        var pname_cht = $('#pname_cht').text();
+        var pid = $('#pid').text();
+        var dimport = $('#dimport').text();
+
+       // alert(pstep);
+        if (pstep == "2") {
+
+            location.href = "@Url.Action("Step2", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht);
+        }
+        else {
+            //alert(dimport);
+            //showLoading();
+            //$('#datachecking').modal('hide');
+            //$('#exampleModalCenter').modal({ backdrop: 'static', keyboard: false });
+            //$('#exampleModalCenter').modal('show');
+            $('#showdata').hide();
+            $('#datachecking').show();
+			$.ajax({
+                type: "get",
+                url: "/api/WebAPI/ImportData",
+                contentType: "application/json",
+                data: {
+                    p_dsname: pname,
+                    pid: pid
+                },
+                success: function (data) {
+                    //alert(data);
+                    if (data == "1") {
+                        //alert("資料匯入中");
+                        //completeLoading();
+                        $('#datachecking').modal('hide');
+                        $('#dataimport').modal({ backdrop: 'static', keyboard: false });
+                        $('#dataimport').modal('show');
+                        //location.href = "@Url.Action("ProjectIndex", "Home")";
+                    }
+                    else {
+                        $('#datachecking').modal('hide');
+                        alert('資料匯入失敗');
+                    }
+                },
+                error: function (data, status) {
+                    $('#datachecking').modal('hide');
+                    alert('資料匯入失敗');
+                }
+
+            });
+        }
+    }
+
+    function returntopage() {
+        location.href = "/Home/ProjectIndex";
+    }
+</script>

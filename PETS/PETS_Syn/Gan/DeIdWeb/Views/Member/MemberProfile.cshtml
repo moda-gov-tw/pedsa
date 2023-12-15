@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "MemberProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="profile_setting.html">個人檔案</a></li>
+            <li>設定</li>
+        </ul>
+    </div>
+</section>
+<section class="profile_banner">
+    <div class="container">
+        <div class="big_avatar"><img src="~/images/profile_header.png" alt=""></div>
+        <div class="id_info">
+            <h3>Jessica</h3>
+            <p>jessica@email.com<br>ITRI</p>
+        </div>
+    </div>
+</section>
+<!--section.profile_middle
+.container
+  ul
+    li
+      a(href='#') 群組
+    li.active
+      a(href='#') 設定
+-->
+<section class="setting">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 setting_list">
+                <div class="text_area">
+                    <h4>變更密碼</h4>
+                    <p>設定一組密碼來保護你的帳戶</p>
+                </div>
+            </div>
+            <div class="col-sm-12 setting_list setting_list01" id="passwordlist" style="display:block">
+                <div class="wrapper" id="form_content">
+                    <form class="form" action="" method="post" role="form">
+                        <input id="csrf_token" name="csrf_token" type="hidden" value="ImUwZjQ2M2VmMjlkMWUxOTc0OWZjMzM3MDM2MDJhMDMwYWZhYTA1ZjMi.DQKdSA.kL2zhXP1UypfKsfAvGcahQ2DxUc">
+                        <div class="form-group required">
+                            <label class="control-label" for="current_password">舊密碼</label>
+                            <input class="form-control" id="current_password" name="current_password" required="" type="password" value="">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label" for="new_password">新密碼 (8 至 20 個字元)</label>
+                            <input class="form-control" id="new_password" name="new_password" required="" type="password" value="">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label" for="confirm_new_password">確認新密碼 (8 至 20 個字元)</label>
+                            <input class="form-control" id="confirm_new_password" name="confirm_new_password" required="" type="password" value="">
+                        </div>
+                        <input class="btn btn-default" id="submit" name="submit" type="submit" value="儲存">
+                    </form>
+                </div>
+            </div>
+            <!--尚未討論，先不做-->
+<!--
+            <div class="col-sm-12 setting_list setting_list02">
+                <div class="text_area">
+                    <h4>通知選項</h4>
+                    <p>選擇要發送mail通知的選項</p>
+                </div>
+                <div class="button_box">
+                    <button class="btn btn-default" id="change_notification">儲存</button>
+                </div>
+            </div>
+-->
+        </div>
+    </div>
+</section>
