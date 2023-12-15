@@ -1,0 +1,8 @@
+$ sudo systemctl stop docker
+$ sudo rm -rf /home/docker
+$ sudo rm -rf /run/docker
+$ sudo rm /usr/bin/docker*
+$ sudo rm /lib/systemd/system/docker.service
+$ sudo rm /lib/systemd/system/docker.socket
+$ sudo rm /etc/docker/daemon.json
+

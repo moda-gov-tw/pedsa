@@ -1,0 +1,31 @@
+2020-02-06 02:04:37 INFO  CoarseGrainedExecutorBackend:2611 - Started daemon with process name: 5046@nodemaster
+2020-02-06 02:04:37 INFO  SignalUtils:54 - Registered signal handler for TERM
+2020-02-06 02:04:37 INFO  SignalUtils:54 - Registered signal handler for HUP
+2020-02-06 02:04:37 INFO  SignalUtils:54 - Registered signal handler for INT
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing view acls to: hadoop
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing modify acls to: hadoop
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing view acls groups to: 
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing modify acls groups to: 
+2020-02-06 02:04:38 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+2020-02-06 02:04:38 INFO  TransportClientFactory:267 - Successfully created connection to nodemaster/172.28.1.15:41073 after 48 ms (0 ms spent in bootstraps)
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing view acls to: hadoop
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing modify acls to: hadoop
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing view acls groups to: 
+2020-02-06 02:04:38 INFO  SecurityManager:54 - Changing modify acls groups to: 
+2020-02-06 02:04:38 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+2020-02-06 02:04:38 INFO  TransportClientFactory:267 - Successfully created connection to nodemaster/172.28.1.15:41073 after 1 ms (0 ms spent in bootstraps)
+2020-02-06 02:04:38 INFO  DiskBlockManager:54 - Created local directory at /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0006/blockmgr-b472629b-13f6-4fa8-8cab-cb1235e5f102
+2020-02-06 02:04:38 INFO  MemoryStore:54 - MemoryStore started with capacity 4.1 GB
+2020-02-06 02:04:38 INFO  CoarseGrainedExecutorBackend:54 - Connecting to driver: spark://CoarseGrainedScheduler@nodemaster:41073
+2020-02-06 02:04:38 INFO  CoarseGrainedExecutorBackend:54 - Successfully registered with driver
+2020-02-06 02:04:38 INFO  Executor:54 - Starting executor ID 1 on host nodemaster
+2020-02-06 02:04:38 INFO  Utils:54 - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34285.
+2020-02-06 02:04:38 INFO  NettyBlockTransferService:54 - Server created on nodemaster:34285
+2020-02-06 02:04:38 INFO  BlockManager:54 - Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2020-02-06 02:04:38 INFO  BlockManagerMaster:54 - Registering BlockManager BlockManagerId(1, nodemaster, 34285, None)
+2020-02-06 02:04:38 INFO  BlockManagerMaster:54 - Registered BlockManager BlockManagerId(1, nodemaster, 34285, None)
+2020-02-06 02:04:38 INFO  BlockManager:54 - Initialized BlockManager: BlockManagerId(1, nodemaster, 34285, None)
+2020-02-06 02:04:42 INFO  CoarseGrainedExecutorBackend:54 - Driver commanded a shutdown
+2020-02-06 02:04:42 INFO  MemoryStore:54 - MemoryStore cleared
+2020-02-06 02:04:42 INFO  BlockManager:54 - BlockManager stopped
+2020-02-06 02:04:42 INFO  ShutdownHookManager:54 - Shutdown hook called

@@ -1,0 +1,53 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=34.81.71.21;database=DeIdService;uid=deidadmin;pwd=citcw200;charset=utf8mb4;Port=11100"
+    
+  },
+  "Cors": {
+    "AllowOrigin": "*"
+  },
+  "DeIdWebAPI": {
+    "URL": "https://flask_compose:5088",
+    // "URL": "https"://nginx_compose:5088/",
+    "GroupSetting": "0" //0 無group
+    //"GroupSetting": "1" //有group
+  },
+  "TAIPEIAD": {
+    "APP_PUBLIC_ID": "TPEINFO_1359",
+    "APP_PRIVATE_ID": "12bad796a1b8761d44f700bc44385183",
+    "APP_PRIVATE_PASSWD": "aef21cc7e421ed3cc832ad6090f92582",
+    "Client_ID": "aXN3aWNqeWd1",
+    "Client": "iswicjygu",
+    "Client_Password": "548FV009ex",
+    "ClientBlock": "NTQ4RlYwMDlleA=="
+  },
+  "GenAddress": {
+    "市": [],
+    "縣": [],
+    "區": [],
+    "鎮": "前鎮|平鎮|左鎮",
+    "鄉": [],
+    "里": "阿里|八里|萬里|后里|大里|佳里",
+    "村": [],
+    "大道": [],
+    "路": "路竹",
+    "街": [],
+    "段": [],
+    "巷": [],
+    "弄": [],
+    "衖": [],
+    "號": []
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "Category1": "Information",
+      "Category2": "Warning"
+    },
+    "SpecificProvider": {
+      "ProviderProperty": true
+    }
+  },
+  "LoginExpireMinute": 180,
+  "AllowedHosts": "*"
+}

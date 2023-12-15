@@ -1,0 +1,11 @@
+[Hadoop_information]
+
+ip=35.201.239.123
+
+port=6922
+ 
+out_path=/home/hadoop/proj_/final_project/k/input
+
+web_ip=35.201.239.123
+
+web_port=11000

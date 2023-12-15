@@ -1,0 +1,44 @@
+summary: "step 4: getRisk_async" #modify
+description: "Deid API : getRisk_async" #modify
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "getRisk_async" #modify
+  description: "Accepts a input dictionary of inputs" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      userID:
+        type: "string"
+        example : 'Bruce'
+      projStep: 
+        type: "string"
+        example : "risk"
+      projID:
+        type: "string"
+        example : '112'
+      projName:
+        type: "string"
+        example : '2QDataMarketDeId'
+      mainInfo:
+        type: "object"
+        example: [{
+     "dbname":"Adult_DeId",
+     "pro_tb":"mac_adult_id",
+     "final_tb":"g_mac_adult_id_k_job1",
+     "qi":["c_3571_9","c_3571_10"],
+     "sa":["c_3571_3","c_3571_5"]}]  
+
+    required:
+      - userID
+      - projStep
+
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

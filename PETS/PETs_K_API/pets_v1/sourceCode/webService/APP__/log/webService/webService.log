@@ -1,0 +1,1028 @@
+2023/12/10 02:48:10 - import - DEBUG - {u'projName': u'test1234', u'userAccount': u'deidadmin', u'projStep': u'import', u'projID': u'37', u'userId': u'1'}
+2023/12/10 02:48:10 - import - DEBUG - ------ userAccount  userId --start-------
+2023/12/10 02:48:10 - import - DEBUG - userAccount: deidadmin
+2023/12/10 02:48:10 - import - DEBUG - userId: 1
+2023/12/10 02:48:10 - import - DEBUG - ------ userAccount  userId --end-------
+2023/12/10 02:48:10 - import - DEBUG - ------projStep projName projID---start-------
+2023/12/10 02:48:10 - import - DEBUG - import
+2023/12/10 02:48:10 - import - DEBUG - test1234
+2023/12/10 02:48:10 - import - DEBUG - 37
+2023/12/10 02:48:10 - import - DEBUG - ------projStep projName projID---end-------
+2023/12/10 02:48:10 - import - DEBUG - start connectToMysql to check project_name in mysql: test1234
+2023/12/10 02:48:10 - import - DEBUG - projStep: import
+2023/12/10 02:48:10 - import - DEBUG - dbName: test1234
+2023/12/10 02:48:10 - verify__import - DEBUG - projStep: import
+2023/12/10 02:48:10 - verify__import - DEBUG - dbName: test1234
+2023/12/10 02:48:11 - import - DEBUG - i:0
+2023/12/10 02:48:11 - import - DEBUG - errTable:projName_does_not_exist: /home/hadoop/proj_/data/input/test1234
+2023/12/10 02:48:21 - import - DEBUG - i:1
+2023/12/10 02:48:21 - import - DEBUG - errTable:projName_does_not_exist: /home/hadoop/proj_/data/input/test1234
+2023/12/10 02:48:31 - import - DEBUG - i:2
+2023/12/10 02:48:31 - import - DEBUG - errTable:projName_does_not_exist: /home/hadoop/proj_/data/input/test1234
+2023/12/10 02:48:41 - import - DEBUG - i:3
+2023/12/10 02:48:41 - import - DEBUG - errTable:projName_does_not_exist: /home/hadoop/proj_/data/input/test1234
+2023/12/10 02:48:51 - import - DEBUG - i:4
+2023/12/10 02:48:51 - import - DEBUG - stat --format "%n" /home/hadoop/proj_/data/input/test1234/*/*
+2023/12/10 02:48:51 - import - DEBUG - tables: [u'test1234_outer']
+2023/12/10 02:48:54 - import - DEBUG - The import_dbName is test1234
+2023/12/10 02:48:54 - import - DEBUG - The import_projID is 37
+2023/12/10 02:48:54 - import - DEBUG - The import_tblNames are test1234_outer
+2023/12/10 02:48:54 - import - DEBUG - The toDoList are test1234_outer
+2023/12/10 02:49:12 - import - DEBUG - The app ID is application_1702219045342_0001
+
+2023/12/10 02:49:26 - import - DEBUG - The import_tblName is test1234_outer
+2023/12/10 02:49:32 - import - DEBUG - The tblCount is 1000000
+2023/12/10 02:49:33 - import - DEBUG - start to connectToMysql with table: test1234_outer
+2023/12/10 02:49:33 - import - DEBUG - INSERT INTO DeIdService.T_Project_SampleTable (tableDisCount,pro_path,after_col_value,gen_qi_settingvalue,qi_col,pro_col_cht,supCount,finaltblName,pro_tb,after_col_cht,tableCount,after_col_en,pro_col_en,minKvalue,tablekeycol,project_id,pro_db,supRate,createtime) VALUES (NULL,'file:///home/hadoop/proj_/data/input/test1234/test1234_outer/test1234_outer.csv',NULL,NULL,NULL,'SEQN_h1_E0_enc,RIAGENDR_h1_E0_enc,RIDAGEYR_h1_E0_enc,RIDRETH1_h1_E0_enc,DMDCITZN_h1_E0_enc,DMDMARTL_h1_E1_enc,DMDHHSIZ_h1_E1_enc,INDFMINC_h1_E1_enc,INDFMPIR_h1_E1_enc,WTINT2YR_h1_E2_enc,WTMEC2YR_h1_E2_enc,SDMVPSU_h1_E2_enc,SDMVSTRA_h1_E2_enc',NULL,'test1234_outer','test1234_outer',NULL,'1000000',NULL,'c_5149_0,c_5149_1,c_5149_2,c_5149_3,c_5149_4,c_5149_5,c_5149_6,c_5149_7,c_5149_8,c_5149_9,c_5149_10,c_5149_11,c_5149_12',NULL,NULL,'37','test1234',NULL,now())
+2023/12/10 02:49:37 - import - DEBUG - 17
+2023/12/10 02:49:37 - import - DEBUG - import - DEBUG - table_save_succeed_test1234_outer
+
+2023/12/10 02:49:37 - import - DEBUG - test1234_outer
+2023/12/10 02:49:37 - import - DEBUG - table_save_: test1234_outer
+2023/12/10 02:54:05 - generalization - DEBUG - {u'projName': u'test1234', u'userId': u'1', u'projID': u'37', u'projStep': u'gen', u'mainInfo': {u'tbl_1': {u'colInfo': {u'col_2': {u'colName': u'c_5149_1', u'apiName': u'getGenNumLevel', u'userRule': u'5'}, u'col_3': {u'colName': u'c_5149_2', u'apiName': u'getGenNumLevel', u'userRule': u'5'}, u'col_6': {u'colName': u'c_5149_5', u'apiName': u'getGenNumLevel', u'userRule': u'5'}, u'col_13': {u'colName': u'c_5149_12', u'apiName': u'getGenNumLevel', u'userRule': u'5'}}, u'tblName': u'test1234_outer', u'col_en': u'c_5149_0,c_5149_1,c_5149_2,c_5149_3,c_5149_4,c_5149_5,c_5149_6,c_5149_7,c_5149_8,c_5149_9,c_5149_10,c_5149_11,c_5149_12'}}, u'userAccount': u'deidadmin'}
+2023/12/10 02:54:05 - generalization - DEBUG - ------ userAccount  userId --start-------
+2023/12/10 02:54:05 - generalization - DEBUG - userAccount: deidadmin
+2023/12/10 02:54:05 - generalization - DEBUG - userId: 1
+2023/12/10 02:54:05 - generalization - DEBUG - ------ userAccount  userId --end-------
+2023/12/10 02:54:05 - generalization - DEBUG - projStep: gen
+2023/12/10 02:54:05 - generalization - DEBUG - projID: 37
+2023/12/10 02:54:05 - generalization - DEBUG - dbName: test1234
+2023/12/10 02:54:05 - verify__generalization - DEBUG - projStep: gen
+2023/12/10 02:54:05 - verify__generalization - DEBUG - projID: 37
+2023/12/10 02:54:05 - verify__generalization - DEBUG - dbName: test1234
+2023/12/10 02:54:06 - generalization - DEBUG - getGenNumLevel_(c_5149_1, "5") as c_5149_1
+2023/12/10 02:54:06 - generalization - DEBUG - getGenNumLevel_(c_5149_2, "5") as c_5149_2
+2023/12/10 02:54:06 - generalization - DEBUG - getGenNumLevel_(c_5149_5, "5") as c_5149_5
+2023/12/10 02:54:06 - generalization - DEBUG - getGenNumLevel_(c_5149_12, "5") as c_5149_12
+2023/12/10 02:54:06 - verify__generalization - DEBUG - getGenNumLevel_(c_5149_1, "5") as c_5149_1^getGenNumLevel_(c_5149_2, "5") as c_5149_2^getGenNumLevel_(c_5149_5, "5") as c_5149_5^getGenNumLevel_(c_5149_12, "5") as c_5149_12^c_5149_0^c_5149_3^c_5149_4^c_5149_6^c_5149_7^c_5149_8^c_5149_9^c_5149_10^c_5149_11
+2023/12/10 02:54:06 - generalization - DEBUG - 
+            spark-submit --jars /home/hadoop/proj_/longTaskDir/gen_v9.jar,/home/hadoop/proj_/longTaskDir/myLogging_jre17_v3.jar,/home/hadoop/proj_/longTaskDir/address_project_debug_v14.jar,/home/hadoop/proj_/longTaskDir/myLogging_1.jar,/home/hadoop/proj_/longTaskDir/mysql-connector-java-8.0.13.jar,/home/hadoop/proj_/longTaskDir/udfAES256_1.jar /home/hadoop/proj_/longTaskDir/getGenTbl.py test1234 eyJ0ZXN0MTIzNF9vdXRlciI6ICJaMlYwUjJWdVRuVnRUR1YyWld4ZktHTmZOVEUwT1Y4eExDQWlOU0lwSUdGeklHTmZOVEUwT1Y4eFhtZGxkRWRsYms1MWJVeGxkbVZzWHloalh6VXhORGxmTWl3Z0lqVWlLU0JoY3lCalh6VXhORGxmTWw1blpYUkhaVzVPZFcxTVpYWmxiRjhvWTE4MU1UUTVYelVzSUNJMUlpa2dZWE1nWTE4MU1UUTVYelZlWjJWMFIyVnVUblZ0VEdWMlpXeGZLR05mTlRFME9WOHhNaXdnSWpVaUtTQmhjeUJqWHpVeE5EbGZNVEplWTE4MU1UUTVYekJlWTE4MU1UUTVYek5lWTE4MU1UUTVYelJlWTE4MU1UUTVYelplWTE4MU1UUTVYemRlWTE4MU1UUTVYemhlWTE4MU1UUTVYemxlWTE4MU1UUTVYekV3WG1OZk5URTBPVjh4TVE9PSJ9 eyJ0ZXN0MTIzNF9vdXRlciI6IHt9fQ== 37 deidadmin 1
+2023/12/10 02:54:09 - generalization - DEBUG - The gen_dbName is test1234
+2023/12/10 02:54:09 - generalization - DEBUG - The gen_tblName is test1234_outer
+2023/12/10 02:54:24 - generalization - DEBUG - The app ID is application_1702219045342_0002
+2023/12/10 02:54:36 - verify__kchecking - DEBUG - 20200220_cmdStr1:
+        spark-submit /home/hadoop/proj_/longTaskDir/getKchecking_one.py eyJwcm9qSUQiOiIzNyIsInByb2pTdGVwIjoia2NoZWNraW5nX29uZSIsInByb2pOYW1lIjoidGVzdDEyMzQiLCJ1c2VyQWNjb3VudCI6ImRlaWRhZG1pbiIsInVzZXJJZCI6IjEiLCJqb2JOYW1lIjoiam9iMSIsImtjaGVja2luZyI6MSwibWFpbkluZm8iOnsiam9pblR5cGUiOiJpbm5lciIsImtWYWx1ZSI6IjMiLCJwdWJsaWNUYWJsZU5hbWUiOiJnX3Rlc3QxMjM0X291dGVyIiwiZGF0YUluZm8iOlt7IlFJY29scyI6WyJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzUiXSwiY29sTmFtZXMiOlsiY181MTQ5XzAiLCJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzMiLCJjXzUxNDlfNCIsImNfNTE0OV81IiwiY181MTQ5XzYiLCJjXzUxNDlfNyIsImNfNTE0OV84IiwiY181MTQ5XzkiLCJjXzUxNDlfMTAiLCJjXzUxNDlfMTEiLCJjXzUxNDlfMTIiXSwidGFibGVOYW1lIjoiZ190ZXN0MTIzNF9vdXRlciIsImRiTmFtZSI6InRlc3QxMjM0Iiwia2V5TmFtZXMiOlsiY181MTQ5XzAiXX1dfX0= 
+2023/12/10 02:54:36 - kchecking - DEBUG - 20200220_cmdStr2:
+        spark-submit /home/hadoop/proj_/longTaskDir/getKchecking_one.py eyJwcm9qSUQiOiIzNyIsInByb2pTdGVwIjoia2NoZWNraW5nX29uZSIsInByb2pOYW1lIjoidGVzdDEyMzQiLCJ1c2VyQWNjb3VudCI6ImRlaWRhZG1pbiIsInVzZXJJZCI6IjEiLCJqb2JOYW1lIjoiam9iMSIsImtjaGVja2luZyI6MSwibWFpbkluZm8iOnsiam9pblR5cGUiOiJpbm5lciIsImtWYWx1ZSI6IjMiLCJwdWJsaWNUYWJsZU5hbWUiOiJnX3Rlc3QxMjM0X291dGVyIiwiZGF0YUluZm8iOlt7IlFJY29scyI6WyJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzUiXSwiY29sTmFtZXMiOlsiY181MTQ5XzAiLCJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzMiLCJjXzUxNDlfNCIsImNfNTE0OV81IiwiY181MTQ5XzYiLCJjXzUxNDlfNyIsImNfNTE0OV84IiwiY181MTQ5XzkiLCJjXzUxNDlfMTAiLCJjXzUxNDlfMTEiLCJjXzUxNDlfMTIiXSwidGFibGVOYW1lIjoiZ190ZXN0MTIzNF9vdXRlciIsImRiTmFtZSI6InRlc3QxMjM0Iiwia2V5TmFtZXMiOlsiY181MTQ5XzAiXX1dfX0= 
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_dbname_ is 
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_dbname_ is 37
+
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_dbname_ is 37
+
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_dbname_ is 
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_dbname_ is test1234
+
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_tblname_ is 
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_tblname_ is g_test1234_outer
+
+2023/12/10 02:56:22 - kchecking - DEBUG - The spark_finaltblname_ is g_test1234_outer_k_job1
+
+2023/12/10 02:56:22 - kchecking - DEBUG - The app ID is application_1702219045342_0003
+
+2023/12/10 02:56:24 - verify__kchecking - DEBUG - 20200220_cmdStr1:
+        spark-submit /home/hadoop/proj_/longTaskDir/getKchecking_one.py eyJwcm9qSUQiOiIzNyIsInByb2pTdGVwIjoia2NoZWNraW5nX29uZSIsInByb2pOYW1lIjoidGVzdDEyMzQiLCJ1c2VyQWNjb3VudCI6ImRlaWRhZG1pbiIsInVzZXJJZCI6IjEiLCJqb2JOYW1lIjoiam9iMSIsImtjaGVja2luZyI6MSwibWFpbkluZm8iOnsiam9pblR5cGUiOiJpbm5lciIsImtWYWx1ZSI6IjMiLCJwdWJsaWNUYWJsZU5hbWUiOiJnX3Rlc3QxMjM0X291dGVyIiwiZGF0YUluZm8iOlt7IlFJY29scyI6WyJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzUiXSwiY29sTmFtZXMiOlsiY181MTQ5XzAiLCJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzMiLCJjXzUxNDlfNCIsImNfNTE0OV81IiwiY181MTQ5XzYiLCJjXzUxNDlfNyIsImNfNTE0OV84IiwiY181MTQ5XzkiLCJjXzUxNDlfMTAiLCJjXzUxNDlfMTEiLCJjXzUxNDlfMTIiXSwidGFibGVOYW1lIjoiZ190ZXN0MTIzNF9vdXRlciIsImRiTmFtZSI6InRlc3QxMjM0Iiwia2V5TmFtZXMiOlsiY181MTQ5XzAiXX1dfX0= 
+2023/12/10 02:56:24 - kchecking - DEBUG - 20200220_cmdStr2:
+        spark-submit /home/hadoop/proj_/longTaskDir/getKchecking_one.py eyJwcm9qSUQiOiIzNyIsInByb2pTdGVwIjoia2NoZWNraW5nX29uZSIsInByb2pOYW1lIjoidGVzdDEyMzQiLCJ1c2VyQWNjb3VudCI6ImRlaWRhZG1pbiIsInVzZXJJZCI6IjEiLCJqb2JOYW1lIjoiam9iMSIsImtjaGVja2luZyI6MSwibWFpbkluZm8iOnsiam9pblR5cGUiOiJpbm5lciIsImtWYWx1ZSI6IjMiLCJwdWJsaWNUYWJsZU5hbWUiOiJnX3Rlc3QxMjM0X291dGVyIiwiZGF0YUluZm8iOlt7IlFJY29scyI6WyJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzUiXSwiY29sTmFtZXMiOlsiY181MTQ5XzAiLCJjXzUxNDlfMSIsImNfNTE0OV8yIiwiY181MTQ5XzMiLCJjXzUxNDlfNCIsImNfNTE0OV81IiwiY181MTQ5XzYiLCJjXzUxNDlfNyIsImNfNTE0OV84IiwiY181MTQ5XzkiLCJjXzUxNDlfMTAiLCJjXzUxNDlfMTEiLCJjXzUxNDlfMTIiXSwidGFibGVOYW1lIjoiZ190ZXN0MTIzNF9vdXRlciIsImRiTmFtZSI6InRlc3QxMjM0Iiwia2V5TmFtZXMiOlsiY181MTQ5XzAiXX1dfX0= 
+2023/12/10 02:56:29 - kchecking - DEBUG - The df_count is 
+2023/12/10 02:56:29 - kchecking - DEBUG - The df_count is 1000000
+
+2023/12/10 02:56:29 - kchecking - DEBUG - The min k-value is 3
+
+2023/12/10 02:56:42 - kchecking - DEBUG - The spark_supCount_ is 
+
+2023/12/10 02:56:42 - kchecking - DEBUG - The spark_supCount_ is 1
+
+2023/12/10 02:56:42 - kchecking - DEBUG - The spark_supRate_ is 
+
+2023/12/10 02:56:42 - kchecking - DEBUG - The spark_supRate_ is 0.000001
+
+2023/12/10 02:57:29 - kchecking - DEBUG - The warning columns are 
+2023/12/10 02:57:37 - kchecking - DEBUG - find it
+2023/12/10 02:57:37 - kchecking - DEBUG - The spark_finish_data_distinct_count_ is 
+
+2023/12/10 02:57:37 - kchecking - DEBUG - find it
+2023/12/10 02:57:37 - kchecking - DEBUG - The spark_finish_data_distinct_count_ is 999999
+
+2023/12/10 02:57:37 - kchecking - DEBUG - {'msg': "UPDATE DeIdService.T_Project_SampleTable SET tableDisCount='999999',supCount='1',minKvalue='3',tableCount='1000000',warning_col='',finaltblName='g_test1234_outer_k_job1',supRate='0.000100%',updatetime = now() WHERE pro_tb='test1234_outer' AND pro_db='test1234'", 'result': 1}
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_dbname_ is 
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_dbname_ is 37
+
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_dbname_ is 37
+
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_dbname_ is 
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_dbname_ is test1234
+
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_tblname_ is 
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_tblname_ is g_test1234_outer
+
+2023/12/10 02:58:05 - kchecking - DEBUG - The spark_finaltblname_ is g_test1234_outer_k_job1
+
+2023/12/10 02:58:05 - kchecking - DEBUG - The app ID is application_1702219045342_0004
+
+2023/12/10 02:58:11 - kchecking - DEBUG - The df_count is 
+2023/12/10 02:58:11 - kchecking - DEBUG - The df_count is 1000000
+
+2023/12/10 02:58:11 - kchecking - DEBUG - The min k-value is 3
+
+2023/12/10 02:58:21 - kchecking - DEBUG - The spark_supCount_ is 
+
+2023/12/10 02:58:21 - kchecking - DEBUG - The spark_supCount_ is 1
+
+2023/12/10 02:58:21 - kchecking - DEBUG - The spark_supRate_ is 
+
+2023/12/10 02:58:21 - kchecking - DEBUG - The spark_supRate_ is 0.000001
+
+2023/12/10 02:58:27 - export - DEBUG - {u'projName': u'test1234', u'userId': u'1', u'projID': u'37', u'projStep': u'export', u'mainInfo': {u'tbl_1': {u'pro_tb': u'test1234_outer', u'location': u'local', u'finaltblName': u'g_test1234_outer_k_job1'}}, u'userAccount': u'deidadmin'}
+2023/12/10 02:58:27 - export - DEBUG - ------ userAccount  userId --start-------
+2023/12/10 02:58:27 - export - DEBUG - userAccount: deidadmin
+2023/12/10 02:58:27 - export - DEBUG - userId: 1
+2023/12/10 02:58:27 - export - DEBUG - ------ userAccount  userId --end-------
+2023/12/10 02:58:27 - export - DEBUG - jobName: export
+2023/12/10 02:58:27 - export - DEBUG - dbName: test1234
+2023/12/10 02:58:27 - export - DEBUG - mainInfo: {u'tbl_1': {u'pro_tb': u'test1234_outer', u'location': u'local', u'finaltblName': u'g_test1234_outer_k_job1'}}
+2023/12/10 02:58:27 - verify__export - DEBUG - jobName: export
+2023/12/10 02:58:27 - verify__export - DEBUG - dbName: test1234
+2023/12/10 02:58:27 - verify__export - DEBUG - mainInfo: {u'tbl_1': {u'pro_tb': u'test1234_outer', u'location': u'local', u'finaltblName': u'g_test1234_outer_k_job1'}}
+2023/12/10 02:58:27 - export - DEBUG - Get json data: {'pro_tb': u'test1234_outer', 'location': u'local', 'finaltblName': u'g_test1234_outer_k_job1'}
+2023/12/10 02:58:27 - export - DEBUG - tblName: g_test1234_outer_k_job1
+2023/12/10 02:58:27 - export - DEBUG - 
+    SELECT pro_col_en,pro_col_cht
+    FROM DeIdService.T_Project_SampleTable
+    WHERE pro_db='test1234'
+    AND finaltblName='g_test1234_outer_k_job1'
+    
+2023/12/10 02:58:27 - export - DEBUG - projID
+2023/12/10 02:58:27 - export - DEBUG - 37
+2023/12/10 02:58:27 - export - DEBUG - 
+        spark-submit --jars /home/hadoop/proj_/longTaskDir/gen_v9.jar,/home/hadoop/proj_/longTaskDir/myLogging_jre17_v3.jar,/home/hadoop/proj_/longTaskDir/address_project_debug_v14.jar,/home/hadoop/proj_/longTaskDir/myLogging_1.jar,/home/hadoop/proj_/longTaskDir/mysql-connector-java-8.0.13.jar,/home/hadoop/proj_/longTaskDir/udfAES256_1.jar /home/hadoop/proj_/longTaskDir/getExport_CFH_PETs.py test1234 eyJnX3Rlc3QxMjM0X291dGVyX2tfam9iMSI6IHsicmF3VGJsTmFtZSI6ICJ0ZXN0MTIzNF9vdXRlciIsICJleHBvcnRDb2xFbmNvZGUiOiAiZXlKalh6VXhORGxmT0NJNklDSkpUa1JHVFZCSlVsOW9NVjlGTVY5bGJtTWlMQ0FpWTE4MU1UUTVYemtpT2lBaVYxUkpUbFF5V1ZKZmFERmZSVEpmWlc1aklpd2dJbU5mTlRFME9WODBJam9nSWtSTlJFTkpWRnBPWDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk5TSTZJQ0pFVFVSTlFWSlVURjlvTVY5Rk1WOWxibU1pTENBaVkxODFNVFE1WHpZaU9pQWlSRTFFU0VoVFNWcGZhREZmUlRGZlpXNWpJaXdnSW1OZk5URTBPVjgzSWpvZ0lrbE9SRVpOU1U1RFgyZ3hYMFV4WDJWdVl5SXNJQ0pqWHpVeE5EbGZNQ0k2SUNKVFJWRk9YMmd4WDBVd1gyVnVZeUlzSUNKalh6VXhORGxmTVNJNklDSlNTVUZIUlU1RVVsOW9NVjlGTUY5bGJtTWlMQ0FpWTE4MU1UUTVYeklpT2lBaVVrbEVRVWRGV1ZKZmFERmZSVEJmWlc1aklpd2dJbU5mTlRFME9WOHpJam9nSWxKSlJGSkZWRWd4WDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk1USWlPaUFpVTBSTlZsTlVVa0ZmYURGZlJUSmZaVzVqSWl3Z0ltTmZOVEUwT1Y4eE1DSTZJQ0pYVkUxRlF6SlpVbDlvTVY5Rk1sOWxibU1pTENBaVkxODFNVFE1WHpFeElqb2dJbE5FVFZaUVUxVmZhREZmUlRKZlpXNWpJbjA9In19 /home/hadoop/proj_/data/output 37 deidadmin 1
+2023/12/10 02:58:27 - export - DEBUG - in getSparkAppId
+2023/12/10 02:58:29 - export - DEBUG - 2023-12-10 14:58:29 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+2023/12/10 02:58:30 - export - DEBUG - /home/hadoop/proj_/longTaskDir/funniest/logging_setting.py:10: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+
+2023/12/10 02:58:30 - export - DEBUG -   config = yaml.load(f)
+
+2023/12/10 02:58:30 - export - DEBUG - ########
+
+2023/12/10 02:58:30 - export - DEBUG - test1234
+
+2023/12/10 02:58:30 - export - DEBUG - eyJnX3Rlc3QxMjM0X291dGVyX2tfam9iMSI6IHsicmF3VGJsTmFtZSI6ICJ0ZXN0MTIzNF9vdXRlciIsICJleHBvcnRDb2xFbmNvZGUiOiAiZXlKalh6VXhORGxmT0NJNklDSkpUa1JHVFZCSlVsOW9NVjlGTVY5bGJtTWlMQ0FpWTE4MU1UUTVYemtpT2lBaVYxUkpUbFF5V1ZKZmFERmZSVEpmWlc1aklpd2dJbU5mTlRFME9WODBJam9nSWtSTlJFTkpWRnBPWDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk5TSTZJQ0pFVFVSTlFWSlVURjlvTVY5Rk1WOWxibU1pTENBaVkxODFNVFE1WHpZaU9pQWlSRTFFU0VoVFNWcGZhREZmUlRGZlpXNWpJaXdnSW1OZk5URTBPVjgzSWpvZ0lrbE9SRVpOU1U1RFgyZ3hYMFV4WDJWdVl5SXNJQ0pqWHpVeE5EbGZNQ0k2SUNKVFJWRk9YMmd4WDBVd1gyVnVZeUlzSUNKalh6VXhORGxmTVNJNklDSlNTVUZIUlU1RVVsOW9NVjlGTUY5bGJtTWlMQ0FpWTE4MU1UUTVYeklpT2lBaVVrbEVRVWRGV1ZKZmFERmZSVEJmWlc1aklpd2dJbU5mTlRFME9WOHpJam9nSWxKSlJGSkZWRWd4WDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk1USWlPaUFpVTBSTlZsTlVVa0ZmYURGZlJUSmZaVzVqSWl3Z0ltTmZOVEUwT1Y4eE1DSTZJQ0pYVkUxRlF6SlpVbDlvTVY5Rk1sOWxibU1pTENBaVkxODFNVFE1WHpFeElqb2dJbE5FVFZaUVUxVmZhREZmUlRKZlpXNWpJbjA9In19
+
+2023/12/10 02:58:30 - export - DEBUG - /home/hadoop/proj_/data/output
+
+2023/12/10 02:58:30 - export - DEBUG - deidadmin
+
+2023/12/10 02:58:30 - export - DEBUG - 1
+
+2023/12/10 02:58:30 - export - DEBUG - #############
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - eyJnX3Rlc3QxMjM0X291dGVyX2tfam9iMSI6IHsicmF3VGJsTmFtZSI6ICJ0ZXN0MTIzNF9vdXRlciIsICJleHBvcnRDb2xFbmNvZGUiOiAiZXlKalh6VXhORGxmT0NJNklDSkpUa1JHVFZCSlVsOW9NVjlGTVY5bGJtTWlMQ0FpWTE4MU1UUTVYemtpT2lBaVYxUkpUbFF5V1ZKZmFERmZSVEpmWlc1aklpd2dJbU5mTlRFME9WODBJam9nSWtSTlJFTkpWRnBPWDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk5TSTZJQ0pFVFVSTlFWSlVURjlvTVY5Rk1WOWxibU1pTENBaVkxODFNVFE1WHpZaU9pQWlSRTFFU0VoVFNWcGZhREZmUlRGZlpXNWpJaXdnSW1OZk5URTBPVjgzSWpvZ0lrbE9SRVpOU1U1RFgyZ3hYMFV4WDJWdVl5SXNJQ0pqWHpVeE5EbGZNQ0k2SUNKVFJWRk9YMmd4WDBVd1gyVnVZeUlzSUNKalh6VXhORGxmTVNJNklDSlNTVUZIUlU1RVVsOW9NVjlGTUY5bGJtTWlMQ0FpWTE4MU1UUTVYeklpT2lBaVVrbEVRVWRGV1ZKZmFERmZSVEJmWlc1aklpd2dJbU5mTlRFME9WOHpJam9nSWxKSlJGSkZWRWd4WDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk1USWlPaUFpVTBSTlZsTlVVa0ZmYURGZlJUSmZaVzVqSWl3Z0ltTmZOVEUwT1Y4eE1DSTZJQ0pYVkUxRlF6SlpVbDlvTVY5Rk1sOWxibU1pTENBaVkxODFNVFE1WHpFeElqb2dJbE5FVFZaUVUxVmZhREZmUlRKZlpXNWpJbjA9In19
+
+2023/12/10 02:58:30 - export - DEBUG - Before getJsonParser: 
+
+2023/12/10 02:58:30 - export - DEBUG - eyJnX3Rlc3QxMjM0X291dGVyX2tfam9iMSI6IHsicmF3VGJsTmFtZSI6ICJ0ZXN0MTIzNF9vdXRlciIsICJleHBvcnRDb2xFbmNvZGUiOiAiZXlKalh6VXhORGxmT0NJNklDSkpUa1JHVFZCSlVsOW9NVjlGTVY5bGJtTWlMQ0FpWTE4MU1UUTVYemtpT2lBaVYxUkpUbFF5V1ZKZmFERmZSVEpmWlc1aklpd2dJbU5mTlRFME9WODBJam9nSWtSTlJFTkpWRnBPWDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk5TSTZJQ0pFVFVSTlFWSlVURjlvTVY5Rk1WOWxibU1pTENBaVkxODFNVFE1WHpZaU9pQWlSRTFFU0VoVFNWcGZhREZmUlRGZlpXNWpJaXdnSW1OZk5URTBPVjgzSWpvZ0lrbE9SRVpOU1U1RFgyZ3hYMFV4WDJWdVl5SXNJQ0pqWHpVeE5EbGZNQ0k2SUNKVFJWRk9YMmd4WDBVd1gyVnVZeUlzSUNKalh6VXhORGxmTVNJNklDSlNTVUZIUlU1RVVsOW9NVjlGTUY5bGJtTWlMQ0FpWTE4MU1UUTVYeklpT2lBaVVrbEVRVWRGV1ZKZmFERmZSVEJmWlc1aklpd2dJbU5mTlRFME9WOHpJam9nSWxKSlJGSkZWRWd4WDJneFgwVXdYMlZ1WXlJc0lDSmpYelV4TkRsZk1USWlPaUFpVTBSTlZsTlVVa0ZmYURGZlJUSmZaVzVqSWl3Z0ltTmZOVEUwT1Y4eE1DSTZJQ0pYVkUxRlF6SlpVbDlvTVY5Rk1sOWxibU1pTENBaVkxODFNVFE1WHpFeElqb2dJbE5FVFZaUVUxVmZhREZmUlRKZlpXNWpJbjA9In19
+
+2023/12/10 02:58:30 - export - DEBUG - After getJsonParser result: 
+
+2023/12/10 02:58:30 - export - DEBUG - {'g_test1234_outer_k_job1': {'exportColEncode': 'eyJjXzUxNDlfOCI6ICJJTkRGTVBJUl9oMV9FMV9lbmMiLCAiY181MTQ5XzkiOiAiV1RJTlQyWVJfaDFfRTJfZW5jIiwgImNfNTE0OV80IjogIkRNRENJVFpOX2gxX0UwX2VuYyIsICJjXzUxNDlfNSI6ICJETURNQVJUTF9oMV9FMV9lbmMiLCAiY181MTQ5XzYiOiAiRE1ESEhTSVpfaDFfRTFfZW5jIiwgImNfNTE0OV83IjogIklOREZNSU5DX2gxX0UxX2VuYyIsICJjXzUxNDlfMCI6ICJTRVFOX2gxX0UwX2VuYyIsICJjXzUxNDlfMSI6ICJSSUFHRU5EUl9oMV9FMF9lbmMiLCAiY181MTQ5XzIiOiAiUklEQUdFWVJfaDFfRTBfZW5jIiwgImNfNTE0OV8zIjogIlJJRFJFVEgxX2gxX0UwX2VuYyIsICJjXzUxNDlfMTIiOiAiU0RNVlNUUkFfaDFfRTJfZW5jIiwgImNfNTE0OV8xMCI6ICJXVE1FQzJZUl9oMV9FMl9lbmMiLCAiY181MTQ5XzExIjogIlNETVZQU1VfaDFfRTJfZW5jIn0=', 'rawTblName': 'test1234_outer'}}
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - {'g_test1234_outer_k_job1': {'exportColEncode': 'eyJjXzUxNDlfOCI6ICJJTkRGTVBJUl9oMV9FMV9lbmMiLCAiY181MTQ5XzkiOiAiV1RJTlQyWVJfaDFfRTJfZW5jIiwgImNfNTE0OV80IjogIkRNRENJVFpOX2gxX0UwX2VuYyIsICJjXzUxNDlfNSI6ICJETURNQVJUTF9oMV9FMV9lbmMiLCAiY181MTQ5XzYiOiAiRE1ESEhTSVpfaDFfRTFfZW5jIiwgImNfNTE0OV83IjogIklOREZNSU5DX2gxX0UxX2VuYyIsICJjXzUxNDlfMCI6ICJTRVFOX2gxX0UwX2VuYyIsICJjXzUxNDlfMSI6ICJSSUFHRU5EUl9oMV9FMF9lbmMiLCAiY181MTQ5XzIiOiAiUklEQUdFWVJfaDFfRTBfZW5jIiwgImNfNTE0OV8zIjogIlJJRFJFVEgxX2gxX0UwX2VuYyIsICJjXzUxNDlfMTIiOiAiU0RNVlNUUkFfaDFfRTJfZW5jIiwgImNfNTE0OV8xMCI6ICJXVE1FQzJZUl9oMV9FMl9lbmMiLCAiY181MTQ5XzExIjogIlNETVZQU1VfaDFfRTJfZW5jIn0=', 'rawTblName': 'test1234_outer'}}
+
+2023/12/10 02:58:30 - export - DEBUG - Before getJsonParser: 
+
+2023/12/10 02:58:30 - export - DEBUG - eyJjXzUxNDlfOCI6ICJJTkRGTVBJUl9oMV9FMV9lbmMiLCAiY181MTQ5XzkiOiAiV1RJTlQyWVJfaDFfRTJfZW5jIiwgImNfNTE0OV80IjogIkRNRENJVFpOX2gxX0UwX2VuYyIsICJjXzUxNDlfNSI6ICJETURNQVJUTF9oMV9FMV9lbmMiLCAiY181MTQ5XzYiOiAiRE1ESEhTSVpfaDFfRTFfZW5jIiwgImNfNTE0OV83IjogIklOREZNSU5DX2gxX0UxX2VuYyIsICJjXzUxNDlfMCI6ICJTRVFOX2gxX0UwX2VuYyIsICJjXzUxNDlfMSI6ICJSSUFHRU5EUl9oMV9FMF9lbmMiLCAiY181MTQ5XzIiOiAiUklEQUdFWVJfaDFfRTBfZW5jIiwgImNfNTE0OV8zIjogIlJJRFJFVEgxX2gxX0UwX2VuYyIsICJjXzUxNDlfMTIiOiAiU0RNVlNUUkFfaDFfRTJfZW5jIiwgImNfNTE0OV8xMCI6ICJXVE1FQzJZUl9oMV9FMl9lbmMiLCAiY181MTQ5XzExIjogIlNETVZQU1VfaDFfRTJfZW5jIn0=
+
+2023/12/10 02:58:30 - export - DEBUG - After getJsonParser result: 
+
+2023/12/10 02:58:30 - export - DEBUG - {'c_5149_2': 'RIDAGEYR_h1_E0_enc', 'c_5149_10': 'WTMEC2YR_h1_E2_enc', 'c_5149_8': 'INDFMPIR_h1_E1_enc', 'c_5149_0': 'SEQN_h1_E0_enc', 'c_5149_11': 'SDMVPSU_h1_E2_enc', 'c_5149_5': 'DMDMARTL_h1_E1_enc', 'c_5149_12': 'SDMVSTRA_h1_E2_enc', 'c_5149_7': 'INDFMINC_h1_E1_enc', 'c_5149_4': 'DMDCITZN_h1_E0_enc', 'c_5149_1': 'RIAGENDR_h1_E0_enc', 'c_5149_6': 'DMDHHSIZ_h1_E1_enc', 'c_5149_3': 'RIDRETH1_h1_E0_enc', 'c_5149_9': 'WTINT2YR_h1_E2_enc'}
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - g_test1234_outer_k_job1
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - {'c_5149_2': 'RIDAGEYR_h1_E0_enc', 'c_5149_10': 'WTMEC2YR_h1_E2_enc', 'c_5149_8': 'INDFMPIR_h1_E1_enc', 'c_5149_0': 'SEQN_h1_E0_enc', 'c_5149_11': 'SDMVPSU_h1_E2_enc', 'c_5149_5': 'DMDMARTL_h1_E1_enc', 'c_5149_12': 'SDMVSTRA_h1_E2_enc', 'c_5149_7': 'INDFMINC_h1_E1_enc', 'c_5149_4': 'DMDCITZN_h1_E0_enc', 'c_5149_1': 'RIAGENDR_h1_E0_enc', 'c_5149_6': 'DMDHHSIZ_h1_E1_enc', 'c_5149_3': 'RIDRETH1_h1_E0_enc', 'c_5149_9': 'WTINT2YR_h1_E2_enc'}
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - spark_export_userAccount_deidadmin
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - spark_export_userId_1
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - spark_export_dbName:test1234
+
+2023/12/10 02:58:30 - export - DEBUG - The export dbName is test1234
+2023/12/10 02:58:30 - export - DEBUG - task id is f7616444-ab85-4257-b46d-66d44470a28a
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - spark_export_projName:test1234
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - spark_export_tblInfo:{'g_test1234_outer_k_job1': {'exportColEncode': 'eyJjXzUxNDlfOCI6ICJJTkRGTVBJUl9oMV9FMV9lbmMiLCAiY181MTQ5XzkiOiAiV1RJTlQyWVJfaDFfRTJfZW5jIiwgImNfNTE0OV80IjogIkRNRENJVFpOX2gxX0UwX2VuYyIsICJjXzUxNDlfNSI6ICJETURNQVJUTF9oMV9FMV9lbmMiLCAiY181MTQ5XzYiOiAiRE1ESEhTSVpfaDFfRTFfZW5jIiwgImNfNTE0OV83IjogIklOREZNSU5DX2gxX0UxX2VuYyIsICJjXzUxNDlfMCI6ICJTRVFOX2gxX0UwX2VuYyIsICJjXzUxNDlfMSI6ICJSSUFHRU5EUl9oMV9FMF9lbmMiLCAiY181MTQ5XzIiOiAiUklEQUdFWVJfaDFfRTBfZW5jIiwgImNfNTE0OV8zIjogIlJJRFJFVEgxX2gxX0UwX2VuYyIsICJjXzUxNDlfMTIiOiAiU0RNVlNUUkFfaDFfRTJfZW5jIiwgImNfNTE0OV8xMCI6ICJXVE1FQzJZUl9oMV9FMl9lbmMiLCAiY181MTQ5XzExIjogIlNETVZQU1VfaDFfRTJfZW5jIn0=', 'colCompare': {'c_5149_2': 'RIDAGEYR_h1_E0_enc', 'c_5149_10': 'WTMEC2YR_h1_E2_enc', 'c_5149_8': 'INDFMPIR_h1_E1_enc', 'c_5149_0': 'SEQN_h1_E0_enc', 'c_5149_11': 'SDMVPSU_h1_E2_enc', 'c_5149_5': 'DMDMARTL_h1_E1_enc', 'c_5149_12': 'SDMVSTRA_h1_E2_enc', 'c_5149_7': 'INDFMINC_h1_E1_enc', 'c_5149_4': 'DMDCITZN_h1_E0_enc', 'c_5149_1': 'RIAGENDR_h1_E0_enc', 'c_5149_6': 'DMDHHSIZ_h1_E1_enc', 'c_5149_3': 'RIDRETH1_h1_E0_enc', 'c_5149_9': 'WTINT2YR_h1_E2_enc'}, 'rawTblName': 'test1234_outer'}}
+
+2023/12/10 02:58:30 - export - DEBUG - export - DEBUG - spark_export_tblName:g_test1234_outer_k_job1
+
+2023/12/10 02:58:30 - export - DEBUG - The export tblName is g_test1234_outer_k_job1
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SparkContext:54 - Running Spark version 2.3.1
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SparkContext:54 - Submitted application: export
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SecurityManager:54 - Changing view acls to: hadoop
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SecurityManager:54 - Changing modify acls to: hadoop
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SecurityManager:54 - Changing view acls groups to: 
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SecurityManager:54 - Changing modify acls groups to: 
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  Utils:54 - Successfully started service 'sparkDriver' on port 45979.
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SparkEnv:54 - Registering MapOutputTracker
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SparkEnv:54 - Registering BlockManagerMaster
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  BlockManagerMasterEndpoint:54 - Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  BlockManagerMasterEndpoint:54 - BlockManagerMasterEndpoint up
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  DiskBlockManager:54 - Created local directory at /tmp/blockmgr-7b8c3eab-5d1f-4b8a-8dd3-c7aab1d1d5f4
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  MemoryStore:54 - MemoryStore started with capacity 4.1 GB
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  SparkEnv:54 - Registering OutputCommitCoordinator
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  log:192 - Logging initialized @2996ms
+
+2023/12/10 02:58:30 - export - DEBUG - 2023-12-10 14:58:30 INFO  Server:346 - jetty-9.3.z-SNAPSHOT
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  Server:414 - Started @3083ms
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 WARN  Utils:66 - Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  AbstractConnector:278 - Started ServerConnector@48a18f88{HTTP/1.1,[http/1.1]}{0.0.0.0:4041}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  Utils:54 - Successfully started service 'SparkUI' on port 4041.
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6cfb76c{/jobs,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6f820982{/jobs/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@7b9f3878{/jobs/job,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@8e0960c{/jobs/job/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@77d1508b{/stages,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@758ffaf1{/stages/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@5642136b{/stages/stage,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@2d64d7ec{/stages/stage/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6bfb4060{/stages/pool,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@44b05e31{/stages/pool/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@54da1d9f{/storage,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@5f0a6b5f{/storage/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6e43c89e{/storage/rdd,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@28c452b1{/storage/rdd/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@2cf694d3{/environment,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@202a4281{/environment/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@505d7922{/executors,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@5a86f842{/executors/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@42cebfcd{/executors/threadDump,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@3082d35f{/executors/threadDump/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@bad3804{/static,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@2e68a815{/,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@460d08c9{/api,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@66e0ca79{/jobs/job/kill,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@4b7c4c06{/stages/stage/kill,null,AVAILABLE,@Spark}
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkUI:54 - Bound SparkUI to 0.0.0.0, and started at http://nodemasterS:4041
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added JAR file:///home/hadoop/proj_/longTaskDir/gen_v9.jar at spark://nodemasterS:45979/jars/gen_v9.jar with timestamp 1702220311133
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added JAR file:///home/hadoop/proj_/longTaskDir/myLogging_jre17_v3.jar at spark://nodemasterS:45979/jars/myLogging_jre17_v3.jar with timestamp 1702220311134
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added JAR file:///home/hadoop/proj_/longTaskDir/address_project_debug_v14.jar at spark://nodemasterS:45979/jars/address_project_debug_v14.jar with timestamp 1702220311135
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added JAR file:///home/hadoop/proj_/longTaskDir/myLogging_1.jar at spark://nodemasterS:45979/jars/myLogging_1.jar with timestamp 1702220311135
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added JAR file:///home/hadoop/proj_/longTaskDir/mysql-connector-java-8.0.13.jar at spark://nodemasterS:45979/jars/mysql-connector-java-8.0.13.jar with timestamp 1702220311136
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added JAR file:///home/hadoop/proj_/longTaskDir/udfAES256_1.jar at spark://nodemasterS:45979/jars/udfAES256_1.jar with timestamp 1702220311137
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  SparkContext:54 - Added file file:/home/hadoop/proj_/longTaskDir/getExport_CFH_PETs.py at spark://nodemasterS:45979/files/getExport_CFH_PETs.py with timestamp 1702220311163
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  Utils:54 - Copying /home/hadoop/proj_/longTaskDir/getExport_CFH_PETs.py to /tmp/spark-1fae0730-f2dc-40c7-bdd5-02401a7be6e6/userFiles-21b5b73a-18c5-4f28-930e-1adfbdbf7116/getExport_CFH_PETs.py
+
+2023/12/10 02:58:31 - export - DEBUG - 2023-12-10 14:58:31 INFO  RMProxy:98 - Connecting to ResourceManager at nodemasterS/168.17.8.102:8040
+
+2023/12/10 02:58:32 - export - DEBUG - 2023-12-10 14:58:32 INFO  Client:54 - Requesting a new application from cluster with 1 NodeManagers
+
+2023/12/10 02:58:32 - export - DEBUG - 2023-12-10 14:58:32 INFO  Client:54 - Verifying our application has not requested more than the maximum memory capability of the cluster (32768 MB per container)
+
+2023/12/10 02:58:32 - export - DEBUG - 2023-12-10 14:58:32 INFO  Client:54 - Will allocate AM container, with 896 MB memory including 384 MB overhead
+
+2023/12/10 02:58:32 - export - DEBUG - 2023-12-10 14:58:32 INFO  Client:54 - Setting up container launch context for our AM
+
+2023/12/10 02:58:32 - export - DEBUG - 2023-12-10 14:58:32 INFO  Client:54 - Setting up the launch environment for our AM container
+
+2023/12/10 02:58:32 - export - DEBUG - 2023-12-10 14:58:32 INFO  Client:54 - Preparing resources for our AM container
+
+2023/12/10 02:58:33 - export - DEBUG - 2023-12-10 14:58:33 WARN  Client:66 - Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+
+2023/12/10 02:58:37 - export - DEBUG - 2023-12-10 14:58:37 INFO  Client:54 - Uploading resource file:/tmp/spark-1fae0730-f2dc-40c7-bdd5-02401a7be6e6/__spark_libs__542486700160852988.zip -> hdfs://nodemasterS:9000/user/hadoop/.sparkStaging/application_1702219045342_0005/__spark_libs__542486700160852988.zip
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  Client:54 - Uploading resource file:/tmp/spark-1fae0730-f2dc-40c7-bdd5-02401a7be6e6/__spark_conf__3464884730786549393.zip -> hdfs://nodemasterS:9000/user/hadoop/.sparkStaging/application_1702219045342_0005/__spark_conf__.zip
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  SecurityManager:54 - Changing view acls to: hadoop
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  SecurityManager:54 - Changing modify acls to: hadoop
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  SecurityManager:54 - Changing view acls groups to: 
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  SecurityManager:54 - Changing modify acls groups to: 
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  Client:54 - Submitting application application_1702219045342_0005 to ResourceManager
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  YarnClientImpl:273 - Submitted application application_1702219045342_0005
+
+2023/12/10 02:58:38 - export - DEBUG - 2023-12-10 14:58:38 INFO  SchedulerExtensionServices:54 - Starting Yarn extension services with app application_1702219045342_0005 and attemptId None
+
+2023/12/10 02:58:39 - export - DEBUG - 2023-12-10 14:58:39 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:39 - export - DEBUG - 2023-12-10 14:58:39 INFO  Client:54 - 
+
+2023/12/10 02:58:39 - export - DEBUG - 	 client token: N/A
+
+2023/12/10 02:58:39 - export - DEBUG - 	 diagnostics: N/A
+
+2023/12/10 02:58:39 - export - DEBUG - 	 ApplicationMaster host: N/A
+
+2023/12/10 02:58:39 - export - DEBUG - 	 ApplicationMaster RPC port: -1
+
+2023/12/10 02:58:39 - export - DEBUG - 	 queue: default
+
+2023/12/10 02:58:39 - export - DEBUG - 	 start time: 1702220318806
+
+2023/12/10 02:58:39 - export - DEBUG - 	 final status: UNDEFINED
+
+2023/12/10 02:58:39 - export - DEBUG - 	 tracking URL: http://nodemasterS:8088/proxy/application_1702219045342_0005/
+
+2023/12/10 02:58:39 - export - DEBUG - 	 user: hadoop
+
+2023/12/10 02:58:40 - export - DEBUG - 2023-12-10 14:58:40 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:41 - export - DEBUG - 2023-12-10 14:58:41 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:42 - export - DEBUG - 2023-12-10 14:58:42 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:43 - export - DEBUG - 2023-12-10 14:58:43 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:44 - export - DEBUG - 2023-12-10 14:58:44 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:45 - export - DEBUG - 2023-12-10 14:58:45 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:46 - export - DEBUG - 2023-12-10 14:58:46 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:47 - export - DEBUG - 2023-12-10 14:58:47 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:48 - export - DEBUG - 2023-12-10 14:58:48 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:49 - export - DEBUG - 2023-12-10 14:58:49 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:50 - export - DEBUG - 2023-12-10 14:58:50 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:51 - export - DEBUG - 2023-12-10 14:58:51 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:52 - export - DEBUG - 2023-12-10 14:58:52 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:53 - export - DEBUG - 2023-12-10 14:58:53 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:54 - export - DEBUG - 2023-12-10 14:58:54 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:55 - export - DEBUG - 2023-12-10 14:58:55 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:56 - export - DEBUG - 2023-12-10 14:58:56 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:57 - export - DEBUG - 2023-12-10 14:58:57 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:58 - export - DEBUG - 2023-12-10 14:58:58 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:58:59 - export - DEBUG - 2023-12-10 14:58:59 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:00 - export - DEBUG - 2023-12-10 14:59:00 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:01 - export - DEBUG - 2023-12-10 14:59:01 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:02 - export - DEBUG - 2023-12-10 14:59:02 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:03 - export - DEBUG - 2023-12-10 14:59:03 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:04 - export - DEBUG - 2023-12-10 14:59:04 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:05 - export - DEBUG - 2023-12-10 14:59:05 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:06 - export - DEBUG - 2023-12-10 14:59:06 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:07 - export - DEBUG - 2023-12-10 14:59:07 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:08 - export - DEBUG - 2023-12-10 14:59:08 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:09 - export - DEBUG - 2023-12-10 14:59:09 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:10 - kchecking - DEBUG - The warning columns are 
+2023/12/10 02:59:10 - export - DEBUG - 2023-12-10 14:59:10 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:11 - export - DEBUG - 2023-12-10 14:59:11 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:12 - export - DEBUG - 2023-12-10 14:59:12 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:13 - export - DEBUG - 2023-12-10 14:59:13 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:14 - export - DEBUG - 2023-12-10 14:59:14 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:15 - export - DEBUG - 2023-12-10 14:59:15 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:16 - export - DEBUG - 2023-12-10 14:59:16 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:17 - export - DEBUG - 2023-12-10 14:59:17 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:18 - kchecking - DEBUG - find it
+2023/12/10 02:59:18 - kchecking - DEBUG - The spark_finish_data_distinct_count_ is 
+
+2023/12/10 02:59:18 - kchecking - DEBUG - find it
+2023/12/10 02:59:18 - kchecking - DEBUG - The spark_finish_data_distinct_count_ is 999999
+
+2023/12/10 02:59:18 - kchecking - DEBUG - {'msg': "UPDATE DeIdService.T_Project_SampleTable SET tableDisCount='999999',supCount='1',minKvalue='3',tableCount='1000000',warning_col='',finaltblName='g_test1234_outer_k_job1',supRate='0.000100%',updatetime = now() WHERE pro_tb='test1234_outer' AND pro_db='test1234'", 'result': 1}
+2023/12/10 02:59:18 - export - DEBUG - 2023-12-10 14:59:18 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:19 - export - DEBUG - 2023-12-10 14:59:19 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:20 - export - DEBUG - 2023-12-10 14:59:20 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:21 - export - DEBUG - 2023-12-10 14:59:21 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:22 - export - DEBUG - 2023-12-10 14:59:22 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:23 - export - DEBUG - 2023-12-10 14:59:23 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:24 - export - DEBUG - 2023-12-10 14:59:24 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:25 - export - DEBUG - 2023-12-10 14:59:25 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:26 - export - DEBUG - 2023-12-10 14:59:26 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:27 - export - DEBUG - 2023-12-10 14:59:27 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:28 - export - DEBUG - 2023-12-10 14:59:28 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:29 - export - DEBUG - 2023-12-10 14:59:29 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:30 - export - DEBUG - 2023-12-10 14:59:30 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:31 - export - DEBUG - 2023-12-10 14:59:31 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:32 - export - DEBUG - 2023-12-10 14:59:32 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:33 - export - DEBUG - 2023-12-10 14:59:33 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:34 - export - DEBUG - 2023-12-10 14:59:34 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:35 - export - DEBUG - 2023-12-10 14:59:35 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:36 - export - DEBUG - 2023-12-10 14:59:36 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:37 - export - DEBUG - 2023-12-10 14:59:37 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:38 - export - DEBUG - 2023-12-10 14:59:38 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:39 - export - DEBUG - 2023-12-10 14:59:39 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:40 - export - DEBUG - 2023-12-10 14:59:40 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:41 - export - DEBUG - 2023-12-10 14:59:41 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:42 - export - DEBUG - 2023-12-10 14:59:42 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:43 - export - DEBUG - 2023-12-10 14:59:43 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:44 - export - DEBUG - 2023-12-10 14:59:44 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:45 - export - DEBUG - 2023-12-10 14:59:45 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:46 - export - DEBUG - 2023-12-10 14:59:46 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:47 - export - DEBUG - 2023-12-10 14:59:47 INFO  Client:54 - Application report for application_1702219045342_0005 (state: ACCEPTED)
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  YarnClientSchedulerBackend:54 - Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> nodemasterS, PROXY_URI_BASES -> http://nodemasterS:8088/proxy/application_1702219045342_0005), /proxy/application_1702219045342_0005
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  JettyUtils:54 - Adding filter: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  YarnSchedulerBackend$YarnSchedulerEndpoint:54 - ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  Client:54 - Application report for application_1702219045342_0005 (state: RUNNING)
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  Client:54 - 
+
+2023/12/10 02:59:48 - export - DEBUG - 	 client token: N/A
+
+2023/12/10 02:59:48 - export - DEBUG - 	 diagnostics: N/A
+
+2023/12/10 02:59:48 - export - DEBUG - 	 ApplicationMaster host: 168.17.8.102
+
+2023/12/10 02:59:48 - export - DEBUG - 	 ApplicationMaster RPC port: 0
+
+2023/12/10 02:59:48 - export - DEBUG - 	 queue: default
+
+2023/12/10 02:59:48 - export - DEBUG - 	 start time: 1702220318806
+
+2023/12/10 02:59:48 - export - DEBUG - 	 final status: UNDEFINED
+
+2023/12/10 02:59:48 - export - DEBUG - 	 tracking URL: http://nodemasterS:8088/proxy/application_1702219045342_0005/
+
+2023/12/10 02:59:48 - export - DEBUG - 	 user: hadoop
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  YarnClientSchedulerBackend:54 - Application application_1702219045342_0005 has started running.
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  Utils:54 - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39855.
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  NettyBlockTransferService:54 - Server created on nodemasterS:39855
+
+2023/12/10 02:59:48 - export - DEBUG - 2023-12-10 14:59:48 INFO  BlockManager:54 - Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  BlockManagerMaster:54 - Registering BlockManager BlockManagerId(driver, nodemasterS, 39855, None)
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  BlockManagerMasterEndpoint:54 - Registering block manager nodemasterS:39855 with 4.1 GB RAM, BlockManagerId(driver, nodemasterS, 39855, None)
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  BlockManagerMaster:54 - Registered BlockManager BlockManagerId(driver, nodemasterS, 39855, None)
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  BlockManager:54 - Initialized BlockManager: BlockManagerId(driver, nodemasterS, 39855, None)
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6a514295{/metrics/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  YarnClientSchedulerBackend:54 - SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  SharedState:54 - Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/home/hadoop/spark-warehouse').
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  SharedState:54 - Warehouse path is 'file:/home/hadoop/spark-warehouse'.
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@44741901{/SQL,null,AVAILABLE,@Spark}
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@1af74188{/SQL/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@52f4f471{/SQL/execution,null,AVAILABLE,@Spark}
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@1423c4f{/SQL/execution/json,null,AVAILABLE,@Spark}
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@47095a8e{/static/sql,null,AVAILABLE,@Spark}
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  StateStoreCoordinatorRef:54 - Registered StateStoreCoordinator endpoint
+
+2023/12/10 02:59:49 - export - DEBUG - export - DEBUG - sparkContext_succeed.
+
+2023/12/10 02:59:49 - export - DEBUG - export - DEBUG - ###################sc.applicationId
+
+2023/12/10 02:59:49 - export - DEBUG - export - DEBUG - sc.applicationId:application_1702219045342_0005
+
+2023/12/10 02:59:49 - export - DEBUG - The app ID is application_1702219045342_0005
+2023/12/10 02:59:49 - export - DEBUG - in conn()----------
+
+2023/12/10 02:59:49 - export - DEBUG - None
+
+2023/12/10 02:59:49 - export - DEBUG - None
+
+2023/12/10 02:59:49 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:49 - export - DEBUG - citcw200
+
+2023/12/10 02:59:49 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:49 - export - DEBUG - citcw200
+
+2023/12/10 02:59:49 - export - DEBUG - in conn()----------
+
+2023/12/10 02:59:49 - export - DEBUG - None
+
+2023/12/10 02:59:49 - export - DEBUG - None
+
+2023/12/10 02:59:49 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:49 - export - DEBUG - citcw200
+
+2023/12/10 02:59:49 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:49 - export - DEBUG - citcw200
+
+2023/12/10 02:59:49 - export - DEBUG - in conn()----------
+
+2023/12/10 02:59:49 - export - DEBUG - None
+
+2023/12/10 02:59:49 - export - DEBUG - None
+
+2023/12/10 02:59:49 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:49 - export - DEBUG - citcw200
+
+2023/12/10 02:59:49 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:49 - export - DEBUG - citcw200
+
+2023/12/10 02:59:49 - export - DEBUG - (updateAppStatus)Update mysql succeed. INSERT INTO spark_status.appStatus (isRead,createMember_Id,dbName,Application_Id,proj_id,App_state,updateMember_Id,Progress,Progress_State,Application_Name,createtime) VALUES ('0','1','test1234','application_1702219045342_0005','37','Init_1','1','5','Running','export',now())
+
+2023/12/10 02:59:49 - export - DEBUG - export - DEBUG - tables = ['g_test1234_outer_k_job1'] 
+
+2023/12/10 02:59:49 - export - DEBUG - 2023-12-10 14:59:49 INFO  HiveUtils:54 - Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  metastore:376 - Trying to connect to metastore with URI thrift://nodemaster:9083
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  metastore:472 - Connected to metastore.
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  SessionState:641 - Created local directory: /tmp/99abf8ef-a366-488e-8887-dfb782070647_resources
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  SessionState:641 - Created HDFS directory: /tmp/hive/hadoop/99abf8ef-a366-488e-8887-dfb782070647
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  SessionState:641 - Created local directory: /tmp/hadoop/99abf8ef-a366-488e-8887-dfb782070647
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  SessionState:641 - Created HDFS directory: /tmp/hive/hadoop/99abf8ef-a366-488e-8887-dfb782070647/_tmp_space.db
+
+2023/12/10 02:59:50 - export - DEBUG - 2023-12-10 14:59:50 INFO  HiveClientImpl:54 - Warehouse location for Hive client (version 1.2.2) is file:/home/hadoop/spark-warehouse
+
+2023/12/10 02:59:50 - export - DEBUG - export - DEBUG - use test1234
+
+2023/12/10 02:59:50 - export - DEBUG - in conn()----------
+
+2023/12/10 02:59:50 - export - DEBUG - None
+
+2023/12/10 02:59:50 - export - DEBUG - None
+
+2023/12/10 02:59:50 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:50 - export - DEBUG - citcw200
+
+2023/12/10 02:59:50 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:50 - export - DEBUG - citcw200
+
+2023/12/10 02:59:50 - export - DEBUG - print updatevalue sql :
+
+2023/12/10 02:59:50 - export - DEBUG - UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_data',updateMember_Id='1',Progress='27',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 02:59:50 - export - DEBUG - b"UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_data',updateMember_Id='1',Progress='27',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'"
+
+2023/12/10 02:59:50 - export - DEBUG - (updateAppStatus)Update mysql succeed. UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_data',updateMember_Id='1',Progress='27',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 02:59:50 - export - DEBUG - export - DEBUG - 
+
+2023/12/10 02:59:50 - export - DEBUG -             SELECT * FROM g_test1234_outer_k_job1
+
+2023/12/10 02:59:50 - export - DEBUG -             
+
+2023/12/10 02:59:51 - export - DEBUG - in conn()----------
+
+2023/12/10 02:59:51 - export - DEBUG - None
+
+2023/12/10 02:59:51 - export - DEBUG - None
+
+2023/12/10 02:59:51 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:51 - export - DEBUG - citcw200
+
+2023/12/10 02:59:51 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:51 - export - DEBUG - citcw200
+
+2023/12/10 02:59:51 - export - DEBUG - print updatevalue sql :
+
+2023/12/10 02:59:51 - export - DEBUG - UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='get header',updateMember_Id='1',Progress='45',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 02:59:51 - export - DEBUG - b"UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='get header',updateMember_Id='1',Progress='45',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'"
+
+2023/12/10 02:59:51 - export - DEBUG - (updateAppStatus)Update mysql succeed. UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='get header',updateMember_Id='1',Progress='45',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 02:59:51 - export - DEBUG - export - DEBUG - ['SEQN_h1_E0_enc', 'RIDRETH1_h1_E0_enc', 'DMDCITZN_h1_E0_enc', 'DMDHHSIZ_h1_E1_enc', 'INDFMINC_h1_E1_enc', 'INDFMPIR_h1_E1_enc', 'WTINT2YR_h1_E2_enc', 'WTMEC2YR_h1_E2_enc', 'SDMVPSU_h1_E2_enc', 'SDMVSTRA_h1_E2_enc', 'RIAGENDR_h1_E0_enc', 'RIDAGEYR_h1_E0_enc', 'DMDMARTL_h1_E1_enc']
+
+2023/12/10 02:59:51 - export - DEBUG - in conn()----------
+
+2023/12/10 02:59:51 - export - DEBUG - None
+
+2023/12/10 02:59:51 - export - DEBUG - None
+
+2023/12/10 02:59:51 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:51 - export - DEBUG - citcw200
+
+2023/12/10 02:59:51 - export - DEBUG - keyadmin
+
+2023/12/10 02:59:51 - export - DEBUG - citcw200
+
+2023/12/10 02:59:51 - export - DEBUG - print updatevalue sql :
+
+2023/12/10 02:59:51 - export - DEBUG - UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_data',updateMember_Id='1',Progress='62',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 02:59:51 - export - DEBUG - b"UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_data',updateMember_Id='1',Progress='62',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'"
+
+2023/12/10 02:59:51 - export - DEBUG - (updateAppStatus)Update mysql succeed. UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_data',updateMember_Id='1',Progress='62',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 02:59:51 - export - DEBUG - export - DEBUG - /home/hadoop/proj_/data/output
+
+2023/12/10 02:59:52 - export - DEBUG - 2023-12-10 14:59:52 INFO  YarnSchedulerBackend$YarnDriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (168.17.8.102:43570) with ID 1
+
+2023/12/10 02:59:52 - export - DEBUG - 2023-12-10 14:59:52 INFO  BlockManagerMasterEndpoint:54 - Registering block manager nodemasterS:44019 with 4.1 GB RAM, BlockManagerId(1, nodemasterS, 44019, None)
+
+2023/12/10 02:59:53 - export - DEBUG - 2023-12-10 14:59:53 INFO  YarnSchedulerBackend$YarnDriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (168.17.8.102:43594) with ID 2
+
+2023/12/10 02:59:53 - export - DEBUG - 2023-12-10 14:59:53 INFO  BlockManagerMasterEndpoint:54 - Registering block manager nodemasterS:37067 with 4.1 GB RAM, BlockManagerId(2, nodemasterS, 37067, None)
+
+2023/12/10 02:59:54 - export - DEBUG - 2023-12-10 14:59:54 INFO  FileSourceStrategy:54 - Pruning directories with: 
+
+2023/12/10 02:59:54 - export - DEBUG - 2023-12-10 14:59:54 INFO  FileSourceStrategy:54 - Post-Scan Filters: 
+
+2023/12/10 02:59:54 - export - DEBUG - 2023-12-10 14:59:54 INFO  FileSourceStrategy:54 - Output Data Schema: struct<c_5149_0: string, c_5149_3: string, c_5149_4: string, c_5149_6: string, c_5149_7: string ... 11 more fields>
+
+2023/12/10 02:59:54 - export - DEBUG - 2023-12-10 14:59:54 INFO  FileSourceScanExec:54 - Pushed Filters: 
+
+2023/12/10 02:59:54 - export - DEBUG - 2023-12-10 14:59:54 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+
+2023/12/10 02:59:54 - export - DEBUG - 2023-12-10 14:59:54 INFO  SQLHadoopMapReduceCommitProtocol:54 - Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  CodeGenerator:54 - Code generated in 148.592859 ms
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  MemoryStore:54 - Block broadcast_0 stored as values in memory (estimated size 288.2 KB, free 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  MemoryStore:54 - Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.0 KB, free 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  BlockManagerInfo:54 - Added broadcast_0_piece0 in memory on nodemasterS:39855 (size: 24.0 KB, free: 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  SparkContext:54 - Created broadcast 0 from save at NativeMethodAccessorImpl.java:0
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  FileSourceScanExec:54 - Planning scan with bin packing, max size: 134217728 bytes, open cost is considered as scanning 4194304 bytes.
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  SparkContext:54 - Starting job: save at NativeMethodAccessorImpl.java:0
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  DAGScheduler:54 - Got job 0 (save at NativeMethodAccessorImpl.java:0) with 3 output partitions
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  DAGScheduler:54 - Final stage: ResultStage 0 (save at NativeMethodAccessorImpl.java:0)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  DAGScheduler:54 - Parents of final stage: List()
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  DAGScheduler:54 - Missing parents: List()
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  DAGScheduler:54 - Submitting ResultStage 0 (MapPartitionsRDD[1] at save at NativeMethodAccessorImpl.java:0), which has no missing parents
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  MemoryStore:54 - Block broadcast_1 stored as values in memory (estimated size 154.3 KB, free 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  MemoryStore:54 - Block broadcast_1_piece0 stored as bytes in memory (estimated size 54.1 KB, free 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  BlockManagerInfo:54 - Added broadcast_1_piece0 in memory on nodemasterS:39855 (size: 54.1 KB, free: 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  SparkContext:54 - Created broadcast 1 from broadcast at DAGScheduler.scala:1039
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  DAGScheduler:54 - Submitting 3 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at save at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2))
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  YarnScheduler:54 - Adding task set 0.0 with 3 tasks
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  TaskSetManager:54 - Starting task 0.0 in stage 0.0 (TID 0, nodemasterS, executor 1, partition 0, NODE_LOCAL, 11342 bytes)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  TaskSetManager:54 - Starting task 1.0 in stage 0.0 (TID 1, nodemasterS, executor 2, partition 1, NODE_LOCAL, 13406 bytes)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  BlockManagerInfo:54 - Added broadcast_1_piece0 in memory on nodemasterS:37067 (size: 54.1 KB, free: 4.1 GB)
+
+2023/12/10 02:59:55 - export - DEBUG - 2023-12-10 14:59:55 INFO  BlockManagerInfo:54 - Added broadcast_1_piece0 in memory on nodemasterS:44019 (size: 54.1 KB, free: 4.1 GB)
+
+2023/12/10 02:59:57 - export - DEBUG - 2023-12-10 14:59:57 INFO  BlockManagerInfo:54 - Added broadcast_0_piece0 in memory on nodemasterS:37067 (size: 24.0 KB, free: 4.1 GB)
+
+2023/12/10 02:59:57 - export - DEBUG - 2023-12-10 14:59:57 INFO  BlockManagerInfo:54 - Added broadcast_0_piece0 in memory on nodemasterS:44019 (size: 24.0 KB, free: 4.1 GB)
+
+2023/12/10 02:59:59 - export - DEBUG - 2023-12-10 14:59:59 INFO  TaskSetManager:54 - Starting task 2.0 in stage 0.0 (TID 2, nodemasterS, executor 2, partition 2, NODE_LOCAL, 8934 bytes)
+
+2023/12/10 02:59:59 - export - DEBUG - 2023-12-10 14:59:59 INFO  TaskSetManager:54 - Finished task 1.0 in stage 0.0 (TID 1) in 3912 ms on nodemasterS (executor 2) (1/3)
+
+2023/12/10 02:59:59 - export - DEBUG - 2023-12-10 14:59:59 INFO  TaskSetManager:54 - Finished task 2.0 in stage 0.0 (TID 2) in 125 ms on nodemasterS (executor 2) (2/3)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  TaskSetManager:54 - Finished task 0.0 in stage 0.0 (TID 0) in 6917 ms on nodemasterS (executor 1) (3/3)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  YarnScheduler:54 - Removed TaskSet 0.0, whose tasks have all completed, from pool 
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - ResultStage 0 (save at NativeMethodAccessorImpl.java:0) finished in 7.018 s
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Job 0 finished: save at NativeMethodAccessorImpl.java:0, took 7.060271 s
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  FileFormatWriter:54 - Job null committed.
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  FileFormatWriter:54 - Finished processing stats for job null.
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  SQLHadoopMapReduceCommitProtocol:54 - Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  SparkContext:54 - Starting job: save at NativeMethodAccessorImpl.java:0
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Got job 1 (save at NativeMethodAccessorImpl.java:0) with 2 output partitions
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Final stage: ResultStage 1 (save at NativeMethodAccessorImpl.java:0)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Parents of final stage: List()
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Missing parents: List()
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Submitting ResultStage 1 (MapPartitionsRDD[8] at save at NativeMethodAccessorImpl.java:0), which has no missing parents
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  MemoryStore:54 - Block broadcast_2 stored as values in memory (estimated size 154.5 KB, free 4.1 GB)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  MemoryStore:54 - Block broadcast_2_piece0 stored as bytes in memory (estimated size 54.9 KB, free 4.1 GB)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  BlockManagerInfo:54 - Added broadcast_2_piece0 in memory on nodemasterS:39855 (size: 54.9 KB, free: 4.1 GB)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  SparkContext:54 - Created broadcast 2 from broadcast at DAGScheduler.scala:1039
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  DAGScheduler:54 - Submitting 2 missing tasks from ResultStage 1 (MapPartitionsRDD[8] at save at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  YarnScheduler:54 - Adding task set 1.0 with 2 tasks
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  TaskSetManager:54 - Starting task 0.0 in stage 1.0 (TID 3, nodemasterS, executor 1, partition 0, PROCESS_LOCAL, 7850 bytes)
+
+2023/12/10 03:00:02 - export - DEBUG - 2023-12-10 15:00:02 INFO  TaskSetManager:54 - Starting task 1.0 in stage 1.0 (TID 4, nodemasterS, executor 2, partition 1, PROCESS_LOCAL, 8191 bytes)
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  BlockManagerInfo:54 - Added broadcast_2_piece0 in memory on nodemasterS:37067 (size: 54.9 KB, free: 4.1 GB)
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  BlockManagerInfo:54 - Added broadcast_2_piece0 in memory on nodemasterS:44019 (size: 54.9 KB, free: 4.1 GB)
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  TaskSetManager:54 - Finished task 0.0 in stage 1.0 (TID 3) in 663 ms on nodemasterS (executor 1) (1/2)
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  TaskSetManager:54 - Finished task 1.0 in stage 1.0 (TID 4) in 991 ms on nodemasterS (executor 2) (2/2)
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  YarnScheduler:54 - Removed TaskSet 1.0, whose tasks have all completed, from pool 
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  DAGScheduler:54 - ResultStage 1 (save at NativeMethodAccessorImpl.java:0) finished in 1.023 s
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  DAGScheduler:54 - Job 1 finished: save at NativeMethodAccessorImpl.java:0, took 1.026780 s
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  FileFormatWriter:54 - Job null committed.
+
+2023/12/10 03:00:03 - export - DEBUG - 2023-12-10 15:00:03 INFO  FileFormatWriter:54 - Finished processing stats for job null.
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - Export data succeed: g_test1234_outer_k_job1
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - 
+
+2023/12/10 03:00:06 - export - DEBUG - in conn()----------
+
+2023/12/10 03:00:06 - export - DEBUG - None
+
+2023/12/10 03:00:06 - export - DEBUG - None
+
+2023/12/10 03:00:06 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:06 - export - DEBUG - citcw200
+
+2023/12/10 03:00:06 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:06 - export - DEBUG - citcw200
+
+2023/12/10 03:00:06 - export - DEBUG - print updatevalue sql :
+
+2023/12/10 03:00:06 - export - DEBUG - UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_config',updateMember_Id='1',Progress='80',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 03:00:06 - export - DEBUG - b"UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_config',updateMember_Id='1',Progress='80',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'"
+
+2023/12/10 03:00:06 - export - DEBUG - (updateAppStatus)Update mysql succeed. UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='Export_config',updateMember_Id='1',Progress='80',Progress_State='Running',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 03:00:06 - export - DEBUG - in conn()----------
+
+2023/12/10 03:00:06 - export - DEBUG - None
+
+2023/12/10 03:00:06 - export - DEBUG - None
+
+2023/12/10 03:00:06 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:06 - export - DEBUG - citcw200
+
+2023/12/10 03:00:06 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:06 - export - DEBUG - citcw200
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - Check config file exist condition: {'pro_db': 'test1234', 'finaltblName': 'g_test1234_outer_k_job1'}
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - {'result': 1, 'msg': "\n    select pro_tb,pro_col_cht,qi_col,after_col_value,tablekeycol,gen_qi_settingvalue,minKvalue,target_col,k_risk,cast(t1 as char) as t1,cast(t2 as char) as t2,cast(r_value as char) as r_value,cast(max_t as char) as max_t\n    from DeIdService.T_Project_SampleTable\n    WHERE pro_db='test1234' AND finaltblName='g_test1234_outer_k_job1'\n    ", 'fetchall': [{'k_risk': None, 'qi_col': 'RIAGENDR_h1_E0_enc-1,RIDAGEYR_h1_E0_enc-1,DMDMARTL_h1_E1_enc-1,SDMVSTRA_h1_E2_enc-2', 't1': None, 'minKvalue': 3, 'target_col': None, 'after_col_value': '3,1,1,4,4,1,4,4,4,4,4,4,2', 'r_value': None, 'gen_qi_settingvalue': 'test1234_outer*5,5,5,5*5,5,5,5', 'max_t': None, 't2': None, 'pro_col_cht': 'SEQN_h1_E0_enc,RIAGENDR_h1_E0_enc,RIDAGEYR_h1_E0_enc,RIDRETH1_h1_E0_enc,DMDCITZN_h1_E0_enc,DMDMARTL_h1_E1_enc,DMDHHSIZ_h1_E1_enc,INDFMINC_h1_E1_enc,INDFMPIR_h1_E1_enc,WTINT2YR_h1_E2_enc,WTMEC2YR_h1_E2_enc,SDMVPSU_h1_E2_enc,SDMVSTRA_h1_E2_enc', 'pro_tb': 'test1234_outer', 'tablekeycol': 'SEQN_h1_E0_enc'}]}
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - Export config succeed: {'result': 1, 'msg': True}
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - 34.81.23.2
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - 6922
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - /home/hadoop/proj_/final_project/k/input
+
+2023/12/10 03:00:06 - export - DEBUG - export - DEBUG - cmd is scp -o StrictHostKeyChecking=no -P 6922 -r /home/hadoop/proj_/data/output/test1234 hadoop@34.81.23.2:/home/hadoop/proj_/final_project/k/input
+
+2023/12/10 03:00:06 - export - DEBUG - Warning: Permanently added '[34.81.23.2]:6922' (ECDSA) to the list of known hosts.
+
+2023/12/10 03:00:07 - export - DEBUG - export - DEBUG - cmd is isojdfoiwqjpoiejoq
+
+2023/12/10 03:00:07 - export - DEBUG - export - DEBUG - run result is 0
+
+2023/12/10 03:00:07 - export - DEBUG - in conn()----------
+
+2023/12/10 03:00:07 - export - DEBUG - None
+
+2023/12/10 03:00:07 - export - DEBUG - None
+
+2023/12/10 03:00:07 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:07 - export - DEBUG - citcw200
+
+2023/12/10 03:00:07 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:07 - export - DEBUG - citcw200
+
+2023/12/10 03:00:07 - export - DEBUG - print updatevalue sql :
+
+2023/12/10 03:00:07 - export - DEBUG - UPDATE DeIdService.T_ProjectStatus SET project_id='37',project_status='11',statusname='export data finished',updateMember_Id='1',updatetime = now() WHERE project_id='37'
+
+2023/12/10 03:00:07 - export - DEBUG - b"UPDATE DeIdService.T_ProjectStatus SET project_id='37',project_status='11',statusname='export data finished',updateMember_Id='1',updatetime = now() WHERE project_id='37'"
+
+2023/12/10 03:00:07 - export - DEBUG - ---project_id=37--project_status=11----(in updateTProjectStatus)-----Update updateTProjectStatus succeed. UPDATE DeIdService.T_ProjectStatus SET project_id='37',project_status='11',statusname='export data finished',updateMember_Id='1',updatetime = now() WHERE project_id='37'
+
+2023/12/10 03:00:07 - export - DEBUG - export - DEBUG - finish the process in update mysql
+
+2023/12/10 03:00:07 - export - DEBUG - in conn()----------
+
+2023/12/10 03:00:07 - export - DEBUG - None
+
+2023/12/10 03:00:07 - export - DEBUG - None
+
+2023/12/10 03:00:07 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:07 - export - DEBUG - citcw200
+
+2023/12/10 03:00:07 - export - DEBUG - keyadmin
+
+2023/12/10 03:00:07 - export - DEBUG - citcw200
+
+2023/12/10 03:00:07 - export - DEBUG - print updatevalue sql :
+
+2023/12/10 03:00:07 - export - DEBUG - UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='All_table_export_succeed',updateMember_Id='1',Progress='100',Progress_State='Finished',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 03:00:07 - export - DEBUG - b"UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='All_table_export_succeed',updateMember_Id='1',Progress='100',Progress_State='Finished',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'"
+
+2023/12/10 03:00:07 - export - DEBUG - (updateAppStatus)Update mysql succeed. UPDATE spark_status.appStatus SET isRead='0',createMember_Id='1',dbName='test1234',Application_Id='application_1702219045342_0005',proj_id='37',App_state='All_table_export_succeed',updateMember_Id='1',Progress='100',Progress_State='Finished',Application_Name='export',updatetime = now() WHERE dbName='test1234' AND Application_Name='export' AND Application_Id='application_1702219045342_0005' AND proj_id='37'
+
+2023/12/10 03:00:07 - export - DEBUG - export - DEBUG - All dataset export data succeed: g_test1234_outer_k_job1
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  SparkContext:54 - Invoking stop() from shutdown hook
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  AbstractConnector:318 - Stopped Spark@48a18f88{HTTP/1.1,[http/1.1]}{0.0.0.0:4041}
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  SparkUI:54 - Stopped Spark web UI at http://nodemasterS:4041
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  YarnClientSchedulerBackend:54 - Interrupting monitor thread
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  YarnClientSchedulerBackend:54 - Shutting down all executors
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  YarnSchedulerBackend$YarnDriverEndpoint:54 - Asking each executor to shut down
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  SchedulerExtensionServices:54 - Stopping SchedulerExtensionServices
+
+2023/12/10 03:00:07 - export - DEBUG - (serviceOption=None,
+
+2023/12/10 03:00:07 - export - DEBUG -  services=List(),
+
+2023/12/10 03:00:07 - export - DEBUG -  started=false)
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  YarnClientSchedulerBackend:54 - Stopped
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  MapOutputTrackerMasterEndpoint:54 - MapOutputTrackerMasterEndpoint stopped!
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  MemoryStore:54 - MemoryStore cleared
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  BlockManager:54 - BlockManager stopped
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  BlockManagerMaster:54 - BlockManagerMaster stopped
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  OutputCommitCoordinator$OutputCommitCoordinatorEndpoint:54 - OutputCommitCoordinator stopped!
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  SparkContext:54 - Successfully stopped SparkContext
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  ShutdownHookManager:54 - Shutdown hook called
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  ShutdownHookManager:54 - Deleting directory /tmp/spark-1fae0730-f2dc-40c7-bdd5-02401a7be6e6
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  ShutdownHookManager:54 - Deleting directory /tmp/spark-1fae0730-f2dc-40c7-bdd5-02401a7be6e6/pyspark-da89096d-f766-40e9-a691-aa3c692f637b
+
+2023/12/10 03:00:07 - export - DEBUG - 2023-12-10 15:00:07 INFO  ShutdownHookManager:54 - Deleting directory /tmp/spark-a51ff2e7-667e-4440-bcb1-3a5e4a5e0a30
+
+2023/12/10 03:00:07 - export - DEBUG - 
+2023/12/10 03:00:07 - export - DEBUG - Export g_test1234_outer_k_job1 done.
