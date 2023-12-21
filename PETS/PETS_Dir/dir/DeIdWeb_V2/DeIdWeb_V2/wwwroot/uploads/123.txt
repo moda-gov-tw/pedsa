@@ -1,0 +1,27 @@
+Response [200]>
+The access token is eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJub2RlIjoidHNtcF90YWlwZWlnb3YiLCJhdWQiOlsiWVdSdGFXNUJVRWsiXSwic2NvcGUiOlsic2VsZWN0Il0sImV4cCI6MTY4MDExMjE2NiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50Il0sImp0aSI6Ijg3ZjM5NDdkLWZlNzAtNDA4Yy1iMTUyLTFiODhhZDNlZjQ5NiIsImNsaWVudF9pZCI6ImFYTjNhV05xZVdkMSJ9.FP3upMwYXVJRIoTloP6dGSNfDRH9aBAigJzLuV7RS7OCxGn-dcSQlBdGk_AViFUNkmTUcpy5dZ7AWua3JiJ9e4GjM1DRkyOuxhzuUtkCqUPBHA4ZE1nNEdCm-gS9JF-EhTrRaObSZVSThFAUepZ9HlFkiO7Wr0w0AtMLCA7lOEOzh1rZJ368hEnOhIjqUOIcWY7drTjbBpDRZ_o0w5htdKlBYrXEFTHoFkcAaN-ABuiIKyiXczhzoPQ-eAiUNN6AnngNfPzJnqjjfSuO90pdtnth_b6KuMOkel237xl0Both6eeQe4WbhBhF-Ds6cLwL1HZfpAySXUt-ljqOdTooEg
+<Response [200]>
+The access token is eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJub2RlIjoidHNtcF90YWlwZWlnb3YiLCJhdWQiOlsiWVdSdGFXNUJVRWsiXSwic2NvcGUiOlsic2VsZWN0Il0sImV4cCI6MTY4MDExMjE2NiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50Il0sImp0aSI6Ijg3ZjM5NDdkLWZlNzAtNDA4Yy1iMTUyLTFiODhhZDNlZjQ5NiIsImNsaWVudF9pZCI6ImFYTjNhV05xZVdkMSJ9.FP3upMwYXVJRIoTloP6dGSNfDRH9aBAigJzLuV7RS7OCxGn-dcSQlBdGk_AViFUNkmTUcpy5dZ7AWua3JiJ9e4GjM1DRkyOuxhzuUtkCqUPBHA4ZE1nNEdCm-gS9JF-EhTrRaObSZVSThFAUepZ9HlFkiO7Wr0w0AtMLCA7lOEOzh1rZJ368hEnOhIjqUOIcWY7drTjbBpDRZ_o0w5htdKlBYrXEFTHoFkcAaN-ABuiIKyiXczhzoPQ-eAiUNN6AnngNfPzJnqjjfSuO90pdtnth_b6KuMOkel237xl0Both6eeQe4WbhBhF-Ds6cLwL1HZfpAySXUt-ljqOdTooEg
+The access token is {"ResHeader":{"rtnCode":"0000","rtnMsg":"success"},"Res_getSignBlock":{"signBlock":"DzANBgNVBAgTBnRhaXdhbjEPMA0GA1UEBxMGdGFpcGVpMRMwEQYDVQQKEwp0aGlu"}}
+The secresponse sign_block is DzANBgNVBAgTBnRhaXdhbjEPMA0GA1UEBxMGdGFpcGVpMRMwEQYDVQQKEwp0aGlu
+The new_block is DzANBgNVBAgTBnRhaXdhbjEPMA0GA1UEBxMGdGFpcGVpMRMwEQYDVQQKEwp0aGlu{"ResHeader":{"rtnCode":"0000","rtnMsg":"success"},"Res_getSignBlock":{"signBlock":"DzANBgNVBAgTBnRhaXdhbjEPMA0GA1UEBxMGdGFpcGVpMRMwEQYDVQQKEwp0aGlu"}}
+The digest is bcbbabe3a2a65e02d89d375b266e5a9cacedd8d4999b8dfe38d033eadbd0e962
+the new hex is bcbbabe3a2a65e02d89d375b266e5a9cacedd8d4999b8dfe38d033eadbd0e962
+The hex_string is bcbbabe3a2a65e02d89d375b266e5a9cacedd8d4999b8dfe38d033eadbd0e962
+
+
+
+
+<Response [200]>
+The access token is {'ResHeader': {'rtnCode': '9914', 'rtnMsg': 'SignCode was not correct'}, 'errorDescription': 'TAA-9914(SignCode was not correct)'}
+root@nodemasterS:/home/hadoop/proj_/longTaskDir#
+
+
+{"APP_PRIVATE_ID":"12bad796a1b8761d44f700bc44385183","APP_PRIVATE_PASSWD":"aef21cc7e421ed3cc832ad6090f92582"}
+The new_block is DzANBgNVBAgTBnRhaXdhbjEPMA0GA1UEBxMGdGFpcGVpMRMwEQYDVQQKEwp0aGlu{"APP_PRIVATE_ID":"12bad796a1b8761d44f700bc44385183","APP_PRIVATE_PASSWD":"aef21cc7e421ed3cc832ad6090f92582"}
+the new hex is 911196de0c8e6fede052114dd1e477b83c3c24f5aee65c803eb020c16d5a1b3a
+The hex_string is 911196de0c8e6fede052114dd1e477b83c3c24f5aee65c803eb020c16d5a1b3a
+<Response [200]>
+The access token is {'ResHeader': {'rtnCode': '9914', 'rtnMsg': 'SignCode was not correct'}, 'errorDescription': 'TAA-9914(SignCode was not correct)'}
+root@nodemasterS:/home/hadoop/proj_/longTaskDir#
+
