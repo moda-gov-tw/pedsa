@@ -227,6 +227,9 @@ def delete_folder(project_name):
 
     try:
         for exec_cmd in delete_dirs:
+            cmd = 'sshpass -p \"'+passwd+'\" ssh -o StrictHostKeyChecking=no -p 22 '+user+'@'+ip+ ' sudo chown -R ubuntu:ubuntu '+exec_cmd+'/'
+            runcode = os.system(cmd)
+            logger.info(f'==============delete_folder===={cmd}==========')
             rm_cmd = f'sshpass -p "{passwd}" ssh -o StrictHostKeyChecking=no -p {port} {user}@{ip} rm -r  {exec_cmd}'
             proc = subprocess.Popen(rm_cmd, shell=True,stdout=subprocess.PIPE)
             logger.info(f'==============delete_folder===={exec_cmd}==========')

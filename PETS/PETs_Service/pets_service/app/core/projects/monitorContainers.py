@@ -57,7 +57,7 @@ def getcontainersStatus():
         container_dict_ = checkContainersStatus_.getDockerClient()
 
         logger.info(container_dict_)
-        logger.info(container_dict_.keys())
+        ###logger.info(container_dict_.keys())
 
         return {
             "status": 1,

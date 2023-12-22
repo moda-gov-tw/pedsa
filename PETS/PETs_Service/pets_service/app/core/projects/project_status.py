@@ -29,7 +29,7 @@ def get_project_status(project_id:int,db:Session = Depends(get_db)):
         print(msg)
         result = Result_P(msg=msg, status=-1)
         return _result_wrapper(result, status_code=400)
-    elif proj_sta_ser['project_status'] > 9 or proj_sta_ser['project_status'] <0 :
+    elif get_status_name(proj_sta_ser) == 'Key_Error':
         msg = f"project id {project_id} status error, do not exist project status {proj_sta_ser['project_status']}"
         proj_sta_ser['status'] = proj_sta_ser.pop('project_status')
         result = Result_P(msg=msg, obj=proj_sta_ser, status=-2)

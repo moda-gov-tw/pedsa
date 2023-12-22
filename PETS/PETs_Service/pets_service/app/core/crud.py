@@ -627,9 +627,15 @@ def get_status_name(project_status):
                     6 :'產生安全強化資料',
                     7 :'感興趣欄位選擇',
                     8 :'可用性分析處理中',
-                    9 :'查看可用性分析報表'
+                    9 :'查看可用性分析報表',
+                    90 : '安全資料鏈結錯誤',
+                    91 : '可用性分析錯誤',
+                    92:'資料匯入錯誤'
                     }
-    return proj_dict[project_status['project_status']]
+    if project_status['project_status'] in proj_dict.keys():
+        return proj_dict[project_status['project_status']]
+    else:
+        return 'Key_Error'
 
 
 def db_update_project_status(project_id: int, modify_status: int, db: Session):
@@ -645,8 +651,11 @@ def db_update_project_status(project_id: int, modify_status: int, db: Session):
     # modify_status_data['updatemember_id'] = member_id
     modify_status_data['updatetime'] = datetime.now()   
     try:
-        db_proj_status.update(modify_status_data)
-        db.commit()
+        if get_status_name(modify_status_data) == 'Key_Error':
+            return False, f"Key {modify_status} Error"
+        else:
+            db_proj_status.update(modify_status_data)
+            db.commit()
     except Exception as e:
         db.rollback()
         return False, str(e)

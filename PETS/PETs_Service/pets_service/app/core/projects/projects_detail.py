@@ -49,7 +49,10 @@ def get_project_detail(member_id, project_id, db: Session):
                     6 :'產生安全強化資料',
                     7 :'感興趣欄位選擇',
                     8 :'可用性分析處理中',
-                    9 :'查看可用性分析報表'
+                    9 :'查看可用性分析報表',
+                    90:'安全資料鏈結錯誤',
+                    91:'可用性分析錯誤',
+                    92:'資料匯入錯誤'
                     }
     is_super_admin = db.query(MemberGroupRole).filter(MemberGroupRole.member_id == member_id,
                                                    MemberGroupRole.member_role == AdminRole.super_admin.value).first()
@@ -90,6 +93,8 @@ def get_project_detail(member_id, project_id, db: Session):
                 join_dict['right_col'] = proj.right_col  
                 join_func.append(join_dict)          
             join_func_dedu = [dict(t) for t in set([tuple(d.items()) for d in join_func])]
+            #join_func_dedu:依照id進行排序
+            join_func_dedu = sorted(join_func_dedu, key=lambda x: x["id"])
             proj_dict['join_func'] = join_func_dedu
 
             project_role  = []
@@ -101,6 +106,8 @@ def get_project_detail(member_id, project_id, db: Session):
                 join_dict['member_id'] = proj.rolemember_id
                 project_role.append(join_dict)            
             project_role_dedu = [dict(t) for t in set([tuple(d.items()) for d in project_role])]
+            #project_role_dedu:依照id進行排序
+            project_role_dedu = sorted(project_role_dedu, key=lambda x: x["id"])
             proj_dict['project_role'] = project_role_dedu
             return True, proj_dict
 
@@ -139,6 +146,8 @@ def get_project_detail(member_id, project_id, db: Session):
                 join_dict['right_col'] = proj.right_col  
                 join_func.append(join_dict)          
             join_func_dedu = [dict(t) for t in set([tuple(d.items()) for d in join_func])]
+            #join_func_dedu:依照id進行排序
+            join_func_dedu = sorted(join_func_dedu, key=lambda x: x["id"])
             proj_dict['join_func'] = join_func_dedu
 
             project_role  = []
@@ -150,6 +159,8 @@ def get_project_detail(member_id, project_id, db: Session):
                 join_dict['member_id'] = proj.rolemember_id
                 project_role.append(join_dict)            
             project_role_dedu = [dict(t) for t in set([tuple(d.items()) for d in project_role])]
+            #project_role_dedu:依照id進行排序
+            project_role_dedu = sorted(project_role_dedu, key=lambda x: x["id"])
             proj_dict['project_role'] = project_role_dedu
             return True, proj_dict
 
@@ -186,7 +197,12 @@ def get_project_detail(member_id, project_id, db: Session):
             join_dict['right_col'] = proj.right_col  
             join_func.append(join_dict)          
         join_func_dedu = [dict(t) for t in set([tuple(d.items()) for d in join_func])]
+
+        #依照id進行排序
+        join_func_dedu = sorted(join_func_dedu, key=lambda x: x["id"])
+
         proj_dict['join_func'] = join_func_dedu
+        
 
         project_role  = []
         for proj in all_records:
@@ -197,6 +213,8 @@ def get_project_detail(member_id, project_id, db: Session):
             join_dict['member_id'] = proj.rolemember_id
             project_role.append(join_dict)            
         project_role_dedu = [dict(t) for t in set([tuple(d.items()) for d in project_role])]
+        #project_role_dedu:依照id進行排序
+        project_role_dedu = sorted(project_role_dedu, key=lambda x: x["id"])
         proj_dict['project_role'] = project_role_dedu
 
         return True, proj_dict

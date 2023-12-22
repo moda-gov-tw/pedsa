@@ -50,7 +50,10 @@ def ResetProject(member_id, project_id, db: Session):
                     6 :'產生安全強化資料',
                     7 :'感興趣欄位選擇',
                     8 :'可用性分析處理中',
-                    9 :'查看可用性分析報表'
+                    9 :'查看可用性分析報表',
+                    90:'安全資料鏈結錯誤',
+                    91:'可用性分析錯誤',
+                    92:'資料匯入錯誤'
                     }
     
     is_super_admin = db.query(MemberGroupRole).filter(MemberGroupRole.member_id == member_id,

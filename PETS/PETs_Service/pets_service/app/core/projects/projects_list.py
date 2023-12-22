@@ -53,7 +53,10 @@ def get_project_ls(member_id, db: Session):
                     6 :'產生安全強化資料',
                     7 :'感興趣欄位選擇',
                     8 :'可用性分析處理中',
-                    9 :'查看可用性分析報表'
+                    9 :'查看可用性分析報表',
+                    90:'安全資料鏈結錯誤',
+                    91:'可用性分析錯誤',
+                    92:'資料匯入錯誤'
                     }
     
     data = {}
@@ -112,7 +115,42 @@ def get_project_ls(member_id, db: Session):
                 proj_dict['project_group_id'] =proj.group_id
                 proj_dict['project_group_name'] =db.query(Group).filter(Group.id == proj.group_id).first().group_name
                 project_ls.append(proj_dict)
-            return project_ls
+            logger.info(f"***********project user{member_id}*********")
+            all_project = db.query(MemberProjectRole).filter(MemberProjectRole.member_id == member_id).all() 
+            for proj in all_project  :
+            #     user_dict = user.model_dump()
+                proj_dict = dict()
+                proj_dict['project_id'] = proj.project_id
+                proj_dict['project_name'] = db.query(Project).filter(Project.project_id == proj.project_id).first().project_name
+                proj_status = db.query(ProjectStatus).filter(ProjectStatus.project_id == proj.project_id).first()
+                proj_dict['project_status'] =proj_status.project_status
+                proj_dict['project_statusname']  = status_trans[proj_status.project_status]    
+
+                proj_dict['member_role'] = None #is_group_admin.member_role
+                proj_dict['project_role'] = proj.project_role
+
+                if proj_status.updatetime is None:
+                    proj_dict['project_time'] =proj_status.createtime
+                else:
+                    proj_dict['project_time'] =proj_status.updatetime
+
+                proj_dict['project_group_id'] =db.query(Project).filter(Project.project_id == proj.project_id).first().group_id
+                proj_dict['project_group_name'] =db.query(Group).filter(Group.id == proj_dict['project_group_id']).first().group_name
+                project_ls.append(proj_dict)
+
+            merged_dict = {}
+            for project in project_ls:
+                project_id = project["project_id"]
+                if project_id not in merged_dict:
+                    # 若尚未有該 project_id，則直接新增
+                    merged_dict[project_id] = project
+                else:
+                    # 若已經存在該 project_id，則合併紀錄，並去掉 "member_role" 為 None 的項目
+                    if project["member_role"] is not None:
+                        merged_dict[project_id].update(project)
+            # 轉換字典為列表，只保留合併後的紀錄
+            merged_list = list(merged_dict.values())
+            return merged_list
 
     else: #SuperAdmin可以看到所有的projecy
         logger.info(f"***********SuperAdmin**************")

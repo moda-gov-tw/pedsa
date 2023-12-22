@@ -23,6 +23,8 @@ Update_status = APIRouter()
 @Update_status.put('/status')
 def update_status(project_id:int,status:int,db:Session = Depends(get_db)):
     checked, proj_sta_ser = get_status(project_id, db)
+    check_name = {}
+    check_name['project_status'] = status
     if not checked:
         message = str(proj_sta_ser)
         msg = f"get project {project_id} info failed: {message}"
@@ -30,7 +32,7 @@ def update_status(project_id:int,status:int,db:Session = Depends(get_db)):
         result = Result(msg=msg, status=False)
         return _result_wrapper(result, status_code=400)
     
-    if status < 0 or status > 9:
+    if get_status_name(check_name) == 'Key_Error':
         checked = 0
         msg = f"invalid project status {status}, update project id {project_id} failed."
         print(msg)
