@@ -274,11 +274,12 @@
                     //alert('2222');
                     //alert(rdname);
                     $("input[name='" + rdname + "'][value='1']").prop("checked", true);
-                    $("input[name='" + rdname + "']").prop('disabled', true);
+                    //$("input[name='" + rdname + "']").prop('disabled', true);
                 }
                 else
                 {
-                        $("input[name='" + rdname + "'][value='1']").prop("checked", true);
+                    var rdname = 'rd' + colnm;
+                   $("input[name='" + rdname + "'][value='1']").prop("checked", true);
                 }
             }
 
@@ -297,7 +298,7 @@
                     //alert(rdname);
                     $("input[name='" + rdname + "'][value='1']").attr("checked", false);
                     $("input[name='" + rdname + "'][value='0']").attr("checked", false);
-                    $("input[name='" + rdname + "']").prop('disabled', false);
+                    //$("input[name='" + rdname + "']").prop('disabled', false);
                    
                     
                 }
@@ -360,12 +361,12 @@
 
                     }
                     //alert('cfdfdfdfd');
-                    alert( col_arr[i]);
+                   // alert( col_arr[i]);
                     obcolstr += col_arr[i] + ',';
                 }
                 else {
                     //數字
-                    alert('fffffgggg');
+                 //   alert('fffffgggg');
                 }
                 //確認數字類別
             }
@@ -376,7 +377,7 @@
         }
 
          //alert('1');
-        alert(obcolstr);
+      //  alert(obcolstr);
         //if (obcolstr.length > 0) {
         //    obcolstr = obcolstr.substring(0, obcolstr.length - 1);
         //}
@@ -401,7 +402,7 @@
         var idcol = $('#idcol').text();
         var pname = $('#project_name').text();
         var pname_cht = $('#project_cht').text();
-         alert('1');
+      //   alert('1');
         if (cbcount < 3) {
             //alert('選擇欄位請勿小於三個!!');
             //exampleModalCenter
@@ -419,7 +420,7 @@
         //    alert(idcol);
         //    alert(idcol);
 
-         alert('1');
+     //    alert('1');
         $.ajax({
             type: "get",
             url: "/api/WebAPI/SendGanSyncService",
