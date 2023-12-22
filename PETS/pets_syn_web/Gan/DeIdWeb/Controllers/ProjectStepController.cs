@@ -819,39 +819,6 @@ namespace DeIdWeb.Controllers
                                         syn_newhtml += String.Format(utility_html, target_col_str[i], typevalue, value_content);
                                     }
                                     
-                                    //if((i+1)==1)
-                                    //{
-                                    //    //ViewData["raw_target_1"] = target_col_str[i];
-                                    //    //ViewData["raw_data_1"] = target_raw_data;
-                                    //    //ViewData["syn_target_1"] = target_col_str[i];
-                                    //    //ViewData["syn_data_1"] = target_syn_data;
-                                    //    JObject raw_col_attr = JObject.Parse(target_raw_data);
-                                    //    JObject syn_col_attr = JObject.Parse(target_syn_data);
-                                    //    raw_newhtml += String.Format(utility_html, target_col_str[i], raw_col_attr["type"].ToString(), raw_col_attr["value"].ToString());
-                                    //    syn_newhtml += String.Format(utility_html, target_col_str[i], syn_col_attr["type"].ToString(), syn_col_attr["value"].ToString());
-                                    //}
-                                    //else if ((i + 1) ==2)
-                                    //{
-                                    //    //ViewData["raw_target_2"] = target_col_str[i];
-                                    //    //ViewData["syn_target_2"] = target_col_str[i];
-                                    //    //ViewData["raw_data_2"] = target_raw_data;
-                                    //    //ViewData["syn_data_2"] = target_syn_data;
-                                    //    JObject raw_col_attr = JObject.Parse(target_raw_data);
-                                    //    JObject syn_col_attr = JObject.Parse(target_syn_data);
-                                    //    raw_newhtml += String.Format(utility_html, target_col_str[i], raw_col_attr["type"].ToString(), raw_col_attr["value"].ToString());
-                                    //    syn_newhtml += String.Format(utility_html, target_col_str[i], syn_col_attr["type"].ToString(), syn_col_attr["value"].ToString());
-                                    //}
-                                    //else
-                                    //{
-                                    //    //ViewData["raw_target_3"] = target_col_str[i];
-                                    //    //ViewData["syn_target_3"] = target_col_str[i];
-                                    //    //ViewData["raw_data_3"] = target_raw_data;
-                                    //    //ViewData["syn_data_3"] = target_syn_data;
-                                    //    JObject raw_col_attr = JObject.Parse(target_raw_data);
-                                    //    JObject syn_col_attr = JObject.Parse(target_syn_data);
-                                    //    raw_newhtml += String.Format(utility_html, target_col_str[i], raw_col_attr["type"].ToString(), raw_col_attr["value"].ToString());
-                                    //    syn_newhtml += String.Format(utility_html, target_col_str[i], syn_col_attr["type"].ToString(), syn_col_attr["value"].ToString());
-                                    //}
 
                                 }
                             }

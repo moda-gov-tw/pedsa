@@ -1294,7 +1294,7 @@ namespace DeIdWeb.Controllers
                                         break;
                                     case 8:
                                         statusname = "資料下載";
-                                        return_url += "/ProjectStep/ExportData?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString());
+                                        return_url += "/ProjectStep/GanSyncReport?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString());
                                     
                                         break;
                                     case 7:
@@ -1303,18 +1303,18 @@ namespace DeIdWeb.Controllers
                                         return_url = "";
 
                                         break;
-                                    
-                                    case 10:
-                                        statusname = "資料下載";
-                                        return_url += "/ProjectStep/GanSyncReport?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString());
-                                        break;
+
                                     case 99:
                                         statusname = "資料合成錯誤";
                                         return_url += "/ProjectStep/GanSync?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString());
                                         break;
                                     case 98:
-                                        statusname = "資料可用性錯誤";
+                                        statusname = "資料相似度比對錯誤";
                                         return_url += "/ProjectStep/MLutility?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString());
+                                        break;
+                                    case 92:
+                                        statusname = "資料匯入錯誤";
+                                        return_url = "";
                                         break;
                                 }
                                 var responseObject = new
