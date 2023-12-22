@@ -1,0 +1,84 @@
+working Dir : gau@67-850481-02:/gau-working/20200713-docker_plugin
+
+
+1. generate CA private and public keys: (citcw200)
+	openssl genrsa -aes256 -out ca-key.pem 4096
+
+	openssl req -new -x509 -days 3650 -key ca-key.pem -sha256 -out ca.pem
+
+	display ca.pem:
+	openssl x509 -in ca.pem -text
+
+2. generate daemon cert:
+   Make sure that “Common Name” matches the hostname you use to connect to Docker:
+   openssl genrsa -out server-key.pem 4096
+
+   openssl req -subj "/CN=140.96.111.99" -sha256 -new -key server-key.pem -out server.csr
+
+   echo subjectAltName = DNS:localhost,IP:140.96.111.99,IP:127.0.0.1 >> extfile.cnf
+   echo extendedKeyUsage = serverAuth >> extfile.cnf
+
+   openssl x509 -req -days 2650 -sha256 -in server.csr -CA ../ca.pem -CAkey ../ca-key.pem \
+  -CAcreateserial -out server-cert.pem -extfile extfile.cnf
+
+openssl req -x509 -new -nodes -sha256 -utf8 -days 3650 -newkey rsa:2048 -keyout server.key -out server.crt -config ssl.conf
+
+   HAMA:
+        openssl genrsa -out server-key.pem 4096
+        openssl req -subj "/CN=61.221.174.157" -sha256 -new -key server-key.pem -out server.csr
+        echo subjectAltName = DNS:localhost,IP:61.221.174.157,IP:127.0.0.1 >> extfile.cnf
+        echo extendedKeyUsage = serverAuth >> extfile.cnf
+        openssl x509 -req -days 2650 -sha256 -in server.csr -CA ../ca.pem -CAkey ../ca-key.pem \
+        -CAcreateserial -out server-cert.pem -extfile extfile.cnf
+   
+
+3.For client authentication, create a client key and certificate signing request:
+  openssl genrsa -out key.pem 4096
+  openssl req -subj '/CN=privacy' -new -key key.pem -out client.csr
+  echo extendedKeyUsage = clientAuth > extfile-client.cnf
+  openssl x509 -req -days 3650 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem \
+  -CAcreateserial -out cert.pem -extfile extfile-client.cnf 
+
+   HAMA:
+        openssl genrsa -out key.pem 4096
+        openssl req -subj '/CN=privacy' -new -key key.pem -out client.csr
+        echo extendedKeyUsage = clientAuth > extfile-client.cnf
+        openssl x509 -req -days 24 -sha256 -in client.csr -CA ../ca.pem -CAkey ../ca-key.pem \
+               -CAcreateserial -out cert.pem -extfile extfile-client.cnf
+
+    
+
+4.vi /etc/docker/daemon.json 
+
+{
+    "icc": false,
+    "tls": true,
+    "tlsverify": true,
+    "tlscacert": "/etc/docker/ssl/ca.pem",
+    "tlscert": "/etc/docker/ssl/server-cert.pem",
+    "tlskey": "/etc/docker/ssl/server-key.pem",
+    "userland-proxy": false,
+    "default-ulimit": "nofile=50:100",
+    "hosts": ["fd://","unix:///var/run/docker.sock", "tcp://140.96.111.99:2376"],
+    "authorization-plugins": ["img-authz-plugin"],
+    "data-root": "data-root"
+
+}
+
+mkdir -pv ~/.docker
+$ cp -v {ca,cert,key}.pem ~/.docker
+
+$ export DOCKER_HOST=tcp://140.96.111.99:2376 DOCKER_TLS_VERIFY=1
+
+
+
+
+實際: 140.96.111.99, 
+docker vm: 140.96.81.162
+
+
+
+
+
+openssl certificate generation:
+(https://blog.miniasp.com/post/2019/02/25/Creating-Self-signed-Certificate-using-OpenSSL)

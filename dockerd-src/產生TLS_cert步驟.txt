@@ -1,0 +1,17 @@
+進入opssl_CA_2023
+
+
+mkdir demoCert_自己的主機名稱
+source ./makeDaemon.sh 自己的IP demoCert_自己的主機名稱 (ip 要對上自己的IP) (iclw200@)
+cd demoCert_自己的主機名稱
+scp ../ca.pem ./server-cert.pem ./server-key.pem ubuntu@自己的IP:~
+
+ssh 到自己的主機
+ssh ubuntu@自己的IP
+sudo su
+cp ca.pem server-cer.pem server-key.pem /etc/docker/ssl
+systemctl daemon-reload
+systemctl restart docker
+
+---end-----------
+
