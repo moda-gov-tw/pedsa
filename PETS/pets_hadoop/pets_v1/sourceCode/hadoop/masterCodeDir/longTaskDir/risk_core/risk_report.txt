@@ -1,0 +1,5 @@
+Method Arbitrary target re-identify risk (QI-based) 0.0%, and the threshold is 1 
+Method Single project re-identify risk (QI-based): 0.0%, and the threshold is 1 
+Method Multiple project re-identify risk (QI-based): 0.0%, and the threshold is 1 
+Method Multiple sequential order conjecture risk: 11.76470588235294%, and the threshold is 5 
+Method Single sequential order conjecture risk: 5.88235294117647%, and the threshold is 5 

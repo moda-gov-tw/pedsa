@@ -1,0 +1,10 @@
+{
+  "QI":["T_San123","T_Syokugyo","T_KiKibo","T_Age_10"],
+  "SA":["Y_Income","Food","LFW","Clothes","Transport","Recreation"],
+  "df_ori":"/home/hadoop/proj_/longTaskDir/risk_core/ori.csv",
+  "df_ano":"/home/hadoop/proj_/longTaskDir/risk_core/ano.csv",
+  "p":"/home/hadoop/proj_/longTaskDir/risk_core/p.txt",
+  "detail_setting":"False",
+  "Project_id":"True"
+}
+

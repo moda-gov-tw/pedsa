@@ -1,0 +1,21 @@
+spark-submit --jars udfGen_0330.jar,java-json.jar,myLogging_1.jar,mysql-connector-java-8.0.13.jar udfWithConfig.py default userupload "1"
+
+1. udfGen_0330.jar,java-json.jar要放在 longTaskDir
+2. address_exception.json 放在 longTaskDir
+3. "1" 為概化address的level
+4. default, userupload放入hive的dbname, tablename
+5. userupload.csv要load進hive，指令如下
+   on nodemaster:
+   hadoop fs -mkdir userupload
+   hadoop fs -put ./userupload.csv userupload
+
+   on hive:
+   CREATE TABLE IF NOT EXISTS userupload (data string, id string, income string, address string)
+   ROW FORMAT DELIMITED
+   FIELDS TERMINATED BY ','
+   LINES TERMINATED BY '\n'
+   LOCATION '/user/hadoop/userupload'
+   TBLPROPERTIES
+   -- ('skip..lines.count' = '1')
+   ('skip.header.line.count' = '1');
+

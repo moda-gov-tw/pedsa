@@ -1,0 +1,28 @@
+summary: "刪除專案: delProject_Sync" #modify
+description: "刪除專案" #modify
+tags:
+  - delProject_Sync
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "delProject_Sync" #modify
+  description: "p_dsname:專案資料集名稱<br/> " #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      p_dsname:
+        type: "string"
+        example : 'DeId_adult_autohash'
+
+    required:
+      - p_dsname
+
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

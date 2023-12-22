@@ -1,0 +1,77 @@
+summary: "非同步版的自動化API:setAutoDeId_Async" #modify
+tags:
+  - setAutoDeId_Async
+description: "非同步版自動化全部流程API 內含 Hash 、匯入資料、匯入config、欄位設定、概化條件設定、概化與去識別化、匯出" #modify
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "setAutoDeId_Async" #modify
+  description: "pname:專案名稱(可以中文),<br/>  
+  p_dsname:專案資料集名稱,<br/>
+  prodesc:專案描述,<br/>
+  configName:欄位判定與概化條件要用的json,<br/>
+  hashTableName:在dataMac的裡的資料名稱,<br/>
+  hashkey:hash 需要的key,<br/>
+  sep:資料集分隔符號,<br/>
+  columns_mac:hash需要的id column,<br/>
+  dataHash:是否hash" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      pname:
+        type: "string"
+        example : 'DeId_adult_hash_測試'
+      prodesc:
+        type: "string"
+        example : 'describe: DeId-project with hash on adult dataset.'      
+        #pinput:
+        #type: "string"
+        #example : 'pinput: DeId_TEST'       
+        #poutput:
+        #type: "string"
+        #example : 'poutput: DeId_TEST' 
+      # powner:
+      #   type: "string"
+      #   example : '1'
+      p_dsname:
+        type: "string"
+        example : 'DeId_adult_hash'
+      configName:
+        type: "string"
+        example: "adult_id.json"
+      hashTableName:
+        type: "string"
+        example: "adult_id"
+      hashkey:
+        type: "string"
+        example: "HSM used"
+      sep:
+        type: "string"
+        example: "^|"
+      columns_mac:
+        type: "string"
+        example: "id"
+      dataHash:
+        type: "string"
+        example: "yes"
+
+    required:
+      - pname
+      - prodesc
+      - p_dsname
+      - configName
+      - hashTableName
+      - hashkey
+      - sep
+      - columns_mac
+      - dataHash
+  
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

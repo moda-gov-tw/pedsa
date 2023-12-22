@@ -1,0 +1,9 @@
+[Login_information]
+
+ip=35.185.137.68
+
+port=11100
+
+user=deidadmin
+
+password=citcw200
