@@ -248,7 +248,7 @@ namespace DeIdWeb.Controllers
                 }
                 else
                 {
-                    var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 98, "差分隱私錯誤");
+                    var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 98, "關聯屬性設定錯誤");
                 }
 
             }
@@ -256,7 +256,7 @@ namespace DeIdWeb.Controllers
             {
                 string errormsg = ex.Message.ToString();
                 log.Error("SendGanSyncService Exception :" + errormsg);
-                var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 98, "差分隱私錯誤");
+                var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 98, "關聯屬性設定錯誤");
                 isUpdate = false;
             }
             return isUpdate;
@@ -463,7 +463,10 @@ namespace DeIdWeb.Controllers
                 log.Info("SendMLutility return :" + result);
                 log.Info("SendMLutility return :" + result);
                 //var jsonResponse = JsonConvert.DeserializeObject<MyResponseModel>(result);
-                JObject apiresultJsobj = JObject.Parse(result);
+              
+                if(result!="error")
+                {
+                      JObject apiresultJsobj = JObject.Parse(result);
                 // JObject apiresultJsobj = JObject.Parse(apirestult);
                 string status = apiresultJsobj["status"].ToString();
                 if (status == "1")
@@ -475,6 +478,11 @@ namespace DeIdWeb.Controllers
                     //update project
                     var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 6, "產生報表");
                     isUpdate = true;
+                }
+                }
+                else
+                {
+                    var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 99, "差分隱私錯誤");
                 }
             }
             catch (Exception ex)
@@ -1408,8 +1416,9 @@ namespace DeIdWeb.Controllers
                                     return_url += "/ProjectStep/MLutility?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
                                     break;
                                 case 6:
-                                    statusname = "查看報表";
-                                    return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    statusname = "差分隱私處理中";
+                                    //return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    return_url = "";
                                     break;
                                 case 7:
                                     statusname = "查看報表";

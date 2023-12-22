@@ -967,6 +967,11 @@ namespace DeIdWeb.Controllers
 
                     log.Info(final_html);
                 }
+                else
+                {
+                    var upstatusprrp = mydbhelper.UpdateProjectStauts(int.Parse(proj_id), 99, "差分隱私處理錯誤'");
+
+                }
                 //{ "dp_id":274,"statistics_err":{ "measures":["mean","std"],"values":{ "std":["0.43%","2.15%","0.76%"],"mean":["0.18%","0.23%","0.04%"]},"attrs":["Age","fnlwgt","hours_per_week"]},"proc_id":"ffd885f9-c9ed-4abe-bf9c-70a8dc25e575","privacy_level":3,"epsilon":1.0,"status":3,"exp_round":0,"min_freq":0.0,"synthetic_path":"task_499/sim_level_3.csv","log_path":"","start_time":"2023-12-15T03:26:01Z","end_time":"2023-12-15T03:26:03Z","task_id":499}
                 ViewData["reportlist"] = final_html;
                 var assstatus = mydbhelper.UpdateProjectdownload(int.Parse(proj_id), download_path);
