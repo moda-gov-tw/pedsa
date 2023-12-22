@@ -1,0 +1,92 @@
+summary: "Multiple Hash" #modify
+description: "MacHash and AESHash 後直接匯出" #modify
+tags:
+  - direct_enc_async
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "direct_enc_async" #modify
+  description: "aes_col:aes hash需要的 column,<br/> 
+  mac_col:mac hash需要的 column,<br/> 
+  enc_key:hash 需要的key,<br/>
+  hash_table_name:專案資料集名稱,<br/>
+  sep:資料集分隔符號"
+  # ,<br/>
+  # member_account:member_account,<br/>
+  # member_id:member_id" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      # pname:
+      #   type: "string"
+      #   example : 'DeId_adult_machash_test'
+      # prodesc:
+      #   type: "string"
+      #   example : 'describe: DeId-project with hash on adult dataset.'      
+        #pinput:
+        #type: "string"
+        #example : 'pinput: DeId_TEST'       
+        #poutput:
+        #type: "string"
+        #example : 'poutput: DeId_TEST' 
+      # pownelr:
+      #   type: "string"
+      #   example : '1'
+      # projName:
+      #   type: "string"
+      #   example : 'DeId_adult_machash_test'
+      aes_col:
+        type: "string"
+        example: "age"
+      mac_col:
+        type: "string"
+        example: "id"
+
+      enc_key:
+        type: "string"
+        example: "AAAAAABC0DCB39FE182FAF7CE960A2B0BA63AFEEDC76D8A92AED52938AA06ABA"
+
+      hash_table_name:
+        type: "string"
+        example: "adult_id123"
+
+      sep:
+        type: "string"
+        example: "^|"
+      # Mac_hashkey:
+      #   type: "string"
+      #   example: "BASRsdfs456465"
+      
+      
+      
+      
+      # dataHash:
+      #   type: "string"
+      #   example: "yes"
+      # member_account:
+      #   type: "string"
+      #   example: "deidadmin"
+      # member_id:
+      #   type: "string"
+      #   example: "1"
+
+    required:
+      # - pname
+      # - prodesc
+      # - projName
+      - hash_table_name
+      - enc_key
+      - sep
+      - mac_col
+      # - member_account
+      # - member_id
+      # - dataHash  
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

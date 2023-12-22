@@ -1,0 +1,30 @@
+summary: "針對特定欄位做Join" #modify
+description: "將3個database針對欄位做inner join 或 outer join" #modify
+tags:
+  - Join
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "Join" #modify
+  description: "
+  jsonbase64: jsonbase64編碼" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: 
+      jsonbase64:
+        type: "string"
+        example : "ewogICJ1c2VyQWNjb3VudCI6IDEsCiAgInVzZXJJZCI6IDEsCiAgInByb2plY3RfaWQiOiAxLAogICJwcm9qZWN0X25hbWUiOiAidGVzdF9qb2luIiwKICAicHJvamVjdF9rZXkiOiAiIiwKICAiSm9pbl90eXBlIjogMCwKICAiSm9pbl9mdW5jIjogWwogICB7ImxpbmtfY29sIjogIlcyLklEX1czLklEIn0sCiAgIHsibGlua19jb2wiOiAiVzIuSURfVzEuSUQifSwKICAgeyJsaW5rX2NvbCI6ICJXMS5JRF9XMy5JRCJ9CiAgIF0KfQ=="
+
+    required:
+      # - pname
+      # - prodesc
+      - jsonbase64
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

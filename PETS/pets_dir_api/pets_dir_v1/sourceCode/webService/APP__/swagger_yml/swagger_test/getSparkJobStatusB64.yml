@@ -1,0 +1,26 @@
+summary: "step: getSparkJobStatusB64" #modify
+description: "Deid API : getSparkJobStatusB64" #modify
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "getSparkJobStatusB64" #modify
+  description: "Accepts a input dictionary of inputs" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      applicationID: 
+        type: "string"
+        example : "application_1542276527282_0313"
+                        
+    required:
+      - applicationID
+
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

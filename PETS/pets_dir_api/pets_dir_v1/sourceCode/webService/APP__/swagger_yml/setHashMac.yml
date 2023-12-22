@@ -1,0 +1,81 @@
+summary: "autoMacHash_Async" #modify
+description: "MacHash後直接匯出" #modify
+tags:
+  - MacHash_Async
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "MacHash_Async" #modify
+  description: "pname:專案名稱(中文),<br/>  
+  projName:專案資料集名稱,<br/> 
+  prodesc:專案描述,<br/> 
+  hashTableName:在dataMac的裡的資料名稱,<br/>
+  hashkey:hash 需要的key,<br/>
+  sep:資料集分隔符號,<br/>
+  columns_mac:hash需要的id column"
+  # ,<br/>
+  # member_account:member_account,<br/>
+  # member_id:member_id" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      pname:
+        type: "string"
+        example : 'DeId_adult_machash_test'
+      prodesc:
+        type: "string"
+        example : 'describe: DeId-project with hash on adult dataset.'      
+        #pinput:
+        #type: "string"
+        #example : 'pinput: DeId_TEST'       
+        #poutput:
+        #type: "string"
+        #example : 'poutput: DeId_TEST' 
+      # powner:
+      #   type: "string"
+      #   example : '1'
+      projName:
+        type: "string"
+        example : 'DeId_adult_machash_test'
+      hashTableName:
+        type: "string"
+        example: "adult_id"
+      hashkey:
+        type: "string"
+        example: "BASRsdfs456465"
+      sep:
+        type: "string"
+        example: "^|"
+      columns_mac:
+        type: "string"
+        example: "id"
+      # dataHash:
+      #   type: "string"
+      #   example: "yes"
+      # member_account:
+      #   type: "string"
+      #   example: "deidadmin"
+      # member_id:
+      #   type: "string"
+      #   example: "1"
+
+    required:
+      - pname
+      - prodesc
+      - projName
+      - hashTableName
+      - hashkey
+      - sep
+      - columns_mac
+      # - member_account
+      # - member_id
+      # - dataHash  
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

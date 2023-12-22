@@ -1,0 +1,25 @@
+$ sudo cp docker/* /usr/bin/
+
+[add docker.service file]
+$ sudo vi /lib/systemd/system/docker.service 
+# 將2-1內容貼上
+
+[add docker.socket file]
+$ sudo vi /lib/systemd/system/docker.socket
+# 將2-2內容貼上
+
+$ sudo mkdir /etc/docker
+$ sudo vi /etc/docker/daemon.json
+# 將2-3內容貼上
+
+# create docker data root
+$ cd /home
+$ sudo mkdir docker
+$ sudo chown -R myuser:myuser docker
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
+
+$ sudo groupadd docker
+$ sudo usermod -aG docker myuser
