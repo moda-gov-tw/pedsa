@@ -124,7 +124,7 @@ function ReactTable({ columns, data, handleOpenAddDialog }) {
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
-              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '58px' } }}>
+              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '250px' } }}>
                 {headerGroup.headers.map((column, i) => (
                   <TableCell {...column.getHeaderProps([{ className: column.className }])} key={i}>
                     <HeaderSort column={column} sort />
@@ -215,7 +215,7 @@ const ActionsCell = (row, setUser, setUserId, setUserAdminRoles, setUserIsActive
                     Authorization: `Bearer ${session.tocken.loginUserToken}`
                 }})
           .then(async (res) => {
-              await setPopUpMsg(`修改密碼成功，預設密碼為:${res.data.obj.new_password}`);
+              await setPopUpMsg(`修改密碼成功，預設密碼為 ${res.data.obj.new_password}`);
               if (!wroteLog["resetPassword"]) {
                   await petsLog(session, 0, `Login User ${loginUser.account}修改 ${row.original.useraccount} 密碼成功`);
                   setWroteLog(prev => ({ ...prev, ["resetPassword"]: true }))
@@ -323,14 +323,14 @@ const ActionsCell = (row, setUser, setUserId, setUserAdminRoles, setUserIsActive
           </DialogContent>
           {(popUpMsg && popUpMsg.includes('修改密碼成功')) ? (
               <DialogActions>
-                  <Button onClick={() => {setPopUp(false)}} autoFocus>
+                  <Button variant="contained" onClick={() => {setPopUp(false)}} autoFocus>
                     確定
                   </Button>
               </DialogActions>
           ) : (
               <DialogActions>
                   <Button onClick={() => {setPopUp(false)}}>取消</Button>
-                  <Button onClick={doPasswordReset} autoFocus>
+                  <Button variant="contained" onClick={doPasswordReset} autoFocus>
                     確定
                   </Button>
               </DialogActions>
@@ -495,7 +495,7 @@ const UserListTable = () => {
           columns.push(
               {
                 Header: '其他',
-                className: 'download',
+                className: 'download, cell-center',
                 disableSortBy: true,
                 Cell: ({ row }) => ActionsCell(row, setUser, setUserId, setUserAdminRoles, setUserIsActive, setUserIsProjectAdmin, setUserProjectAdminId, handleOpenAddDialog, handleDeleteDialog, handleActivateDialog, handleAssignProjectAdminDialog)
               }

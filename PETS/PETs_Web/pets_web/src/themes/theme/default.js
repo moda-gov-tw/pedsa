@@ -85,7 +85,10 @@ const Default = (colors) => {
       darker: green[9],
       contrastText
     },
-    grey: greyColors
+    grey: greyColors,
+    disableFontColor: greyColors[100],
+    disableBGColor: greyColors[100],
+    inputBGColor: greyColors[0],
   };
 };
 

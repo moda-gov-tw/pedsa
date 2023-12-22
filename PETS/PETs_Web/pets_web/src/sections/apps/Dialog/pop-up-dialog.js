@@ -6,10 +6,12 @@ import {
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle
+    DialogTitle,
+    MenuItem
 } from '@mui/material';
 
 export default function CustomAlertDialog({
+    buttonType = "Button",
     buttonVariant = "div",
     buttonText = "button",
 
@@ -47,11 +49,27 @@ export default function CustomAlertDialog({
         newContent.push(<br />, splitContent[i]);
     }
 
+    // Button Component
+    const triggerButton = () => {
+        if (buttonType == "MenuItem") {
+            return (
+                <MenuItem variant={(buttonVariant) ? buttonVariant : null} onClick={handleClickOpen} textAlign="left" sx={{ borderRadius: 0 }}>
+                    {buttonText}
+                </MenuItem>
+            );
+        }
+        else {
+            return (
+                <Button variant={(buttonVariant) ? buttonVariant : null} onClick={handleClickOpen} textAlign="left" sx={{ borderRadius: 0 }}>
+                    {buttonText}
+                </Button>
+            );
+        }
+    }
+
     return (
         <>
-            <Button variant={buttonVariant} onClick={handleClickOpen} textAlign="left" sx={{ borderRadius: 0 }}>
-                {buttonText}
-            </Button>
+            {triggerButton()}
             <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                 <Box sx={{ p: 1, py: 1.5 }}>
                     <DialogTitle id="alert-dialog-title" textAlign="center" ><b>{dialogTitle}</b></DialogTitle>

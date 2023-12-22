@@ -60,7 +60,7 @@ import { checkProject, checkProjecFolder } from "utils/check-rules";
 import { mockMembers } from "../../../utils/mock-members";
 import { mockProjectMembers } from '../../../utils/mock-project-members';
 import { mockUserList } from "utils/mock-users";
-import {ConfigContext} from "contexts/ConfigContext";
+import { ConfigContext } from "contexts/ConfigContext";
 import getALLUsers from "utils/getUsers";
 import getALLGroups from "../../../utils/getGroups";
 import menuItem from "../../../menu-items";
@@ -112,7 +112,7 @@ function ReactTable({ columns, data }) {
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
-              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '58px' } }}>
+              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '200px' } }}>
                 {headerGroup.headers.map((column, i) => (
                   <TableCell {...column.getHeaderProps([{ className: column.className }])} key={i}>
                     <HeaderSort column={column} sort />
@@ -148,32 +148,49 @@ ReactTable.propTypes = {
   handleAdd: PropTypes.func,
 };
 
+// ==============================|| ActionsCell ||============================== //
+/**
+ * Function: ActionsCell
+ *
+ * Create new project.
+ *
+ * @param {object} row
+ * - Row data of the action cell.
+ * @param {array} theme
+ * @param {object} projectMembers
+ * - Project members add to the project. { 'group_id': groupId, 'group_name': groupName, 'member_id': id, 'user_name': name, 'user_email': email, 'user_role': role, 'user_role_id': roleId }
+ * @param {func} setProjectMembers
+ * - Function to update projectMembers.
+ * @param {object} projectRoles
+ * - Project members add to the project. {'member_id': id, 'group_id': groupId, 'member_role': roleId}
+ * @param {func} setProjectRoles
+ * - Function to update projectRoles.
+ *
+ * @returns {JSX.Element}
+ */
 const ActionsCell = (row, theme, projectMembers, setProjectMembers, projectRoles, setProjectRoles) => {
   // console.log('row in ActionsCell', row);
 
-  const handleClick = () => {
-    console.log('remove member');
-  }
-
   async function handleRemoveMember() {
-        let index1 = projectMembers.findIndex(function(temp) {
-            return temp.member_id === row.original.member_id;
-        });
-        const newProjectMembers = [
-            ...projectMembers.slice(0, index1),
-            ...projectMembers.slice(index1+1)
-        ];
-        let index2 = projectRoles.findIndex(function(temp) {
-            return temp.member_id === row.original.member_id;
-        });
-        const newProjectRoles = [
-            ...projectRoles.slice(0, index2),
-            ...projectRoles.slice(index2+1)
-        ];
+    let index1 = projectMembers.findIndex(function (temp) {
+      return temp.member_id === row.original.member_id;
+    });
+    const newProjectMembers = [
+      ...projectMembers.slice(0, index1),
+      ...projectMembers.slice(index1 + 1)
+    ];
+    let index2 = projectRoles.findIndex(function (temp) {
+      return temp.member_id === row.original.member_id;
+    });
+    const newProjectRoles = [
+      ...projectRoles.slice(0, index2),
+      ...projectRoles.slice(index2 + 1)
+    ];
+    console.log('newProjectRoles', newProjectRoles);
 
-        await setProjectMembers(newProjectMembers);
-        await setProjectRoles(newProjectRoles);
-    }
+    await setProjectMembers(newProjectMembers);
+    await setProjectRoles(newProjectRoles);
+  }
 
   return (
     <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
@@ -188,9 +205,11 @@ const ActionsCell = (row, theme, projectMembers, setProjectMembers, projectRoles
 
 ActionsCell.propTypes = {
   row: PropTypes.object,
-  setTaskData: PropTypes.func,
-  setOpenConditions: PropTypes.func,
-  theme: PropTypes.array
+  theme: PropTypes.array,
+  projectMembers: PropTypes.object,
+  setProjectMembers: PropTypes.func,
+  projectRoles: PropTypes.object,
+  setProjectRoles: PropTypes.func,
 };
 
 // Section Cell and Header
@@ -201,7 +220,12 @@ const SelectionHeader = ({ getToggleAllPageRowsSelectedProps }) => (
 SelectionHeader.propTypes = {
   getToggleAllPageRowsSelectedProps: PropTypes.func
 };
-
+// ==============================|| CREATE NEW PROJECT PAGE ||============================== //
+/**
+ * Function: NewProject
+ *
+ * @returns {JSX.Element}
+ */
 const NewProject = () => {
   const theme = useTheme();
   const { data: session } = useSession();
@@ -234,32 +258,31 @@ const NewProject = () => {
         Authorization: `Bearer ${token}`
       }
     })
-        .then(async (response) => {
-          console.log('get user info', response.data.obj);
-          let userInfoTemp = response.data.obj;
-          await setUserInfo(response.data.obj);
-          if(userInfoTemp.group_id) {
-            await setProjectGroupId(userInfoTemp.group_id);
-          }else {
-            await setProjectGroupId(1);
-          }
+      .then(async (response) => {
+        // console.log('get user info', response.data.obj);
+        let userInfoTemp = response.data.obj;
+        await setUserInfo(response.data.obj);
+        if (userInfoTemp.group_id) {
+          await setProjectGroupId(userInfoTemp.group_id);
+        } else {
+          await setProjectGroupId(1);
+        }
 
-          // if(projectMembers.length === 0){
-          //   await setProjectMembers(current =>
-          //         [...current, { 'group_id': userInfoTemp.group_id, 'group_name': userInfoTemp.group_name,
-          //           'member_id': user.id, 'user_name': userInfoTemp.username, 'user_email': userInfoTemp.email,
-          //           'user_role': '專案管理者', 'user_role_id': member_roles_id_dic['專案管理者']}]);
-          // }
-          // if(projectRoles.length === 0){
-          //   await setProjectRoles(current =>
-          //       [...current, {'member_id': user.id, 'group_id': userInfoTemp.group_id, 'member_role': 3}]);
-          // }
-          })
-        .catch((error) => {
-          console.log('get user info error', error);
-        });
+        // if(projectMembers.length === 0){
+        //   await setProjectMembers(current =>
+        //         [...current, { 'group_id': userInfoTemp.group_id, 'group_name': userInfoTemp.group_name,
+        //           'member_id': user.id, 'user_name': userInfoTemp.username, 'user_email': userInfoTemp.email,
+        //           'user_role': '專案管理者', 'user_role_id': member_roles_id_dic['專案管理者']}]);
+        // }
+        // if(projectRoles.length === 0){
+        //   await setProjectRoles(current =>
+        //       [...current, {'member_id': user.id, 'group_id': userInfoTemp.group_id, 'member_role': 3}]);
+        // }
+      })
+      .catch((error) => {
+        console.log('get user info error', error);
+      });
   }
-
 
   useEffect(() => {
     // 取得專案建立者資訊
@@ -272,69 +295,70 @@ const NewProject = () => {
   }, []);
 
   function getProjectRolePayload() {
-    if(userInfo) {
+    if (userInfo) {
       let temp = Object.assign([], projectRoles);
-      console.log('temp', temp);
-      temp.push({'member_id': user.id, 'group_id': userInfo.group_id, 'member_role': 3});
+      // console.log('temp', temp);
+      temp.push({ 'member_id': user.id, 'group_id': userInfo.group_id, 'member_role': 3 });
       return temp;
     }
   }
 
   function handleCheck() {
-    if(projectName && projectFolder && enckey && !checkProject(projectName) && !checkProject(projectFolder)) {
+    if (projectName && projectFolder && enckey && !checkProject(projectName) && !checkProject(projectFolder)) {
       return true;
-    }else{
+    } else {
       setCheckPopUp(true);
       setPopUpMsg('請確認專案名稱及專案資料夾皆有填入符合格式規範的內容，且金鑰已生成');
     }
   }
 
   async function handleClick() {
-    console.log('projectMembers', projectMembers);
+    // console.log('projectMembers', projectMembers);
     const goNext = await handleCheck();
-    if(goNext) {
+    if (goNext) {
       let pr = await getProjectRolePayload();
       router.push({
         pathname: '/apps/project/new-project-data-connect',
         // query: { name: '123', age: '456' },// enc_key: enckey,
-        query: { project_name: projectName, project_eng: projectFolder, enc_key: enckey,
+        query: {
+          project_name: projectName, project_eng: projectFolder, enc_key: enckey,
           group_id: projectGroupId,
-          project_role: JSON.stringify(pr)}
+          project_role: JSON.stringify(pr)
+        }
       });
     }
   }
 
   useEffect(() => {
     // get project member options
-    console.log('change user options');
-    console.log('allUsers', allUsers);
+    // console.log('change user options');
+    // console.log('allUsers', allUsers);
     let optionsTemp = [];
     // if(selectedGroup) {
-      allUsers
-        .filter((gm) => {
-          console.log('selectedGroup', selectedGroup);
-          // 單位下啟用且未被停權的人員
-          return gm.group_name === selectedGroup.split('_')[1] && gm.ischange && gm.isactive && gm.id !== user.id;
-          // return gm.group_name === selectedGroup.split('_')[1];
-        })
-        .map((pm) => {
-          console.log('pm', pm);
-          optionsTemp.push({ id: pm.id, label: pm.username + '    ' + pm.email });
-        })
-      setSelectedUser("");
-      setUserOptions(optionsTemp);
+    allUsers
+      .filter((gm) => {
+        console.log('selectedGroup', selectedGroup);
+        // 單位下啟用且未被停權的人員
+        return gm.group_name === selectedGroup.split('_')[1] && gm.ischange && gm.isactive && gm.id !== user.id;
+        // return gm.group_name === selectedGroup.split('_')[1];
+      })
+      .map((pm) => {
+        optionsTemp.push({ id: pm.id, label: pm.username + '    ' + pm.email });
+      })
+    setSelectedUser("");
+    setUserOptions(optionsTemp);
     // }
   }, [selectedGroup])
 
   useEffect(() => {
-    console.log('ori BasicAutocomplete');
+    // console.log('ori BasicAutocomplete');
     setUserSelectAutocomplete(<BasicAutocomplete options={userOptions} inputValue={selectedUser} setInputValue={setSelectedUser} setSelectedId={setSelectedUserId} fullWidth />)
   }, [selectedGroup, userOptions])
 
   const columns = useMemo(
     () => [
       {
-        Header: '主責機構',
+        Header: '主責單位',
         accessor: 'group_name',
         className: 'cell-center',
       },
@@ -364,7 +388,7 @@ const NewProject = () => {
       }
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [theme]
+    [theme, projectMembers, projectRoles]
   );
 
   const handleGroupSelect = (event) => {
@@ -375,7 +399,7 @@ const NewProject = () => {
     setSelectedUserRole(event.target.value);
   };
 
-  const handleAddMember = async() => {
+  const handleAddMember = async () => {
     let id = await selectedUserId;
     let name = await selectedUser.split(' ')[0];
     let email = await selectedUser.split(' ')[1];
@@ -383,11 +407,13 @@ const NewProject = () => {
     let groupName = await selectedGroup.split('_')[1];
     console.log('selectedUser.split(\' \')', selectedUser.split(' '));
     await setProjectMembers(current =>
-        [...current, { 'group_id': groupId, 'group_name': groupName,
-          'member_id': id, 'user_name': name, 'user_email': email,
-          'user_role': selectedUserRole, 'user_role_id': member_roles_id_dic[selectedUserRole] }]);
+      [...current, {
+        'group_id': groupId, 'group_name': groupName,
+        'member_id': id, 'user_name': name, 'user_email': email,
+        'user_role': selectedUserRole, 'user_role_id': member_roles_id_dic[selectedUserRole]
+      }]);
     await setProjectRoles(current =>
-        [...current, {'member_id': id, 'group_id': groupId, 'member_role': member_roles_id_dic[selectedUserRole] }]);
+      [...current, { 'member_id': id, 'group_id': groupId, 'member_role': member_roles_id_dic[selectedUserRole] }]);
     await setSelectedUser(null);
   };
 
@@ -422,8 +448,9 @@ const NewProject = () => {
   return (
     <Page title="Customer List">
       {/*<MainCard content={false}>*/}
-      <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-        <Box sx={{ width: "60%", alignItems: "center" }} >
+      {/* 頂部進度條 */}
+      <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+        <Box sx={{ width: "100%", alignItems: "center" }} >
           <ProjectStepper currentStep={0} terminatedStep={null} />
         </Box>
       </Box>
@@ -447,12 +474,13 @@ const NewProject = () => {
             </Grid>
             <Grid item lg={8}>
               <TextField
-                  fullWidth
-                  value={projectName}
-                  onChange={handleProjectName}
-                  helperText={'可以是中英數字與底線，不可以加入特殊字元'}
-                  error={checkProject(projectName)}
-                  label={checkProject(projectName) && '只能包含中英數字與底線'}
+                fullWidth
+                value={projectName}
+                onChange={handleProjectName}
+                helperText={'可以是中英數字與底線，不可以加入特殊字元'}
+                error={checkProject(projectName)}
+                label={checkProject(projectName) && '只能包含中英數字與底線'}
+              // sx={{ "& .MuiInputBase-input": { backgroundColor: "inputBGColor" } }}
               />
             </Grid>
           </Grid>
@@ -465,12 +493,13 @@ const NewProject = () => {
             </Grid>
             <Grid item lg={8}>
               <TextField
-                  fullWidth
-                  value={projectFolder}
-                  onChange={handleProjectFolder}
-                  helperText={'可以是英數字與底線，不可以加入中文或是特殊字元'}
-                  error={checkProjecFolder(projectFolder)}
-                  label={checkProjecFolder(projectFolder) && '只能包含英數字與底線'}
+                fullWidth
+                value={projectFolder}
+                onChange={handleProjectFolder}
+                helperText={'可以是英數字與底線，不可以加入中文或是特殊字元'}
+                error={checkProjecFolder(projectFolder)}
+                label={checkProjecFolder(projectFolder) && '只能包含英數字與底線'}
+              // sx={{ "& .MuiInputBase-input": { backgroundColor: "inputBGColor" } }}
               />
             </Grid>
           </Grid>
@@ -479,10 +508,12 @@ const NewProject = () => {
         <Grid container item spacing={3}>
           <Grid container spacing={6} >
             <Grid item lg={2}>
-              <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>金鑰</InputLabel>
+              <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>
+                金鑰
+              </InputLabel>
             </Grid>
             <Grid item lg={8}>
-              <TextField fullWidth multiline label="" value={enckey} onChange={handleEnckey} disabled={true} />
+              <TextField fullWidth multiline label="" value={enckey} onChange={handleEnckey} disabled={true} sx={{ "& .Mui-disabled": { backgroundColor: "disableBGColor" } }} />
             </Grid>
             <Grid item lg={2}>
               <Button variant="contained" fullWidth onClick={handleEnckey}>產生新金鑰</Button>
@@ -493,7 +524,9 @@ const NewProject = () => {
         <Grid container item spacing={3}>
           <Grid container spacing={6}>
             <Grid item lg={2}>
-              <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>選擇協作人員</InputLabel>
+              <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>
+                選擇協作人員
+              </InputLabel>
             </Grid>
             <Grid container item lg={8} spacing={1}>
               <Grid item md={3} lg={3}>
@@ -503,14 +536,15 @@ const NewProject = () => {
                   displayEmpty
                   name="select group name"
                   renderValue={(selected) => {
-                    if(selected) {
+                    if (selected) {
                       return selected.split('_')[1];
-                    } else{
+                    } else {
                       return null;
                     }
                   }}
                   fullWidth
                   onChange={handleGroupSelect}
+                // sx={{ "& .MuiInputBase-input": { backgroundColor: "inputBGColor" } }}
                 >
                   {allGroups.map((g) => {
                     return <MenuItem value={`${g.id}_${g.group_name}`}>{g.group_name}</MenuItem>
@@ -530,6 +564,7 @@ const NewProject = () => {
                   }}
                   fullWidth
                   onChange={handleUserRoleSelect}
+                // sx={{ "& .MuiInputBase-input": { backgroundColor: "inputBGColor" } }}
                 >
                   {member_roles.map((mr) => {
                     return <MenuItem value={mr}>{mr}</MenuItem>
@@ -572,10 +607,10 @@ const NewProject = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Dialog open={checkPopUp} onClose={() => {setCheckPopUp(false)}}>
-           <DialogTitle>
-               {popUpMsg}
-           </DialogTitle>
+      <Dialog open={checkPopUp} onClose={() => { setCheckPopUp(false) }}>
+        <DialogTitle>
+          {popUpMsg}
+        </DialogTitle>
       </Dialog>
     </Page>
   );

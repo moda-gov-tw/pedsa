@@ -58,6 +58,8 @@ import ProjectStepper from 'sections/apps/progress/project_stepper';
 // import { comparedata } from '../../../utils/mock-compare-data';
 import ColumnConnect from 'sections/apps/data-connect/column-connect';
 import LinkedDataset from "../../../sections/apps/data-connect/linked-dataset";
+import petsLog from "../../../sections/apps/logger/insert-system-log";
+import useUser from "hooks/useUser";
 
 /*********** 
  * Control * 
@@ -193,6 +195,7 @@ const DataCheck = () => {
   /* Hooks */
   const router = useRouter();
   const { data: session } = useSession();
+  const user = useUser();
   const [gotQuery, setGotQuery] = useState(false);
   const [project_id, setProject_id] = useState(null);
   const [project_name, setProject_name] = useState(null);
@@ -205,6 +208,7 @@ const DataCheck = () => {
   const [waittingCompareData, setWaittingCompareData] = useState(true);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
+  const [wroteLog, setWroteLog] = useState({});
   var matchAll = 1;
 
   // Mounting effect
@@ -229,6 +233,10 @@ const DataCheck = () => {
             // Call api project detail when fail
             if (compareSuccess) {
               console.log("Compare success!");
+              if (!wroteLog["dataCheck"]) {
+                petsLog(session, 0, `Login User ${user.account} 執行資料鏈結設定檢查`, project_name);
+                setWroteLog(prev => ({ ...prev, ["dataCheck"]: true }))
+              }
               setLoading(false);
             }
             else {
@@ -338,8 +346,8 @@ const DataCheck = () => {
     <Page title="Customer List">
       {(loading) ? <>{/* loading */}</> : <>
         {/* 頂部進度條 */}
-        <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-          <Box sx={{ width: "60%", alignItems: "center" }} >
+        <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+          <Box sx={{ width: "100%", alignItems: "center" }} >
             <ProjectStepper currentStep={projectStatus} terminatedStep={null} />
           </Box>
         </Box>
@@ -362,9 +370,16 @@ const DataCheck = () => {
                     <TextField
                       fullWidth
                       value={project_name}
-                      InputProps={{ readOnly: true, }}
+                      InputProps={{ readOnly: true, disableUnderline: true }}
                       disabled
-                      color="secondary"
+                      variant="filled"
+                      sx={{
+                        "& .MuiInputBase-input.Mui-disabled": {
+                          backgroundColor: "disableBGColor",
+                          WebkitTextFillColor: "#000000",
+                          padding: "10px"
+                        }
+                      }}
                     />
                   </Grid>
                 </Grid>

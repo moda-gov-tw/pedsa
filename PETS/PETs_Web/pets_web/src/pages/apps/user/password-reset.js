@@ -33,6 +33,7 @@ import useUser from 'hooks/useUser';
 import Layout from 'layout';
 import Page from 'components/Page';
 import petsLog from "../../../sections/apps/logger/insert-system-log";
+import StateControlDialog from 'sections/apps/Dialog/state-dialog';
 
 // ==============================|| PASSWORD RESET ||============================== //
 
@@ -43,7 +44,7 @@ const PasswordReset = () => {
   const user = useUser();
   // const { allUsers, setAllUsers, allGroups, setAllGroups } = useContext(ConfigContext); // 所有單位、人員
   const [userInfo, setUserInfo] = useState(null);
-  const [showPassword, setShowPassword] = useState({0: false, 1: false, 2: false});
+  const [showPassword, setShowPassword] = useState({ 0: false, 1: false, 2: false });
   const [oriPassword, setOriPassword] = useState(null);
   const [newPassword1, setNewPassword1] = useState(null);
   const [newPassword2, setNewPassword2] = useState(null);
@@ -60,13 +61,13 @@ const PasswordReset = () => {
         Authorization: `Bearer ${token}`
       }
     })
-        .then((response) => {
-            console.log('get user info', response.data.obj);
-            setUserInfo(response.data.obj);
-        })
-        .catch((error) => {
-          console.log('get user info error', error);
-        });
+      .then((response) => {
+        console.log('get user info', response.data.obj);
+        setUserInfo(response.data.obj);
+      })
+      .catch((error) => {
+        console.log('get user info error', error);
+      });
   };
 
   useEffect(() => {
@@ -75,7 +76,7 @@ const PasswordReset = () => {
   }, []);
 
   function handlePasswordCheck1() {
-    if(oriPassword && newPassword1 && (oriPassword === newPassword1)) {
+    if (oriPassword && newPassword1 && (oriPassword === newPassword1)) {
       setPopUpTitle('修改密碼失敗');
       setPopUpMsg('新密碼不得與舊密碼相同');
       setPopUp(true);
@@ -86,7 +87,7 @@ const PasswordReset = () => {
   }
 
   function handlePasswordCheck2() {
-    if(newPassword1 && newPassword2 && (newPassword1 !== newPassword2)) {
+    if (newPassword1 && newPassword2 && (newPassword1 !== newPassword2)) {
       setPopUpTitle('修改密碼失敗')
       setPopUpMsg('新密碼不一致');
       setPopUp(true);
@@ -98,10 +99,10 @@ const PasswordReset = () => {
 
   async function handleClick() {
     let set_password = await handlePasswordCheck1();
-    if(set_password){
+    if (set_password) {
       set_password = await handlePasswordCheck2();
     }
-    if(set_password) {
+    if (set_password) {
       let payload = {
         "password": oriPassword,
         "new_password_1": newPassword1,
@@ -113,26 +114,26 @@ const PasswordReset = () => {
         },
       };
       await axios.put('/api/user/put_uppwd/',
-          payload,
-          config)
-          .then(async () => {
-            await setPopUpTitle('修改密碼成功');
-            if (!wroteLog["resetPassword"]) {
-                await petsLog(session, 0, `Login User ${user.account}修改 ${user.account} 密碼成功`);
-                setWroteLog(prev => ({ ...prev, ["resetPassword"]: true }))
-            }
-            await setPopUp(true);
-          })
-          .catch(async(error) => {
-            await setPopUpTitle('修改密碼失敗');
-            await setPopUpMsg('請確認舊密碼正確，新密碼為英數混和的8~12個字元，且至少包含一個大寫字母');
-            if (!wroteLog["resetPassword"]) {
-                await petsLog(session, 0, `Login User ${user.account}修改 ${user.account} 密碼失敗`);
-                setWroteLog(prev => ({ ...prev, ["resetPassword"]: true }))
-            }
-            await setPopUp(true);
-            console.log('reset error', error);
-          })
+        payload,
+        config)
+        .then(async () => {
+          await setPopUpTitle('修改密碼成功');
+          if (!wroteLog["resetPassword"]) {
+            await petsLog(session, 0, `Login User ${user.account}修改 ${user.account} 密碼成功`);
+            setWroteLog(prev => ({ ...prev, ["resetPassword"]: true }))
+          }
+          await setPopUp(true);
+        })
+        .catch(async (error) => {
+          await setPopUpTitle('修改密碼失敗');
+          await setPopUpMsg('請確認舊密碼正確，新密碼為英數混和的8~12個字元，且至少包含一個大寫字母');
+          if (!wroteLog["resetPassword"]) {
+            await petsLog(session, 0, `Login User ${user.account}修改 ${user.account} 密碼失敗`);
+            setWroteLog(prev => ({ ...prev, ["resetPassword"]: true }))
+          }
+          await setPopUp(true);
+          console.log('reset error', error);
+        })
     }
   }
 
@@ -154,7 +155,7 @@ const PasswordReset = () => {
   };
 
   const handleClickShowPassword = (password_id) => {
-    const temp = {...showPassword};
+    const temp = { ...showPassword };
     temp[password_id] = !showPassword[password_id];
     setShowPassword(temp);
     // setShowPassword({...showPassword, password_id: !showPassword[password_id]})
@@ -202,70 +203,70 @@ const PasswordReset = () => {
               <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>密碼</InputLabel>
             </Grid>
             <Grid item lg={12}>
-                <Grid item spacing={6} >
-                    <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>舊密碼</InputLabel>
-                    <OutlinedInput
-                      fullWidth
-                      type={showPassword[0] ? 'text' : 'password'}
-                      value={oriPassword}
-                      onChange={handleOriPassword}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={() => {handleClickShowPassword(0)}}
-                            edge="end"
-                            color="secondary"
-                          >
-                            {showPassword[0] ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                    />
-                </Grid>
-                <Grid item spacing={6} >
-                    <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>新密碼</InputLabel>
-                    <OutlinedInput
-                      fullWidth
-                      type={showPassword[1] ? 'text' : 'password'}
-                      value={newPassword1}
-                      onChange={handleNewPassword1}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={() => {handleClickShowPassword(1)}}
-                            edge="end"
-                            color="secondary"
-                          >
-                            {showPassword[1] ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                      placeholder={'密碼為英數混和的8~12個字元，且至少包含一個大寫字母'}
-                    />
-                </Grid>
-                <Grid item spacing={6} >
-                    <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>再次輸入密碼</InputLabel>
-                    <OutlinedInput
-                      fullWidth
-                      type={showPassword[2] ? 'text' : 'password'}
-                      value={newPassword2}
-                      onChange={handleNewPassword2}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={() => {handleClickShowPassword(2)}}
-                            edge="end"
-                            color="secondary"
-                          >
-                            {showPassword[2] ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                    />
-                </Grid>
+              <Grid item spacing={6} >
+                <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>舊密碼</InputLabel>
+                <OutlinedInput
+                  fullWidth
+                  type={showPassword[0] ? 'text' : 'password'}
+                  value={oriPassword}
+                  onChange={handleOriPassword}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => { handleClickShowPassword(0) }}
+                        edge="end"
+                        color="secondary"
+                      >
+                        {showPassword[0] ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </Grid>
+              <Grid item spacing={6} >
+                <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>新密碼</InputLabel>
+                <OutlinedInput
+                  fullWidth
+                  type={showPassword[1] ? 'text' : 'password'}
+                  value={newPassword1}
+                  onChange={handleNewPassword1}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => { handleClickShowPassword(1) }}
+                        edge="end"
+                        color="secondary"
+                      >
+                        {showPassword[1] ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  placeholder={'密碼為英數混和的8~12個字元，且至少包含一個大寫字母'}
+                />
+              </Grid>
+              <Grid item spacing={6} >
+                <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>再次輸入密碼</InputLabel>
+                <OutlinedInput
+                  fullWidth
+                  type={showPassword[2] ? 'text' : 'password'}
+                  value={newPassword2}
+                  onChange={handleNewPassword2}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => { handleClickShowPassword(2) }}
+                        edge="end"
+                        color="secondary"
+                      >
+                        {showPassword[2] ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -284,22 +285,35 @@ const PasswordReset = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Dialog open={popUp} onClose={() => {setPopUp(false)}}>
-          <DialogTitle>{popUpTitle}</DialogTitle>
-          {(popUpTitle==='修改密碼成功') && (
-              <>
-                <p>{`${userInfo.email}帳號已開通`}</p>
-                <Button variant="contained" sx={{ bgcolor: "#226cea", minWidth: '100px' }} onClick={handleResetSuccess} >
-                  確定
-                </Button>
-              </>
-          )}
-          {(popUpTitle==='修改密碼失敗') && (
-              <>
-                <p>{popUpMsg}</p>
-              </>
-          )}
-      </Dialog>
+      {/* <Dialog open={popUp} onClose={() => { setPopUp(false) }}>
+        <DialogTitle>{popUpTitle}</DialogTitle>
+        {(popUpTitle === '修改密碼成功') && (
+          <>
+            <p>{`${userInfo.email}帳號已開通`}</p>
+            <Button variant="contained" sx={{ bgcolor: "#226cea", minWidth: '100px' }} onClick={handleResetSuccess} >
+              確定
+            </Button>
+          </>
+        )}
+        {(popUpTitle === '修改密碼失敗') && (
+          <>
+            <p>{popUpMsg}</p>
+          </>
+        )}
+      </Dialog> */}
+
+      {(popUp) ?
+        <StateControlDialog stateArrayOpenControl={[popUp, setPopUp]}
+          dialogTitle={popUpTitle}
+          dialogContent={
+            (popUpTitle === '修改密碼成功') ? `${userInfo.email}帳號已開通` : ((popUpTitle === '修改密碼失敗') ? popUpMsg : "")
+          }
+          disagreeButtonText={null}
+          agreeButtonText="確定"
+          agreeButtonOnClick={() => {
+            setPopUp(false);
+            router.push('/apps/project/projects-table');
+          }} /> : <></>}
     </Page>
   );
 };

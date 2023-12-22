@@ -114,7 +114,7 @@ QontoStepIcon.propTypes = {
  *
  * @param {{ currentStep:number, terminatedStep:number, StepNameMapping:object, StepName:String }} argObject
  * * `currentStep`: value of current step (-1 ~ terminatedStep).
- * * `terminatedStep`: value of final stap.
+ * * `terminatedStep`: length of stepper (the terminated step index will be terminatedStep - 1).
  * * `StepNameMapping`: status names.
  * * `StepName`: Direct use `StepName`, don't care `StepNameMapping`.
  * @returns {JSX.Element}

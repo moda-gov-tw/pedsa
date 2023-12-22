@@ -13,11 +13,8 @@ export default function BasicAutocomplete({ options, inputValue, setInputValue, 
     // console.log('inputValue in BasicAutocomplete', inputValue);
     const [value, setValue] = useState(inputValue);
     useEffect(() => {
-        console.log('inputValue', inputValue);
+        // console.log('inputValue', inputValue);
         if(inputValue) {
-            if(inputValue.length===0){
-                setValue("123");
-            }
             setValue(inputValue);
         } else {
             setValue("");
@@ -36,7 +33,7 @@ export default function BasicAutocomplete({ options, inputValue, setInputValue, 
             key={inputValue}
             value={value}
             onChange={(event, newValue) => {
-                console.log('event, newValue', event, newValue);
+                // console.log('event, newValue', event, newValue);
                 setValue(newValue);
                 if(newValue) {
                     setSelectedId(newValue.id);
@@ -46,19 +43,16 @@ export default function BasicAutocomplete({ options, inputValue, setInputValue, 
             onInputChange={(event) => {
                 if(event) {
                     // console.log('event.target.value', event.target.id, event.target.outerText);
-                    console.log('event.target.outerText', event.target.outerText);
                     setInputValue(event.target.outerText);
                 }
             }}
             options={options}
             getOptionLabel={(option) => option.label}
             renderInput={(params) => {
-                console.log('...params', params);
-                // if(inputValue) {
-                    return <TextField {...params} />
-                // } else {
-                //     return <TextField />
-                // }
+                if(params.inputProps.value==='undefined') {
+                    params.inputProps.value = "";
+                }
+                return <TextField {...params} />
             }}
           />
         </Grid>
@@ -66,12 +60,3 @@ export default function BasicAutocomplete({ options, inputValue, setInputValue, 
     // </MainCard>
   );
 }
-{/*<Grid item xs={12} lg={6}>*/}
-        {/*  <Autocomplete*/}
-        {/*    fullWidth*/}
-        {/*    disablePortal*/}
-        {/*    id="basic-autocomplete"*/}
-        {/*    options={options}*/}
-        {/*    renderInput={(params) => <TextField {...params} placeholder="Placeholder" />}*/}
-        {/*  />*/}
-        {/*</Grid>*/}

@@ -37,9 +37,10 @@ import { openSnackbar } from 'store/reducers/snackbar';
 import petsLog from 'sections/apps/logger/insert-system-log';
 // import { mockGroupList } from 'utils/mock-groups';
 import { checkEmail, checkEmailMsg, checkUseraccount, checkUsername } from 'utils/check-rules';
+import StateControlDialog from '../Dialog/state-dialog';
 
 // assets
-import {ConfigContext} from "contexts/ConfigContext";
+import { ConfigContext } from "contexts/ConfigContext";
 import { system_roles, system_roles_dic } from "data/member-role";
 import getALLGroups from "utils/getGroups";
 import useUser from "../../../hooks/useUser";
@@ -98,23 +99,23 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
   });
 
   function checkNotEmpty() {
-      if(values.group_name==='' || values.useraccount==='' || values.username==='' || values.email==='') {
-          return false;
-      }
-      return true;
+    if (values.group_name === '' || values.useraccount === '' || values.username === '' || values.email === '') {
+      return false;
+    }
+    return true;
   }
 
   function checkValid() {
-      if(checkUseraccount(values.useraccount) || checkUsername(values.username) || !checkEmail(values.email)){
-          return false;
-      }
-      return true;
+    if (checkUseraccount(values.useraccount) || checkUsername(values.username) || !checkEmail(values.email)) {
+      return false;
+    }
+    return true;
   }
 
-  const checkSubmitValues = async() => {
-      const r1 = await checkNotEmpty();
-      const r2 = await checkValid();
-      return (r1 && r2);
+  const checkSubmitValues = async () => {
+    const r1 = await checkNotEmpty();
+    const r2 = await checkValid();
+    return (r1 && r2);
   };
 
   const formik = useFormik({
@@ -154,31 +155,31 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
         console.log('submit values', values);
         if (user) {
           const checkResult = await checkSubmitValues();
-          if(checkResult) {
-              await setPopUpMessage('編輯人員中');
-              await setPopUp(true);
-              await handleEditUser();
-              if (!wroteLog["editUser"]) {
-                  await petsLog(session, 0, `Login User ${loginUser.account} 編輯人員${values.useraccount} 成功`);
-                  setWroteLog(prev => ({ ...prev, ["editUser"]: true }))
-              }
-          }else{
-              await setPopUpMessage('請確認帳號、姓名、信箱皆有填入值，且符合對應格式');
-              await setCheckPopUp(true);
+          if (checkResult) {
+            await setPopUpMessage('編輯人員中');
+            await setPopUp(true);
+            await handleEditUser();
+            if (!wroteLog["editUser"]) {
+              await petsLog(session, 0, `Login User ${loginUser.account} 編輯人員${values.useraccount} 成功`);
+              setWroteLog(prev => ({ ...prev, ["editUser"]: true }))
+            }
+          } else {
+            await setPopUpMessage('請確認帳號、姓名、信箱皆有填入值，且符合對應格式');
+            await setCheckPopUp(true);
           }
         } else {
           const checkResult = await checkSubmitValues();
-          if(checkResult) {
-              await setPopUpMessage('新增人員中');
-              await setPopUp(true);
-              await handleCreateUser();
-              if (!wroteLog["addUser"]) {
-                  await petsLog(session, 0, `Login User ${loginUser.account} 新增人員${values.useraccount} 成功`);
-                  setWroteLog(prev => ({ ...prev, ["addUser"]: true }))
-              }
-          }else{
-              await setPopUpMessage('請確認帳號、姓名、信箱皆有填入值，且符合對應格式');
-              await setCheckPopUp(true);
+          if (checkResult) {
+            await setPopUpMessage('新增人員中');
+            await setPopUp(true);
+            await handleCreateUser();
+            if (!wroteLog["addUser"]) {
+              await petsLog(session, 0, `Login User ${loginUser.account} 新增人員${values.useraccount} 成功`);
+              setWroteLog(prev => ({ ...prev, ["addUser"]: true }))
+            }
+          } else {
+            await setPopUpMessage('請確認帳號、姓名、信箱皆有填入值，且符合對應格式');
+            await setCheckPopUp(true);
           }
         }
         setSubmitting(false);
@@ -190,16 +191,16 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
   const { values, errors, touched, handleSubmit, isSubmitting, getFieldProps, setFieldValue } = formik;
 
   useEffect(() => {
-      // 取得所有機關
-      getALLGroups(setAllGroups, session.tocken.loginUserToken);
+    // 取得所有機關
+    getALLGroups(setAllGroups, session.tocken.loginUserToken);
   }, []);
 
   let oriAdminRoles = userAdminRoles;
 
   useEffect(() => {
-      if(user){
-          setFieldValue('role', userAdminRoles);
-      }
+    if (user) {
+      setFieldValue('role', userAdminRoles);
+    }
   }, []);
 
   // 取得使用者資訊
@@ -210,21 +211,21 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
         Authorization: `Bearer ${token}`
       }
     })
-        .then((response) => {
-            console.log('get user info', response.data.obj);
-            setUserInfo(response.data.obj);
-            let info = response.data.obj;
-            setFieldValue('group_name', `${info.group_id}_${info.group_type}_${info.group_name}`)
-        })
-        .catch((error) => {
-          console.log('get user info error', error);
-        });
+      .then((response) => {
+        console.log('get user info', response.data.obj);
+        setUserInfo(response.data.obj);
+        let info = response.data.obj;
+        setFieldValue('group_name', `${info.group_id}_${info.group_type}_${info.group_name}`)
+      })
+      .catch((error) => {
+        console.log('get user info error', error);
+      });
   };
 
   useEffect(() => {
     // 取得使用者資訊
-    if(user) {
-        getUserInfo(session.tocken.loginUserToken);
+    if (user) {
+      getUserInfo(session.tocken.loginUserToken);
     }
   }, []);
 
@@ -241,58 +242,58 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
     // 角色
     newUserData['is_super_admin'] = false;
     newUserData['is_group_admin'] = false;
-    newUserData['is_project_admin'] = {'status': false};
+    newUserData['is_project_admin'] = { 'status': false };
     console.log('newUserData', newUserData);
-    await setAllUsers([...allUsers, {...newUserData}]);
+    await setAllUsers([...allUsers, { ...newUserData }]);
   }
 
   // 更新人員列表資料
   async function updateData(newUserData, admin_roles) {
     let groupInfo = newUserData['group_name'];
-    let index = allUsers.findIndex(function(temp) {
-        return temp.username === user.username;
+    let index = allUsers.findIndex(function (temp) {
+      return temp.username === user.username;
     });
-    let updatedUserData = {...allUsers[index], ...newUserData};
+    let updatedUserData = { ...allUsers[index], ...newUserData };
     // 單位
     updatedUserData['group_name'] = groupInfo.split('_')[2];
     // 角色
     updatedUserData['is_super_admin'] = admin_roles.includes('系統管理員');
     updatedUserData['is_group_admin'] = admin_roles.includes('單位管理員');
-    updatedUserData['is_project_admin'] = {'status': admin_roles.includes('專案管理員')};
+    updatedUserData['is_project_admin'] = { 'status': admin_roles.includes('專案管理員') };
     console.log('updatedUserData', updatedUserData);
     const newAllUsers = [
-        ...allUsers.slice(0, index),
-        updatedUserData,
-        ...allUsers.slice(index+1)
+      ...allUsers.slice(0, index),
+      updatedUserData,
+      ...allUsers.slice(index + 1)
     ];
     await setAllUsers(newAllUsers);
   }
 
   // 新增人員
   async function handleCreateUser() {
-      await axios.post('/api/user/create_user/', {
-          'useraccount': values.useraccount,
-          'username': values.username,
-          // 'password': values.password,
-          'email': values.email,
-          'group_id': values.group_name.split('_')[0],
-          'ischange': false,
-        },
-        {
-          headers: {
-              Authorization: `Bearer ${session.tocken.loginUserToken}`
-          }
-        })
-          .then(async (response) => {
-            await setPopUpMessage(`新增人員成功，預設密碼為: ${response.data.obj.default_password}`);
-            await setNewUserPopup(true);
-            await appendData(values, response.data.obj.member_id);
-            // await onCancel();
-          })
-          .catch(async (error) => {
-            await setPopUpMessage('新增人員失敗，請確認人員是否已存在');
-            console.log('error', error);
-          });
+    await axios.post('/api/user/create_user/', {
+      'useraccount': values.useraccount,
+      'username': values.username,
+      // 'password': values.password,
+      'email': values.email,
+      'group_id': values.group_name.split('_')[0],
+      'ischange': false,
+    },
+      {
+        headers: {
+          Authorization: `Bearer ${session.tocken.loginUserToken}`
+        }
+      })
+      .then(async (response) => {
+        await setPopUpMessage(`新增人員成功，預設密碼為: ${response.data.obj.default_password}`);
+        await setNewUserPopup(true);
+        await appendData(values, response.data.obj.member_id);
+        // await onCancel();
+      })
+      .catch(async (error) => {
+        await setPopUpMessage('新增人員失敗，請確認人員是否已存在');
+        console.log('error', error);
+      });
   }
 
   // 編輯人員
@@ -303,49 +304,49 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
     console.log('roleToAdd', roleToAdd);
     let roleToRemove = oriAdminRoles.filter(i => !formik.values.role.includes(i));
     console.log('roleToRemove', roleToRemove);
-    if(roleToAdd.length>0) {
-        await Promise.all(
-            roleToAdd.map(async (r) => {
-              await axios.post("/api/role/put_setAdmin",
-                  {member_id: userId, role_name: system_roles_dic[r], group_id: formik.values.group_name.split('_')[0]},
-                  {
-                      headers: {
-                          Authorization: `Bearer ${session.tocken.loginUserToken}`
-                      }
-                  })
-                  .then((res) => {
-                      console.log(res);
-                  })
-                  .catch((err) => {
-                      console.log(err);
-                  })
-              })
-        )
-    }
-    if(roleToRemove.length>0) {
-        await Promise.all(
-            roleToRemove.map(async (r) => {
-                let role_id = '';
-                if(r==='單位管理員') {
-                    role_id = userInfo.role.group_admin.id;
-                }
-                if(r==='專案管理員') {
-                    role_id = userInfo.is_project_admin.id;
-                }
-                await axios.delete(`/api/role/delete_deleteAdmin/${role_id}`,
-                    {
-                      headers: {
-                          Authorization: `Bearer ${session.tocken.loginUserToken}`
-                      }
-                  })
-                    .then((res) => {
-                        console.log(res);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+    if (roleToAdd.length > 0) {
+      await Promise.all(
+        roleToAdd.map(async (r) => {
+          await axios.post("/api/role/put_setAdmin",
+            { member_id: userId, role_name: system_roles_dic[r], group_id: formik.values.group_name.split('_')[0] },
+            {
+              headers: {
+                Authorization: `Bearer ${session.tocken.loginUserToken}`
+              }
             })
-        )
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+        })
+      )
+    }
+    if (roleToRemove.length > 0) {
+      await Promise.all(
+        roleToRemove.map(async (r) => {
+          let role_id = '';
+          if (r === '單位管理員') {
+            role_id = userInfo.role.group_admin.id;
+          }
+          if (r === '專案管理員') {
+            role_id = userInfo.is_project_admin.id;
+          }
+          await axios.delete(`/api/role/delete_deleteAdmin/${role_id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${session.tocken.loginUserToken}`
+              }
+            })
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+        })
+      )
     }
 
     let newUserData = formik.values;
@@ -355,21 +356,21 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
     // delete newUserData.role; // 這裡的role是admin roles
     // delete newUserData.group_name;
     await axios.put(`/api/user/edit/${userId}`,
-    newUserData,
-    {
-      headers: {
-        Authorization: `Bearer ${session.tocken.loginUserToken}`
-      }
-    })
-        .then(async() => {
-          await setPopUpMessage('編輯人員完成');
-          await updateData(newUserData, admin_roles_copy);
-          await onCancel();
-        })
-        .catch(async (error) => {
-          await setPopUpMessage('編輯人員失敗');
-          console.log('error', error);
-        })
+      newUserData,
+      {
+        headers: {
+          Authorization: `Bearer ${session.tocken.loginUserToken}`
+        }
+      })
+      .then(async () => {
+        await setPopUpMessage('編輯人員完成');
+        await updateData(newUserData, admin_roles_copy);
+        await onCancel();
+      })
+      .catch(async (error) => {
+        await setPopUpMessage('編輯人員失敗');
+        console.log('error', error);
+      })
   }
 
   const handleAdminRoles = (event) => {
@@ -380,12 +381,12 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
   };
 
   const handleRenderSelectedAdminRolse = (s) => {
-      // console.log('s', s);
-      if(s.startsWith(',')) {
-          return s.slice(1,);
-      } else {
-          return s;
-      }
+    // console.log('s', s);
+    if (s.startsWith(',')) {
+      return s.slice(1,);
+    } else {
+      return s;
+    }
   }
 
   return (
@@ -393,7 +394,7 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
       <FormikProvider value={formik}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-            <DialogTitle>{user?'編輯人員':'新增人員'}</DialogTitle>
+            <DialogTitle>{user ? '編輯人員' : '新增人員'}</DialogTitle>
             <Divider />
             <DialogContent sx={{ p: 2.5 }}>
               <Grid container spacing={3}>
@@ -402,32 +403,32 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
 
                     {/*填入單位資訊*/}
                     <Grid item xs={12}>
-                        <Stack spacing={1.25}>
-                          <InputLabel htmlFor="group-name">單位</InputLabel>
-                          <Select
-                              value={values.group_name}
-                              displayEmpty
-                              name="select user group"
-                              renderValue={(selected) => {
-                                if(selected) {
-                                    if(selected.includes('_')) {
-                                        return selected.split('_')[2];
-                                    }
-                                    return selected;
-                                }
-                                return null;
-                              }}
-                              fullWidth
-                              onChange={(selected) => {
-                                  setFieldValue('group_name', selected.target.value);
-                              }}
-                            >
-                              {allGroups?.map((g) => {
-                                  // value=`${group_id}_${group_type}_${group_name}`
-                                  return <MenuItem value={`${g.id}_${g.group_type}_${g.group_name}`}>{g.group_name}</MenuItem>
-                              })}
-                          </Select>
-                        </Stack>
+                      <Stack spacing={1.25}>
+                        <InputLabel htmlFor="group-name">單位</InputLabel>
+                        <Select
+                          value={values.group_name}
+                          displayEmpty
+                          name="select user group"
+                          renderValue={(selected) => {
+                            if (selected) {
+                              if (selected.includes('_')) {
+                                return selected.split('_')[2];
+                              }
+                              return selected;
+                            }
+                            return null;
+                          }}
+                          fullWidth
+                          onChange={(selected) => {
+                            setFieldValue('group_name', selected.target.value);
+                          }}
+                        >
+                          {allGroups?.map((g) => {
+                            // value=`${group_id}_${group_type}_${group_name}`
+                            return <MenuItem value={`${g.id}_${g.group_type}_${g.group_name}`}>{g.group_name}</MenuItem>
+                          })}
+                        </Select>
+                      </Stack>
                     </Grid>
 
                     {/*填入帳號資訊*/}
@@ -450,86 +451,97 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
 
                     {/*填入姓名資訊*/}
                     <Grid item xs={12}>
-                        <Stack spacing={1.25}>
-                          <InputLabel htmlFor="user-name">姓名</InputLabel>
-                          <TextField
-                            fullWidth
-                            id="user-name"
-                            placeholder=""
-                            {...getFieldProps('username')}
-                            label={checkUsername(values.username) && '不可包含特殊字元'}
-                            error={checkUsername(values.username)}
-                            // error={Boolean(touched.username && errors.username)}
-                            helperText={touched.username && errors.username}
-                          />
-                        </Stack>
+                      <Stack spacing={1.25}>
+                        <InputLabel htmlFor="user-name">姓名</InputLabel>
+                        <TextField
+                          fullWidth
+                          id="user-name"
+                          placeholder=""
+                          {...getFieldProps('username')}
+                          label={checkUsername(values.username) && '不可包含特殊字元'}
+                          error={checkUsername(values.username)}
+                          // error={Boolean(touched.username && errors.username)}
+                          helperText={touched.username && errors.username}
+                        />
+                      </Stack>
                     </Grid>
 
                     {/*填入電子信箱*/}
                     <Grid item xs={12}>
-                        <Stack spacing={1.25}>
-                          <InputLabel htmlFor="user-email">E-mail</InputLabel>
-                          <TextField
-                            fullWidth
-                            id="user-email"
-                            placeholder=""
-                            {...getFieldProps('email')}
-                            // label={values.email?values.email:'123'}
-                            label={(!checkEmail(values.email)) && checkEmailMsg(values.email)}
-                            error={!checkEmail(values.email)}
-                            helperText={touched.email && errors.email}
-                          />
-                        </Stack>
+                      <Stack spacing={1.25}>
+                        <InputLabel htmlFor="user-email">E-mail</InputLabel>
+                        <TextField
+                          fullWidth
+                          id="user-email"
+                          placeholder=""
+                          {...getFieldProps('email')}
+                          // label={values.email?values.email:'123'}
+                          label={(!checkEmail(values.email)) && checkEmailMsg(values.email)}
+                          error={!checkEmail(values.email)}
+                          helperText={touched.email && errors.email}
+                        />
+                      </Stack>
                     </Grid>
 
                     {/*填入角色資訊 ???複選嗎 api沒有role*/}
                     {user && (
-                        <Grid item xs={12}>
-                            <Stack spacing={1.25}>
-                              <InputLabel htmlFor="role">角色</InputLabel>
-                              <Select
-                                  value={values.role}
-                                  displayEmpty
-                                  multiple
-                                  name="select user admin roles"
-                                  renderValue={(selected) => {
-                                    if(selected) {
-                                        // console.log('selected.join(\', \')', selected.join(', '), selected);
-                                        return handleRenderSelectedAdminRolse(selected.join(', '));
-                                    }
-                                    return null;
-                                  }}
-                                  fullWidth
-                                  onChange={handleAdminRoles}
-                                  // onChange={(selected) => {
-                                  //     console.log('selected', selected);
-                                  //     setFieldValue('role', selected.target.value);
-                                  // }}
+                      <Grid item xs={12}>
+                        <Stack spacing={1.25}>
+                          <InputLabel htmlFor="role">角色</InputLabel>
+                          <Select
+                            value={values.role}
+                            displayEmpty
+                            multiple
+                            name="select user admin roles"
+                            renderValue={(selected) => {
+                              if (selected) {
+                                // console.log('selected.join(\', \')', selected.join(', '), selected);
+                                return handleRenderSelectedAdminRolse(selected.join(', '));
+                              }
+                              return null;
+                            }}
+                            fullWidth
+                            onChange={handleAdminRoles}
+                          // onChange={(selected) => {
+                          //     console.log('selected', selected);
+                          //     setFieldValue('role', selected.target.value);
+                          // }}
+                          >
+                            {system_roles.map((ri) => {
+                              return (
+                                <MenuItem
+                                  value={ri}
                                 >
-                                  {system_roles.map((ri) => {
-                                      return (
-                                          <MenuItem
-                                              value={ri}
-                                          >
-                                              <Checkbox checked={values.role.includes(ri)} />
-                                              {ri}
-                                          </MenuItem>)
-                                  })}
-                              </Select>
-                            </Stack>
-                        </Grid>
+                                  <Checkbox checked={values.role.includes(ri)} />
+                                  {ri}
+                                </MenuItem>)
+                            })}
+                          </Select>
+                        </Stack>
+                      </Grid>
                     )}
-                    <Dialog open={popUp} onClose={onCancel}>
-                        <DialogTitle>{popUpMessage}</DialogTitle>
-                        {newUserPopup && (
-                            <Button variant="contained" sx={{ bgcolor: "#226cea", minWidth: '100px' }} onClick={() => {
-                                setNewUserPopup(false);
-                                onCancel();
-                            }} >
-                                確定
-                            </Button>
-                        )}
-                    </Dialog>
+
+                    {/* <Dialog open={popUp} onClose={onCancel}>
+                      <DialogTitle>{popUpMessage}</DialogTitle>
+                      {newUserPopup && (
+                        <Button variant="contained" sx={{ bgcolor: "#226cea", minWidth: '100px' }} onClick={() => {
+                          setNewUserPopup(false);
+                          onCancel();
+                        }} >
+                          確定
+                        </Button>
+                      )}
+                    </Dialog> */}
+
+                    {(popUp && newUserPopup) ?
+                      <StateControlDialog stateArrayOpenControl={[popUp, setPopUp]}
+                        dialogTitle={popUpMessage} dialogContent={null}
+                        disagreeButtonText={null} agreeButtonText="確定"
+                        agreeButtonOnClick={() => {
+                          setNewUserPopup(false);
+                          onCancel();
+                        }} /> : <></>}
+
                   </Grid>
                 </Grid>
               </Grid>
@@ -551,10 +563,10 @@ const AddUser = ({ user, userId, userAdminRoles, allUsers, setAllUsers, onCancel
             </DialogActions>
           </Form>
         </LocalizationProvider>
-        <Dialog open={checkPopUp} onClose={() => {setCheckPopUp(false)}}>
-             <DialogTitle>
-                 {popUpMessage}
-             </DialogTitle>
+        <Dialog open={checkPopUp} onClose={() => { setCheckPopUp(false) }}>
+          <DialogTitle>
+            {popUpMessage}
+          </DialogTitle>
         </Dialog>
 
       </FormikProvider>

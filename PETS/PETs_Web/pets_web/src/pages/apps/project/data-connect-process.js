@@ -31,6 +31,8 @@ import DoubleCircularProgressPure from 'sections/apps/progress/double-circular-p
 import ProjectStepper from 'sections/apps/progress/project_stepper';
 // import { mockProgress } from '../../../utils/mock-progress';
 import StateControlDialog from 'sections/apps/Dialog/state-dialog';
+import useUser from "hooks/useUser";
+import petsLog from "../../../sections/apps/logger/insert-system-log";
 
 /*********** 
  * Control * 
@@ -145,11 +147,11 @@ const handleProjectJoin = async (session, projectDetail, setJoinStatus, setError
         showSuccessMsg: false,
     });
     promise.then((response) => {
-        // console.log("Join response.data", response.data);
+        // console.log("!!!!!!!!!!Join response", response);
         const status = response.data.status;
         if (status != 0) {
             console.log("資料鍵結時發生錯誤 /projects/joindata -> response.data.msg", response.data.msg);
-            setErrorMsg(prev => ({ ...prev, ["join"]: "資料鍵結時發生錯誤" }));
+            setErrorMsg(prev => ({ ...prev, ["join"]: "要求執行資料鍵結時發生錯誤" }));
         }
         setJoinStatus(status);
     })
@@ -172,6 +174,7 @@ const handleBackToDataCheckPage = async (event, router, project_id, project_name
 const DataConnectProcess = () => {
     const router = useRouter();
     const { data: session } = useSession();
+    const user = useUser();
     const [project_id, setProject_id] = useState(null);
     const [project_name, setProject_name] = useState(null);
     const [projectStatus, setProjectStatus] = useState(-1);
@@ -180,6 +183,7 @@ const DataConnectProcess = () => {
     const [openWarningDialog, setOpenWarningDialog] = useState(false);
     const [responseChangeProjectStatus, setResponseChangeProjectStatus] = useState(999);
     const [errorMsg, setErrorMsg] = useState({ final: "" });
+    const [wroteLog, setWroteLog] = useState({});
 
     // Mount: Get project_id, project_name
     useEffect(() => {
@@ -194,9 +198,13 @@ const DataConnectProcess = () => {
     useEffect(() => {
         if (projectDetail && (joinStatus == 999))
             handleProjectJoin(session, projectDetail, setJoinStatus, setErrorMsg);
+        if (!wroteLog["dataConnect"]) {
+            petsLog(session, 0, `Login User ${user.account} 執行資料安全鏈結`, project_name);
+            setWroteLog(prev => ({ ...prev, ["dataConnect"]: true }))
+        }
     }, [projectDetail])
 
-    // Check join post response & router change url
+    // Check join post response. if send success, change project status to next stage, else ready to show fail dialog.
     useEffect(() => {
         if (joinStatus < 999) {
             if (joinStatus == 0) {
@@ -206,9 +214,9 @@ const DataConnectProcess = () => {
                 // Update current status showing in stepper
                 handleFetchProjectStatus(session, project_id, setProjectStatus);
             }
-            else
+            else {
                 console.log(`Join API fail. status is ${joinStatus}`);
-                setResponseChangeProjectStatus(projectStatus); // keep current status
+            }
         }
     }, [joinStatus])
 
@@ -219,7 +227,8 @@ const DataConnectProcess = () => {
                 // Jump to projects-table page
                 router.push("/apps/project/projects-table");
             }
-            else {
+
+            if (errorMsg["updateStatus"] || errorMsg["join"]) {
                 let finalErrorMsg = "";
                 for (const key in errorMsg)
                     finalErrorMsg = finalErrorMsg + errorMsg[key] + "\n";
@@ -227,7 +236,7 @@ const DataConnectProcess = () => {
                 setOpenWarningDialog(true);
             }
         }
-    }, [responseChangeProjectStatus])
+    }, [responseChangeProjectStatus, errorMsg])
 
 
     /******** 
@@ -236,8 +245,8 @@ const DataConnectProcess = () => {
     return (
         <Page title="Customer List">
             {/* 頂部進度條 */}
-            <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-                <Box sx={{ width: "60%", alignItems: "center" }} >
+            <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+                <Box sx={{ width: "100%", alignItems: "center" }} >
                     <ProjectStepper currentStep={projectStatus} terminatedStep={null} />
                 </Box>
             </Box>
@@ -260,9 +269,16 @@ const DataConnectProcess = () => {
                             <TextField
                                 fullWidth
                                 value={project_name}
-                                InputProps={{ readOnly: true, }}
+                                InputProps={{ readOnly: true, disableUnderline: true }}
                                 disabled
-                                color="secondary"
+                                variant="filled"
+                                sx={{
+                                    "& .MuiInputBase-input.Mui-disabled": {
+                                        backgroundColor: "disableBGColor",
+                                        WebkitTextFillColor: "#000000",
+                                        padding: "10px"
+                                    }
+                                }}
                             />
                         </Grid>
                     </Grid>

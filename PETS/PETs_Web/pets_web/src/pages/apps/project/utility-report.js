@@ -7,14 +7,14 @@ import { useRouter } from 'next/router';
 
 // material-ui
 import {
-    Box,
-    Button,
-    Divider,
-    Grid,
-    Stack,
-    InputLabel,
-    TextField,
-    Typography, Select, MenuItem,
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Stack,
+  InputLabel,
+  TextField,
+  Typography, Select, MenuItem,
 } from '@mui/material';
 
 // project import
@@ -23,6 +23,10 @@ import Page from 'components/Page';
 import UReport from 'sections/apps/report/uti-report';
 import axiosPlus from 'sections/api/axiosPlus';
 import { reportOptionsDic } from 'data/utility-report';
+import petsLog from "sections/apps/logger/insert-system-log";
+import useUser from "hooks/useUser";
+import { downloadPdfDocument } from "utils/download-pdf";
+import { sub_sys_name } from "data/sub_system_name";
 
 // ==============================|| UTILITY REPORT PAGE ||============================== //
 /**
@@ -33,12 +37,14 @@ import { reportOptionsDic } from 'data/utility-report';
 const UtilityReport = () => {
   const router = useRouter();
   const { data: session } = useSession();
+  const user = useUser();
   const [project_id, setProject_id] = useState(null);
   const [project_name, setProject_name] = useState(null);
   const [reportOptions, setReportOptions] = useState(null);
   const [selectedReport, setSelectedReport] = useState(null);
   const [checkReport, setCheckReport] = useState(false);
   const [reportData, setReportData] = useState(null);
+  const [wroteLog, setWroteLog] = useState({});
 
   // 測試資料
   // k: project_id=190 system_name=KAnonymous
@@ -52,33 +58,33 @@ const UtilityReport = () => {
 
   // get project report list and project name
   useEffect(() => {
-      if(project_id) {
-          const config = {
-            headers: {
-              Authorization: `Bearer ${session.tocken.loginUserToken}`
-            },
-            params: {
-              project_id : project_id,
-            },
-          };
-          let url = '/api/project/get_utility_report_list';
-          const promise = axiosPlus({
-            method: "GET",
-            stateArray: null,
-            url: url,
-            config: config,
-            showSuccessMsg: false,
-          });
-          promise.then((response) => {
-              setProject_name(response.data.obj.project_name);
-              setReportOptions(response.data.obj.report_info);
-          });
-      }
+    if (project_id) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${session.tocken.loginUserToken}`
+        },
+        params: {
+          project_id: project_id,
+        },
+      };
+      let url = '/api/project/get_utility_report_list';
+      const promise = axiosPlus({
+        method: "GET",
+        stateArray: null,
+        url: url,
+        config: config,
+        showSuccessMsg: false,
+      });
+      promise.then((response) => {
+        setProject_name(response.data.obj.project_name);
+        setReportOptions(response.data.obj.report_info);
+      });
+    }
   }, [project_id]);
 
   function handleSelectedReport(event) {
-      setSelectedReport(event.target.value);
-    }
+    setSelectedReport(event.target.value);
+  }
 
   // get report data
   useEffect(() => {
@@ -89,7 +95,7 @@ const UtilityReport = () => {
           Authorization: `Bearer ${session.tocken.loginUserToken}`
         },
         params: {
-          project_id : project_id,
+          project_id: project_id,
           privacy_type: selectedReport,
         },
       };
@@ -104,6 +110,7 @@ const UtilityReport = () => {
 
       promise.then(async (response) => {
         await setReportData(response.data.obj);
+        await petsLog(session, 0, `Login User ${user.account}取得 ${reportOptionsDic[selectedReport]}`, project_name);
       });
     }
   }, [project_id, selectedReport]);
@@ -111,10 +118,9 @@ const UtilityReport = () => {
 
   return (
     <Page title="data report">
-
-
-      {/*頁面標題 */}
-      <Grid container item spacing={3} sx={{ width: '100%', mb: "20px", mt: "150px", ml: "50px" }}>
+      <div id='utility-report-to-download'>
+        {/*頁面標題 */}
+        <Grid container item spacing={3} sx={{ width: '100%', mb: "20px", mt: "150px", ml: "50px" }}>
           <Grid container spacing={12} >
             <Box sx={{ width: '100%', mb: "20px", mt: "50px" }}>
               <Stack direction="column" spacing={1} sx={{ minWidth: '90%' }}>
@@ -125,31 +131,39 @@ const UtilityReport = () => {
           </Grid>
         </Grid>
 
-      <Grid container spacing={12} sx={{ ml: "50px" }}>
-        {/*專案名稱*/}
-        <Grid container item spacing={3}>
-          <Grid container spacing={12} >
-            <Grid item lg={3}>
-              <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left', ml: "250px" } }}>專案名稱</InputLabel>
-            </Grid>
-            <Grid item lg={8}>
-              <TextField
-                disabled
-                color="secondary"
-                fullWidth
-                value={project_name}
-              />
+        <Grid container spacing={12} sx={{ ml: "50px" }}>
+          {/*專案名稱*/}
+          <Grid container item spacing={3}>
+            <Grid container spacing={12} >
+              <Grid item lg={3}>
+                <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left', ml: "250px" } }}>專案名稱</InputLabel>
+              </Grid>
+              <Grid item lg={8}>
+                <TextField
+                  fullWidth
+                  value={project_name}
+                  InputProps={{ readOnly: true, disableUnderline: true }}
+                  disabled
+                  variant="filled"
+                  sx={{
+                    "& .MuiInputBase-input.Mui-disabled": {
+                      backgroundColor: "disableBGColor",
+                      WebkitTextFillColor: "#000000",
+                      padding: "10px"
+                    }
+                  }}
+                />
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        {/*強化資料集報表名稱*/}
-        <Grid container item spacing={3}>
-          <Grid container spacing={12} >
-            <Grid item lg={3}>
-              <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left', ml: "250px" } }}>選擇強化資料集報表</InputLabel>
-            </Grid>
-            <Grid item lg={8}>
-               <Select
+          {/*強化資料集報表名稱*/}
+          <Grid container item spacing={3}>
+            <Grid container spacing={12} >
+              <Grid item lg={3}>
+                <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left', ml: "250px" } }}>選擇強化資料集報表</InputLabel>
+              </Grid>
+              <Grid item lg={8}>
+                <Select
                   value={selectedReport}
                   displayEmpty
                   name="select "
@@ -158,38 +172,54 @@ const UtilityReport = () => {
                   }}
                   fullWidth
                   onChange={handleSelectedReport}
-               >
-                 {reportOptions && reportOptions.map((ro) => {
+                >
+                  {reportOptions && reportOptions.map((ro) => {
                     return <MenuItem value={ro.privacy_type}>{reportOptionsDic[ro.privacy_type]}</MenuItem>
-                 })}
-               </Select>
-            </Grid>
-            <Grid item lg={1}>
-                <Button variant="contained" onClick={() => {setCheckReport(true)}}>查看</Button>
+                  })}
+                </Select>
+              </Grid>
+              <Grid item lg={1}>
+                <Button variant="contained" onClick={() => { setCheckReport(true) }}>查看</Button>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        {(checkReport && selectedReport && reportData) && (
+          {(checkReport && selectedReport && reportData) && (
             <>
-            <UReport selectedReport={selectedReport} reportData={reportData} />
-                <Box
-                    m={1}
-                    display="flex"
-                    justifyContent="flex-end"
-                    alignItems="flex-end"
+              <UReport selectedReport={selectedReport} reportData={reportData} />
+              <Box
+                m={1}
+                display="flex"
+                justifyContent="flex-end"
+                alignItems="flex-end"
+              >
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    router.push('/apps/project/projects-table');
+                  }}
                 >
-                    <Button
-                      variant="contained"
-                      onClick={() => {
-                        router.push('/apps/project/projects-table');
-                      }}
-                    >
-                      回到專案列表
-                    </Button>
-                </Box>
+                  回到專案列表
+                </Button>
+              </Box>
             </>
-        )}
-      </Grid>
+          )}
+        </Grid>
+      </div>
+      <Box
+        m={1}
+        display="flex"
+        justifyContent="flex-end"
+        alignItems="flex-end"
+      >
+        <Button
+          variant="contained"
+          onClick={() => {
+            downloadPdfDocument('utility-report-to-download', `${project_name}_${reportOptionsDic[selectedReport]}`);
+          }}
+        >
+          下載報表
+        </Button>
+      </Box>
     </Page >
   );
 };

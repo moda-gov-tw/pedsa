@@ -193,8 +193,8 @@ const DataDownload = () => {
     return (
         <Page title="Customer List">
             {/* 頂部進度條 */}
-            <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-                <Box sx={{ width: "60%", alignItems: "center" }} >
+            <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+                <Box sx={{ width: "100%", alignItems: "center" }} >
                     <ProjectStepper currentStep={projectStatus} terminatedStep={null} />
                 </Box>
             </Box>
@@ -217,9 +217,16 @@ const DataDownload = () => {
                                 <TextField
                                     fullWidth
                                     value={projectName}
-                                    InputProps={{ readOnly: true, }}
+                                    InputProps={{ readOnly: true, disableUnderline: true }}
                                     disabled
-                                    color="secondary"
+                                    variant="filled"
+                                    sx={{
+                                        "& .MuiInputBase-input.Mui-disabled": {
+                                            backgroundColor: "disableBGColor",
+                                            WebkitTextFillColor: "#000000",
+                                            padding: "10px"
+                                        }
+                                    }}
                                 />
                             </Grid>
                         </Grid>

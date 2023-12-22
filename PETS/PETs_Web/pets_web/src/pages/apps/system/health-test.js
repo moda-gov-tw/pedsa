@@ -110,8 +110,8 @@ const SysHealthTest = () => {
               let containers_dict = response.data.container_dict;
               let healthDataTemp = [];
               await Promise.all(
-                  await Object.keys(containers_dict).map((c, index) => {
-                      healthDataTemp.push({id: index, server_name: c, system_status: containers_dict[c]})
+                  await containers_dict.map((c, index) => {
+                      healthDataTemp.push({id: index, server_name: c.container_name, system_status: c.container_status})
                   })
               )
               setHealthData(healthDataTemp)

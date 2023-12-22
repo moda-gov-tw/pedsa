@@ -29,6 +29,8 @@ import ScrollX from 'components/ScrollX';
 import ColumnCheckboxTable from 'sections/apps/ml-utility/column-checkbox-table';
 import { MLUtilityDic } from 'data/utility-report';
 import axiosPlus from "../../../sections/api/axiosPlus";
+import petsLog from "../../../sections/apps/logger/insert-system-log";
+import {sub_sys_name} from "../../../data/sub_system_name";
 
 // ==============================|| MLUtility ||============================== //
 
@@ -44,6 +46,7 @@ const MLUtility = () => {
   const [columnsSelected, setColumnsSelected] = useState({}); // {'c1': true, 'c2': false}
   const [popUp, setPopUp] = useState(false);
   const [popUpMsg, setPopUpMsg] = useState(null);
+  const [wroteLog, setWroteLog] = useState({});
 
   // 由專案狀態取得子系統資料集選項(K匿名強化資料集、合成強化資料集)
   async function getSubsystemDatasetOptions(project_id, project_name) {
@@ -86,7 +89,7 @@ const MLUtility = () => {
   const getSampleData = async (token) => {
     console.log('getSampleData');
     await axios.post(`/api/project/post_sample`,
-        {'project_id': router.query.project_id ? router.query.project_id : 20},
+        {'project_id': router.query.project_id},
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -153,6 +156,27 @@ const MLUtility = () => {
       }
       return target_cols;
   }
+  // 更新專案狀態
+  async function handleUpdateStatus() {
+      const payloadUpdateStatus = {
+          project_id: router.query.project_id,
+          status: 8,
+      };
+      const configUpdateStatus = {
+          headers: {
+              Authorization: `Bearer ${session.tocken.loginUserToken}`
+          },
+      };
+      const promiseUpdateStatus = axiosPlus({
+        method: "PUT",
+        stateArray: null,
+        url: "/api/project/put_projectStatus",
+        payload: payloadUpdateStatus,
+        config: configUpdateStatus,
+        showSuccessMsg: false,
+      });
+      console.log('promiseUpdateStatus', promiseUpdateStatus);
+  }
   // 執行可用性分析
   async function handleExecUtility() {
       let target_cols = await handleTargetCols(columnsSelected)
@@ -174,6 +198,11 @@ const MLUtility = () => {
               .then(async (res) => {
                   await setPopUpMsg('可用性分析中，依資料大小不同需花費數分鐘到數小時不等，完成後將以狀態顯示。')
                   await setPopUp(true);
+                  if (!wroteLog["ML-Utility"]) {
+                      await petsLog(session, 0, `Login User ${user.account}執行可用性分析`, sampleDataInfo.project_name);
+                      setWroteLog(prev => ({ ...prev, ["ML-Utility"]: true }))
+                  }
+                  await handleUpdateStatus();
                   // await setStartUtility(true);
                   // console.log('post_ML_utility res', res);
                   // updateUtilityStatus(sampleDataInfo.project_id);

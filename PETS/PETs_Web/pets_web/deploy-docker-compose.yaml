@@ -16,3 +16,9 @@ services:
     - ./src:/app/src
     - .env:/app/.env
     - ../download_folder:/app/download_folder
+    command: 
+    - /bin/bash
+    - -c
+    - |
+      yarn build
+      yarn start

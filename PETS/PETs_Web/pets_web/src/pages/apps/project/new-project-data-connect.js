@@ -75,7 +75,7 @@ const NewProjectDataConnect = () => {
   const [popUpMsg, setPopUpMsg] = useState(null);
   const [wroteLog, setWroteLog] = useState({});
 
-  console.log('dataConnectSettings', dataConnectSettings);
+  // console.log('dataConnectSettings', dataConnectSettings);
 
   // useEffect(() => {
   //   const { project_name, project_eng, enc_key, group_id, project_role } = router.query;
@@ -98,19 +98,19 @@ const NewProjectDataConnect = () => {
     setDataJoinMethod(event.target.value);
   };
 
-  const handleCheck = async() => {
+  const handleCheck = async () => {
     let temp = [];
     await Promise.all(
-        await dataConnectSettings.map(async (dc) => {
-          console.log('dc', dc);
-          if(dc['left_datasetname'] === '' || dc['left_col'] === '' || dc['right_datasetname'] === '' || dc['right_col'] === '') {
-            await setPopUpMsg('資料鏈結不可以為空');
-            await setCheckPopUp(true);
-            await temp.push(false);
-          }else{
-            await temp.push(true);
-          }
-        })
+      await dataConnectSettings.map(async (dc) => {
+        console.log('dc', dc);
+        if (dc['left_datasetname'] === '' || dc['left_col'] === '' || dc['right_datasetname'] === '' || dc['right_col'] === '') {
+          await setPopUpMsg('資料鏈結不可以為空');
+          await setCheckPopUp(true);
+          await temp.push(false);
+        } else {
+          await temp.push(true);
+        }
+      })
     )
     return temp;
   }
@@ -121,7 +121,7 @@ const NewProjectDataConnect = () => {
     let checker = arr => arr.every(v => v === true);
     const goSave = await handleCheck();
     console.log('goSave', goSave, checker(goSave));
-    if(checker(goSave)) {
+    if (checker(goSave)) {
       console.log('save project');
       let projectInsertPayload = {
         'project_name': project_name, 'project_eng': project_eng, 'enc_key': enc_key, 'group_id': parseInt(group_id),
@@ -141,19 +141,19 @@ const NewProjectDataConnect = () => {
       const promiseResult = await axiosPlus({ method: "POST", stateArray: null, url: url, payload: payload, config: config, showSuccessMsg: false });
       console.log("API /projects/insert response:\n", promiseResult);
       if (!wroteLog["createProject"]) {
-          await petsLog(session, 0, `Login User ${user.account}建立新專案${project_name}成功`, project_name);
-          setWroteLog(prev => ({ ...prev, ["createProject"]: true }))
+        await petsLog(session, 0, `Login User ${user.account}建立新專案${project_name}成功`, project_name);
+        setWroteLog(prev => ({ ...prev, ["createProject"]: true }))
       }
       // Go back to projects-table
       router.push('/apps/project/projects-table');
     }
   }
 
-  const handleDelete = async(index) => {
+  const handleDelete = async (index) => {
     await setColumnSettingCount(columnSettingCount - 1);
     const newDataConnections = [
-          ...dataConnectSettings.slice(0, index),
-          ...dataConnectSettings.slice(index+1)
+      ...dataConnectSettings.slice(0, index),
+      ...dataConnectSettings.slice(index + 1)
     ];
     await setDataConnectSettings(newDataConnections);
   }
@@ -176,7 +176,7 @@ const NewProjectDataConnect = () => {
               <Stack direction='row' spacing={2}>
                 <ConnectSetting dataConnections={dataConnectSettingsTemp} setDataConnections={setDataConnectSettings} index={i} />
                 <IconButton>
-                  <RemoveCircleOutlineIcon sx={{ 'position': "relative", 'top': "-1px" }} onClick={() => handleDelete(i)}/>
+                  <RemoveCircleOutlineIcon sx={{ 'position': "relative", 'top': "-1px" }} onClick={() => handleDelete(i)} />
                 </IconButton>
               </Stack>
             </Grid>
@@ -198,8 +198,8 @@ const NewProjectDataConnect = () => {
   return (
     <Page title="Customer List">
       {/*<MainCard content={false}>*/}
-      <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-        <Box sx={{ width: "60%", alignItems: "center" }} >
+      <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+        <Box sx={{ width: "100%", alignItems: "center" }} >
           <ProjectStepper currentStep={0} terminatedStep={null} />
         </Box>
       </Box>
@@ -226,8 +226,15 @@ const NewProjectDataConnect = () => {
                 <TextField
                   fullWidth
                   value={router.query.project_name}
-                  InputProps={{
-                    readOnly: true,
+                  InputProps={{ readOnly: true, disableUnderline: true }}
+                  disabled
+                  variant="filled"
+                  sx={{
+                    "& .MuiInputBase-input.Mui-disabled": {
+                      backgroundColor: "disableBGColor",
+                      WebkitTextFillColor: "#000000",
+                      padding: "10px"
+                    }
                   }}
                 />
               </Grid>
@@ -267,7 +274,7 @@ const NewProjectDataConnect = () => {
                 <Stack direction='row' spacing={2}>
                   <ConnectSetting dataConnections={dataConnectSettings} setDataConnections={setDataConnectSettings} index={0} />
                   <IconButton disabled>
-                    <RemoveCircleOutlineIcon sx={{ 'position': "relative", 'top': "-1px" }} onClick={() => handleDelete(i)}/>
+                    <RemoveCircleOutlineIcon sx={{ 'position': "relative", 'top': "-1px" }} onClick={() => handleDelete(i)} />
                   </IconButton>
                 </Stack>
               </Grid>
@@ -299,10 +306,10 @@ const NewProjectDataConnect = () => {
           {/*<Button variant="contained">資料匯入及鏈結設定檢查</Button>*/}
         </Stack>
       </Box>
-      <Dialog open={checkPopUp} onClose={() => {setCheckPopUp(false)}}>
-         <DialogTitle>
-             {popUpMsg}
-         </DialogTitle>
+      <Dialog open={checkPopUp} onClose={() => { setCheckPopUp(false) }}>
+        <DialogTitle>
+          {popUpMsg}
+        </DialogTitle>
       </Dialog>
       {/*</MainCard>*/}
     </Page>

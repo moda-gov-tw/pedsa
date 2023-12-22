@@ -73,9 +73,10 @@ const Navigation = () => {
     let newMenuItems = Object.assign({}, menuItem);
     if(!permission.includes('super_admin')) {
       newMenuItems.items = newMenuItems.items.filter(mi => mi.id !== '4'); //sysMenu
+      newMenuItems.items = newMenuItems.items.filter(mi => mi.id !== '2'); //groupMenu
+      newMenuItems.items = newMenuItems.items.filter(mi => mi.id !== '5'); //historyProjectMenu
 
       if(!permission.includes('group_admin')) {
-        newMenuItems.items = newMenuItems.items.filter(mi => mi.id !== '2'); //groupMenu
         newMenuItems.items = newMenuItems.items.filter(mi => mi.id !== '3'); //userMenu
         // newMenuItems.items = newMenuItems.items.filter(mi => (mi.id !== '2'|| mi.id !== '3')); //groupMenu, userMenu
       }

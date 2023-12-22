@@ -194,7 +194,7 @@ const EditProject = () => {
     const router = useRouter();
     const user = useUser();
     const { data: session } = useSession();
-    const { allUsers, setAllUsers, allGroups, setAllGroups } = useContext(ConfigContext); // 所有單位、人員
+    const { allUsers, setAllUsers, allGroups, setAllGroups, userPermission } = useContext(ConfigContext); // 所有單位、人員
 
     const [project_id, setProject_id] = useState(null);
     const [dataJoinMethod, setDataJoinMethod] = useState('Inner join');
@@ -221,6 +221,8 @@ const EditProject = () => {
     const [projectDetail, setProjectDetail] = useState([]);
     const [checkPopUp, setCheckPopUp] = useState(false);
     const [popUpMsg, setPopUpMsg] = useState(null);
+    const [userSelectAutocomplete, setUserSelectAutocomplete] = useState(<BasicAutocomplete options={memberOptions} inputValue={selectedMember} setInputValue={setSelectedMember} setSelectedId={setSelectedMemberId} fullWidth />)
+    const [canEditProject, setCanEditProject] = useState(true);
 
     const [updateStatue, setUpdateStatue] = useState(false);
     const [wroteLog, setWroteLog] = useState({});
@@ -234,10 +236,10 @@ const EditProject = () => {
         })
             .then(async (response) => {
                 console.log('get user info', response.data.obj);
-                let userRolesInfo = response.data.obj.role;
+                let userRolesInfo = await response.data.obj.role;
                 if (Object.keys(userRolesInfo['project_data_provider']).length !== 0) {
                     console.log('userRolesInfo', userRolesInfo['project_data_provider']);
-                    setIsDataProvider(true);
+                    await setIsDataProvider(true);
                 }
             })
             .catch((error) => {
@@ -249,7 +251,7 @@ const EditProject = () => {
         // Get project_id
         setProject_id(router.query.project_id);
         // Get user role
-        getUserInfo(session.tocken.loginUserToken);
+        // getUserInfo(session.tocken.loginUserToken);
         // console.log('project_group_id', router.query.project_group_id);
         getALLGroups(setAllGroups, session.tocken.loginUserToken); // get all groups
         getALLUsers(setAllUsers, session.tocken.loginUserToken); // get all users
@@ -326,7 +328,7 @@ const EditProject = () => {
 
     // Process the format of api json
     function preprocessAPI(state) {
-        console.log('projectDetail', projectDetail);
+        // console.log('projectDetail', projectDetail);
         var newJoinFunc_array = [];
 
         if (state["join_func"]) {
@@ -403,21 +405,47 @@ const EditProject = () => {
         setDataJoinMethod(id_to_join_method_dic[Number(projectDetail.join_type)])
         getOriDataConnectSettings(projectDetail);
         getProjectMembers(projectDetail);
-        if (projectDetail.project_name) {
-            console.log("projectDetail", projectDetail);
-            if (!wroteLog["enterPage"]) {
-                petsLog(session, 0, `Login User ${user.account} 進入編輯專案`, projectDetail.project_name);
-                setWroteLog(prev => ({ ...prev, ["enterPage"]: true }))
+        if (projectDetail) {
+            if (projectDetail.project_name) {
+                // console.log("projectDetail", projectDetail);
+                if (!wroteLog["enterPage"]) {
+                    petsLog(session, 0, `Login User ${user.account} 進入編輯專案`, projectDetail.project_name);
+                    setWroteLog(prev => ({ ...prev, ["enterPage"]: true }))
+                }
+            }
+            // 是否能編輯專案的權限設定
+            // 沒有任何系統角色的依照project role
+            if (!userPermission.some(p => ['super_admin', 'project_admin', 'group_admin'].includes(p))) {
+                if (projectDetail.project_role) {
+                    // console.log(`project role of ${projectDetail.project_name}`, projectDetail.project_role.filter((pr) => pr.member_id === user.id));
+                    if (projectDetail.project_role.filter((pr) => pr.member_id === user.id)[0].project_role === 5) {
+                        setCanEditProject(false);
+                    }
+                }
+            } else {
+                // 有系統角色 如果是super admin一律可以編輯專案
+                if (userPermission.includes('super_admin')) {
+                    setCanEditProject(true);
+                } else {
+                    // 如果是group admin或是project admin，依照project role
+                    if (projectDetail.project_role) {
+                        // console.log(`project role of ${projectDetail.project_name}`, projectDetail.project_role.filter((pr) => pr.member_id === user.id));
+                        if (projectDetail.project_role.filter((pr) => pr.member_id === user.id)[0].project_role === 5) {
+                            setCanEditProject(false);
+                        }
+                    }
+                }
+
             }
         }
-    }, [projectDetail])
+    }, [projectDetail, userPermission])
 
     // useEffect(() => {
     //     getProjectMembers(projectDetail);
     // }, [projectDetail])
 
     // Preprocess API part 1
-    console.log('projectDetail', projectDetail);
+    // console.log('projectDetail', projectDetail);
     var processedProjectDetail = preprocessAPI(projectDetail);
     // console.log("processedProjectDetail\n", processedProjectDetail);
 
@@ -510,10 +538,15 @@ const EditProject = () => {
         setMemberOptions(optionsTemp);
     }, [selectedGroup])
 
-    const columns = useMemo(
-        () => [
+    useEffect(() => {
+        // console.log('ori BasicAutocomplete');
+        setUserSelectAutocomplete(<BasicAutocomplete options={memberOptions} inputValue={selectedMember} setInputValue={setSelectedMember} setSelectedId={setSelectedMemberId} fullWidth />)
+    }, [selectedGroup, memberOptions])
+
+    const columns = useMemo(() => {
+        let columns = [
             {
-                Header: '主責機構',
+                Header: '主責單位',
                 accessor: 'group_name',
                 className: 'cell-center',
             },
@@ -535,16 +568,17 @@ const EditProject = () => {
                 className: 'cell-center',
                 disableSortBy: true,
             },
-            {
+        ]
+        if (canEditProject) {
+            columns.push({
                 Header: '刪除',
                 className: 'delete',
                 disableSortBy: true,
                 Cell: ({ row }) => ActionsCell(row, theme, projectMembers, setProjectMembers, projectRoles, setProjectRoles)
-            }
-        ],
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [theme]
-    );
+            })
+        }
+        return columns;
+    }, [theme, projectMembers, projectRoles, canEditProject])
 
     /* handle functions */
     const handleClose = () => {
@@ -580,7 +614,8 @@ const EditProject = () => {
         )
         return temp;
     }
-    const handleSave = async () => {
+    // 儲存設定type為save，回到專案列表頁面; 鏈結設定檢查去資料檢查頁面
+    const handleSave = async (type = 'save') => {
         // Fetch API /projects/update
         let checker = arr => arr.every(v => v === true);
         const goSave = await handleCheck();
@@ -597,8 +632,14 @@ const EditProject = () => {
                 petsLog(session, 0, `Login User ${user.account} 編輯專案`, processedProjectDetail.project_name);
                 setWroteLog(prev => ({ ...prev, ["editProject"]: true }))
             }
-            // Go back to projects-table
-            router.push('/apps/project/projects-table');
+            if (type === 'save') {
+                // Go back to projects-table
+                router.push('/apps/project/projects-table');
+            } else {
+                // Go to data-check
+                router.push(`/apps/project/data-check?project_id=${project_id}&project_name=${processedProjectDetail.project_name}`)
+            }
+
         }
     }
 
@@ -649,7 +690,7 @@ const EditProject = () => {
 
     const downloadKey = (saveObj) => {
         if (keyDownload || firstDownload) {
-            console.log('download');
+            // console.log('download');
             const text = JSON.stringify(saveObj);
             const name = "key.json";
             const type = "text/plain";
@@ -668,13 +709,13 @@ const EditProject = () => {
         <Page title="Customer List">
             {/*<MainCard content={false}>*/}
             {/* 頂部進度條 */}
-            <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-                <Box sx={{ width: "60%", alignItems: "center" }} >
+            <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+                <Box sx={{ width: "100%", alignItems: "center" }} >
                     <ProjectStepper currentStep={projectStatus} terminatedStep={null} />
                 </Box>
             </Box>
 
-            <Box sx={{ width: '100%', mb: "20px", mt: "50px" }}>
+            <Box>
                 <Grid container spacing={6} sx={{ ml: "50px" }}>
                     <Grid container item>
                         <Grid item>
@@ -694,13 +735,18 @@ const EditProject = () => {
                             </Grid>
                             <Grid item lg={8}>
                                 <TextField
-                                    disabled
                                     fullWidth
                                     value={processedProjectDetail.project_name}
-                                    InputProps={{
-                                        readOnly: true,
-                                    }}
+                                    InputProps={{ readOnly: true, disableUnderline: true }}
+                                    disabled
                                     variant="filled"
+                                    sx={{
+                                        "& .MuiInputBase-input.Mui-disabled": {
+                                            backgroundColor: "disableBGColor",
+                                            WebkitTextFillColor: "#000000",
+                                            padding: "10px"
+                                        }
+                                    }}
                                 />
                             </Grid>
                         </Grid>
@@ -716,18 +762,22 @@ const EditProject = () => {
                             </Grid>
                             <Grid item lg={8}>
                                 <TextField
-                                    disabled
                                     fullWidth
                                     value={processedProjectDetail.project_eng}
-                                    InputProps={{
-                                        readOnly: true,
-                                    }}
+                                    InputProps={{ readOnly: true, disableUnderline: true }}
+                                    disabled
                                     variant="filled"
+                                    sx={{
+                                        "& .MuiInputBase-input.Mui-disabled": {
+                                            backgroundColor: "disableBGColor",
+                                            WebkitTextFillColor: "#000000",
+                                            padding: "10px"
+                                        }
+                                    }}
                                 />
                             </Grid>
                         </Grid>
                     </Grid>
-
 
                     <Grid container item spacing={3}>
                         <Grid container spacing={12} >
@@ -737,11 +787,21 @@ const EditProject = () => {
 
                             <Grid item lg={8}>
                                 <TextField
-                                    disabled
                                     fullWidth
-                                    multiline
                                     value={(enckey) ? enckey : processedProjectDetail.enc_key}
+                                    InputProps={{ readOnly: true, disableUnderline: true }}
+                                    disabled
+                                    multiline
                                     variant="filled"
+                                    sx={{
+                                        "& .MuiInputBase-colorPrimary.Mui-disabled": {
+                                            backgroundColor: "disableBGColor",
+                                            // padding: "10px"
+                                        },
+                                        "& .MuiInputBase-input.Mui-disabled": {
+                                            WebkitTextFillColor: "#000000",
+                                        }
+                                    }}
                                 // onChange={handleEnckey}
                                 />
                             </Grid>
@@ -758,55 +818,57 @@ const EditProject = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid container item spacing={3}>
-                        <Grid container spacing={6}>
-                            <Grid item lg={2}>
-                                <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>選擇協作人員</InputLabel>
-                            </Grid>
-                            <Grid container item lg={8} spacing={1}>
-                                <Grid item md={3} lg={3}>
-                                    <Select
-                                        value={selectedGroup}
-                                        displayEmpty
-                                        name="select group name"
-                                        renderValue={(selected) => {
-                                            return selected.split('_')[1];;
-                                        }}
-                                        fullWidth
-                                        onChange={handleGroupSelect}
-                                    >
-                                        {allGroups.map((g) => {
-                                            return <MenuItem value={`${g.id}_${g.group_name}`}>{g.group_name}</MenuItem>
-                                        })}
-                                    </Select>
+                    {canEditProject && (
+                        <Grid container item spacing={3}>
+                            <Grid container spacing={6}>
+                                <Grid item lg={2}>
+                                    <InputLabel sx={{ textAlign: { xs: 'left', sm: 'left' } }}>選擇協作人員</InputLabel>
                                 </Grid>
-                                <Grid item md={6} lg={6}>
-                                    <BasicAutocomplete options={memberOptions} inputValue={selectedMember} setInputValue={setSelectedMember} setSelectedId={setSelectedMemberId} fullWidth />
-                                    {/*<BasicAutocomplete options={memberOptions} inputValue={selectedMember} setInputValue={setSelectMember} fullWidth />*/}
-                                </Grid>
-                                <Grid item md={3} lg={3}>
-                                    <Select
-                                        value={selectedUserRole}
-                                        displayEmpty
-                                        name="select user role"
-                                        renderValue={(selected) => {
-                                            return selected;
-                                        }}
-                                        fullWidth
-                                        onChange={handleUserRoleSelect}
-                                    >
-                                        {member_roles.map((mr) => {
-                                            return <MenuItem value={mr}>{mr}</MenuItem>
-                                        })}
+                                <Grid container item lg={8} spacing={1}>
+                                    <Grid item md={3} lg={3}>
+                                        <Select
+                                            value={selectedGroup}
+                                            displayEmpty
+                                            name="select group name"
+                                            renderValue={(selected) => {
+                                                return selected.split('_')[1];;
+                                            }}
+                                            fullWidth
+                                            onChange={handleGroupSelect}
+                                        >
+                                            {allGroups.map((g) => {
+                                                return <MenuItem value={`${g.id}_${g.group_name}`}>{g.group_name}</MenuItem>
+                                            })}
+                                        </Select>
+                                    </Grid>
+                                    <Grid item md={6} lg={6}>
+                                        {userSelectAutocomplete}
+                                        {/*<BasicAutocomplete options={memberOptions} inputValue={selectedMember} setInputValue={setSelectedMember} setSelectedId={setSelectedMemberId} fullWidth />*/}
+                                    </Grid>
+                                    <Grid item md={3} lg={3}>
+                                        <Select
+                                            value={selectedUserRole}
+                                            displayEmpty
+                                            name="select user role"
+                                            renderValue={(selected) => {
+                                                return selected;
+                                            }}
+                                            fullWidth
+                                            onChange={handleUserRoleSelect}
+                                        >
+                                            {member_roles.map((mr) => {
+                                                return <MenuItem value={mr}>{mr}</MenuItem>
+                                            })}
 
-                                    </Select>
+                                        </Select>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                            <Grid item lg={2}>
-                                <Button variant="outlined" fullWidth onClick={handleAddMember}>新增</Button>
+                                <Grid item lg={2}>
+                                    <Button variant="outlined" fullWidth onClick={handleAddMember}>新增</Button>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
+                    )}
 
                     <Grid container item spacing={3}>
                         <Grid container spacing={6}>
@@ -830,8 +892,15 @@ const EditProject = () => {
                                 <TextField
                                     fullWidth
                                     value={window.location.hostname}
-                                    InputProps={{
-                                        readOnly: true,
+                                    InputProps={{ readOnly: true, disableUnderline: true }}
+                                    disabled
+                                    variant="filled"
+                                    sx={{
+                                        "& .MuiInputBase-input.Mui-disabled": {
+                                            backgroundColor: "disableBGColor",
+                                            WebkitTextFillColor: "#000000",
+                                            padding: "10px"
+                                        }
                                     }}
                                 />
                             </Grid>
@@ -847,8 +916,15 @@ const EditProject = () => {
                                 <TextField
                                     fullWidth
                                     value={window.location.pathname}
-                                    InputProps={{
-                                        readOnly: true,
+                                    InputProps={{ readOnly: true, disableUnderline: true }}
+                                    disabled
+                                    variant="filled"
+                                    sx={{
+                                        "& .MuiInputBase-input.Mui-disabled": {
+                                            backgroundColor: "disableBGColor",
+                                            WebkitTextFillColor: "#000000",
+                                            padding: "10px"
+                                        }
                                     }}
                                 />
                             </Grid>
@@ -860,21 +936,40 @@ const EditProject = () => {
                             <Grid item lg={2}>
                                 <Typography fullWidth multiline sx={{ textAlign: { xs: 'left', sm: 'left', ml: "250px" } }}>資料鏈結方式</Typography>
                             </Grid>
-                            <Grid item lg={4}>
-                                <Select
-                                    fullWidth
-                                    value={dataJoinMethod}
-                                    displayEmpty
-                                    name="select data connect method"
-                                    renderValue={(selected) => {
-                                        return selected;
-                                    }}
-                                    onChange={handleJoinMethodSelect}
-                                >
-                                    <MenuItem value={'Full outer join'}>Full outer join</MenuItem>
-                                    <MenuItem value={'Inner join'}>Inner join</MenuItem>
-                                </Select>
-                            </Grid>
+                            {canEditProject ? (
+                                <Grid item lg={4}>
+                                    <Select
+                                        fullWidth
+                                        value={dataJoinMethod}
+                                        displayEmpty
+                                        name="select data connect method"
+                                        renderValue={(selected) => {
+                                            return selected;
+                                        }}
+                                        onChange={handleJoinMethodSelect}
+                                    >
+                                        <MenuItem value={'Full outer join'}>Full outer join</MenuItem>
+                                        <MenuItem value={'Inner join'}>Inner join</MenuItem>
+                                    </Select>
+                                </Grid>
+                            ) : (
+                                <Grid item lg={8}>
+                                    <TextField
+                                        fullWidth
+                                        value={dataJoinMethod}
+                                        InputProps={{ readOnly: true, disableUnderline: true }}
+                                        disabled
+                                        variant="filled"
+                                        sx={{
+                                            "& .MuiInputBase-input.Mui-disabled": {
+                                                backgroundColor: "disableBGColor",
+                                                WebkitTextFillColor: "#000000",
+                                                padding: "10px"
+                                            }
+                                        }}
+                                    />
+                                </Grid>
+                            )}
                         </Grid>
                     </Grid>
 
@@ -890,61 +985,72 @@ const EditProject = () => {
                         </Grid>
                     </Grid>
                     {/*<Divider />*/}
-                    {isDataProvider && (columnSettingContentForView(processedProjectDetail))}
-                    {(!isDataProvider && dataConnectSettings && dataConnectSettings[0].left_datasetname !== '') && (
+                    {!canEditProject && (columnSettingContentForView(processedProjectDetail))}
+                    {(canEditProject && dataConnectSettings && dataConnectSettings[0].left_datasetname !== '') && (
                         columnSettingContent
-                        // renderColumnSettingContentForEdit({ columnSettingCount, dataConnectSettings })
-                        // columnSettingContentForEdit({ columnSettingCount, dataConnectSettings })
                     )}
+                    {/*{isDataProvider && (columnSettingContentForView(processedProjectDetail))}*/}
+                    {/*{(!isDataProvider && dataConnectSettings && dataConnectSettings[0].left_datasetname !== '') && (*/}
+                    {/*    columnSettingContent*/}
+                    {/*    // renderColumnSettingContentForEdit({ columnSettingCount, dataConnectSettings })*/}
+                    {/*    // columnSettingContentForEdit({ columnSettingCount, dataConnectSettings })*/}
+                    {/*)}*/}
                 </Grid>
             </Box>
 
-            <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-            >
-                <Button variant="outlined" onClick={() => { setColumnSettingCount(columnSettingCount + 1) }} startIcon={<AddIcon />} />
-            </Box>
-
-            <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-            >
-                <Button
-                    variant="contained"
-                    onClick={() => { router.push('/apps/project/projects-table'); }}
+            {canEditProject && (
+                <Box
+                    m={1}
+                    display="flex"
+                    justifyContent="flex-end"
+                    alignItems="flex-end"
                 >
-                    回到專案列表
-                </Button>
-            </Box>
+                    <Button variant="outlined" onClick={() => { setColumnSettingCount(columnSettingCount + 1) }} startIcon={<AddIcon />} />
+                </Box>
+            )}
 
-            <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-            >
-                <Button variant="contained" onClick={handleSave}>
-                    儲存設定 (*編輯模式)
-                </Button>
-            </Box>
-            <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-            >
-                <Button
-                    variant="contained"
-                    onClick={() => { router.push(`/apps/project/data-check?project_id=${project_id}&project_name=${processedProjectDetail.project_name}`); }}
-                >
-                    執行安全資料鍵結檢查
-                </Button>
-            </Box>
+            {/*<Box*/}
+            {/*    m={1}*/}
+            {/*    display="flex"*/}
+            {/*    justifyContent="flex-end"*/}
+            {/*    alignItems="flex-end"*/}
+            {/*>*/}
+            {/*    <Button*/}
+            {/*        variant="contained"*/}
+            {/*        onClick={() => { router.push('/apps/project/projects-table'); }}*/}
+            {/*    >*/}
+            {/*        回到專案列表*/}
+            {/*    </Button>*/}
+            {/*</Box>*/}
+
+            {canEditProject && (
+                <>
+                    <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                    >
+                        <Button variant="contained" onClick={() => handleSave('save')}>
+                            儲存設定
+                        </Button>
+                    </Box>
+                    <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                    >
+                        <Button
+                            variant="contained"
+                            onClick={() => handleSave('check')}
+                        >
+                            資料匯入及鍵結設定檢查
+                        </Button>
+                    </Box>
+                </>
+            )}
+
             <Dialog open={checkPopUp} onClose={() => { setCheckPopUp(false) }}>
                 <DialogTitle>
                     {popUpMsg}

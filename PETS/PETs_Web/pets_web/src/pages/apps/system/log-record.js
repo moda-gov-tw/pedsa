@@ -89,7 +89,7 @@ function ReactTable({ columns, data }) {
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
-              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '58px' } }}>
+              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '300px' } }}>
                 {headerGroup.headers.map((column, i) => (
                   <TableCell {...column.getHeaderProps([{ className: column.className }])} key={i}>
                     <HeaderSort column={column} sort />

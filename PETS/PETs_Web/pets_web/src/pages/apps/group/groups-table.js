@@ -118,7 +118,7 @@ function ReactTable({ columns, data, handleOpenAddDialog }) {
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
-              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '58px' } }}>
+              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '250px' }}} >
                 {headerGroup.headers.map((column, i) => (
                   <TableCell {...column.getHeaderProps([{ className: column.className }])} key={i}>
                     <HeaderSort column={column} sort />
@@ -337,7 +337,7 @@ const GroupListTable = () => {
           },
           {
             Header: '其他',
-            className: 'download',
+            className: 'download, cell-center',
             disableSortBy: true,
             Cell: ({ row }) => ActionsCell(row, setGroup, setGroupId, handleOpenAddDialog, handleDeleteDialog)
           }

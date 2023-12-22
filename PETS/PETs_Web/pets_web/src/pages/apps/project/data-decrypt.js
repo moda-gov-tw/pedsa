@@ -28,6 +28,8 @@ import axios from 'axios';
 // project import
 import Layout from 'layout';
 import Page from 'components/Page';
+import petsLog from "sections/apps/logger/insert-system-log";
+import useUser from "hooks/useUser";
 import ProjectStepper from 'sections/apps/progress/project_stepper';
 
 /*********** 
@@ -122,6 +124,7 @@ const handleSendAesDecrypt = async (event, session, project_id, checkboxCheckedR
 const DataDecrypt = () => {
     const router = useRouter();
     const { data: session } = useSession();
+    const user = useUser();
     const [project_id, setProject_id] = useState(null);
     const [project_name, setProject_name] = useState(null);
     const [system_name, setSystem_name] = useState(null);
@@ -192,8 +195,8 @@ const DataDecrypt = () => {
     return (
         <Page title="Customer List">
             {/* 頂部進度條 */}
-            <Box sx={{ width: '100%', mb: "20px", mt: "50px", ml: "50px", alignItems: "center" }} >
-                <Box sx={{ width: "60%", alignItems: "center" }} >
+            <Box sx={{ width: '750px',  margin:"20px auto 60px auto" }} >
+                <Box sx={{ width: "100%", alignItems: "center" }} >
                     <ProjectStepper currentStep={projectStatus} terminatedStep={null} />
                 </Box>
             </Box>
@@ -216,9 +219,16 @@ const DataDecrypt = () => {
                             <TextField
                                 fullWidth
                                 value={project_name}
-                                InputProps={{ readOnly: true, }}
+                                InputProps={{ readOnly: true, disableUnderline: true }}
                                 disabled
-                                color="secondary"
+                                variant="filled"
+                                sx={{
+                                    "& .MuiInputBase-input.Mui-disabled": {
+                                        backgroundColor: "disableBGColor",
+                                        WebkitTextFillColor: "#000000",
+                                        padding: "10px"
+                                    }
+                                }}
                             />
                         </Grid>
                     </Grid>
@@ -226,22 +236,30 @@ const DataDecrypt = () => {
             </Box>
 
             <Typography variant='h4'>選擇AES解密欄位</Typography>
-            <Box sx={{ ml: "10px", }}>
-                {checkboxAES(projectDetail.aes_col)}
-            </Box>
+            {(projectDetail.aes_col == "") ?
+                <>
+                    {/* AES 為空 */}
+                    <Typography>AES 解密欄位為空，請檢查 K 匿名上傳檔案是否包含 AES 欄位資料</Typography>
+                </> :
+                <>
+                    {/* 勾選 AES 欄位 */}
+                    <Box sx={{ ml: "10px", }}>
+                        {checkboxAES(projectDetail.aes_col)}
+                    </Box>
 
 
-            {/* 按鈕 */}
-            <Box
-                m={1}
-                display="flex"
-                justifyContent="flex-front"
-                alignItems="flex-end"
-            >
-                <Button variant="contained" onClick={(e) => {handleSendAesDecrypt(e, session, project_id, checkboxCheckedRecord, setSuccessMsg, setErrorMsg)}}   >
-                    進行解密
-                </Button>
-            </Box>
+                    {/* 按鈕 */}
+                    <Box
+                        m={1}
+                        display="flex"
+                        justifyContent="flex-front"
+                        alignItems="flex-end"
+                    >
+                        <Button variant="contained" onClick={(e) => { handleSendAesDecrypt(e, session, project_id, checkboxCheckedRecord, setSuccessMsg, setErrorMsg) }}   >
+                            進行解密
+                        </Button>
+                    </Box>
+                </>}
 
             {/* 結果訊息 */}
             <Box sx={{ ml: "10px", }}>

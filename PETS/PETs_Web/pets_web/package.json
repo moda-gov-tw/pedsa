@@ -6,7 +6,10 @@
     "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev -p 8081",
     "build": "next build",
     "start": "NODE_TLS_REJECT_UNAUTHORIZED=0 next start",
-    "plugins": ["...", "unused-imports"]
+    "plugins": [
+      "...",
+      "unused-imports"
+    ]
   },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
@@ -44,8 +47,8 @@
     "chance": "^1.1.8",
     "crypto-browserify": "^3.12.0",
     "crypto-js": "^4.1.1",
-    "currency.js": "^2.0.4",
     "csv-stringify": "^6.4.4",
+    "currency.js": "^2.0.4",
     "date-fns": "^2.29.3",
     "draft-js": "^0.11.7",
     "emoji-mart": "^5.3.1",
@@ -54,8 +57,10 @@
     "formik": "^2.2.9",
     "framer-motion": "^7.5.3",
     "gray-matter": "^4.0.3",
+    "html2canvas": "^1.4.1",
     "immutability-helper": "^3.1.1",
     "js-file-download": "^0.4.12",
+    "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
     "next": "^12.1.4",

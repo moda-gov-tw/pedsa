@@ -10,7 +10,7 @@ import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 
 // ==============================|| REACT TABLE ||============================== //
 
-function  GroupColumnSelect({ selectedGroup = '', selectedColumn = '' }) {
+function GroupColumnSelect({ selectedGroup = '', selectedColumn = '' }) {
 
   return (
     <>
@@ -18,11 +18,16 @@ function  GroupColumnSelect({ selectedGroup = '', selectedColumn = '' }) {
         <Grid item>
           <TextField
             disabled
-            color="secondary"
             fullWidth
             value={selectedGroup}
-            InputProps={{
-              readOnly: true,
+            InputProps={{ readOnly: true, disableUnderline: true }}
+            variant="filled"
+            sx={{
+              "& .MuiInputBase-input.Mui-disabled": {
+                backgroundColor: "disableBGColor",
+                WebkitTextFillColor: "#000000",
+                padding: "10px"
+              }
             }}
           />
         </Grid>
@@ -30,11 +35,16 @@ function  GroupColumnSelect({ selectedGroup = '', selectedColumn = '' }) {
         <Grid item>
           <TextField
             disabled
-            color="secondary"
             fullWidth
             value={selectedColumn}
-            InputProps={{
-              readOnly: true,
+            InputProps={{ readOnly: true, disableUnderline: true }}
+            variant="filled"
+            sx={{
+              "& .MuiInputBase-input.Mui-disabled": {
+                backgroundColor: "disableBGColor",
+                WebkitTextFillColor: "#000000",
+                padding: "10px"
+              }
             }}
           />
         </Grid>
@@ -53,7 +63,7 @@ function  GroupColumnSelect({ selectedGroup = '', selectedColumn = '' }) {
  *
  * @returns {JSX.Element}
  */
-const ColumnConnect = ({columnsMappingList = ''}) => {
+const ColumnConnect = ({ columnsMappingList = '' }) => {
   console.log('columnsMappingList', columnsMappingList);
   let gn1 = String(columnsMappingList[0]);
   let col1 = String(columnsMappingList[1]);

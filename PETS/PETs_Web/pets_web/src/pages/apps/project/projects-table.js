@@ -48,6 +48,7 @@ import {
 import { renderFilterTypes, GlobalFilter } from 'utils/react-table';
 // import { mockProjectsList } from '../../../utils/mock-projects-list';
 import petsLog from 'sections/apps/logger/insert-system-log';
+import StateControlDialog from 'sections/apps/Dialog/state-dialog';
 
 // assets
 import { ConfigContext } from "../../../contexts/ConfigContext";
@@ -114,18 +115,16 @@ function ReactTable({ columns, data }) {
             setGlobalFilter={setGlobalFilter}
             size="small"
           />
-          {(userPermission.includes('super_admin') || userPermission.includes('project_admin')) && (
-            <Stack direction={matchDownSM ? 'column' : 'row'} alignItems="center" spacing={1}>
-              <Button sx={{ bgcolor: "#226cea", minWidth: '100px' }} variant="contained" startIcon={<AddIcon />} onClick={handleAdd} size="small">
-                建立專案
-              </Button>
-            </Stack>
-          )}
+          <Stack direction={matchDownSM ? 'column' : 'row'} alignItems="center" spacing={1}>
+            <Button sx={{ bgcolor: "#226cea", minWidth: '100px' }} variant="contained" startIcon={<AddIcon />} onClick={handleAdd} size="small">
+              建立專案
+            </Button>
+          </Stack>
         </Stack>
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
-              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '58px' } }}>
+              <TableRow {...headerGroup.getHeaderGroupProps()} key={index} sx={{ '& > th:first-of-type': { width: '250px' } }}>
                 {headerGroup.headers.map((column, i) => (
                   <TableCell {...column.getHeaderProps([{ className: column.className }])} key={i}>
                     <HeaderSort column={column} sort />
@@ -163,7 +162,9 @@ ReactTable.propTypes = {
 
 const ActionsCell = (row, setTaskData, setLoading, theme) => {
   const { data: session } = useSession();
+  const userProjectRole = row.original.project_role;
 
+  const { userPermission } = useContext(ConfigContext);
   const [openMoreMenu, setOpenMoreMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [showCheckUtilityReport, setShowCheckUtilityReport] = useState(false);
@@ -199,6 +200,9 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
     "7": "/apps/project/privacy-enhancement",
     "8": "/apps/project/privacy-enhancement",
     "9": "/apps/project/privacy-enhancement",
+    "90": "/apps/project/edit-project", // 安全資料鏈結錯誤 -> 可進入編輯專案頁面
+    "91": "/apps/project/privacy-enhancement", // 可用性分析錯誤 -> 可進入原頁面 (目前只有隱私強化頁面可進去)
+    "92": "/apps/project/edit-project", // join 之後，資料匯入失敗
   }
   const handleProjectEdit = () => {
     // Change page with query
@@ -211,7 +215,51 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
       },
     })
   };
+  const handleProjectView = () => {
+    router.push({
+      pathname: '/apps/project/edit-project',
+      query: {
+        project_id: project_id,
+        project_name: project_name,
+        project_group_id: project_group_id,
+      },
+    })
+  };
   const buttonEditProject = (MappingEditStatus2URL[project_status] == "") ? <MenuItem disabled>編輯專案</MenuItem> : <MenuItem onClick={handleProjectEdit}>編輯專案</MenuItem>;
+  const buttonViewProject = (project_status >= 2) ? <MenuItem disabled>編輯專案</MenuItem> : <MenuItem onClick={handleProjectView}>編輯專案</MenuItem>;
+
+  const handleProjectEditPermission = () => {
+    // super admin不受project role限制
+    if(userPermission.includes('super_admin')) {
+      return true
+    } else if(userPermission.some(p => ['group_admin', 'project_admin'].includes(p))) {
+      //group_admin 和 project_admin視專案角色決定more選單選項
+      if(userProjectRole!==5) { // project admin, project user
+        return true;
+      }
+      else {  // data provider
+        return false;
+      }
+    }
+  }
+
+  const handleProjectResetDeletePermission = () => {
+    if(userPermission.includes('super_admin')) {
+      return true;
+    }
+    if(userProjectRole===3) {
+      return true;
+    }
+    return false;
+  }
+
+  const ButtonEditViewProject = () => {
+    if(handleProjectEditPermission()) {
+      return buttonEditProject;  // 更多按鈕 > 編輯專案
+    } else{
+      return buttonViewProject;  // 更多按鈕 > 編輯專案(for group admin，不能執行專案流程)
+    }
+  }
 
   // Reset project status to 1
   const handleProjectReset = async () => {
@@ -230,6 +278,22 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
 
     setLoading(true);
     setOpenMoreMenu(false);
+  }
+
+  const ButtonResetProject = () => {
+    if(handleProjectResetDeletePermission()) {
+      return (
+          // super_admin 和 project role的project_admin 可以重設專案
+          <CustomAlertDialog buttonType="MenuItem" buttonVariant={null} buttonText={"重設專案"} dialogTitle={"重設專案"}
+          dialogContent={"重設專案將清除所有已完成的隱私安全服務強化處理，\n退回到設定專案的步驟，確定要重設專案?"}
+          disagreeButtonText={"取消"} agreeButtonText={"確定"}
+          agreeButtonOnClick={handleProjectReset} />
+          )
+    } else{
+      // 其他都不能重設專案
+      // Hind
+      return <></>;
+    }
   }
 
   // Delete project
@@ -264,13 +328,19 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
   }
   // Child component: showing the button of router to page `MLutility`
   const ButtonGoToUtility = () => {
-    if (project_status == 8)
-      // Disabled
-      return <MenuItem disabled>可用性分析</MenuItem>;
-    else if (project_status >= 6)
-      // Show
-      return <MenuItem onClick={handleGoToUtility}>可用性分析</MenuItem>;
-    else
+    // super_admin 和 project_admin 可以執行專案流程
+    if(handleProjectEditPermission()) {
+      if (project_status == 8)
+        // Disabled
+        return <MenuItem disabled>可用性分析</MenuItem>;
+      else if (project_status >= 6)
+        // Show
+        return <MenuItem onClick={handleGoToUtility}>可用性分析</MenuItem>;
+      else
+        // Hind
+        <></>
+      }
+    else // group admin不能執行專案流程
       // Hind
       return <></>;
   }
@@ -311,17 +381,36 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
 
   // Child component: showing the button of router to page `utility-report`
   const ButtonUtilityReport = () => {
-    if (project_status >= 6) {
-      if (showCheckUtilityReport)
-        // Show
-        return <MenuItem onClick={handleGoToUtilityReport}>可用性分析報表</MenuItem>;
-      // else
-      //   // Disabled
-      //   return <MenuItem disabled>可用性分析報表</MenuItem>;
+    // super_admin 和 project_admin 可以執行專案流程
+    if(handleProjectEditPermission()) {
+      if (project_status >= 6) {
+        if (showCheckUtilityReport)
+          // Show
+          return <MenuItem onClick={handleGoToUtilityReport}>可用性分析報表</MenuItem>;
+        // else
+        //   // Disabled
+        //   return <MenuItem disabled>可用性分析報表</MenuItem>;
+      }
+      else
+        // Hind
+        return <></>;
+    }else{
+      // group admin不能執行專案流程
+      return <></>
     }
-    else
-      // Hind
-      return <></>;
+  }
+
+  const ButtonDeleteProject = () => {
+    if(handleProjectResetDeletePermission()) {
+      return (
+          <CustomAlertDialog buttonType="MenuItem" buttonVariant={null} buttonText={"刪除專案"} dialogTitle={"刪除專案"}
+          dialogContent={`是否要刪除專案 ${row.original.project_name}?`}
+          disagreeButtonText={"否"} agreeButtonText={"是"}
+          agreeButtonOnClick={handleProjectDelete} />  // 更多按鈕 > 刪除專案
+      )
+    }else{
+      return <></>
+    }
   }
 
 
@@ -342,14 +431,17 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {buttonEditProject/* 更多按鈕 > 編輯專案 */}
-        <CustomAlertDialog buttonVariant="div" buttonText={"重設專案"} dialogTitle={"重設專案"}
-          dialogContent={"重設專案將清除所有已完成的隱私安全服務強化處理，\n退回到設定專案的步驟，確定要重設專案?"}
-          disagreeButtonText={"取消"} agreeButtonText={"確定"}
-          agreeButtonOnClick={handleProjectReset} />{/* 更多按鈕 > 重設專案 */}
+        {/*{buttonViewProject/* 更多按鈕 > 檢視專案 *!/*/}
+        {/*{buttonEditProject/* 更多按鈕 > 編輯專案 *!/*/}
+        {<ButtonEditViewProject />}
+        {/*<CustomAlertDialog buttonType="MenuItem" buttonVariant={null} buttonText={"重設專案"} dialogTitle={"重設專案"}*/}
+        {/*  dialogContent={"重設專案將清除所有已完成的隱私安全服務強化處理，\n退回到設定專案的步驟，確定要重設專案?"}*/}
+        {/*  disagreeButtonText={"取消"} agreeButtonText={"確定"}*/}
+        {/*  agreeButtonOnClick={handleProjectReset} />/!* 更多按鈕 > 重設專案 *!/*/}
+        {<ButtonResetProject /> /* 更多按鈕 > 重設專案 */}
         {<ButtonGoToUtility />  /* 更多按鈕 > 可用性分析 */}
         {<ButtonUtilityReport />/* 更多按鈕 > 可用性分析報表 */}
-        <MenuItem onClick={handleProjectDelete}>刪除專案</MenuItem>{/* 更多按鈕 > 刪除專案 */}
+        {<ButtonDeleteProject /> /* 更多按鈕 > 刪除專案 */}
       </Menu>
     </Stack>
   );
@@ -466,10 +558,10 @@ const determineChangeStatus = async (session, watchlist) => {
   }
 
   // API: set new project status (/api/project/put_projectStatus)
-  const handleSetProjectStatus = async (session, project_id) => {
+  const handleSetProjectStatus = async (session, project_id, newStatus) => {
     const payload = {
       project_id: project_id,
-      status: 4,
+      status: newStatus,
     };
     const config = {
       headers: {
@@ -506,37 +598,41 @@ const determineChangeStatus = async (session, watchlist) => {
     const promiseDPStatus = handleFetchSubSystemStatus(session, obj.project_eng, "/api/project/get_dp_checkstatus", "dp");
     projectsPromiseList.push({
       project_id: obj.project_id,
+      project_eng: obj.project_eng, // for debug
       subsystemsPromiseList: [promiseKStatus, promiseGANStatus, promiseDPStatus],
     });
   });
 
-  // const returnData = [];
   projectsPromiseList.map(async (obj, index) => { // [Notice] If the response is not expected, it might be changed to a for-loop without a map async function.
     // Join: force to synchronize all promise
     const subsystemsPromiseList = obj.subsystemsPromiseList;
     const subsystemStatusList = await Promise.all(subsystemsPromiseList);
-    console.log(`Project id: ${obj.project_id}, sub-sysyem status array [k, gan, dp]:`, subsystemStatusList);
+    console.log(`Project id: ${obj.project_id}\nProject folder name ${obj.project_eng},\nsub-sysyem status array [k, gan, dp]:`, subsystemStatusList);
 
     // check the status of all subsystems
-    let result = true;
+    let importErrorFlag = false;
+    let allPass = true;
     for (let i = 0; i < subsystemStatusList.length; i++) {
-      const bit = status2Boolean((subsystemStatusList[i] >= passStatusList[i]) ? 1 : 0);
+      let bit = 0;
+      if (subsystemStatusList[i] == 91) {
+        importErrorFlag = true;
+        // bit = 0;
+      }
+      else
+        bit = status2Boolean((subsystemStatusList[i] >= passStatusList[i]) ? 1 : 0);
+
       // Bitwise AND operation  
-      result = result && bit;
+      allPass = allPass && bit;
     }
 
-    // Change project status if check all passed
-    if (result) {
-      const promiseResultUpdateProjStatus = await handleSetProjectStatus(session, obj.project_id);
+    if (importErrorFlag) {
+      // Set the project status to 92 if the status of any sub-system is 91.
+      const promiseResultUpdateProjStatus = await handleSetProjectStatus(session, obj.project_id, 92);
+    } else if (allPass) {
+      // Change project status if check all passed
+      const promiseResultUpdateProjStatus = await handleSetProjectStatus(session, obj.project_id, 4);
     }
-
-    // returnData.push({
-    //   project_id: obj.project_id,
-    //   subsystems_status: result,
-    // });
   });
-  // console.log("Check result list:", returnData);
-  // return returnData;
 }
 
 
@@ -570,7 +666,7 @@ const ProjectListTable = () => {
         className: 'cell-center'
       },
       {
-        Header: '主責機構',
+        Header: '主責單位',
         accessor: 'project_group_name',
         className: 'cell-center',
       },
@@ -594,7 +690,7 @@ const ProjectListTable = () => {
       },
       {
         Header: '更多',
-        className: 'download',
+        className: 'download, cell-center',
         disableSortBy: true,
         Cell: ({ row }) => ActionsCell(row, setTaskData, setLoading, theme)
       }
@@ -660,19 +756,27 @@ const ProjectListTable = () => {
     <Page title="Customer List">
       <MainCard content={false}>
         <ScrollX>
-          {(loading) ? "loading..." : renderedTable}
+          {(loading) ? "" /* loading... */ : renderedTable}
         </ScrollX>
       </MainCard>
       {(userInfo && !userInfo.ischange) && (
         // 第一次登入提示訊息
-        <Dialog open={popUp} onClose={() => { setPopUp(false) }}>
-          <DialogTitle>登入成功</DialogTitle>
-          <p>首次登入後請前往個人設定頁重設密碼，</p>
-          <p>以開通網站功能</p>
-          <Button variant="contained" sx={{ bgcolor: "#226cea", minWidth: '100px' }} onClick={handlePasswordReset} >
-            重設密碼
-          </Button>
-        </Dialog>
+
+        // <Dialog open={popUp} onClose={() => { setPopUp(false) }}>
+        //   <DialogTitle>登入成功</DialogTitle>
+        //   <p>首次登入後請前往個人設定頁重設密碼，</p>
+        //   <p>以開通網站功能</p>
+        //   <Button variant="contained" sx={{ bgcolor: "#226cea", minWidth: '100px' }} onClick={handlePasswordReset} >
+        //     重設密碼
+        //   </Button>
+        // </Dialog>
+
+        (popUp) ?
+          <StateControlDialog stateArrayOpenControl={[popUp, setPopUp]}
+            dialogTitle="登入成功" dialogContent="首次登入後請前往個人設定頁重設密碼，<br>以開通網站功能"
+            disagreeButtonText={null} agreeButtonText="重設密碼"
+            agreeButtonOnClick={handlePasswordReset} />
+          : <></>
       )}
     </Page>
   );

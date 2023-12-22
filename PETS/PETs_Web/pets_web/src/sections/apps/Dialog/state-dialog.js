@@ -34,10 +34,14 @@ export default function StateControlDialog({
     if (!agreeButtonOnClick) agreeButtonOnClick = handleClose;
 
     // Content change line
-    const splitContent = dialogContent.split("\n");
-    const newContent = [splitContent[0]];
-    for (let i = 1; i < splitContent.length; i++) {
-        newContent.push(<br />, splitContent[i]);
+    const newContent = [];
+    if (dialogContent) {
+        const splitContent = dialogContent.split("<br>");
+        console.log(splitContent, splitContent);
+        newContent.push(splitContent[0]);
+        for (let i = 1; i < splitContent.length; i++) {
+            newContent.push(<br />, splitContent[i]);
+        }
     }
 
     return (
@@ -45,11 +49,14 @@ export default function StateControlDialog({
             <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                 <Box sx={{ p: 1, py: 1.5 }}>
                     <DialogTitle id="alert-dialog-title" textAlign="center" ><b>{dialogTitle}</b></DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description" textAlign="center">
-                            {newContent}
-                        </DialogContentText>
-                    </DialogContent>
+                    {(newContent.length > 0) ?
+                        <>
+                            <DialogContent>
+                                <DialogContentText id="alert-dialog-description" textAlign="center">
+                                    {newContent}
+                                </DialogContentText>
+                            </DialogContent>
+                        </> : <></>}
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <DialogActions>
                             {(disagreeButtonText) ?
