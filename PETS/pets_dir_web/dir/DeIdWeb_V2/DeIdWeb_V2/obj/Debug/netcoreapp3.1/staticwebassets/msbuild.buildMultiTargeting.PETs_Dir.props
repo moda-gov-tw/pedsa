@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PETs_Dir.props" />
+</Project>

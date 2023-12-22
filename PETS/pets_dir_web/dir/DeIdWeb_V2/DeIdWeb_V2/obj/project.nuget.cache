@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+tTLzr8RqOE31cY62tdAh/Itsa8AKNjohYc5lcH93KuJzgEX1jLeXvo63CzlE/yjmSQtqjT2Qle4LeqxMZRWMw==",
+  "dgSpecHash": "a9CJlW+BPr+xwi9+wXWkRxS8jOP6azQXJHAC9QxAKa3yLEEkVl5n9a5GFcKwH6VGnla5b+xZ98TN+IdeCLNhJg==",
   "success": true,
-  "projectFilePath": "F:\\DeIdWeb\\數位部\\dir\\DeIdWeb_V2\\DeIdWeb_V2\\PETs_Dir.csproj",
+  "projectFilePath": "F:\\DeIdWeb\\數位部\\pets_dir_web\\DeIdWeb_V2\\DeIdWeb_V2\\PETs_Dir.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bruce\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Bruce\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",

@@ -7642,11 +7642,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\DeIdWeb\\數位部\\dir\\DeIdWeb_V2\\DeIdWeb_V2\\PETs_Dir.csproj",
+      "projectUniqueName": "F:\\DeIdWeb\\數位部\\pets_dir_web\\DeIdWeb_V2\\DeIdWeb_V2\\PETs_Dir.csproj",
       "projectName": "PETs_Dir",
-      "projectPath": "F:\\DeIdWeb\\數位部\\dir\\DeIdWeb_V2\\DeIdWeb_V2\\PETs_Dir.csproj",
+      "projectPath": "F:\\DeIdWeb\\數位部\\pets_dir_web\\DeIdWeb_V2\\DeIdWeb_V2\\PETs_Dir.csproj",
       "packagesPath": "C:\\Users\\Bruce\\.nuget\\packages\\",
-      "outputPath": "F:\\DeIdWeb\\數位部\\dir\\DeIdWeb_V2\\DeIdWeb_V2\\obj\\",
+      "outputPath": "F:\\DeIdWeb\\數位部\\pets_dir_web\\DeIdWeb_V2\\DeIdWeb_V2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

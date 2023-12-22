@@ -82,13 +82,23 @@ namespace DeIdWeb_V2.Controllers
                 return Encoding.Default; // 預設編碼
             }
         }
-
+        static string DecodeUtf8(string utf8String)
+        {
+            byte[] utf8Bytes = Encoding.UTF8.GetBytes(utf8String);
+            string decodedString = Encoding.UTF8.GetString(utf8Bytes);
+            return decodedString;
+        }
         [HttpPost]
         
         public async Task<IActionResult> Upload(IFormFile file)
         {
             string filename = "";
             string file_key = "";
+            //string originalData = "皜祈岫鞈���";
+
+            //// 將 UTF-8 編碼的字串轉換為 Unicode 字串
+            //string decodedData = DecodeUtf8(originalData);
+
             //var cht_name = "";
             if (file == null || file.Length == 0)
             {
@@ -137,6 +147,7 @@ namespace DeIdWeb_V2.Controllers
                     log.Info("Login User : -3.5");
                     //上傳完畢，寫入表頭
                     string fileheader = Request.Form["fireheader"];
+
                     //replace header ""
                     fileheader = fileheader.Replace("\"", "");
                     fileheader = fileheader.Replace("\\r\\n", "");
@@ -158,13 +169,34 @@ namespace DeIdWeb_V2.Controllers
                 return Content("檔案上傳失敗!");
             }
         }
+        static string DecodeBig5(string big5String)
+        {
+            // 註冊 Big5 編碼提供者
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
+            // 使用 "big5" 作為編碼名稱
+            Encoding big5 = Encoding.GetEncoding("big5");
+
+           
+            // 將 Big5 編碼的字串轉換為 byte[]
+            byte[] big5Bytes = big5.GetBytes(big5String);
+
+            // 將 byte[] 轉換為 Unicode 字串
+            string decodedString = Encoding.Unicode.GetString(big5Bytes);
+
+            return decodedString;
+        }
         public IActionResult DirSetting(string filename,string fileheader, string file_key)
         {
             ViewData["filename"] = "";
             ViewData["upload_header"] = "";
             ViewData["fileheader"] = "";
             ViewData["file_key"] = file_key;
+            string originalData = "皜祈岫鞈���";
+
+            // 將 UTF-8 編碼的字串轉換為 Unicode 字串
+            string decodedData = DecodeBig5(originalData);
+
             //var filename = "";
             var upload_header = "";
             try

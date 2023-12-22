@@ -5,29 +5,36 @@
     ViewData["Title"] = "StepUpload";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+   <meta charset="UTF-8">
 <section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <!-- <li><a href="@Url.Action("ProjectIndex","Home")">@localizer.Text.project_list</a></li>
+            <li><a href="@Url.Action("StepUpload", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"],project_cht=ViewData["Project_cht"] })">@ViewData["Project_cht"]</a></li> -->
+        </ul>
+    </div>
 </section>
 <section class="project_wrapper">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-sm-3">
-                    <div class="project_title">
-                        <h4>@ViewData["Project_cht"]</h4>
-                    </div>
+                    <!-- <div class="project_title">
+                        <h4>先來個名字撐起高度</h4>
+                    </div> -->
                     <div class="status_bar">
-                        <h4 class="method">去識別化流程</h4>
+                        <h4 class="method">直接識別處理流程</h4>
                         <div class="status">
                             <div class="status_no_line active">
-                                <h6>@localizer.Text.step0</h6>
-                                <p>@localizer.Text.upload_menu_list</p>
+                                <h6>資料匯入</h6>
+                                <p>Data Import</p>
                                 <h3>1</h3>
                             </div>
                         </div>
                         <div class="status">
                             <div class="status_notnow">
-                                <h6>@localizer.Text.stepDir</h6>
-                                <p>@localizer.Text.stepDir_menu_list</p>
+                                <h6>直接識別處理</h6>
+                                <p>Direct identification processing</p>
                                 <h3>2</h3>
                             </div>
                         </div>
@@ -46,9 +53,13 @@
                                 <div class="file_select">
                                     <div class="file_select_button" id="fileName">選擇檔案</div>
                                     <div class="file_select_name" id="noFile">未選擇任何檔案</div>
-                                    @*<input id="csrf_token" name="csrf_token" type="hidden" value="your_csrf_token">*@
                                     <input id="choose_file" name="file" class="file-upload-field" required="" type="file" value="">
                                 </div>
+                                <ol class="rawdata_info">
+                                    <li>* 僅接受 csv 檔案格式。</li>
+                                    <li>* 檔名僅可使用英文字母、數字、半形底線“_”上述三種元素之結合，例如：sample123_2023。</li>
+                                    <li>* 檔案大小上限 1G，請確保您的檔案不超過此限制。</li>
+                                </ol>
 
                                 <!-- 第二个文件选择 -->
                                 <div class="file_select">
@@ -58,12 +69,9 @@
                                     <input id="choose_key" name="file" class="file-upload-field" required="" type="file" value="">
                                 </div>
                                 <ol class="rawdata_info">
-                                    <li>僅接受csv檔案格式，不能有空值(null value)，不能有合併儲存格。其資料欄位(metadata)只能為英文，且不能有空格<br>(例如：department_address為資料欄位，department address為不合格之資料欄位)。</li>
-                                    <li>檔名僅可使用英文字母、數字、半型底線'_'上述三種元素之結合，例如：hadoop123_example。</li>
-                                    <li>檔案大小上限：1G，請確保您的檔案不超過此限制。</li>
-                                    <li>日期格式：YYYY-MM-DD。</li>
+                                    <li>* 僅接受 json 檔案格式。</li>
                                 </ol>
-                                <input class="btn btn_mgs" id="submit" name="submit" type="submit" value="匯入" onclick="">
+                                <input class="btn btn_mgs btn_next" id="submit" name="submit" type="submit" value="匯入" onclick="">
                             </div>
 
                         </form>
@@ -130,44 +138,15 @@
         var regex = /^[a-zA-Z0-9_]+$/;
         return regex.test(fileName);
     }
+    function containsSpecialCharacter(str) {
+    // 允许字母、数字和_以外的字符为特殊字符
+    var regex = /[^\w]/;
 
-
-    function read_key()
-    {
-        var fileKeyInput = document.getElementById('choose_key');
-    var fileKeyData=fileKeyInput.files[0];
-    console.log("fileKeyData:", fileKeyData);
-    var filekeyPath = fileKeyInput.value;
-    var enc_key="";
-    var filenkeyame = filekeyPath.replace(/^.*[\\\/]/, '');
-     if (fileKeyData) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-        try {
-            // 解析 JSON
-            var jsonData = JSON.parse(e.target.result);
-          //  alert(jsonData);
-            // 取得 enc_key
-            enc_key = jsonData.enc_key;
-
-            // 在這裡使用 encKey，例如顯示在控制台
-            console.log('enc_key:', enc_key);
-        } catch (error) {
-            console.error('解析 JSON 失敗:', error);
-        }
-    };
-
-    // 讀取檔案
-    reader.readAsText(fileKeyData);
+    // 使用 test 方法判斷字符串是否包含特殊字符
+    return regex.test(str);
 }
- console.log('enc_key:', enc_key);
-return enc_key;
-    }
-
-
     $('#uploadForm').submit(function (e) {
-    e.preventDefault(); // 阻止表单的默认提交行为
+    e.preventDefault(); // 阻止表單默認提交
     var fileInput = document.getElementById('choose_file');
     var fileKeyInput = document.getElementById('choose_key');
     var fileKeyData=fileKeyInput.files[0];
@@ -175,7 +154,7 @@ return enc_key;
     var filekeyPath = fileKeyInput.value;
     var filePath = fileInput.value;
     var filename = filePath.replace(/^.*[\\\/]/, '');
-    //var filenkeyame = filekeyPath.replace(/^.*[\\\/]/, '');
+    var filenkeyame = filekeyPath.replace(/^.*[\\\/]/, '');
     var chineseRegex = /[\u4e00-\u9fa5]/gm;
      
     if (fileInput.files.length > 0) {
@@ -227,21 +206,52 @@ return enc_key;
             alert('金鑰檔必須是 JSON 格式');
            return false;
         }
-        var keys=read_key();
-        var enc_key=keys;
-       console.log('key');
-       console.log(keys);
-       console.log(enc_key);
-        alert(enc_key);
+
+        var enc_key="";
+        if (fileKeyData) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        try {
+            // 解析 JSON
+            var jsonData = JSON.parse(e.target.result);
+          //  alert(jsonData);
+            // 取得 enc_key
+            enc_key = jsonData.enc_key;
+
+            // 在這裡使用 encKey，例如顯示在控制台
+            console.log('enc_key:', enc_key);
+        } catch (error) {
+            console.error('解析 JSON 失敗:', error);
+        }
+    };
+
+    // 讀取檔案
+    reader.readAsText(fileKeyData);
+}
+      //  alert(enc_key);
         var formData = new FormData($(this)[0]);
         var file = fileInput.files[0];
         var reader = new FileReader();
-        reader.readAsText(file, 'Big5');
+        reader.readAsText(file, 'utf-8');
         //alert('9');
         reader.onload = function (event) {
             var csv = event.target.result;
             var csvRows = csv.split('\n');
+            var textDecoder = new TextDecoder('utf-8');
+            var decodedCsv = textDecoder.decode(new Uint8Array(csv));
+            console.log(csvRows);
+            console.log(decodedCsv);
             var firstRow = csvRows[0];
+           // alert(csvRows);
+           var hasSpecialCharacter = containsSpecialCharacter(firstRow);
+           if (hasSpecialCharacter) {
+               console.log("字符串包含特殊字符");
+                alert('檔案中的欄位資料不可有特殊字元!');
+                return false;
+           } else {
+               console.log("字符串不包含特殊字符");
+           }
             var firstRowdata = csvRows[0].split(',');
             var secondRow = csvRows[1].split(','); // 将第二行拆分为列数组
 
@@ -261,7 +271,9 @@ return enc_key;
               }
 
             // 將第一行資料加入FormData
+            //alert(firstRow);
             var strWithoutNewLine = firstRow.replace(/(\r\n|\n|\r)/gm, "");
+          //  alert(strWithoutNewLine);
             formData.append('firekey', enc_key);
             formData.append('fireheader', strWithoutNewLine);
             formData.append('filename', filename);
@@ -286,7 +298,7 @@ return enc_key;
                 success: function (result) {
              
                     $('#datachecking').modal('hide');
-                    location.href = "@Url.Action("DirSetting", "Home")/?fileheader="+encodeURIComponent(strWithoutNewLine)+ "&file_key=" + encodeURIComponent(enc_key);
+                    location.href = "@Url.Action("DirSetting", "Home")/?filename="+decodeURIComponent(filename)+"&fileheader="+decodeURIComponent(strWithoutNewLine)+ "&file_key=" + encodeURIComponent(enc_key);
 
                 },
                 error: function (xhr, status, error) {

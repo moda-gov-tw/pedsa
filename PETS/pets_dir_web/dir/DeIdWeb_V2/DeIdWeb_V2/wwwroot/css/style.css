@@ -2765,6 +2765,8 @@ label.panel-label {
   .dir_form .form-group .dir_col label, .download_form .form-group .download_col label{
     display: flex;
     align-items: center;
+    font-weight: 400;
+    margin-bottom: 10px;
   }
   .dir_form .form-group .dir_col span, .download_form .form-group .download_col span {
     margin: 0 0 0 5px;

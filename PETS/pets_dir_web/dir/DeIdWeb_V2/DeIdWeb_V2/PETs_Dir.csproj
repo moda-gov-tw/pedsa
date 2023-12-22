@@ -28,14 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Views\Home\StepUpload.cshtml_1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Views\Home\StepUpload.cshtml_1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Haukcode.DinkToPdf" Version="1.1.2" />
     <PackageReference Include="log4net" Version="2.0.14" />
