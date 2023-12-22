@@ -1,0 +1,18 @@
+[Hadoop_information]
+
+ip=35.201.239.123
+
+hdfs_port = 6922
+
+user=ubuntu
+
+passwd=petspass@
+
+
+from_path=/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/input/
+
+to_path =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/output/
+
+rawData_path = /home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/data/output/
+
+privacyData_path = /home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/

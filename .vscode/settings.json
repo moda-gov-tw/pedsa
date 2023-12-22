@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "35.201.239.123",
+            "port": 11100,
+            "driver": "MariaDB",
+            "name": "123",
+            "database": "PetsService",
+            "username": "deidadmin",
+            "password": "citcw200"
+        }
+    ]
+}
