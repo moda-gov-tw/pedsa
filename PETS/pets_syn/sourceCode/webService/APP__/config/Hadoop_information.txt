@@ -1,0 +1,17 @@
+[Hadoop_information]
+
+ip=35.201.239.123
+
+hdfs_port = 6922
+
+user=ubuntu
+
+passwd=petspass@
+
+from_path=/home/hadoop/proj_/final_project/syn/input/
+ 
+to_path =/home/hadoop/proj_/final_project/syn/output/
+
+rawData_path = /home/hadoop/proj_/data/output/
+
+privacyData_path = /home/hadoop/proj_/final_project/

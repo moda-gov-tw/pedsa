@@ -1,0 +1,160 @@
+# open file
+import os
+
+# data analysis and wrangling
+import pandas as pd
+import numpy as np
+import ast
+import sys
+import math
+from collections import Counter
+
+from MyLib.connect_sql import ConnectSQL
+from logging_tester import _getLogger
+
+
+def updateToMysql_status(conn,userID,projID, projName, table, step, percentage):
+    # update process status to mysql
+    condisionSampleData = {
+            'project_id': projID,
+            'pro_name': projName,
+            'file_name': table,
+            'jobName': "utility"
+        }
+
+    valueSampleData = {
+            'jobName': "utility",
+            'project_id': projID,
+            'user_id':userID,
+            'pro_name': projName,
+            'file_name': table,
+            'step': step,
+            'percentage':percentage
+        }
+
+    resultSampleData = conn.updateValueMysql('SynService',#'DeIdService',
+                                            'T_GANStatus',
+                                            condisionSampleData,
+                                            valueSampleData)
+    if resultSampleData['result'] == 1:
+        #_logger.debug("Update mysql succeed. {0}".format(resultSampleData['msg']))
+        return None
+    else:
+        msg = resultSampleData['msg']
+        _logger.debug('insertSampleDataToMysql fail: ' + msg)
+        return None
+
+def statisticResult(df, colList):
+    result = {}
+    for col in colList:
+        result[col]={}
+        if np.dtype(df[col]).name == 'object':
+            result[col]['type'] = 'category'
+            result[col]['value'] = getTop5category(df, col) #get top 5 category{}
+        else:
+            result[col]['type'] = 'numerical'
+            result[col]['value'] = getNumStatistic(df, col) #get {min,max,mean,median,std}
+    return result
+
+def getTop5category(df, col):
+    top5category = df.groupby(col)[col].count().sort_values(ascending=False)[:5]
+    top5category_dict = top5category.to_dict()
+    top5category_dict['others'] = len(df)-top5category.sum()
+    return top5category_dict
+
+def getNumStatistic(df, col):
+    statistics_dict = {}
+    statistics_dict['min'] = df[col].min().round(3)
+    statistics_dict['max'] = df[col].max().round(3)
+    statistics_dict['mean'] = df[col].mean().round(3)
+    statistics_dict['median'] = df[col].median().round(3)
+    statistics_dict['std'] = df[col].std().round(3)
+    return statistics_dict
+
+def getAbsDiff(raw_dict, syn_dict):
+    diffIndex = 0
+    keys = raw_dict.keys()
+    for key in keys:
+        X,Y = Counter(raw_dict[key]['value']),Counter(syn_dict[key]['value'])
+        Z = dict(X-Y)
+        abs_dict = {key: abs(value) for key, value in Z.items()}
+        diffIndex = diffIndex+sum(abs_dict.values())
+    return diffIndex
+
+def main():
+    global  _logger,_vlogger     
+    # debug log
+    _logger  =_getLogger('error__MLutility')
+    # verify log
+    _vlogger =_getLogger('verify__MLutility')
+    _vlogger.debug('------{}__Statistic Utility Start------'.format(projName))
+    
+    
+    #connect MYSQL
+    try:
+        check_conn = ConnectSQL()
+        _vlogger.debug("{}__Connect SQL".format(projName))
+        check_conn.close()
+    except Exception as e:
+        _logger.debug('connectToMysql fail: - %s:%s' %(type(e).__name__, e))
+        return None
+    
+    #Initial
+    try:
+        check_conn = ConnectSQL()
+        #updateToMysql_status(check_conn, projID, projName, fileName, step, percentage)
+        updateToMysql_status(check_conn, userID, projID, projName, fileName, 'Initial', 0)
+        check_conn.close()
+    except Exception as e:
+        _logger.debug('errTable: updateToMysql_status fail. {0}'.format(str(e)))
+        return None
+    
+
+    #data list
+    rawDataName = rawDir.split('\\')[-1]
+    synDataList = [fileName_ for fileName_ in os.listdir(synDir) if fileName_.endswith(".csv")]
+
+    result_ = {}
+    diff_ = {}
+    #raw data statistic
+    df = pd.read_csv(rawDir)
+    result_[rawDataName] = statisticResult(df, targetCols)
+    
+    #syn data statistic
+    for synDataName in synDataList:
+        df = pd.read_csv(synDir+synDataName)
+        result_[synDataName] = statisticResult(df, targetCols)
+        diff_[synDataName] = getAbsDiff(result_[rawDataName], result_[synDataName])
+
+    #get minium statistic result difference between raw data and syn data  
+    bestSynData = min(diff_, key=diff_.get)
+
+    final = {'raw data' : result_[rawDataName], 'syn. data':result_[bestSynData]}
+
+    _vlogger.debug('{}__target - '.format(projName) + '*'.join(targetCols))
+    _vlogger.debug('{}__best syn. data - '.format(projName) + bestSynData)
+    _vlogger.debug('{}__model - statistic'.format(projName))
+    _vlogger.debug('{}__result - '.format(projName) + str(final))
+
+    #finish
+    try:
+        check_conn = ConnectSQL()
+        #updateToMysql_status(check_conn, projID, projName, fileName, step, percentage)
+        updateToMysql_status(check_conn, userID, projID, projName, fileName, 'finish', 100)
+        check_conn.close()
+    except Exception as e:
+        _logger.debug('errTable: updateToMysql_status fail. {0}'.format(str(e)))
+        return None
+    
+    _vlogger.debug('------{}__Statistic Utility Finished------'.format(projName))
+           
+if __name__ == '__main__':
+    userID = sys.argv[1]
+    projID = sys.argv[2]
+    projName = sys.argv[3]
+    fileName = sys.argv[4]
+    rawDir = sys.argv[5] #raw data ex.D:/107/adult/train.csv
+    synDir = sys.argv[6] #DeID data folder ex.D:/patent/adultDiffEmbeddingTarget/class/synthetic/
+    targetCols = ast.literal_eval(sys.argv[7]) #list of target columns ex.['class']
+
+    main()
