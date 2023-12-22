@@ -229,9 +229,12 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
   const buttonViewProject = (project_status >= 2) ? <MenuItem disabled>編輯專案</MenuItem> : <MenuItem onClick={handleProjectView}>編輯專案</MenuItem>;
 
   const handleProjectEditPermission = () => {
+
     // super admin不受project role限制
     if(userPermission.includes('super_admin')) {
-      return true
+      return true;
+    } else if(userPermission.length===1 && userPermission[0]==='group_admin') {
+      return false;
     } else if(userPermission.some(p => ['group_admin', 'project_admin'].includes(p))) {
       //group_admin 和 project_admin視專案角色決定more選單選項
       if(userProjectRole!==5) { // project admin, project user
@@ -244,8 +247,21 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
   }
 
   const handleProjectResetDeletePermission = () => {
+    if(userPermission.some(p => ['super_admin', 'group_admin'].includes(p))) {
+      return true;
+    }
+    if(userProjectRole===3) {
+      return true;
+    }
+    return false;
+  }
+
+  const handleProjectResetPermission = () => {
     if(userPermission.includes('super_admin')) {
       return true;
+    }
+    if(userPermission.length===1 && userPermission[0]==='group_admin') {
+      return false;
     }
     if(userProjectRole===3) {
       return true;
@@ -257,7 +273,7 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
     if(handleProjectEditPermission()) {
       return buttonEditProject;  // 更多按鈕 > 編輯專案
     } else{
-      return buttonViewProject;  // 更多按鈕 > 編輯專案(for group admin，不能執行專案流程)
+      return <></>;  // 更多按鈕 > 編輯專案(for group admin，不能執行專案流程)
     }
   }
 
@@ -281,7 +297,7 @@ const ActionsCell = (row, setTaskData, setLoading, theme) => {
   }
 
   const ButtonResetProject = () => {
-    if(handleProjectResetDeletePermission()) {
+    if(handleProjectResetPermission()) {
       return (
           // super_admin 和 project role的project_admin 可以重設專案
           <CustomAlertDialog buttonType="MenuItem" buttonVariant={null} buttonText={"重設專案"} dialogTitle={"重設專案"}
