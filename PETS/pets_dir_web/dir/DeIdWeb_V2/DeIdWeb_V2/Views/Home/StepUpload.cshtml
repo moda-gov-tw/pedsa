@@ -140,8 +140,23 @@
     }
     function containsSpecialCharacter(str) {
     // 允许字母、数字和_以外的字符为特殊字符
-    var regex = /[^\w]/;
-
+    var regex = /[^\w"_]/;
+     var boolcheck = false;
+     var up_header_arr = new Array();
+     up_header_arr = str.split(',')
+     for(var i=0;i<up_header_arr.length;i++)
+     {
+         var matches = up_header_arr[i].match(regex);
+         if (matches) {
+        console.log("Special character found:", matches);
+        boolcheck= true;
+    } else {
+        console.log("No special characters found.");
+        boolcheck= false;
+    }
+    return boolcheck;
+     }
+    
     // 使用 test 方法判斷字符串是否包含特殊字符
     return regex.test(str);
 }
@@ -149,6 +164,15 @@
     e.preventDefault(); // 阻止表單默認提交
     var fileInput = document.getElementById('choose_file');
     var fileKeyInput = document.getElementById('choose_key');
+    var testdata="Name_1_2";
+    //var ss= containsSpecialCharacter(testdata);
+    //     if (ss) {
+    //           console.log("S字符串包含特殊字符");
+    //            alert('S檔案中的欄位資料不可有特殊字元!');
+    //            return false;
+    //       } else {
+    //           console.log("S字符串不包含特殊字符");
+    //       }
     var fileKeyData=fileKeyInput.files[0];
     console.log("fileKeyData:", fileKeyData);
     var filekeyPath = fileKeyInput.value;
