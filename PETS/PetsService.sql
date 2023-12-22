@@ -86,27 +86,6 @@ CREATE TABLE IF NOT EXISTS `PetsService`.`T_Pets_Project` (
 
 ) DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `PetsService`.`T_Pets_HistoryProject` (
-    project_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    project_name VARCHAR(255) NOT NULL,
-    project_eng VARCHAR(255) NOT NULL ,
-    project_desc LONGTEXT,
-    createtime DATETIME NOT NULL,
-    updatetime DATETIME,
-    enc_key VARCHAR(200),
-    jointablename VARCHAR(255),
-    jointablecount int,
-    join_func INT,
-    join_func_content longtext,
-    project_role_content longtext,
-    group_id INT(11),
-    createMember_Id INT(11),
-    updateMember_Id INT(11),
-    FOREIGN KEY(group_id) REFERENCES T_Pets_Group(id),
-    FOREIGN KEY(createMember_Id) REFERENCES T_Pets_Member(id),
-    FOREIGN KEY(updateMember_Id) REFERENCES T_Pets_Member(id)
-
-) DEFAULT CHARSET=utf8;
 
 CREATE TABLE  IF NOT EXISTS `PetsService`.`T_Pets_UtilityResult` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -211,13 +190,11 @@ CREATE TABLE IF NOT EXISTS `PetsService`.`T_Pets_ProjectJoinFunc` (
 
  CREATE TABLE IF NOT EXISTS `PetsService`.`T_Pets_Syslog` (
         id INT(11) NOT NULL auto_increment PRIMARY KEY,
-        sysdatetime DATETIME NOT NULL,
-        member_id INT(11) NOT NULL,
-        log_type INT(11) NOT NULL,
-        project_id int,
-        logcontext varchar(255),
-        FOREIGN KEY(project_id) REFERENCES T_Pets_Project(project_id),
-        FOREIGN KEY(member_id) REFERENCES T_Pets_Member(id)
+    sysdatetime DATETIME DEFAULT current_timestamp,
+    useraccount VARCHAR(100) NOT NULL,
+    log_type VARCHAR(50) NOT NULL,
+    project_name VARCHAR(255),
+    logcontent VARCHAR(255)
     ) DEFAULT CHARSET=utf8;
 
  CREATE TABLE IF NOT EXISTS `PetsService`.`T_Pets_JobSyslog` (
@@ -230,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `PetsService`.`T_Pets_ProjectJoinFunc` (
         jobname varchar(255),
         project_step varchar(255),
         percentage int,
-        logcontext varchar(255),
+        logcontent varchar(255),
         FOREIGN KEY(project_id) REFERENCES T_Pets_Project(project_id),
         FOREIGN KEY(member_id) REFERENCES T_Pets_Member(id)
     ) DEFAULT CHARSET=utf8;
