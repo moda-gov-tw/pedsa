@@ -9,7 +9,7 @@ import logging
 import json
 from app.core.config import LogConfig
 from app.database import get_db
-from app.core.models import Group, Member, AdminRole, MemberGroupRole, Project,ProjectStatus,MemberProjectRole,ViewsDetails,ProjectJoinFunc,HistoryProject
+from app.core.models import Group, Member, AdminRole, MemberGroupRole, Project,ProjectStatus,MemberProjectRole,ViewsDetails,ProjectJoinFunc,HistoryProject,JobSyslog
 from app.core.schemas import Result, CreateGroup, GroupBase, UpdateGroup, CreateMember, UpdateMember, InsertAdminGroup
 from app.core.utils import _result_wrapper, decode_jwt_token, gen_default_password
 from app.core.crud import user_login, gen_jwt_token, check_permissions, get_all_group, db_update_group, db_delete_group, \
@@ -306,6 +306,11 @@ def delete_projects(project_id: int = Form(), decode_info: dict = Depends(verify
 
     #delete records==pid
     try:
+        db_JobSyslog = db.query(JobSyslog).filter(JobSyslog.project_id == project_id).all() 
+        for row in db_JobSyslog:
+            db.delete(row)
+            db.commit() 
+
         db_join_func_content= db.query(ProjectJoinFunc).filter(ProjectJoinFunc.project_id == project_id).all() 
         for row in db_join_func_content:
             db.delete(row)

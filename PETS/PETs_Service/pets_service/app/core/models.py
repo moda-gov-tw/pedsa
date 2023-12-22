@@ -242,3 +242,16 @@ class Syslog(Base):
     log_type = Column(VARCHAR(50), nullable=False, comment="Log類別")
     project_name = Column(VARCHAR(255), comment="專案名稱")
     logcontent = Column(VARCHAR(255), comment="Log紀錄")
+
+class JobSyslog(Base):
+    __tablename__ = "T_Pets_JobSyslog"
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    createtime = Column(DateTime(timezone=True))
+    updatetime = Column(DateTime(timezone=True))    
+    member_id = Column(Integer, nullable=False) #member_id
+    log_type = Column(Integer, nullable=False)
+    project_id = Column(Integer, nullable=False)
+    jobname= Column(VARCHAR(255), nullable=False)
+    project_step = Column(Integer, nullable=False)
+    percentage = Column(Integer, nullable=False)
+    logcontent  = Column(VARCHAR(255))

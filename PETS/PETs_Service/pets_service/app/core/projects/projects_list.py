@@ -145,9 +145,14 @@ def get_project_ls(member_id, db: Session):
                     # 若尚未有該 project_id，則直接新增
                     merged_dict[project_id] = project
                 else:
-                    # 若已經存在該 project_id，則合併紀錄，並去掉 "member_role" 為 None 的項目
-                    if project["member_role"] is not None:
+                    # If the project_id already exists, update the record and keep
+                    if project["project_role"] in [1,2,4,5]:
                         merged_dict[project_id].update(project)
+
+                    # Preserve the original member_role value
+                    elif project["member_role"] is not None:
+                        merged_dict[project_id]["member_role"] = project["member_role"]
+                    
             # 轉換字典為列表，只保留合併後的紀錄
             merged_list = list(merged_dict.values())
             return merged_list
