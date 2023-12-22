@@ -1214,6 +1214,7 @@ namespace DeIdWeb_V2_K.Controllers
                                         return_url = "";
                                         break;
                                     case 14:
+                                        proj_status = 10;
                                         statusname = "資料匯出中";
                                         return_url = "";
                                         break;
@@ -1222,18 +1223,22 @@ namespace DeIdWeb_V2_K.Controllers
                                         return_url += "/ProjectStep/Step6?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
                                     case 94:
+                                        proj_status =95;
                                         statusname = "資料匯出錯誤";
-                                        return_url += "/ProjectStep/Step7?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
+                                        return_url += "/ProjectStep/Step6?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
                                     case 96:
+                                        proj_status =94;
                                         statusname = "去識別化錯誤";
-                                        return_url += "/ProjectStep/Step4?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
+                                        return_url += "/ProjectStep/Step3?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
                                     case 97:
+                                        proj_status =94;
                                         statusname = "去識別化錯誤";
-                                        return_url += "/ProjectStep/Step4?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
+                                        return_url += "/ProjectStep/Step3?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
                                     case 98:
+                                        proj_status =93;
                                         statusname = "概化處理錯誤";
                                         return_url += "/ProjectStep/Step3?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
@@ -1241,9 +1246,10 @@ namespace DeIdWeb_V2_K.Controllers
                                         statusname = "資料匯入錯誤";
                                         return_url += "/ProjectStep/Step1?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
-                                    case 90:
+                                    case 93:
+                                        proj_status =94;
                                         statusname = "去識別化錯誤";
-                                        return_url += "/ProjectStep/Step4?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
+                                        return_url += "/ProjectStep/Step3?proj_id=" + WebUtility.UrlEncode(item.Project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(item.project_name) + "&stepstatus=" + WebUtility.UrlEncode(item.project_status.ToString()) + "&project_cht=" + WebUtility.UrlEncode(item.project_cht); ;
                                         break;
                                     default:
                                         statusname = "資料處理中";
@@ -1258,7 +1264,7 @@ namespace DeIdWeb_V2_K.Controllers
                                     obj = new
                                     {
                                         project_id = project_id,
-                                        project_status = item.project_status,
+                                        project_status =proj_status,
                                         status_name = statusname,
                                         return_url = return_url
                                     }
