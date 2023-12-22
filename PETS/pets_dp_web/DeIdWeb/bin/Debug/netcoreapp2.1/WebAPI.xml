@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeIdWeb</name>
+    </assembly>
+    <members>
+        <member name="F:DeIdWeb.Controllers.HomeController.config">
+            <summary>
+            讀取組態用
+            </summary>
+        </member>
+        <member name="M:DeIdWeb.Controllers.HomeController.Login(System.String,System.String,System.String)">
+            <summary>
+            表單post提交，準備登入
+            </summary>
+            <param name="form"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Controllers.HomeController.Logout">
+            <summary>
+            登出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Reposiotry.DeIdLogManager.StartLogger(System.String,System.String)">
+            <summary>
+            启动logger
+            </summary>
+            <param name="repository">repository名称</param>
+            <param name="fileName">配置文件名称</param>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Reposiotry.DeIdLogManager.StartLogger">
+            <summary>
+            启动logger
+            </summary>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Reposiotry.MD5Str.MD5(System.String)">
+            <summary>
+            字串MD5加密
+            </summary>
+            <param name="Text">要加密的字串</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Service.MySqlDBHelper.ExecuteDataTable(System.String,System.String)">
+            <summary>
+            利用MysqlDataReader曲线构造并填充DataTable
+            </summary>
+            <param name="connectionString"></param>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

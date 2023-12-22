@@ -1,0 +1,688 @@
+﻿@model IEnumerable<ProjectSampleDBData>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Step4";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <li>
+
+                @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("Step4", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">@ViewData["ProjectName"]</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+  <div class="container">
+	<div class="row">
+	  <div class="col-sm-12">
+		<div class="col-sm-3">
+			<div class="status_bar">
+				<h4 class="title">@ViewData["ProjectName"]</h4>
+				<div class="status">
+					<div class="status_f">
+						<h6>@localizer.Text.step1</h6>
+						<p>@localizer.Text.step1_menu_list</p>
+						<h3>1</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step2</h6>
+						<p>@localizer.Text.step2_menu_list</p>
+						<h3>2</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step3</h6>
+						<p>@localizer.Text.step3_menu_list</p>
+						<h3>3</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step4</h6>
+						<p>@localizer.Text.step4_menu_list</p>
+						<h3>4</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_u">
+						<h6>@localizer.Text.step5</h6>
+						<p>@localizer.Text.step5_menu_list</p>
+						<h3>5</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+            <div class="inside project_content">
+                <h4 class="title">@localizer.Text.step4.ToUpper()</h4>
+                <div class="container">
+                    <div class="de_id">
+<!--
+                        <div id="de_id_preview"></div>
+                        <hr>
+-->
+                        <div class="job_list">
+                            <h6 class="job_num">@localizer.Text.jobname 1</h6>
+                            <button class="btn btn_mbe" id="job_setting_01">@localizer.Text.method_setting</button>
+                            <progress max="100" value="0"></progress>
+                            <div class="btn run" id="btn_job_01" onclick="getJob('job1')">@localizer.Text.run</div>
+                            <div class="cancel_btn">✖</div>
+                        </div>
+                        <div class="job_list">
+                            <h6 class="job_num">@localizer.Text.jobname 2</h6>
+                            <button class="btn btn_mbe" id="job_setting_02">@localizer.Text.method_setting</button>
+                            <progress max="100" value="0"></progress>
+                            <div class="btn run" id="btn_job_01" onclick="getJob('job2')">@localizer.Text.run</div>
+                            <div class="cancel_btn">✖</div>
+                        </div>
+                        <div class="job_list">
+                            <h6 class="job_num">@localizer.Text.jobname 3</h6>
+                            <button class="btn btn_mbe" id="job_setting_03">@localizer.Text.method_setting</button>
+                            <progress max="100" value="0"></progress>
+                            <div class="btn run" id="btn_job_01" onclick="getJob('job3')">@localizer.Text.run</div>
+                            <div class="cancel_btn">✖</div>
+                        </div>
+                        <div class="job_list">
+                            <h6 class="job_num">@localizer.Text.jobname 4</h6>
+                            <button class="btn btn_mbe" id="job_setting_04">@localizer.Text.method_setting</button>
+                            <progress max="100" value="0"></progress>
+                            <div class="btn run" id="btn_job_01" onclick="getJob('job4')">@localizer.Text.run</div>
+                            <div class="cancel_btn">✖</div>
+                        </div>
+                        <div class="job_list">
+                            <h6 class="job_num">@localizer.Text.jobname 5</h6>
+                            <button class="btn btn_mbe" id="job_setting_05">@localizer.Text.method_setting</button>
+                            <progress max="100" value="0"></progress>
+                            <div class="btn run" id="btn_job_01" onclick="getJob('job5')">@localizer.Text.run</div>
+                            <div class="cancel_btn" onclick="canceljob();">✖</div>
+                        </div>
+                        <div class="modal" id="de_id_setting">
+                            <div class="textarea method_form">
+                                <h4 class="title">@localizer.Text.method_setting</h4>
+                                <div class="close" id="de_id_close">✖</div>
+                                <ul class="tab_group">
+                                    <h5 class="choose_title">@localizer.Text.select_method</h5>
+                                    <li class="tab active" text="@localizer.Text.step4_single">
+                                        <a href="#single">
+                                            <img src="~/images/04-01.png" alt="">
+                                            <h6>@localizer.Text.single</h6>
+                                        </a>
+                                    </li>
+                                    <li class="tab" text="@localizer.Text.step4_join">
+                                        <a href="#">
+                                            <img src="~/images/04-02.png" alt="">
+                                            <h6>@localizer.Text.join</h6>
+                                        </a>
+                                    </li>
+                                    <li class="tab" text="@localizer.Text.step4_union">
+                                        <a href="#">
+                                            <img src="~/images/04-03.png" alt="">
+                                            <h6>@localizer.Text.union</h6>
+                                        </a>
+                                    </li>
+                                    <li class="tab" text="@localizer.Text.step4_distinct">
+                                        <a href="#">
+                                            <img src="~/images/04-04.png" alt="">
+                                            <h6>@localizer.Text.distinct</h6>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab_content_step4">
+                                    <div id="single">
+                                        <form class="form" action="" method="post" role="form">
+                                            <input id="project_token" name="" type="hidden" value="">
+                                            <div class="line_group">
+                                                <div class="form-group required">
+                                                    <label class="control-label"> @localizer.Text.select_dataset</label>
+                                                    <select class="form-control" id="selectsingle"
+                                                            name="singletb" asp-items="@(new SelectList(@ViewBag.listtb, "ps_id", "finaltblName"))"></select>
+                                                </div>
+                                            </div>
+                                            <div class="line_group">
+                                                <div class="form-group required">
+                                                    <label class="control-label">@localizer.Text.k_anonymity</label>
+                                                    <select class="form-control" id="k_checking" name="">
+                                                        <option value="">@localizer.Text.k_delete</option>
+                                                        @*<option value="">K< Supression</option>*@
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <input class="btn btn_sbs" name="submit" type="submit" value="@localizer.Text.confirm" onclick="savesingleJob();">
+                                        </form>
+                                    </div>
+                                    <div id="join">
+                                        <form class="form" action="" method="post" role="form">
+                                            <input name="" type="hidden" value="">
+                                            <div class="line_group">
+                                                <div class="form-group required">
+                                                    <label class="control-label">@localizer.Text.primary_data</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">MOU506.01</option>
+                                                        <option value="">insure</option>
+                                                        <option value="">live</option>
+                                                        <option value="">death</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label">@localizer.Text.join_method</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.select</option>
+                                                        <option value="">left join</option>
+                                                        <option value="">right join</option>
+                                                        <option value="">inner join</option>
+                                                        <option value="">full join</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label">@localizer.Text.vice_data</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.select</option>
+                                                        <option value="">MOU506.01</option>
+                                                        <option value="">insure</option>
+                                                        <option value="">live</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="line_group">
+                                                <input class="radio" type="radio" name="radio">
+                                                <label class="radio-label" for="radio">@localizer.Text.single_key</label>
+                                                <input class="radio" type="radio" name="radio">
+                                                <label class="radio-label" for="radio">@localizer.Text.muti_key</label>
+                                                <input class="radio" type="radio" name="radio">
+                                                <label class="radio-label" for="radio">@localizer.Text.cust_key</label>
+                                                <div class="form-group required">
+                                                    <label class="control-label">insure</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.no_col</option>
+                                                        <option value="">col1</option>
+                                                        <option value="">col2</option>
+                                                        <option value="">col3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label">MOU506.01</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.no_col</option>
+                                                        <option value="">col1</option>
+                                                        <option value="">col2</option>
+                                                        <option value="">col3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label">live_cv</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.no_col</option>
+                                                        <option value="">col1</option>
+                                                        <option value="">col2</option>
+                                                        <option value="">col3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label">IBET600</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.no_col</option>
+                                                        <option value="">col1</option>
+                                                        <option value="">col2</option>
+                                                        <option value="">col3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="line_group">
+                                                <div class="form-group required">
+                                                    <input class="radio" id="radio" type="radio" name="radio">
+                                                    <label class="radio-label" for="radio">@localizer.Text.do_k</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">K @localizer.Text.sup</option>
+                                                        <option value="">K @localizer.Text.delete</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <input class="radio" id="radio2" type="radio" name="radio">
+                                                    <label class="radio-label" for="radio2">@localizer.Text.no_k</label>
+                                                    <select class="form-control" name="">
+                                                        <option value="">@localizer.Text.sup</option>
+                                                        <option value="">@localizer.Text.delete</option>
+                                                        <option value="">@localizer.Text.no_process</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <input class="btn btn_sbs" id="sub" name="submit" type="submit" value="@localizer.Text.confirm">
+                                        </form>
+                                    </div>
+                                    <div id="union">
+                                        <form class="form" action="" method="post" role="form">
+                                            <input id="project_token" name="" type="hidden" value="">
+                                            <div class="line_group">
+                                                <div class="form-group required">
+                                                    <label class="control-label"> 選擇資料集1</label>
+                                                    <select class="form-control" id="choose" name="">
+                                                        <option value="">請選擇</option>
+                                                        <option value="">MOU506.01</option>
+                                                        <option value="">insure</option>
+                                                        <option value="">live</option>
+                                                        <option value="">death</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label">選擇資料集2</label>
+                                                    <select class="form-control" id="k_checking" name="">
+                                                        <option value="">請選擇</option>
+                                                        <option value="">MOU506.01</option>
+                                                        <option value="">insure</option>
+                                                        <option value="">live</option>
+                                                        <option value="">death</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <input class="btn btn_sbs" name="submit" type="submit" value="確定">
+                                        </form>
+                                    </div>
+                                    <div id="distinct">
+                                        <div class="line_group">
+                                            <div class="form-group required">
+                                                <label class="control-label">選擇資料集</label>
+                                                <select class="form-control" name="">
+                                                    <option value="">MOU506.01</option>
+                                                    <option value="">insure</option>
+                                                    <option value="">live</option>
+                                                    <option value="">death</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="table_info">
+                                            <table id="field_defi" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-field="title" align="center">欄位屬性</th>
+                                                        <th data-field="col2">
+                                                            <input class="checkbox" type="checkbox">
+                                                        </th>
+                                                        <th data-field="col3">
+                                                            <input class="checkbox" type="checkbox">
+                                                        </th>
+                                                        <th data-field="col4">
+                                                            <input class="checkbox" type="checkbox">
+                                                        </th>
+                                                        <th data-field="col5">
+                                                            <input class="checkbox" type="checkbox">
+                                                        </th>
+                                                        <th data-field="col6">
+                                                            <input class="checkbox" type="checkbox">
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th data-field="title" align="center">中文欄位名稱</th>
+                                                        <th data-field="col1">身分證號</th>
+                                                        <th data-field="col2">保險證號</th>
+                                                        <th data-field="col3">保險別</th>
+                                                        <th data-field="col4">投保單位名稱</th>
+                                                        <th data-field="col5">保費年月</th>
+                                                        <th data-field="col6">出生年度</th>
+                                                        <th data-field="col7">最新異動代號</th>
+                                                        <th data-field="col8">最新生效日期</th>
+                                                        <th data-field="col9">投保薪資</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th data-field="title" align="center">英文欄位名稱</th>
+                                                        <th data-field="col1">i_id</th>
+                                                        <th data-field="col2">i_insure</th>
+                                                        <th data-field="col3">i_insureNo</th>
+                                                        <th data-field="col4">i_unitName</th>
+                                                        <th data-field="col5">i_date</th>
+                                                        <th data-field="col6">i_birth</th>
+                                                        <th data-field="col7">i_trans</th>
+                                                        <th data-field="col8">i_valid</th>
+                                                        <th data-field="col9">i_salary</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <input class="btn btn_sbs" name="submit" type="submit" value="確定">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label id="pid" style="display:none">@ViewData["ProjectId"]</label>
+                <label id="pname" style="display:none">@ViewData["ProjectName"]</label>
+                <label id="kvalue" style="display: none">@ViewData["kvalue"]</label>
+                <label id="prostatus" style="display:none">@ViewData["ProjectStep"]</label>
+                <label id="jobvalue" style="display:none"></label>
+                <label id="job1" style="display:none">@ViewData["job1"]</label>
+                <label id="job2" style="display:none">@ViewData["job2"]</label>
+                <label id="job3" style="display:none">@ViewData["job3"]</label>
+                <label id="job4" style="display:none">@ViewData["job4"]</label>
+                <label id="job5" style="display:none">@ViewData["job5"]</label>
+                <label id="jobrun" style="display:none">@localizer.Message.job_run</label>
+                <label id="dodeid" style="display:none">@localizer.Message.do_deid</label>
+                <label id="deiderror" style="display:none">@localizer.Message.deid_error</label>
+                <label id="jobsave" style="display:none">@localizer.Message.job_save</label>
+                <label id="lbselect" style="display:none">@localizer.Text.select</label>
+                <label id="jobing" style="display:none">@localizer.Message.jobing</label>
+                <label id="dsempty" style="display:none">資料為空</label>
+                <label id="jbsaveerror" style="display:none">@localizer.Message.job_save_error</label>
+                <label id="lbselect" style="display:none">@localizer.Text.select</label>
+                <label id="lbselectcheck" style="display:none">@localizer.Message.select_dataset</label>
+                @*<div class="btn btn_sbe btn_back" id="back">@localizer.Text.back</div>*@
+                @*<div class="btn btn_sbe btn_back" id="save">@localizer.Text.save</div>*@
+                <div class="btn btn_mbs btn_next" id="next"><a class="a_unstyled" href="javascript:void(0)" onclick="finishDeId();">@localizer.Text.next</a></div>
+            </div>
+		</div>
+	</div>
+  </div>
+ </div>
+</section>
+<script src="~/js/highcharts.js"></script>
+<script src="~/js/variable-pie.js"></script>
+<script>
+    function getJob(jobname) {
+        var jobrun = $('#jobrun').text();;
+        var dodeid = $('#dodeid').text();;
+        var jobrun = $('#jobrun').text();;
+        var deiderror = $('#deiderror').text();;
+
+        alert(jobrun);
+        //alert(jobname);
+        alert(dodeid);
+            var pid = $('#pid').text();;
+            var pname = $('#pname').text();
+        var jobvalue = $('#jobvalue').text();
+        if (jobvalue == "")
+            jobvalue = jobname;
+            //alert(jobvalue);
+              $.ajax({
+                    type: "get",
+                  url: "/api/WebAPI/GetKChecking",
+                    contentType: "application/json",
+                  data:
+                  {
+                      pid: pid, pname: pname, jobname:jobvalue
+                  },
+                    success: function (status) {
+                        //document.location.href = "@Url.Action("Index","Home")";
+                        if (status) {
+                            //alert(dodeid);
+                            //location.href = "@Url.Action("ProjectIndex", "Home")";
+                        }
+                        else {
+                            alert(deiderror);
+
+                        }
+                    },
+                    error: function (status) {
+                        alert(deiderror);
+                    }
+
+                });
+    }
+
+</script>
+<script>
+    function savesingleJob() {
+        var jobsave = $('#jobsave').text();;
+        var lbselectcheck = $('#lbselectcheck').text();;
+
+        alert(jobsave);
+       
+        var jobvalue = $('#jobvalue').text();
+        var lbselect = $('#lbselect').text();
+        var dsempty = $('#dsempty').text();
+        var pid = $('#pid').text();;
+        var pname = $('#pname').text();
+        var jbsaveerror = $('#jbsaveerror').text();
+
+        //var kvalue = $('#kvalue').text();
+        var selectsingle = $("#selectsingle  option:selected").text();
+        //alert(selectsingle);
+        //alert(lbselect);
+        //if (selectsingle == lbselect || selectsingle == "") {
+        //    alert(lbselectcheck);
+        //    alert('2');
+        //    return false;
+        //}
+
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/GetSingleTable",
+            contentType: "application/json",
+            data:
+            {
+                pid: pid, pname: pname, tablename: selectsingle, jobname: jobvalue
+            },
+            success: function (status) {
+                alert(lbselect);
+            },
+            error: function (status) {
+                alert(jbsaveerror);
+            }
+
+        });
+    }
+</script>
+<script>
+        function finishDeId() {
+            var pid = $('#pid').text();;
+            var pname = $('#pname').text();
+         location.href = "@Url.Action("Step5_2", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname;
+
+    }
+
+
+
+</script>
+<script>
+    var content = {
+        chart: {
+            type: 'variablepie',
+        },
+        tooltip: {
+            headerFormat: '',
+            pointFormat: '<span style="color:{point.color}">●</span> <b> {point.name}</b><br/>' +
+                'Area (square km): <b>{point.y}</b><br/>' +
+                'Population density (people per square km): <b>{point.z}</b><br/>'
+        },
+        series: [{
+            minPointSize: 10,
+            innerSize: '20%',
+            zMin: 0,
+            name: 'countries',
+            data: [{
+                name: 'insure',
+                y: 551500,
+                z: 118.7
+            }, {
+                name: 'MOU506.01',
+                y: 312685,
+                z: 124.6
+            }, {
+                name: 'live',
+                y: 301340,
+                z: 201.8
+            }, {
+                name: 'death',
+                y: 41277,
+                z: 214.5
+            }]
+        }]
+    };
+    $(function () {
+        Highcharts.setOptions({
+            colors: ['#58C9AF', '#4F80F9', '#476584', '#76DFF0'],
+        });
+        $('#de_id_preview').highcharts(content);
+    });
+</script>
+<script>
+    //設定de_id方法
+    var de_id_modal = document.getElementById('de_id_setting');
+    var de_id_btn01 = document.getElementById("job_setting_01");
+    var de_id_btn02 = document.getElementById("job_setting_02");
+    var de_id_btn03 = document.getElementById("job_setting_03");
+    var de_id_btn04 = document.getElementById("job_setting_04");
+    var de_id_btn05 = document.getElementById("job_setting_05");
+
+    var de_id_close_span = document.getElementById("de_id_close");
+
+    //de_id_btn.onclick = function () {
+
+    //    de_id_modal.style.display = "block";
+    //    var jobvalue = document.getElementById("jobvalue");
+    //    jobvalue.innerText = "job1";
+    //    //alert(2222);
+    //}
+    de_id_btn01.onclick = function () {
+
+        de_id_modal.style.display = "block";
+        var jobvalue = document.getElementById("jobvalue");
+        jobvalue.innerText = "job1";
+
+
+    }
+    de_id_btn02.onclick = function () {
+
+        de_id_modal.style.display = "block";
+        var jobvalue = document.getElementById("jobvalue");
+        jobvalue.innerText = "job2";
+    }
+    de_id_btn03.onclick = function () {
+        de_id_modal.style.display = "block";
+        var jobvalue = document.getElementById("jobvalue");
+        jobvalue.innerText = "job3";
+
+    }
+    de_id_btn04.onclick = function () {
+        de_id_modal.style.display = "block";
+        var jobvalue = document.getElementById("jobvalue");
+        jobvalue.innerText = "job4";
+
+    }
+    de_id_btn05.onclick = function () {
+
+        de_id_modal.style.display = "block";
+        var jobvalue = document.getElementById("jobvalue");
+        jobvalue.innerText = "job5";
+    }
+
+    de_id_close_span.onclick = function () {
+        de_id_modal.style.display = "none";
+    }
+
+</script>
+<script>
+    $('.method_form').find('input, textarea').on('keyup blur focus', function (e) {
+
+        var $this = $(this),
+            label = $this.prev('label');
+
+        if (e.type === 'keyup') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight');
+            } else {
+                label.addClass('active highlight');
+            }
+        } else if (e.type === 'blur') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight');
+            } else {
+                label.removeClass('highlight');
+            }
+        } else if (e.type === 'focus') {
+
+            if ($this.val() === '') {
+                label.removeClass('highlight');
+            }
+            else if ($this.val() !== '') {
+                label.addClass('highlight');
+            }
+        }
+
+    });
+
+    $('.tab a').on('click', function (e) {
+
+        e.preventDefault();
+
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+
+        target = $(this).attr('href');
+
+        $('.tab_content_step4 > div').not(target).hide();
+
+        $(target).fadeIn(600);
+
+    });
+
+</script>
+<script>
+    var fielddata =
+        [
+            {
+                title: "1",
+                col1: "d869b01995b0818e4d176011",
+                col2: "A",
+                col3: "10",
+                col4: "00",
+                col5: "10706",
+                col6: "保費年月",
+                col7: "保費年月"
+            },
+            {
+                title: "2",
+                col1: "d869b01995b0818e4d176011",
+                col2: "A",
+                col3: "10",
+                col4: "00",
+                col5: "10706",
+                col6: "保費年月",
+                col7: "保費年月"
+            },
+            {
+                title: "3",
+                col1: "6c6f121351a1b7f33a2372dw",
+                col2: "A",
+                col3: "10",
+                col4: "00",
+                col5: "10706",
+                col6: "保費年月",
+                col7: "保費年月"
+            },
+            {
+                title: "4",
+                col1: "1e53719b6fef60fbb7663b2b",
+                col2: "C",
+                col3: "10",
+                col4: "00",
+                col5: "10706",
+                col6: "保費年月",
+                col7: "保費年月"
+            },
+            {
+                title: "5",
+                col1: "53719b6fef60fbb7663b2bp3",
+                col2: "C",
+                col3: "05",
+                col4: "00",
+                col5: "10706",
+                col6: "保費年月",
+                col7: "保費年月"
+            }
+        ];
+    $(function () {
+        $('#field_defi').bootstrapTable({
+            data: fielddata
+        });
+    });
+</script>

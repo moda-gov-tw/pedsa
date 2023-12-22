@@ -1,0 +1,279 @@
+﻿@model IEnumerable<ProjectSampleDBData>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Step5_2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <li>
+             
+                @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("Step5_2", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">@ViewData["ProjectName"]</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+   <div class="container">
+	<div class="row">
+	  <div class="col-sm-12">
+		<div class="col-sm-3">
+			<div class="status_bar">
+				<h4 class="title">@ViewData["ProjectName"]</h4>
+				<div class="status">
+					<div class="status_f">
+						<h6>@localizer.Text.step1</h6>
+						<p>@localizer.Text.step1_menu_list</p>
+						<h3>1</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step2</h6>
+						<p>@localizer.Text.step2_menu_list</p>
+						<h3>2</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step3</h6>
+						<p>@localizer.Text.step3_menu_list</p>
+						<h3>3</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step4</h6>
+						<p>@localizer.Text.step4_menu_list</p>
+						<h3>4</h3>
+					</div>
+				</div>
+				<div class="status">
+					<div class="status_d">
+						<h6>@localizer.Text.step5</h6>
+						<p>@localizer.Text.step5_menu_list</p>
+						<h3>5</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			@*<div class="form-group report_select">
+                <label class="control-label">顯示報表</label>
+                <select class="form-control" name="singletb">
+					<option value="">Table1</option>
+					<option value="">Table2</option>
+				</select>
+            </div>*@
+			<div id="reportboard">
+                <!-- TAB CONTROLLERS-->
+                <input class="panel-radios" id="panel-1-ctrl" type="radio" name="tab-radios" checked="checked">
+                <input class="panel-radios" id="panel-2-ctrl" type="radio" name="tab-radios">
+                <input class="panel-radios" id="nav-ctrl" type="checkbox" name="nav-checkbox">
+                <ul id="tabs-list">
+                  <!-- MENU TOGGLE-->
+                  <label id="open-nav-label" for="nav-ctrl"></label>
+                  <li id="li-for-panel-1">
+                    <label class="panel-label" for="panel-1-ctrl">@localizer.Text.report_info1</label>
+                  </li>
+                  <li id="li-for-panel-2">
+                      <label class="panel-label" for="panel-2-ctrl">@localizer.Text.report_info2</label>
+                  </li>
+                  <label id="close-nav-label" for="nav-ctrl">×</label>
+                </ul>
+                <!-- THE PANELS-->
+                <article id="panels">
+                  <div class="container">
+                    <section id="panel-1">
+                        <main>
+                            <div class="tab-pane step05 col-sm-12">
+                                <h4 class="title">@localizer.Text.step5</h4>
+                                <table class="table table-hover table-bordered" id="final_report">
+									<!--7個欄位-->
+<!--
+									<thead class="thead-dark">
+									  <tr>
+										<th rowspan="2">@localizer.Text.dataset_name</th>
+										<th colspan="2">@localizer.Text.raw_data</th>
+										<th colspan="2">@localizer.Text.k_checking_data</th>
+										<th rowspan="2">@localizer.Text.data_suprate (%)</th>
+										<th rowspan="2">@localizer.Text.min_kvalue</th>
+									  </tr>
+									  <tr>
+										<th>@localizer.Text.count</th>
+										<th>@localizer.Text.dis_count</th>
+										<th>@localizer.Text.count</th>
+										<th>@localizer.Text.dis_count</th>
+									  </tr>
+									</thead>
+-->
+									<!--5個欄位-->
+									<thead class="thead-dark">
+									  <tr>
+										<th>@localizer.Text.dataset_name</th>
+										<th>@localizer.Text.raw_data_count</th>
+										<th>@localizer.Text.data_suprate (%)</th>
+										<th>@localizer.Text.min_kvalue</th>
+                                        <th>@localizer.Text.un_keycount</th>
+									  </tr>
+									</thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane step05 col-sm-12">
+                                <h4 class="title">@localizer.Text.gen_setting</h4>
+                                @{
+                                    int x = 1;
+                                    foreach (var item in Model)
+                                    {
+                                        string tb = "tb_" + x.ToString();
+                                        <table class="table table-hover table-bordered" id="@tb">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>@localizer.Text.ch_col_name</th>
+                                                    <th>@localizer.Text.en_col_name</th>
+                                                    <th>@localizer.Text.data_attr</th>
+                                                    <th>@localizer.Text.process_flow</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        x++;
+                                    }
+                                }
+                            </div>
+                            <label id="tbcount" style="display:none">@Model.Count()</label>
+                            <label id="projectlist" style="display:none">@ViewData["projectlist"]</label>
+                            <label id="projectqitable" style="display:none">@ViewData["projectqitable"]</label>
+                            <label id="warningtablelist" style="display:none">@ViewData["warningtablelist"]</label>
+                            <div class="btn btn_mbs btn_next" id="next" name="form">
+                                <a class="a_unstyled" href="@Url.Action("Step5", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">@localizer.Text.next</a>
+                                @*@Html.ActionLink("deid_testtoday", "webdeidtesting_report", "ProjectStep")*@
+                                @*@Html.ActionLink("確定", null, null, null, new { @class = "a_unstyled",@onclick="importr1r2Data();" })*@
+                            </div>
+                        </main>
+                    </section>
+                    <section id="panel-2">
+                        <main>
+                            @*<div class="tab-pane step05 col-sm-12">
+								  <h4 class="title">風險評估</h4>
+								  <table class="table table-hover table-bordered" id="risk">
+									<thead class="thead-dark">
+									  <tr>
+										<th>風險評估模組</th>
+										<th>結果</th>
+									  </tr>
+									</thead>
+									<tbody></tbody>
+								  </table>
+								</div>*@
+                            <div class="tab-pane step05 col-sm-12">
+                                <h4 class="title">@localizer.Text.warning_info</h4>
+                                @{
+                                    int y = 1;
+                                    foreach (var item in Model)
+                                    {
+                                        string tb = "warn_" + y.ToString();
+                                        <table class="table table-hover table-bordered" id="@tb">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>@localizer.Text.col_name</th>
+                                                    <th>@localizer.Text.data_count</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    }
+                                    y++;
+                                }
+                            </div>
+                            <a class="btn btn_mbs btn_next" href="@Url.Action("Step5", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">@localizer.Text.next</a>
+                            @*<div class="btn btn_mbs btn_next" id="export_report02" href="@Url.Action("Step5", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">@localizer.Text.export</div>*@
+                        </main>
+                    </section>
+                  </div>
+                </article>
+              </div>
+		</div>
+	</div>
+  </div>
+ </div>
+</section>
+<script>
+	var current_value = $('#projectlist').text();
+	$("#final_report").append(current_value);
+</script>
+<script>
+	var tbcount = $('#tbcount').text();
+    var projectqitable = $('#projectqitable').text();
+    var warningtablelist = $('#warningtablelist').text();
+    var tbarray = new Array();
+	var warnarray = new Array();
+    tbarray = projectqitable.split(',');
+    warnarray = warningtablelist.split(',');
+	for (var i = 0; i < parseInt(tbcount); i++) {
+        var tbname = '#tb_' + (i + 1).toString();
+        var warnname = '#warn_' + (i + 1).toString();
+        $(tbname).append(tbarray[i]);
+        $(warnname).append(warnarray[i]);
+    }
+
+
+</script>
+
+
+
+<script>
+	var risk = {};
+	risk.list = [
+		{risk_m: "隨機目標再識別風險（QI-based）", value: "0.11%"},
+		{risk_m: "單維敏感項目再識別風險（QI-based）", value: "0.11%"},
+		{risk_m: "多維敏感項目再識別風險（QI-based）", value: "0.11%"},
+		{risk_m: "多維敏感序列再識別風險", value: "0.00%"},
+		{risk_m: "單維敏感序列再識別風險", value: "0.00%"},
+	];
+	var risk_html = "<tr><td class='half_col'>{{risk_m}}</td><td class='half_col'>{{value}}</td></tr>";
+
+	for (var i = 0; i < risk.list.length; i++) {
+		var item_ra = risk.list[i];
+		var current_risk_html =
+			risk_html.replace("{{risk_m}}", item_ra.risk_m)
+				.replace("{{value}}", item_ra.value)
+		;
+		$("#risk").append(current_risk_html);
+	}
+</script>
+<script>
+	var warning = {};
+	warning.list = [
+		{name: "col-sm-12", count: "2,231"},
+		{name: "col-sm-6", count: "83,314,551"},
+		{name: "col-nickname", count: "121,209,211"},
+		{name: "address", count: "29,936"},
+		{name: "br_ick", count: "12,123"},
+		{name: "pan_qwert", count: "6,662"},
+		{name: "hc0215", count: "98,413,889"},
+		{name: "pass_w_cd", count: "704,183"},
+		{name: "col-md-1", count: "23,023"},
+		{name: "col-hc-06", count: "931,232"},
+		{name: "py_ca_bri", count: "560,136"},
+		{name: "py_ca_diu", count: "27,880"},
+	];
+	var warning_html = "<tr><td class='half_col'>{{name}}</td><td class='half_col text_right'>{{count}}<img src='/images/warning.png'></td></tr>";
+	
+	for (var i = 0; i < warning.list.length; i++) {
+		var item_ra = warning.list[i];
+		var current_warning_html =
+			warning_html.replace("{{name}}", item_ra.name)
+				.replace("{{count}}", item_ra.count)
+		;
+		$("#warning").append(current_warning_html);
+	}
+</script>

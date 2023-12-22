@@ -1,0 +1,52 @@
+//Alert
+.alert, .upload_alert
+  min-width: 150px
+  padding: 15px
+  margin-bottom: 20px
+  border: 1px solid
+  border-radius: 3px
+
+.alert_success, .upload_alert_success
+  background-color: #D1F7C3
+  border-color: #39AC23
+  color: #39AC23
+
+.alert_warning, .upload_alert_warning
+  background-color: #FFEACF
+  border-color: #C07D00
+  color: #C07D00
+
+.alert_danger, .upload_alert_danger
+  background-color: #FFDEE2
+  border-color: #D0011A
+  color: #D0011A
+
+.alert_info, .upload_alert_info
+  background-color: #BFECEB
+  border-color: #54ACA9
+  color: #54ACA9
+
+.alert, .upload_alert
+  p
+    padding: 0
+    margin: 0
+  i
+    padding-right: 5px
+    vertical-align: middle
+    font-size: 24px
+  .close_alert
+    -webkit-appearance: none
+    position: relative
+    float: right
+    padding: 0
+    border: 0
+    cursor: pointer
+    color: inherit
+    background: 0 0
+    font-size: 24px
+    line-height: 1
+    filter: alpha(opacity = 40)
+    opacity: .4
+    &:hover
+      filter: alpha(opacity = 70)
+      opacity: .7

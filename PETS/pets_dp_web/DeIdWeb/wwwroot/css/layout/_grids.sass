@@ -1,0 +1,138 @@
+//報表頁籤RWD-767px
+@media all and (max-width: 767px)
+  #nav-ctrl:checked ~ #tabs-list
+    #li-for-panel-1, #li-for-panel-2, #li-for-panel-3, #li-for-panel-4
+      max-height: 46px
+      opacity: 1
+      margin-top: 0
+  #open-nav-label, #open-nav-label_t
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    cursor: pointer
+  #close-nav-label, #close-nav-label_t
+    display: block
+    max-height: 0
+    overflow-y: hidden
+    background-color: #444444
+    color: #ecf0f1
+    padding: 0px
+    -webkit-transition: max-height 200ms
+    -o-transition: max-height 200ms
+    -moz-transition: max-height 200ms
+    transition: max-height 200ms
+    cursor: pointer
+    text-transform: uppercase
+    font-size: 12px
+    line-height: 22px
+    letter-spacing: 1px
+  #nav-ctrl:checked ~ #tabs-list #open-nav-label
+    display: none
+  #nav-ctrl:checked ~ #tabs-list #close-nav-label
+    max-height: 36px
+    opacity: 1
+    padding: 8px 24px
+  #tabs-list
+    position: relative
+    label.panel-label
+      padding: 12px 0
+      color: $color_main
+    #li-for-panel-1, #li-for-panel-2, #li-for-panel-3, #li-for-panel-4
+      max-height: 0
+      overflow-y: hidden
+      -webkit-transition: max-height 200ms
+      -o-transition: max-height 200ms
+      -moz-transition: max-height 200ms
+      transition: max-height 200ms
+  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1,
+  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2,
+  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3,
+  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4
+    max-height: 46px
+    opacity: 1
+    label.panel-label
+      background-color: #ffffff
+      color: $color_main
+      background-color: $color_main
+      color: #ffffff
+  #panels
+    .container
+      width: 100%
+    section header
+      display: block
+    td
+      vertical-align: middle
+    th, .a_time
+      line-height: 16px
+      font-size: 12px
+    #panel-1 main
+      padding: 10px
+
+//RWD-768px
+@media all and (min-width: 768px)
+  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1,
+  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2,
+  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3,
+  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4
+    pointer-events: none
+    cursor: default
+    -webkit-transform: translate3d(0, 1px, 0)
+    -moz-transform: translate3d(0, 1px, 0)
+    transform: translate3d(0, 1px, 0)
+    box-shadow: none
+    border-right: none
+    &.last
+      border-right: 1px solid transparent
+    + li
+      border-left: 1px solid #dfdfdf
+    label.panel-label
+      background-color: white
+      color: $color_main
+      &::after
+        height: 6px
+  #tabs-list li
+    width: 49.6%
+  ul#tabs-list
+    text-align: center
+    li
+      display: inline-block
+      text-align: center
+      font-size: 0.875em
+      box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.05)
+      border-right: 1px solid #dfdfdf
+      position: relative
+      &:hover
+        -webkit-transition: none
+        -o-transition: none
+        -moz-transition: none
+        transition: none
+        border-right: none
+        &.last
+          border-right: 1px solid transparent
+        + li
+          border-left: 1px solid #dfdfdf
+      label.panel-label
+        position: relative
+        padding: 12px 0
+        margin-bottom: 0
+        &::after
+          content: ""
+          position: absolute
+          width: 100%
+          left: 0
+          bottom: 100%
+          background-color: $color_main
+          height: 0
+          -webkit-transition-property: height
+          -o-transition-property: height
+          -moz-transition-property: height
+          transition-property: height
+          -webkit-transition-duration: 200ms
+          -moz-transition-duration: 200ms
+          -o-transition-duration: 200ms
+          transition-duration: 200ms
+  #open-nav-label, #close-nav-label, #nav-ctrl
+    display: none
