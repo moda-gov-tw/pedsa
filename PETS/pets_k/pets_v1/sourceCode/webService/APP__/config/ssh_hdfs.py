@@ -34,8 +34,9 @@ class ssh_hdfs:
             password_ = str(hdfsInfo['password'])
             if port_ == '':
                 ssh.connect(hostname=hostname_,
+                            port="5922",
                             username=user_,
-                            password=password_)
+                            password="citcw200@")
                 self.ssh = ssh
             else:
                 ssh.connect(hostname=hostname_,

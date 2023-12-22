@@ -127,24 +127,24 @@ def import_longTask_PETs(self, base64_,nothing):
 
 
         ###20191206, citc get node status####################3###################################################
-        checkSparkStatus_ = checkSparkStatus()
-        meta_ = checkSparkStatus_.nodeStatus()
-        try:
-            if(meta_['Node-State']=='UNHEALTHY'):
-                #{'Health-Report': '1/1 local-dirs are bad', 'Node-State': 'UNHEALTHY', 'Node-Id': 'nodemaster:8050'}
-                respStr='sparkNpde:{0}, status is {1}, report: {2}'.format(meta_['Node-Id'],
-                                                                  meta_['Node-State'],
-                                                                  meta_['Health-Report'])
-                #errMsg = 'g_getImport: {} tblName not found'.format(tbl)
-                _logger.debug(respStr)
-                self.update_state(state="FAIL_CELERY", meta={'errMsg':respStr})
-                return
+#        checkSparkStatus_ = checkSparkStatus()
+#        meta_ = checkSparkStatus_.nodeStatus()
+#        try:
+#            if(meta_['Node-State']=='UNHEALTHY'):
+#                #{'Health-Report': '1/1 local-dirs are bad', 'Node-State': 'UNHEALTHY', 'Node-Id': 'nodemaster:8050'}
+#                respStr='sparkNpde:{0}, status is {1}, report: {2}'.format(meta_['Node-Id'],
+#                                                                  meta_['Node-State'],
+#                                                                  meta_['Health-Report'])
+#                #errMsg = 'g_getImport: {} tblName not found'.format(tbl)
+#                _logger.debug(respStr)
+#                self.update_state(state="FAIL_CELERY", meta={'errMsg':respStr})
+#                return
 
-        except Exception as e:
-            errMsg = '(import)checkSparkStatus.nodeStatus: ' + str(e)
-            print(errMsg)
-            self.update_state(state="FAIL_CELERY", meta={'errMsg': errMsg})
-            return     
+#        except Exception as e:
+#            errMsg = '(import)checkSparkStatus.nodeStatus: ' + str(e)
+#            print(errMsg)
+#            self.update_state(state="FAIL_CELERY", meta={'errMsg': errMsg})
+#            return     
         ###########################################################################################################
         
 

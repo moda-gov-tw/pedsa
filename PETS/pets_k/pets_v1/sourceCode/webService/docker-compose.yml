@@ -39,6 +39,8 @@ services:
     image: flask-redis_citc:05.1
     secrets:
       - maria_file
+      - hadoop_file
+      - ahcitcww
 
 
     ports:
@@ -124,7 +126,7 @@ services:
           - redis  
   deidweb:
     restart: always
-    image: pets_k_deidweb:1.2 #tpe_deidwebv2:1.6 
+    image: pets_k_deidweb:2.2 #tpe_deidwebv2:1.6 
     secrets:
       - ahcitcww 
       - maria_file 

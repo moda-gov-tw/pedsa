@@ -1,0 +1,85 @@
+2020-02-06 02:27:25 INFO  CoarseGrainedExecutorBackend:2611 - Started daemon with process name: 8281@nodemaster
+2020-02-06 02:27:25 INFO  SignalUtils:54 - Registered signal handler for TERM
+2020-02-06 02:27:25 INFO  SignalUtils:54 - Registered signal handler for HUP
+2020-02-06 02:27:25 INFO  SignalUtils:54 - Registered signal handler for INT
+2020-02-06 02:27:25 INFO  SecurityManager:54 - Changing view acls to: hadoop
+2020-02-06 02:27:25 INFO  SecurityManager:54 - Changing modify acls to: hadoop
+2020-02-06 02:27:25 INFO  SecurityManager:54 - Changing view acls groups to: 
+2020-02-06 02:27:25 INFO  SecurityManager:54 - Changing modify acls groups to: 
+2020-02-06 02:27:25 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+2020-02-06 02:27:25 INFO  TransportClientFactory:267 - Successfully created connection to nodemaster/172.28.1.15:40875 after 49 ms (0 ms spent in bootstraps)
+2020-02-06 02:27:26 INFO  SecurityManager:54 - Changing view acls to: hadoop
+2020-02-06 02:27:26 INFO  SecurityManager:54 - Changing modify acls to: hadoop
+2020-02-06 02:27:26 INFO  SecurityManager:54 - Changing view acls groups to: 
+2020-02-06 02:27:26 INFO  SecurityManager:54 - Changing modify acls groups to: 
+2020-02-06 02:27:26 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+2020-02-06 02:27:26 INFO  TransportClientFactory:267 - Successfully created connection to nodemaster/172.28.1.15:40875 after 0 ms (0 ms spent in bootstraps)
+2020-02-06 02:27:26 INFO  DiskBlockManager:54 - Created local directory at /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/blockmgr-e85fde4c-fdcc-4d56-ac18-1a3384db548b
+2020-02-06 02:27:26 INFO  MemoryStore:54 - MemoryStore started with capacity 4.1 GB
+2020-02-06 02:27:26 INFO  CoarseGrainedExecutorBackend:54 - Connecting to driver: spark://CoarseGrainedScheduler@nodemaster:40875
+2020-02-06 02:27:26 INFO  CoarseGrainedExecutorBackend:54 - Successfully registered with driver
+2020-02-06 02:27:26 INFO  Executor:54 - Starting executor ID 2 on host nodemaster
+2020-02-06 02:27:26 INFO  Utils:54 - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41133.
+2020-02-06 02:27:26 INFO  NettyBlockTransferService:54 - Server created on nodemaster:41133
+2020-02-06 02:27:26 INFO  BlockManager:54 - Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2020-02-06 02:27:26 INFO  BlockManagerMaster:54 - Registering BlockManager BlockManagerId(2, nodemaster, 41133, None)
+2020-02-06 02:27:26 INFO  BlockManagerMaster:54 - Registered BlockManager BlockManagerId(2, nodemaster, 41133, None)
+2020-02-06 02:27:26 INFO  BlockManager:54 - Initialized BlockManager: BlockManagerId(2, nodemaster, 41133, None)
+2020-02-06 02:27:28 INFO  CoarseGrainedExecutorBackend:54 - Got assigned task 1
+2020-02-06 02:27:28 INFO  Executor:54 - Running task 1.0 in stage 0.0 (TID 1)
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/files/getGenTbl.py with timestamp 1580956034840
+2020-02-06 02:27:29 INFO  TransportClientFactory:267 - Successfully created connection to nodemaster/172.28.1.15:40875 after 1 ms (0 ms spent in bootstraps)
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/files/getGenTbl.py to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp4222556435373040354.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/12257356091580956034840_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./getGenTbl.py
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/jars/address_project_debug_v14.jar with timestamp 1580956034814
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/jars/address_project_debug_v14.jar to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp1336946338453837114.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/-12063812481580956034814_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./address_project_debug_v14.jar
+2020-02-06 02:27:29 INFO  Executor:54 - Adding file:/home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./address_project_debug_v14.jar to class loader
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/jars/mysql-connector-java-8.0.13.jar with timestamp 1580956034814
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/jars/mysql-connector-java-8.0.13.jar to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp8076765673929074188.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/-20157049021580956034814_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./mysql-connector-java-8.0.13.jar
+2020-02-06 02:27:29 INFO  Executor:54 - Adding file:/home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./mysql-connector-java-8.0.13.jar to class loader
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/jars/myLogging_1.jar with timestamp 1580956034814
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/jars/myLogging_1.jar to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp7835211920904987435.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/-5384816551580956034814_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./myLogging_1.jar
+2020-02-06 02:27:29 INFO  Executor:54 - Adding file:/home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./myLogging_1.jar to class loader
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/jars/gen_v9.jar with timestamp 1580956034813
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/jars/gen_v9.jar to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp4384136385975576882.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/-2001599281580956034813_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./gen_v9.jar
+2020-02-06 02:27:29 INFO  Executor:54 - Adding file:/home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./gen_v9.jar to class loader
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/jars/myLogging_jre17_v3.jar with timestamp 1580956034813
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/jars/myLogging_jre17_v3.jar to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp7832701085201461731.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/-18471566451580956034813_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./myLogging_jre17_v3.jar
+2020-02-06 02:27:29 INFO  Executor:54 - Adding file:/home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./myLogging_jre17_v3.jar to class loader
+2020-02-06 02:27:29 INFO  Executor:54 - Fetching spark://nodemaster:40875/jars/udfEncrypt_7.jar with timestamp 1580956034814
+2020-02-06 02:27:29 INFO  Utils:54 - Fetching spark://nodemaster:40875/jars/udfEncrypt_7.jar to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/fetchFileTemp7894912744604786765.tmp
+2020-02-06 02:27:29 INFO  Utils:54 - Copying /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e/-11055120361580956034814_cache to /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./udfEncrypt_7.jar
+2020-02-06 02:27:29 INFO  Executor:54 - Adding file:/home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/container_1580953164575_0010_01_000003/./udfEncrypt_7.jar to class loader
+2020-02-06 02:27:29 INFO  TorrentBroadcast:54 - Started reading broadcast variable 1
+2020-02-06 02:27:29 INFO  TransportClientFactory:267 - Successfully created connection to nodemaster/172.28.1.15:36963 after 1 ms (0 ms spent in bootstraps)
+2020-02-06 02:27:29 INFO  MemoryStore:54 - Block broadcast_1_piece0 stored as bytes in memory (estimated size 59.3 KB, free 4.1 GB)
+2020-02-06 02:27:29 INFO  TorrentBroadcast:54 - Reading broadcast variable 1 took 83 ms
+2020-02-06 02:27:29 INFO  MemoryStore:54 - Block broadcast_1 stored as values in memory (estimated size 161.4 KB, free 4.1 GB)
+2020-02-06 02:27:29 INFO  CodeGenerator:54 - Code generated in 140.624672 ms
+2020-02-06 02:27:29 INFO  CodeGenerator:54 - Code generated in 12.914494 ms
+2020-02-06 02:27:30 INFO  FileScanRDD:54 - Reading File path: file:///home/hadoop/spark-warehouse/2qdatamarketdeid.db/mac_adult_id/part-00001-62ac88d9-7610-4bdc-8bc6-0286ac2af5e1-c000.snappy.orc, range: 0-110891, partition values: [empty row]
+2020-02-06 02:27:30 INFO  CodeGenerator:54 - Code generated in 31.862899 ms
+2020-02-06 02:27:30 INFO  CodeGenerator:54 - Code generated in 58.257426 ms
+2020-02-06 02:27:30 INFO  TorrentBroadcast:54 - Started reading broadcast variable 0
+2020-02-06 02:27:30 INFO  MemoryStore:54 - Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.8 KB, free 4.1 GB)
+2020-02-06 02:27:30 INFO  TorrentBroadcast:54 - Reading broadcast variable 0 took 15 ms
+2020-02-06 02:27:30 INFO  CodeGenerator:54 - Code generated in 42.487042 ms
+2020-02-06 02:27:30 INFO  FileOutputCommitter:108 - File Output Committer Algorithm version is 1
+2020-02-06 02:27:30 INFO  MemoryStore:54 - Block broadcast_0 stored as values in memory (estimated size 336.9 KB, free 4.1 GB)
+2020-02-06 02:27:30 INFO  SQLHadoopMapReduceCommitProtocol:54 - Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+2020-02-06 02:27:30 INFO  ReaderImpl:531 - Reading ORC rows from file:/home/hadoop/spark-warehouse/2qdatamarketdeid.db/mac_adult_id/part-00001-62ac88d9-7610-4bdc-8bc6-0286ac2af5e1-c000.snappy.orc with {include: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], offset: 0, length: 110891}
+2020-02-06 02:27:30 INFO  RecordReaderFactory:90 - Schema is not specified on read. Using file schema.
+2020-02-06 02:27:31 INFO  PythonUDFRunner:54 - Times: total = 1110, boot = 354, init = 720, finish = 36
+2020-02-06 02:27:31 INFO  FileOutputCommitter:535 - Saved output of task 'attempt_20200206022730_0000_m_000001_0' to file:/home/hadoop/spark-warehouse/2qdatamarketdeid.db/g_mac_adult_id/_temporary/0/task_20200206022730_0000_m_000001
+2020-02-06 02:27:31 INFO  SparkHadoopMapRedUtil:54 - attempt_20200206022730_0000_m_000001_0: Committed
+2020-02-06 02:27:31 INFO  Executor:54 - Finished task 1.0 in stage 0.0 (TID 1). 3033 bytes result sent to driver
+2020-02-06 02:27:32 INFO  CoarseGrainedExecutorBackend:54 - Driver commanded a shutdown
+2020-02-06 02:27:32 INFO  MemoryStore:54 - MemoryStore cleared
+2020-02-06 02:27:32 INFO  BlockManager:54 - BlockManager stopped
+2020-02-06 02:27:32 INFO  ShutdownHookManager:54 - Shutdown hook called
+2020-02-06 02:27:32 INFO  ShutdownHookManager:54 - Deleting directory /home/hadoop/data/tmp/nm-local-dir/usercache/hadoop/appcache/application_1580953164575_0010/spark-b8d6eac0-bb41-4abd-b31b-0a05ccf6d67e

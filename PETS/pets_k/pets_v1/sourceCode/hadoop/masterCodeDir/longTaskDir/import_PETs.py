@@ -312,7 +312,7 @@ def main():
                 _logger.debug("import data error.")
                 _logger.debug('errTable:' + NAME + '_read_textFile_fail: ' + result['msg'])
                 updateAppStatus_.updateToMysql('import data error',progress_str,"err")
-                updateTProjectStatus_.updateToMysql(project_id, 99,"error")               
+                updateTProjectStatus_.updateToMysql(project_id, 92,"error")               
                 
                 return
             else:
@@ -337,12 +337,12 @@ def main():
                 errMsg = str(e)[index_:].split('\n')[0]
                 _logger.debug('errTable:'+NAME+'_read_textFile_fail: '+errMsg)
                 updateAppStatus_.updateToMysql(errMsg,progress_str,"err")
-                updateTProjectStatus_.updateToMysql(project_id, 99,"error")
+                updateTProjectStatus_.updateToMysql(project_id, 92,"error")
                 return
 
             _logger.debug('errTable:'+NAME+'_read_textFile_fail: '+str(e))
             updateAppStatus_.updateToMysql(str(e),progress_str,"err")
-            updateTProjectStatus_.updateToMysql(project_id, 99,"error")
+            updateTProjectStatus_.updateToMysql(project_id, 92,"error")
             return
 
         #normalized NA
@@ -367,7 +367,7 @@ def main():
         except Exception as e:
             _logger.debug('errTable:'+NAME+'_table_count_fail: '+str(e))
             updateAppStatus_.updateToMysql(str(e),progress_str,"err")
-            updateTProjectStatus_.updateToMysql(project_id, 99,"error")
+            updateTProjectStatus_.updateToMysql(project_id, 92,"error")
             return
 
 
@@ -397,7 +397,7 @@ def main():
         except Exception as e:
             _logger.debug('errTable: Sample fail. {0}'.format(str(e)))
             updateAppStatus_.updateToMysql(str(e),progress_str,"err")
-            updateTProjectStatus_.updateToMysql(project_id, 99,"error")
+            updateTProjectStatus_.updateToMysql(project_id, 92,"error")
             return
         try:
 
@@ -417,7 +417,7 @@ def main():
         except :
             _logger.debug('errTable: create database. {0}'.format(sys.exc_info()[0]))
             updateAppStatus_.updateToMysql("save table to HIVE",progress_str, "err")
-            updateTProjectStatus_.updateToMysql(project_id, 99,"error")
+            updateTProjectStatus_.updateToMysql(project_id, 92,"error")
             return    
         #save table to HIVE
         try:
@@ -440,7 +440,7 @@ def main():
             
             #project_status =3 
             #statusname='去欄位屬性判定'
-            updateTProjectStatus_.updateToMysql(project_id, 99,"error")
+            updateTProjectStatus_.updateToMysql(project_id, 92,"error")
             
             return
             #_logger.debug("error in kchecking : "+str(e))

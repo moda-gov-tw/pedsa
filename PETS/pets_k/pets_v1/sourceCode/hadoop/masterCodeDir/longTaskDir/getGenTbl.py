@@ -398,7 +398,7 @@ def main():
     '''      
     #updateTProjectStatus#######################################################  
     try:
-        project_status =7
+        project_status =6
         statusname='去識別化與風險設定'
         updateTProjectStatus_.updateToMysql(project_id, project_status,statusname)
     

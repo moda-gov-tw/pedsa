@@ -60,8 +60,9 @@ class getConfig:
             hdfsInfo['user'] = self.parser.get('hdfs', 'hdfs_user')
 
             #20220301, citc modified
-            #hdfsInfo['password'] = self.parser.get('hdfs', 'hdfs_password')
-            hdfsInfo['password'] = getPWDFroRandomFileDB("hadoop_file")
+            hdfsInfo['password'] = self.parser.get('hdfs', 'hdfs_password')
+            #hdfsInfo['password'] = getPWDFroRandomFileDB("hadoop_file")
+            hdfsInfo['password'] = "citcw200@"
 
                     
             return hdfsInfo
