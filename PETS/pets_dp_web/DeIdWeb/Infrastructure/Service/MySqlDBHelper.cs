@@ -403,6 +403,7 @@ namespace DeIdWeb.Infrastructure.Service
             {
                 MySqlConnection conn = new MySqlConnection(Connection);
                 string delstr = "Delete from T_GANStatus where project_id=@project_id;" +
+                    "Delete from T_CeleryStatus where project_id=@project_id;" +
                  "Delete from T_utilityResult where project_id=@project_id;" ;
                 conn.Execute(delstr, new { project_id = ps_id });
             }
@@ -887,8 +888,7 @@ namespace DeIdWeb.Infrastructure.Service
             return lstdistcount;
         }
 
-
-        public List<UtilityResult> SelectProUtilityResultCount(int pid)
+         public List<UtilityResult> SelectProUtilityResultCount(int pid)
         {
             List<UtilityResult> lstdistcount = null;
             try
@@ -908,6 +908,31 @@ namespace DeIdWeb.Infrastructure.Service
             {
                 string exmsg = ex.Message;
                 log.Error("SelectProUtilityResultCount Exception :" + exmsg);
+
+            }
+            return lstdistcount;
+        }
+
+        public List<ProjectStatus> getProjectJobList()
+        {
+            List<ProjectStatus> lstdistcount = null;
+            try
+            {
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                string Connection = Configuration["ConnectionStrings:DefaultConnection"];
+
+                using (MySqlConnection conn = new MySqlConnection(Connection))
+                {
+                    //var Results = db.Query<TableSqlDbType>(query, new { C1 = "10001" });
+                    string strSql = "select tps.project_id,tp.project_name,tp.project_cht,'差分隱私' as project_env,tps.statusname as jobname,100 as percentage,'' as logcontent,'deidadmin' as useraccount,tps.createtime,tps.updatetime, TIMESTAMPDIFF(SECOND, tps.createtime, tps.updatetime) as processtime from `DpService`.`T_ProjectStatus` as tps left join `DpService`.`T_Project` as tp on tps.project_id = tp.project_id ";
+                    //var datas = new UtilityResult { project_id = pid};
+                    lstdistcount = conn.Query<ProjectStatus>(strSql).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                string exmsg = ex.Message;
+                log.Error("ProjectStatus Exception :" + exmsg);
 
             }
             return lstdistcount;

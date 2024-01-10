@@ -95,7 +95,8 @@
                                     }
                                 }
                             </div>
-                            <div class="btn btn_sbe btn_back" id="back" style="display:none">@localizer.Text.back</div>
+                            <div class="btn btn_sbe btn_back" id="backpet" onclick="returnpetpage()">回主系統</div>
+                            <div class="btn btn_sbe btn_back" id="back" onclick="getbacklastpage()">@localizer.Text.back</div>
                             <div class="btn btn_mbs btn_next" id="importbtn" style="">
                                 <a href="javascript:void(0);" onclick="data_sync()">@localizer.Text.next</a>
                             </div>
@@ -108,8 +109,8 @@
                         <label id="importno" style="display:none">@localizer.Message.import_not_finish</label>
                         <label id="dimport" style="display:none">@localizer.Message.import</label>
                         <label id="selectcol" style="display:none">@ViewData["selectcol"]</label>
-                           <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
-                     <label id="loginname" style="display: none">@ViewData["loginname"]</label>
+                        <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
+                        <label id="loginname" style="display: none">@ViewData["loginname"]</label>
                   
                         @*<div class="btn btn_mbs btn_next" id="next"><a class="a_unstyled" href=" @Url.Action("Step2", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"] })">下一步</a></div>
                         <div class="btn btn_mbs btn_next" id="stopnext" style="display:none"><a class="a_unstyled" href="javascript:void(0);" onclick="stopStep()">下一步</a></div>*@

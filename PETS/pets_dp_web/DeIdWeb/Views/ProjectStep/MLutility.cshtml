@@ -71,7 +71,6 @@
                                 <option value="3">LV3</option>
                             </select>
                         </div>
-
                         <table class="table table-hover  table-bordered level-table">
                             <thead class="thead-inverse" style="">
                                 <tr>
@@ -99,35 +98,35 @@
 
                             </tbody>
                         </table>
-                        <label id="tbDatacount" style="display: none">@Model.Count()</label>
-                        <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
-                        <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
-                        <label id="savecolerror" style="display: none">@localizer.Message.save_col_error</label>
-                         <label id="pname_cht" style="display:none">@ViewData["Project_cht"]</label>
-                       
-                        <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
-                        <label id="loginname" style="display: none">@ViewData["loginname"]</label>
-
-                        <button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal"  onclick="getMLutility()">
-                            @localizer.Text.next
-                        </button>
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="exampleModalLongTitle">差分隱私</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                            差分隱私中，依資料大小不同需花費數分鐘到數小時不等，完成後將以狀態通知。
-                                    </div>
-                                    <div class="modal-footer">
-                                        <!-- 這邊要連結到ProjectIndex -->
-                                        <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                        <div class="btn btn_sbe btn_back" id="backpet" onclick="returnpetpage()">回主系統</div>
+                        <div class="btn btn_sbe btn_back" id="back" onclick="getbacklastpage()">@localizer.Text.back</div>
+                            <button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal"  onclick="getMLutility()">
+                                @localizer.Text.next
+                            </button>
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="exampleModalLongTitle">差分隱私</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                                差分隱私中，依資料大小不同需花費數分鐘到數小時不等，完成後將以狀態通知。
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- 這邊要連結到ProjectIndex -->
+                                            <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
+                    <label id="tbDatacount" style="display: none">@Model.Count()</label>
+                    <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
+                    <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
+                    <label id="savecolerror" style="display: none">@localizer.Message.save_col_error</label>
+                    <label id="pname_cht" style="display:none">@ViewData["Project_cht"]</label>
+                    <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
+                    <label id="loginname" style="display: none">@ViewData["loginname"]</label>
                 </div>
             </div>
         </div>
@@ -197,4 +196,16 @@
          location.href = "@Url.Action("DpSyncReport", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht);
 
     }
+
+     function getbacklastpage()
+    {
+        var pid = $('#project_id').text();
+        var pname = $('#project_name').text();
+        var pname_cht = $('#project_cht').text();
+        var returnurl =$('#returnurl').text();
+        var loginname =$('#loginname').text();
+         location.href = "@Url.Action("Dataassociation", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);;
+                 
+    }
+
 </script>

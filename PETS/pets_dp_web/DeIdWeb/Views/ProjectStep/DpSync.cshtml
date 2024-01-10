@@ -171,6 +171,10 @@
                             <!--資料匯入loading動畫-->
 
                         </div>
+                        <div class="btn btn_sbe btn_back" id="backpet" onclick="returnpetpage()">回主系統</div>
+                        <button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal" onclick="getganservice()">
+                            @localizer.Text.next
+                        </button>
                     </div>
                     <label id="tbDatacount" style="display: none">@Model.Count()</label>
                     <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
@@ -180,18 +184,23 @@
                     <label id="obcolstr" style="display: none">@ViewData["ob_col_str"]</label>
                     <label id="idcol" style="display: none">@ViewData["old_idcol"]</label>
                     <label id="savecolerror" style="display: none">@localizer.Message.save_col_error</label>
+<<<<<<< HEAD
+                    <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
+                    <label id="loginname" style="display: none">@ViewData["loginname"]</label>
+                    
+=======
                      <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
                      <label id="loginname" style="display: none">@ViewData["loginname"]</label>
-                    @*<div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>*@
+                    <div class="btn btn_sbe btn_back" id="backpet" onclick="returnpetpage()">回到主系統</div>
+                    @*<div class="btn btn_sbe btn_back" id="back" onclick="getbacklastpage()">@localizer.Text.back</div>*@
+>>>>>>> 66d98d864a81e7cd27cdeec975739e969bb2f1da
                     <!--
                             <div class="btn btn_mbs btn_next" id="next">
                                 <a class="a_unstyled" href="javascript:void(0)" onclick="SaveProjectTableStep();">@localizer.Text.next</a>
                             </div>
     -->
                     @*<button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal" data-target="#exampleModalCenter" onclick="getganservice()">*@
-                    <button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal" onclick="getganservice()">
-                        @localizer.Text.next
-                    </button>
+                    
 					<!--資料無誤，成功-->
                     <div class="modal fade" id="lessThanThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -343,7 +352,7 @@
 
             if ($(newcbnm).prop('checked')) {
                // alert('ccfffffccc');
-               alert(rbnm);
+               //alert(rbnm);
                 cbcount++;
                 cbcolname += col_arr[i].toString() + ',';
                 var cbvalue = $("input[name='" + rbnm + "']:checked").val();
@@ -369,8 +378,8 @@
                 //確認數字類別
             }
             else {
-                alert('nocheck');
-                alert(col_arr[i].toString());
+              //  alert('nocheck');
+              //  alert(col_arr[i].toString());
             }
 
         }
@@ -445,6 +454,24 @@
         }); 
         }
     }
+    function getbacklastpage()
+    {
+        var pid = $('#project_id').text();
+        var pname = $('#project_name').text();
+        var pname_cht = $('#project_cht').text();
+        var returnurl =$('#returnurl').text();
+        var loginname =$('#loginname').text();
+         location.href = "@Url.Action("DpSync", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);;
+                 
+    }
+    
+      function returnpetpage() {
+           
+           var returnurl =$('#returnurl').text();
+        
+       location.href = returnurl;
+    
+    }
 
       function returntopage() {
            var pid = $('#project_id').text();
@@ -452,7 +479,6 @@
         var pname_cht = $('#project_cht').text();
          // location.href = "/Home/ProjectIndex";
            var returnurl =$('#returnurl').text();
-                   var returnurl = $('#returnurl').text();
         var loginname = $('#loginname').text();
        // location.href = return_url;
           location.href = "@Url.Action("Dataassociation", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);

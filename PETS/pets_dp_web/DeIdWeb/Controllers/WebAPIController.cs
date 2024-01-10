@@ -1729,6 +1729,105 @@ namespace DeIdWeb.Controllers
             return Json(responseList);
         }
 
+        [HttpGet("dp_jobloglist")]
+        ///
+        //public IActionResult k_checkstatus(string project_name)
+        /*
+         select tps.project_id,tp.project_name,tp.project_cht,'差分隱私' as project_env,tps.statusname as jobname,100 as percentage,
+        '' as logcontent,'deidadmin' as useraccount,tps.createtime,tps.updatetime, TIMESTAMPDIFF(SECOND, tps.createtime, tps.updatetime) as processtime 
+from `DpService`.`T_ProjectStatus` as tps
+left join `DpService`.`T_Project` as tp on tps.project_id = tp.project_id
+         */
+        public IActionResult dp_jobloglist([FromQuery] ProjectStatusInputModel inputModel)
+        {
+            log.Info("dp_jobloglist 處理時間");
+            string projectName = inputModel.project_name;
+            log.Info("project_name :" + projectName);
+            string jsonString = "";
+            int project_id = 0;
+            //project_name
+            var responseList = new List<object>();
+            var dp_joblog = new List<dp_joblog>();
+            var Dpdata_info = new List<Dpdata_info>();
+            try
+            {
+                
+                var joblist = mydbhelper.getProjectJobList();
+                if(joblist != null)
+                {
+                    if(joblist.Count > 0)
+                    {
+                        foreach(var job in joblist)
+                        {
+                            var datainfo = new Dpdata_info
+                            {
+                                project_name = job.project_name,
+                                project_eng = job.project_eng,
+                                project_env  = job.project_env,
+                                percentage = job.percentage,
+                                logcontent = job.logcontent,
+                                useraccount = job.useraccount,
+                                createtime = job.createtime,
+                                updatetime = job.updatetime,
+                                processtime = job.processtime
+                            };
+                            Dpdata_info.Add(datainfo);
+                        }
+
+                        var dp_joblogs = new dp_joblog
+                        {
+                            status = 1,
+                            msg = "",
+                            dataInfo = Dpdata_info
+                        };
+
+                        jsonString = JsonConvert.SerializeObject(dp_joblogs);
+                        responseList.Add(dp_joblogs);
+                    }
+                    else
+                    {
+                        var nullObject = new
+                        {
+                            status = 0,
+                            msg = "no job data in project",
+                            obj = new
+                            {
+
+                            }
+                        };
+
+                        // 将匿名对象转换为 JSON 字符串
+                        jsonString = JsonConvert.SerializeObject(nullObject);
+                        responseList.Add(nullObject);
+                    }
+                }
+                else
+                {
+                    var nullObject = new
+                    {
+                        status = -1,
+                        msg = "project is null error",
+                        obj = new
+                        {
+
+                        }
+                    };
+
+                    // 将匿名对象转换为 JSON 字符串
+                    jsonString = JsonConvert.SerializeObject(nullObject);
+                    responseList.Add(nullObject);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+                log.Error("dp_jobloglist Exception : " + errormsg);
+                return BadRequest(new { status = -1, msg = errormsg });
+            }
+            return Json(responseList);
+        }
+
 
     }
 }
