@@ -1859,10 +1859,10 @@ section.inside {
 
 .btn_next {
   float: right;
-  margin: 20px; }
+  margin: 20px 5px; }
 
 .btn_back {
-  margin: 20px; }
+  margin: 20px 5px; }
 
 .list-tabs {
   float: left;

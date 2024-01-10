@@ -112,12 +112,12 @@
                     </div>
                     <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
                     <label id="loginname" style="display: none">@ViewData["loginname"]</label>
+                    <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
                     <div class="btn btn_sbe btn_back" onclick="returnml()">重選感興趣欄位</div>
                     @*<div class="btn btn_mbs btn_next">*@
                     <div class="btn btn_mbs btn_next" onclick="exportFile()">
                         匯出資料
-                        @*                        <a href="@Url.Action("ExportData", "ProjectStep", new { proj_id=@ViewData["ProjectId"],project_name = @ViewData["ProjectName"],project_cht=@ViewData["Project_Cht"],loginname=@ViewData["loginname"],returnurl=@ViewData["returnurl"] })">匯出資料</a>*@
-
+                        @*<a href="@Url.Action("ExportData", "ProjectStep", new { proj_id=@ViewData["ProjectId"],project_name = @ViewData["ProjectName"],project_cht=@ViewData["Project_Cht"],loginname=@ViewData["loginname"],returnurl=@ViewData["returnurl"] })">匯出資料</a>*@
                     </div>
                 </div>
             </div>

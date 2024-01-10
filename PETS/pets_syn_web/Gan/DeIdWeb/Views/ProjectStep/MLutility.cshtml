@@ -148,9 +148,10 @@
                      
                         <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
                         <label id="loginname" style="display: none">@ViewData["loginname"]</label>
-
+                        
+                        <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
                         <button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal"  onclick="getMLutility()">
-                            @localizer.Text.next
+                            下一步
                         </button>
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
