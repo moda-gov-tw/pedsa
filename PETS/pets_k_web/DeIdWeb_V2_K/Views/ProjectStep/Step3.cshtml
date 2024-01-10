@@ -199,6 +199,14 @@
                                     }
                                 }
                             </div>
+                            <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
+                            <div class="btn btn_sbe btn_back" id="back" onclick="backStep2()">@localizer.Text.back</div>
+                            @*<div class="btn btn_sbe btn_back" id="save" onclick="getData()">@localizer.Text.save</div>*@
+                            <div class="btn btn_mbs btn_next" id="next">
+                                @*<a class="a_unstyled" href="step3_02.html">下一步</a>*@
+                                @*@Html.ActionLink("下一步", "Step3_2", "ProjectStep", null, new { @class = "a_unstyled" })*@
+                                <a class="a_unstyled" href="javascript:void(0)" onclick="SaveProjectTableStep()">@localizer.Text.next</a>
+                            </div>
                         </div>
 
                         <label id="selectlang" style="display:none">@localizer.Text.select</label>
@@ -218,16 +226,11 @@
                         <label id="updown_error" style="display:none">@localizer.Message.updown_error</label>
                         <label id="updown_num_error" style="display:none">@localizer.Message.updown_num_error</label>
                         <label id="updown_up_error" style="display:none">@localizer.Message.updown_up_error</label>
-                        <div class="btn btn_sbe btn_back" id="back" onclick="backStep2()">@localizer.Text.back</div>
+                        
                         <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
                         <label id="loginname" style="display: none">@ViewData["loginname"]</label>
                        
-                        @*<div class="btn btn_sbe btn_back" id="save" onclick="getData()">@localizer.Text.save</div>*@
-                        <div class="btn btn_mbs btn_next" id="next">
-                            @*<a class="a_unstyled" href="step3_02.html">下一步</a>*@
-                            @*@Html.ActionLink("下一步", "Step3_2", "ProjectStep", null, new { @class = "a_unstyled" })*@
-                            <a class="a_unstyled" href="javascript:void(0)" onclick="SaveProjectTableStep()">@localizer.Text.next</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -235,6 +238,12 @@
     </div>
 </section>
 <script>
+      function returntopage() {
+         // location.href = "/Home/ProjectIndex";
+           var return_url =$('#returnurl').text();
+        location.href = return_url;
+    }
+
     function backStep2() {
         //alert('back');
         var pid = $('#project_id').text();

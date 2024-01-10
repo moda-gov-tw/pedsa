@@ -182,7 +182,7 @@
                                 </path>
                             </svg>
                         </div>
-
+                        <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
                         <div class="btn btn_mbs btn_next" onclick="getexport()">匯出資料</div>
                     </div>
                 </div>
@@ -344,6 +344,12 @@
 
         });
 
+    }
+
+    function returntopage() {
+         // location.href = "/Home/ProjectIndex";
+           var return_url =$('#return_url').text();
+        location.href = return_url;
     }
 </script>
 

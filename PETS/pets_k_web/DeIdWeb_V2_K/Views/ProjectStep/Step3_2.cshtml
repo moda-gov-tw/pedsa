@@ -317,6 +317,9 @@
                                     i++;
                                 }
                             }
+                            <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
+                            <div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>
+                            <div class="btn btn_mbs btn_next" id="next"><a class="a_unstyled" href="javascript:getGEN();">@localizer.Text.next</a></div>
                         </div>
                         <label id="tbcount" style="display:none">@Model.Count()</label>
                         <label id="pid" style="display:none">@ViewData["ProjectId"]</label>
@@ -331,8 +334,7 @@
                         <label id="memberAcc" style="display:none">@ViewData["memberAcc"]</label>
                         <label id="memberId" style="display:none">@ViewData["memberId"]</label>
                         <label id="saveerror" style="display:none">@localizer.Message.save_col_error</label>
-                        <div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>
-                        <div class="btn btn_mbs btn_next" id="next"><a class="a_unstyled" href="javascript:getGEN();">@localizer.Text.next</a></div>
+                        
                         @*<div class="btn btn_sbe btn_back" id="save">儲存</div>*@
                         @*<button type="button" class="btn btn_mbs btn_next" id="importbtn" data-toggle="modal" onclick="getGEN()">@localizer.Text.next</button>*@
                         <!--資料無誤，成功-->

@@ -222,6 +222,10 @@
                                     x++;
                                 }
                             }
+                            <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
+                            <div class="btn btn_mbs btn_next" id="next">
+                                <a class="a_unstyled" href="javascript:void(0)" onclick="SaveProjectTableStep();">@localizer.Text.next</a>
+                            </div>
                         </div>
                         <label id="tbDatacount" style="display: none">@Model.Count()</label>
                         <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
@@ -231,10 +235,8 @@
                         <label id="loginname" style="display: none">@ViewData["loginname"]</label>
                         <label id="savecolerror" style="display: none">@localizer.Message.save_col_error</label>
                         @*<div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>*@
-
-                        <div class="btn btn_mbs btn_next" id="next">
-                            <a class="a_unstyled" href="javascript:void(0)" onclick="SaveProjectTableStep();">@localizer.Text.next</a>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -310,6 +312,12 @@
                 //alert('儲存欄位資料失敗');
             }
         });
+    }
+
+     function returntopage() {
+         // location.href = "/Home/ProjectIndex";
+           var return_url =$('#returnurl').text();
+        location.href = return_url;
     }
 </script>
 <script>
@@ -473,7 +481,7 @@
         //alert('1')
         var isformat = true;
         if (!pro_tb) {
-            alert('1')
+           // alert('1')
             isformat = false;
         }
 
@@ -490,37 +498,37 @@
         var r_value=jsobj.r_value;
         //alert('2')
         if (!after_col_cht) {
-            alert('2')
+           // alert('2')
             isformat = false;
         }
         if (!qi_col) {
-            alert('3')
+           // alert('3')
             isformat = false;
         }
         if (!after_col_value) {
-            alert('4')
+           // alert('4')
             isformat = false;
         }
         if (!gen_qi_settingvalue) {
-            alert('5')
+           // alert('5')
             isformat = false;
         }
         if (!tablekeycol) {
-            alert('6')
+           // alert('6')
             isformat = false;
         }
 
            if (!k_risk) {
-               alert('7')
+        //       alert('7')
             isformat = false;
         }
          
            if (!t1) {
-               alert('8')
+       //        alert('8')
             isformat = false;
         }
            if (!t2) {
-               alert('9')
+       //        alert('9')
             isformat = false;
         }
 
@@ -728,7 +736,7 @@
             return false;
 
         //alert(nofile);
-        alert('4')
+      //  alert('4')
         var tbcol = "#tbcolcht_" + tbnum;
         var conlist = "#tbresult_" + tbnum;
         var resultmap = "#map_" + tbnum;
@@ -743,17 +751,17 @@
         var nomapcol = $(resultmapcol).text();
 
         var tbcollst = $(tbcol).text();
-        alert('5')
-        alert(forval)
+     //   alert('5')
+      //  alert(forval)
         if (forval == "no") {
-            alert('6')
+           // alert('6')
             $("#config_choose").hide();
             $("#config_success").hide();
             $("#config_error").show();
             $("#config_warning").hide();
         }
         else {
-            alert('7')
+           // alert('7')
             //alert(mapcount);
             if (mapcount == '0') {
                 //沒有一個欄位匹配所以也不用更新
@@ -766,7 +774,7 @@
                 for (var x = 0; x < tbcolarr.length; x++) {
                     newtbcol += "「" + tbcolarr[x] + "」" + "、";
                 }
-                alert('8')
+              //  alert('8')
                 newtbcol = newtbcol.substring(0, newtbcol.length - 1);
                 $(resultmap).html(tbcolarr.length.toString());
                 $(resultmapcol).html(newtbcol);
@@ -777,7 +785,7 @@
             else {
                 var pid = $('#project_id').text();
 
-                alert('9')
+             //   alert('9')
                 $.ajax({
                     type: "get",
                     url: "/api/WebAPI/UpdateColSetting",
