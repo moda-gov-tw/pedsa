@@ -1,0 +1,47 @@
+﻿@using System.Globalization
+@using Resources
+@using Microsoft.AspNetCore.Mvc;
+@using DeIdWeb_V2.Infrastructure.Reposiotry;
+@using Microsoft.AspNetCore.Http;
+@using System.Security.Claims;
+@inject ILocalizer localizer;
+
+@removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<!--import bootstrap/wtf.html-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    @*<meta charset="UTF-8" http-equiv="Content-Security-Policy" content="{Policy}">*@
+    @*<title>@localizer.Text.title</title>*@
+    <title>直接識別處理工具</title>
+
+    <link rel="stylesheet prefetch" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="~/css/iconfont.css">
+    <script nonce="iclw200" src="~/js/jquery-3.6.3.min.js"></script>
+    <script nonce="iclw200" src="~/js/jquery-ui.min.js"></script>
+    <script nonce="iclw200" src="~/js/bootstrap.min.js"></script>
+    <script nonce="iclw200" src="~/js/bootstrap-table.min.js"></script>
+    <script nonce="iclw200" src="~/js/layout.js"></script>
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top at_top">
+        <div class="container">
+            <div class="navbar-header navbar-brand">
+                <img src="~/images/logo_b.png" alt="">
+            </div>
+            <div id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                 
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+</body>
+</html>

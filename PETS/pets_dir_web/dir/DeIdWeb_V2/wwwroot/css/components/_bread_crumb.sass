@@ -1,0 +1,23 @@
+//麵包屑
+section.section_top
+  .container
+    +size(1240px,100%)
+    margin-top: 72px
+    //background-color: $color_white
+    ul.bread_crumb
+      padding: 10px 0 0 14px
+      list-style: none
+      li
+        display: inline
+        font-size: $font_base_size*1.2
+        + li:before
+          padding: 8px
+          color: $color_darkgray
+          content: "/\00a0"
+        a
+          color: $color_darkgray
+          text-decoration: none
+          &:hover
+            color: $color_darkgray
+            text-decoration: underline
+
