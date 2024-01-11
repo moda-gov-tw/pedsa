@@ -41,7 +41,6 @@ namespace DeIdWeb_V2.Models
         public string aes_col { get; set; }
         public string mac_col { get; set; }
         public string sep { get; set; }
-        public string enc_key { get; set; }
         public string project_cert { get; set; }
         public string hash_table_name { get; set; }
         

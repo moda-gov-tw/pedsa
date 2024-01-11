@@ -324,7 +324,7 @@
                 success: function (result) {
              
                     $('#datachecking').modal('hide');
-                    location.href = "@Url.Action("DirSetting", "Home")/?filename="+decodeURIComponent(filename)+"&fileheader="+decodeURIComponent(strWithoutNewLine)+ "&file_key=" + encodeURIComponent(enc_key);
+                    location.href = "@Url.Action("DirSetting", "Home")/?filename="+decodeURIComponent(filename)+"&fileheader="+decodeURIComponent(strWithoutNewLine)+ "&project_cert=" + encodeURIComponent(project_cert);
 
                 },
                 error: function (xhr, status, error) {
