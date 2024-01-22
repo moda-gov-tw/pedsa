@@ -76,7 +76,7 @@
                             <tbody></tbody>
                         </table>
                         <div class="btn btn_sbe btn_back" id="backpet" onclick="returnpetpage()">回主系統</div>
-                        <div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>
+                            <div class="btn btn_sbe btn_back" id="back" onclick="getbacklastpage()">@localizer.Text.back</div>
                         <button type="button" class="btn btn_mbs btn_next" id="downloadButton">資料匯出</button>
                     </div>
                     <label id="reportlist" style="display: none">@ViewData["reportlist"]</label>
@@ -151,6 +151,13 @@
         let index = $tab.index();
         $(".contents .content").siblings('.active').removeClass('active').end().eq(index).addClass("active");
     })
+       function returnpetpage() {
+           
+           var returnurl =$('#returnurl').text();
+        
+       location.href = returnurl;
+    
+    }
 
     function returnml() {
         var pname_cht = $('#pname_cht').text();
@@ -225,6 +232,17 @@
            var returnurl =$('#returnurl').text();
         location.href = return_url;
 
+    }
+
+        function getbacklastpage()
+    {
+        var pid = $('#pid').text();
+        var pname = $('#pname').text();
+        var pname_cht = $('#pname_cht').text();
+        var returnurl =$('#returnurl').text();
+        var loginname =$('#loginname').text();
+         location.href = "@Url.Action("MLutility", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);;
+                 
     }
 </script>
 

@@ -16,6 +16,7 @@ using Resources;
 using Microsoft.AspNetCore.Http;
 using System.Web;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading;
 //using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace DeIdWeb.Controllers
@@ -881,7 +882,7 @@ namespace DeIdWeb.Controllers
             try
             {
                 var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(proj_id),7, "查看報表'");
-                
+                Thread.Sleep(6000);
                 //var apiName1 = "api/de-identification/proc/41650035-287e-4213-94e8-e3e79be1bb1d";  // 替換成實際的 API 名稱
                 //                                                                                   //var apiName = "api/de-identification/488/job/"+dp_id.ToString();  // 替換成實際的 API 名稱
                 //var result1 = await _dpconn.getasync(apiName1);

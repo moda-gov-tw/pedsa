@@ -151,6 +151,14 @@
     }
 </script>
 <script>
+      function returnpetpage() {
+           
+           var returnurl =$('#returnurl').text();
+        
+       location.href = returnurl;
+    
+    }
+
     function getMLutility() {
         // alert('1');
         var cbcount = 0;
@@ -175,8 +183,10 @@
             },
             success: function (response) {
                 //成功
+                 //
                 $('#exampleModalCenter').modal({ backdrop: 'static', keyboard: false });
                 $('#exampleModalCenter').modal('show');
+                sleep(2000);
                 location.href = "@Url.Action("DpSyncReport", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);
 
             },
@@ -192,16 +202,19 @@
             var pid = $('#pid').text();
         var pname = $('#pname').text();
         var pname_cht = $('#pname_cht').text();
+        var returnurl =$('#returnurl').text();
+        var loginname =$('#loginname').text();
+       
        // location.href = return_url;
-         location.href = "@Url.Action("DpSyncReport", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht);
+         location.href = "@Url.Action("DpSyncReport", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);
 
     }
 
      function getbacklastpage()
     {
-        var pid = $('#project_id').text();
-        var pname = $('#project_name').text();
-        var pname_cht = $('#project_cht').text();
+        var pid = $('#pid').text();
+        var pname = $('#pname').text();
+        var pname_cht = $('#pname_cht').text();
         var returnurl =$('#returnurl').text();
         var loginname =$('#loginname').text();
          location.href = "@Url.Action("Dataassociation", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);;

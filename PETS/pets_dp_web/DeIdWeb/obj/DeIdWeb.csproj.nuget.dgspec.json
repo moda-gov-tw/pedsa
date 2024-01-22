@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\DeIdWeb\\數位部\\pets_dp\\DeIdWeb\\DeIdWeb.csproj": {}
+    "C:\\Users\\Bruce\\Source\\Repos\\dp_web\\DeIdWeb\\DeIdWeb.csproj": {}
   },
   "projects": {
-    "F:\\DeIdWeb\\數位部\\pets_dp\\DeIdWeb\\DeIdWeb.csproj": {
+    "C:\\Users\\Bruce\\Source\\Repos\\dp_web\\DeIdWeb\\DeIdWeb.csproj": {
       "version": "1.0.2",
       "restore": {
-        "projectUniqueName": "F:\\DeIdWeb\\數位部\\pets_dp\\DeIdWeb\\DeIdWeb.csproj",
+        "projectUniqueName": "C:\\Users\\Bruce\\Source\\Repos\\dp_web\\DeIdWeb\\DeIdWeb.csproj",
         "projectName": "DeIdWeb",
-        "projectPath": "F:\\DeIdWeb\\數位部\\pets_dp\\DeIdWeb\\DeIdWeb.csproj",
+        "projectPath": "C:\\Users\\Bruce\\Source\\Repos\\dp_web\\DeIdWeb\\DeIdWeb.csproj",
         "packagesPath": "C:\\Users\\Bruce\\.nuget\\packages\\",
-        "outputPath": "F:\\DeIdWeb\\數位部\\pets_dp\\DeIdWeb\\obj\\",
+        "outputPath": "C:\\Users\\Bruce\\Source\\Repos\\dp_web\\DeIdWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -137,11 +137,12 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

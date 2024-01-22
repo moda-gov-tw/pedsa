@@ -62,7 +62,7 @@
                             <label class="control-label">系統關聯欄位 :</label>
                             <div class="table_info">
                                 @{
-                                    var strcol = @ViewData["selectcol"].ToString();
+                                   var strcol = @ViewData["selectcol"].ToString();
                                     if (strcol != "")
                                     {
                                         var col_arr = strcol.Split(',');
@@ -142,9 +142,17 @@
         $('#showdata').show();
         $('#loading_ui').hide();
     });
+
+
 </script>
 <script>
-
+      function returnpetpage() {
+           
+           var returnurl =$('#returnurl').text();
+        
+       location.href = returnurl;
+    
+    }
     function sleep(numberMillis) {
         var now = new Date();
         var exitTime = now.getTime() + numberMillis;
@@ -207,7 +215,16 @@
             }
         });
     }
-
+      function getbacklastpage()
+    {
+        var pid = $('#pid').text();
+        var pname = $('#pname').text();
+        var pname_cht = $('#pname_cht').text();
+        var returnurl =$('#returnurl').text();
+        var loginname =$('#loginname').text();
+         location.href = "@Url.Action("DpSync", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht)+"&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);;
+                 
+    }
 </script>
 
 

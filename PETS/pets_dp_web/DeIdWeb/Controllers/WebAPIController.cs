@@ -93,7 +93,7 @@ namespace DeIdWeb.Controllers
                     if (prostatus)
                         isUpdate = true;
 
-
+                 
                     // 發送 HTTP 請求到外部 API
                     var apiName = "api/de-identification/";  // 替換成實際的 API 名稱
                     var data_path = "static/test/" + fname;
@@ -113,26 +113,19 @@ namespace DeIdWeb.Controllers
 
                     var result = await _dpconn.postasync(apiName, apiBody);
                     log.Info("SendDpService return :" + result);
-                    if (result != "error")
+                    //var jsonResponse = JsonConvert.DeserializeObject<MyResponseModel>(result);
+                    JObject apiresultJsobj = JObject.Parse(result);
+                    // JObject apiresultJsobj = JObject.Parse(apirestult);
+                    string status = apiresultJsobj["status"].ToString();
+                    if (status == "1")
                     {
-                        //var jsonResponse = JsonConvert.DeserializeObject<MyResponseModel>(result);
-                        JObject apiresultJsobj = JObject.Parse(result);
-                        // JObject apiresultJsobj = JObject.Parse(apirestult);
-                        string status = apiresultJsobj["status"].ToString();
-                        if (status == "1")
-                        {
-                            //新增task 成功
-                            string task_id = apiresultJsobj["task_id"].ToString();
-                            //UpdateProjectftaskid
-                            var assstatus = mydbhelper.UpdateProjectftaskid(int.Parse(pid), int.Parse(task_id));
-                            //update project
-                            var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 4, "選擇關聯欄位");
-                            isUpdate = true;
-                        }
-                    }
-                    else
-                    {
-                        var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 97, "差分欄位設定失敗");
+                        //新增task 成功
+                        string task_id = apiresultJsobj["task_id"].ToString();
+                        //UpdateProjectftaskid
+                        var assstatus = mydbhelper.UpdateProjectftaskid(int.Parse(pid), int.Parse(task_id));
+                        //update project
+                        var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 4, "選擇關聯欄位");
+                        isUpdate = true;
                     }
                 }
             }
@@ -140,7 +133,6 @@ namespace DeIdWeb.Controllers
             {
                 string errormsg = ex.Message.ToString();
                 log.Error("SendDpSyncService Exception :" + errormsg);
-                var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 97, "差分欄位設定失敗");
                 isUpdate = false;
             }
             return isUpdate;
@@ -168,7 +160,7 @@ namespace DeIdWeb.Controllers
 
             try
             {
-
+                
                 //更新col
                 var col_name_arr = selectcol.Split(",");
                 var col_types = selectcol.Split(",");
@@ -234,10 +226,9 @@ namespace DeIdWeb.Controllers
                 //var jsonResponse = JsonConvert.DeserializeObject<MyResponseModel>(result);
                 JObject apiresultJsobj = JObject.Parse(result);
                 // JObject apiresultJsobj = JObject.Parse(apirestult);
-
-                if (result != "error")
+                string status = apiresultJsobj["status"].ToString();
+                if (result != "")
                 {
-                    string status = apiresultJsobj["status"].ToString();
                     //新增task 成功
                     string sec_task_id = apiresultJsobj["task_id"].ToString();
                     //UpdateProjectftaskid
@@ -246,17 +237,12 @@ namespace DeIdWeb.Controllers
                     var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 5, "差分隱私處理");
                     isUpdate = true;
                 }
-                else
-                {
-                    var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 98, "關聯屬性設定錯誤");
-                }
 
             }
             catch (Exception ex)
             {
                 string errormsg = ex.Message.ToString();
                 log.Error("SendGanSyncService Exception :" + errormsg);
-                var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 98, "關聯屬性設定錯誤");
                 isUpdate = false;
             }
             return isUpdate;
@@ -463,10 +449,7 @@ namespace DeIdWeb.Controllers
                 log.Info("SendMLutility return :" + result);
                 log.Info("SendMLutility return :" + result);
                 //var jsonResponse = JsonConvert.DeserializeObject<MyResponseModel>(result);
-              
-                if(result!="error")
-                {
-                      JObject apiresultJsobj = JObject.Parse(result);
+                JObject apiresultJsobj = JObject.Parse(result);
                 // JObject apiresultJsobj = JObject.Parse(apirestult);
                 string status = apiresultJsobj["status"].ToString();
                 if (status == "1")
@@ -479,16 +462,10 @@ namespace DeIdWeb.Controllers
                     var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 6, "產生報表");
                     isUpdate = true;
                 }
-                }
-                else
-                {
-                    var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 99, "差分隱私錯誤");
-                }
             }
             catch (Exception ex)
             {
                 string errormsg = ex.Message.ToString();
-                var upstatuspr = mydbhelper.UpdateProjectStauts(int.Parse(pid), 99, "差分隱私錯誤");
                 log.Error("SendMLutility Exception :" + errormsg);
 
             }
@@ -1376,15 +1353,15 @@ namespace DeIdWeb.Controllers
                             foreach (var item in lstproject)
                             {
                                 proj_status = item.project_status;
-
+                              
                                 project_id = item.Project_id;
-
-
-
+                              
+                                
+                               
                             }
 
                             var lst = mydbhelper.getDP_DownloadPath(project_id.ToString());
-                            foreach (var item in lst)
+                            foreach(var item in lst)
                             {
                                 downloadpath = item.downloadpath;
                             }
@@ -1394,6 +1371,7 @@ namespace DeIdWeb.Controllers
                                     statusname = "新建專案";
                                     return_url += "/ProjectStep/Preview?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
                                     break;
+
                                 case 1:
                                     statusname = "資料匯入中";
                                     return_url = "";
@@ -1401,48 +1379,51 @@ namespace DeIdWeb.Controllers
                                 case 2:
                                     statusname = "資料欄位設定";
                                     return_url += "/ProjectStep/DpSync?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+
                                     break;
                                 case 3:
-                                    statusname = "資料運算中";
-                                    return_url = "";
-                                    break;
-                                case 4:
                                     statusname = "關聯欄位";
                                     return_url += "/ProjectStep/Dataassociation?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    break;
+                                case 4:
+                                    statusname = "差分隱私處理";
+                                    return_url += "/ProjectStep/MLutility?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
 
                                     break;
                                 case 5:
                                     statusname = "差分隱私處理";
                                     return_url += "/ProjectStep/MLutility?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+
                                     break;
                                 case 6:
-                                    statusname = "差分隱私處理中";
-                                    //return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
-                                    return_url = "";
-                                    break;
-                                case 7:
                                     statusname = "查看報表";
                                     return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
                                     break;
+                                case 8:
+                                    statusname = "資料下載";
+                                    return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    //downloadpath = "";
+                                    break;
+                                case 7:
+                                    statusname = "資料匯出中";
+                                    return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    //downloadpath = "";
+                                    break;
+
+                                case 10:
+                                    statusname = "資料下載";
+                                    return_url += "/ProjectStep/DpSyncReport?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    //downloadpath = "";
+                                    break;
                                 case 99:
-                                    statusname = "資料差分錯誤";
-                                    return_url += "/ProjectStep/MLutility?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                    statusname = "資料合成錯誤";
+                                    return_url += "/ProjectStep/GanSync?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
                                     //downloadpath = "";
                                     break;
                                 case 98:
-                                    statusname = "資料關聯錯誤";
-                                    return_url += "/ProjectStep/Dataassociation?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
-                                    // downloadpath = "";
-                                    break;
-                                case 97:
-                                    statusname = "差分欄位設定失敗";
-                                    return_url += "/ProjectStep/DpSync?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
-                                    // downloadpath = "";
-                                    break;
-                                      case 92:
-                                    statusname = "資料匯入失敗";
-                                    return_url = "";
-                                    // downloadpath = "";
+                                    statusname = "資料可用性錯誤";
+                                    return_url += "/ProjectStep/MLutility?proj_id=" + WebUtility.UrlEncode(project_id.ToString()) + "&project_name=" + WebUtility.UrlEncode(projectName) + "&stepstatus=" + WebUtility.UrlEncode(proj_status.ToString());
+                                   // downloadpath = "";
                                     break;
                             }
                             var responseObject = new
@@ -1724,105 +1705,6 @@ namespace DeIdWeb.Controllers
             {
                 string errormsg = ex.Message;
                 log.Error("dp_conn Exception : " + errormsg);
-                return BadRequest(new { status = -1, msg = errormsg });
-            }
-            return Json(responseList);
-        }
-
-        [HttpGet("dp_jobloglist")]
-        ///
-        //public IActionResult k_checkstatus(string project_name)
-        /*
-         select tps.project_id,tp.project_name,tp.project_cht,'差分隱私' as project_env,tps.statusname as jobname,100 as percentage,
-        '' as logcontent,'deidadmin' as useraccount,tps.createtime,tps.updatetime, TIMESTAMPDIFF(SECOND, tps.createtime, tps.updatetime) as processtime 
-from `DpService`.`T_ProjectStatus` as tps
-left join `DpService`.`T_Project` as tp on tps.project_id = tp.project_id
-         */
-        public IActionResult dp_jobloglist([FromQuery] ProjectStatusInputModel inputModel)
-        {
-            log.Info("dp_jobloglist 處理時間");
-            string projectName = inputModel.project_name;
-            log.Info("project_name :" + projectName);
-            string jsonString = "";
-            int project_id = 0;
-            //project_name
-            var responseList = new List<object>();
-            var dp_joblog = new List<dp_joblog>();
-            var Dpdata_info = new List<Dpdata_info>();
-            try
-            {
-                
-                var joblist = mydbhelper.getProjectJobList();
-                if(joblist != null)
-                {
-                    if(joblist.Count > 0)
-                    {
-                        foreach(var job in joblist)
-                        {
-                            var datainfo = new Dpdata_info
-                            {
-                                project_name = job.project_name,
-                                project_eng = job.project_eng,
-                                project_env  = job.project_env,
-                                percentage = job.percentage,
-                                logcontent = job.logcontent,
-                                useraccount = job.useraccount,
-                                createtime = job.createtime,
-                                updatetime = job.updatetime,
-                                processtime = job.processtime
-                            };
-                            Dpdata_info.Add(datainfo);
-                        }
-
-                        var dp_joblogs = new dp_joblog
-                        {
-                            status = 1,
-                            msg = "",
-                            dataInfo = Dpdata_info
-                        };
-
-                        jsonString = JsonConvert.SerializeObject(dp_joblogs);
-                        responseList.Add(dp_joblogs);
-                    }
-                    else
-                    {
-                        var nullObject = new
-                        {
-                            status = 0,
-                            msg = "no job data in project",
-                            obj = new
-                            {
-
-                            }
-                        };
-
-                        // 将匿名对象转换为 JSON 字符串
-                        jsonString = JsonConvert.SerializeObject(nullObject);
-                        responseList.Add(nullObject);
-                    }
-                }
-                else
-                {
-                    var nullObject = new
-                    {
-                        status = -1,
-                        msg = "project is null error",
-                        obj = new
-                        {
-
-                        }
-                    };
-
-                    // 将匿名对象转换为 JSON 字符串
-                    jsonString = JsonConvert.SerializeObject(nullObject);
-                    responseList.Add(nullObject);
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                string errormsg = ex.Message;
-                log.Error("dp_jobloglist Exception : " + errormsg);
                 return BadRequest(new { status = -1, msg = errormsg });
             }
             return Json(responseList);
