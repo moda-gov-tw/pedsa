@@ -132,9 +132,9 @@ class Project(Base):
     enc_key = Column( VARCHAR(255), nullable=False)
     jointablename = Column( VARCHAR(255), nullable=False)
     join_func = Column(Integer, nullable=True)
-    group_id = Column(Integer, ForeignKey(Group.id), nullable=True)
-    createMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
-    updateMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
+    group_id = Column(Integer,  nullable=True)
+    createMember_Id = Column(Integer,  nullable=True)
+    updateMember_Id = Column(Integer,  nullable=True)
     aes_col = Column( VARCHAR(255), nullable=False)
     jointablecount = Column(Integer, nullable=True)
     join_sampledata = Column( VARCHAR(255), nullable=False)
@@ -143,12 +143,12 @@ class Project(Base):
 class ProjectStatus(Base):
     __tablename__ = "T_Pets_ProjectStatus"
     ps_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    project_id = Column(Integer, ForeignKey(Project.project_id), nullable=True)
+    project_id = Column(Integer, nullable=True)
     project_status = Column(Integer, nullable=True)
     createtime = Column(DateTime(timezone=True), nullable=False)
     updatetime = Column(DateTime(timezone=True), nullable=False)
-    createMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
-    updateMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
+    createMember_Id = Column(Integer, nullable=True)
+    updateMember_Id = Column(Integer, nullable=True)
 
 
 class ProjectJoinFunc(Base):
@@ -181,8 +181,8 @@ class ViewsDetails(Base):
     enc_key = Column( VARCHAR(255), nullable=False)
     join_func = Column(Integer, nullable=True)
     group_id = Column(Integer, nullable=True)
-    createMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
-    updateMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
+    createMember_Id = Column(Integer, nullable=True)
+    updateMember_Id = Column(Integer, nullable=True)
     jointablename = Column( VARCHAR(255), nullable=False)
     jointablecount = Column(Integer, nullable=False)#Project:T_Pets_Project
     aes_col = Column( VARCHAR(255), nullable=False) #Project:T_Pets_Project
@@ -215,9 +215,11 @@ class HistoryProject(Base):
     join_func_content = Column(LONGTEXT, nullable=False)  #ProjectJoinFunc
     project_role_content = Column( LONGTEXT, nullable=False)#MemberProjectRole
     group_id = Column(Integer, nullable=True) #Project:T_Pets_Project
-    createMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
-    updateMember_Id = Column(Integer, ForeignKey(Member.id), nullable=True)
+    createMember_Id = Column(Integer, nullable=True)
+    updateMember_Id = Column(Integer, nullable=True)
     aes_col = Column( VARCHAR(255), nullable=False) #Project:T_Pets_Project
+    group_name = Column( VARCHAR(100), nullable=False) #Group:T_Pets_Group
+    useraccount = Column( VARCHAR(100), nullable=False) #Member:T_Pets_Member
 
 
 class UtilityResult(Base):
@@ -255,3 +257,18 @@ class JobSyslog(Base):
     project_step = Column(Integer, nullable=False)
     percentage = Column(Integer, nullable=False)
     logcontent  = Column(VARCHAR(255))
+
+class ProjectJobList(Base):
+    __tablename__ = "V_Pets_ProjectJobList"
+    row_num = Column(Integer,primary_key=True, nullable=False)
+    project_id = Column(Integer)
+    project_name = Column(VARCHAR(255))
+    project_eng = Column(VARCHAR(255))
+    project_env = Column(VARCHAR(5), nullable=False)
+    jobname = Column(VARCHAR(255))
+    percentage = Column(VARCHAR(30))
+    logcontent = Column(VARCHAR(255))
+    useraccount = Column(VARCHAR(100))
+    createtime = Column(DateTime(timezone=True))
+    updatetime = Column(DateTime(timezone=True))
+    processtime = Column(Integer)

@@ -61,12 +61,14 @@ def get_project_list_history(member_id, db: Session):
             proj_dict['createMember_Id'] = proj.createMember_Id
             proj_dict['updateMember_Id'] = proj.updateMember_Id
             proj_dict['aes_col'] = proj.aes_col
+            proj_dict['group_name'] = proj.group_name
+            proj_dict['useraccount'] = proj.useraccount
             project_ls.append(proj_dict)
         return True, project_ls
 
 
 ## 使用者登入後，想要看歷史刪除專案裡的資訊
-@Project_listHistory.get("/ListDelHistory") ##need to edit
+@Project_listHistory.get("/listdelhistory") ##need to edit
 def detail_listhistory(decode_info: dict = Depends(verify_token), db: Session = Depends(get_db)):
     member_id = decode_info['member_id'] #從token找到who are u == 'member_id'
     useraccount = decode_info['sub']

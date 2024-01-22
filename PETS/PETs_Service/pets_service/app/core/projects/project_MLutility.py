@@ -34,8 +34,8 @@ logger = logging.getLogger("uvicorn.access")
 security = HTTPBearer(description="HTTP Bearer token scheme")
 
 
-@Project_MLutility.post("/MLutility")
-def MLutility(project_id:int, member_id:int, project_name:str, privacy_type:str, target_cols:str):
+@Project_MLutility.post("/mlutility")
+def mlutility(project_id:int, member_id:int, project_name:str, privacy_type:str, target_cols:str):
     config_file = '/usr/src/app/config/Hadoop_information.txt'
     config = configparser.ConfigParser()
     config.read(config_file)

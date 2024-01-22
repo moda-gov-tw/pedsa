@@ -9,7 +9,7 @@ import logging
 import json
 from app.core.config import LogConfig
 from app.database import get_db
-from app.core.models import Group, Member, AdminRole, MemberGroupRole, Project,ProjectStatus,MemberProjectRole,ViewsDetails,ProjectJoinFunc,HistoryProject,JobSyslog
+from app.core.models import Group, Member, AdminRole, MemberGroupRole, Project,ProjectStatus,MemberProjectRole,ViewsDetails,ProjectJoinFunc,HistoryProject,JobSyslog,UtilityResult
 from app.core.schemas import Result, CreateGroup, GroupBase, UpdateGroup, CreateMember, UpdateMember, InsertAdminGroup
 from app.core.utils import _result_wrapper, decode_jwt_token, gen_default_password
 from app.core.crud import user_login, gen_jwt_token, check_permissions, get_all_group, db_update_group, db_delete_group, \
@@ -17,7 +17,7 @@ from app.core.crud import user_login, gen_jwt_token, check_permissions, get_all_
     db_update_member_status, is_group_admin, get_group_users, is_super_admin, db_set_admin_role, db_delete_admin_role, \
     get_user, is_group_owner, get_group
 from app.core.schemas import CreateMember, CreateMemberGroup, FailedLoginBase, MemberGroupBase, MemberProjectBase,\
-    GroupList, UpdateGroup, MemberList, UpdateMember, MemberBase, GroupBase #, ProjectList
+    GroupList, UpdateGroup, MemberList, UpdateMember, MemberBase, GroupBase
 
 from datetime import datetime, timedelta
 
@@ -37,6 +37,9 @@ from typing import (
     List,
     Optional,
 )  
+
+#install sshpass
+runcode = os.system('apt install sshpass')
 
 Project_Delete = APIRouter() ##need to edit
 
@@ -116,7 +119,33 @@ def check_syn_pid_api(project_name):
         response = dict()
         Project_para = { "project_name": project_name}
         #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
-        response_get = requests.get("http://"+syn_web_ip+":"+syn_web_port+"/api/WebAPI/syn_checkstatus", params=Project_para, verify=False)
+        response_get = requests.get("https://"+syn_web_ip+":"+syn_web_port+"/api/WebAPI/syn_checkstatus", params=Project_para, verify=False)
+        print(response_get.url)
+        response_dic = response_get.json()
+        #print("response_get: ",response_dic[0])
+        response['status'] = response_dic[0].get('status') #0:fail, 1:sucess
+        response['project_id'] = response_dic[0].get('obj').get('project_id')
+        return(response)
+    except Exception as e:
+        response = dict()
+        errMsg = 'request_error: ' + str(e)
+        response['status'] = -1
+        response['errMsg'] = errMsg
+        print(response)
+        return(response)
+
+def check_dp_pid_api(project_name):
+    print('********check_dp_api*******')
+    file_ = '/usr/src/app/app/core/projects/delete_config.txt'
+    config = configparser.ConfigParser()
+    config.read(file_)
+    dp_web_ip = config.get('delete_config', 'ip') 
+    dp_web_port = config.get('delete_config', 'dp_web_port') 
+    try:
+        response = dict()
+        Project_para = { "project_name": project_name}
+        #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
+        response_get = requests.get("https://"+dp_web_ip+":"+dp_web_port+"/api/WebAPI/dp_checkstatus", params=Project_para, verify=False)
         print(response_get.url)
         response_dic = response_get.json()
         #print("response_get: ",response_dic[0])
@@ -173,7 +202,7 @@ def del_syn_api(project_id):
         response = dict()
         delProject_para = { "project_id": project_id}
         #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
-        response_get = requests.get("http://"+syn_web_ip+":"+syn_web_port+"/api/WebAPI/DeleteProject", params=delProject_para, verify=False)
+        response_get = requests.get("https://"+syn_web_ip+":"+syn_web_port+"/api/WebAPI/DeleteProject", params=delProject_para, verify=False)
         print(response_get.url)
         response_dic = response_get.json()
         #print("response_get: ",response_dic)
@@ -187,7 +216,33 @@ def del_syn_api(project_id):
 
     return(response)
 
-def delete_folder(project_name):
+def del_dp_api(project_id):
+    file_ = '/usr/src/app/app/core/projects/delete_config.txt'
+    config = configparser.ConfigParser()
+    config.read(file_)
+    dp_web_ip = config.get('delete_config', 'ip') 
+    dp_web_port = config.get('delete_config', 'dp_web_port')  
+
+    print('*******del_dp_api*******')
+    try:
+        response = dict()
+        delProject_para = { "project_id": project_id}
+        #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
+        response_get = requests.get("https://"+dp_web_ip+":"+dp_web_port+"/api/WebAPI/DeleteProject", params=delProject_para, verify=False)
+        print(response_get.url)
+        response_dic = response_get.json()
+        #print("response_get: ",response_dic)
+        response['Delete_dp_Project_flag']=response_dic
+    except Exception as e:
+        response = dict()
+        errMsg = 'request_error: ' + str(e)
+        response['status'] = -1
+        response['errMsg'] = errMsg
+        print(response)
+
+    return(response)
+
+def delete_folder(project_name, fileName):
     file_ = '/usr/src/app/app/core/projects/delete_config.txt'
     config = configparser.ConfigParser()
     config.read(file_)
@@ -209,30 +264,40 @@ def delete_folder(project_name):
     pets_upload =config.get('delete_config', 'pets_upload')
     user_upload_folder = config.get('delete_config', 'user_upload_folder')
     folderForSynthetic = config.get('delete_config', 'folderForSynthetic')
+    dp_upload_folder = config.get('delete_config', 'dp_upload_folder')
+    dp_file_path = config.get('delete_config', 'dp_file_path')
 
-    pets_hadoop_in_dir = f'{pets_hadoop_in}{project_name}'
-    pets_hadoop_out_dir = f'{pets_hadoop_out}{project_name}'
-    pets_final_k_in_dir = f'{pets_final_k_in}{project_name}'
-    pets_final_k_out_dir = f'{pets_final_k_out}{project_name}'
-    pets_final_syn_in_dir = f'{pets_final_syn_in}{project_name}'
-    pets_final_syn_out_dir = f'{pets_final_syn_out}{project_name}'
-    pets_download_enc_dir = f'{pets_download_enc}{project_name}'
-    pets_upload_dir = f'{pets_upload}{project_name}'
-    user_upload_folder_dir = f'{user_upload_folder}{project_name}'
-    folderForSynthetic_dir = f'{folderForSynthetic}{project_name}'
+    pets_hadoop_in_dir = os.path.join(pets_hadoop_in, project_name, '')
+    pets_hadoop_out_dir = os.path.join(pets_hadoop_out, project_name, '')
+    pets_final_k_in_dir = os.path.join(pets_final_k_in, project_name, '')
+    pets_final_k_out_dir = os.path.join(pets_final_k_out, project_name, '')
+    pets_final_syn_in_dir = os.path.join(pets_final_syn_in, project_name, '')
+    pets_final_syn_out_dir = os.path.join(pets_final_syn_out, project_name, '')
+    pets_download_enc_dir = os.path.join(pets_download_enc, project_name, '')
+    pets_upload_dir = os.path.join(pets_upload, project_name, '')
+    user_upload_folder_dir = os.path.join(user_upload_folder, project_name, '')
+    folderForSynthetic_dir = os.path.join(folderForSynthetic, project_name, '')
+    dp_upload_folder_dir = os.path.join(dp_upload_folder, project_name, '')
+    dp_file_path_file = os.path.join(dp_file_path, fileName+'.csv')
 
-    delete_dirs = [pets_hadoop_in_dir, pets_hadoop_out_dir, pets_final_k_in_dir, 
+    if dp_file_path_file == '':
+        delete_dirs = [pets_hadoop_in_dir, pets_hadoop_out_dir, pets_final_k_in_dir, 
     pets_final_k_out_dir, pets_final_syn_in_dir, pets_final_syn_out_dir,
-    pets_download_enc_dir, pets_upload_dir, user_upload_folder_dir,folderForSynthetic_dir ]
+    pets_download_enc_dir, pets_upload_dir, user_upload_folder_dir,folderForSynthetic_dir,dp_upload_folder_dir ]
+    
+    else:
+        delete_dirs = [pets_hadoop_in_dir, pets_hadoop_out_dir, pets_final_k_in_dir, 
+    pets_final_k_out_dir, pets_final_syn_in_dir, pets_final_syn_out_dir,
+    pets_download_enc_dir, pets_upload_dir, user_upload_folder_dir,folderForSynthetic_dir,dp_upload_folder_dir,dp_file_path_file ]
 
     try:
         for exec_cmd in delete_dirs:
-            cmd = 'sshpass -p \"'+passwd+'\" ssh -o StrictHostKeyChecking=no -p 22 '+user+'@'+ip+ ' sudo chown -R ubuntu:ubuntu '+exec_cmd+'/'
+            cmd = 'sshpass -p \"'+passwd+'\" ssh -o StrictHostKeyChecking=no -p 22 '+user+'@'+ip+ ' sudo chown -R ubuntu:ubuntu '+exec_cmd
             runcode = os.system(cmd)
             logger.info(f'==============delete_folder===={cmd}==========')
             rm_cmd = f'sshpass -p "{passwd}" ssh -o StrictHostKeyChecking=no -p {port} {user}@{ip} rm -r  {exec_cmd}'
             proc = subprocess.Popen(rm_cmd, shell=True,stdout=subprocess.PIPE)
-            logger.info(f'==============delete_folder===={exec_cmd}==========')
+            logger.info(f'==============delete_folder===={rm_cmd}==========')
         return True
     except Exception as e:
         msg = f"delete project failed: {str(e)}"
@@ -291,9 +356,12 @@ def delete_projects(project_id: int = Form(), decode_info: dict = Depends(verify
 
         db_HistoryProject.project_role_content = json.dumps(project_role_content)
 
-
         db_HistoryProject.group_id = db.query(Project).filter(Project.project_id == project_id).first().group_id
+        db_HistoryProject.group_name = db.query(Group).filter(Group.id == db_HistoryProject.group_id).first().group_name
+
         db_HistoryProject.createMember_Id = member_id
+        db_HistoryProject.useraccount = db.query(Member).filter(Member.id == db_HistoryProject.createMember_Id).first().useraccount
+        
         db_HistoryProject.aes_col = db.query(Project).filter(Project.project_id == project_id).first().aes_col
         db.add(db_HistoryProject)
         db.commit()
@@ -306,6 +374,11 @@ def delete_projects(project_id: int = Form(), decode_info: dict = Depends(verify
 
     #delete records==pid
     try:
+        db_UtilityResult = db.query(UtilityResult).filter(UtilityResult.project_id == project_id).all() 
+        for row in db_UtilityResult:
+            db.delete(row)
+            db.commit() 
+
         db_JobSyslog = db.query(JobSyslog).filter(JobSyslog.project_id == project_id).all() 
         for row in db_JobSyslog:
             db.delete(row)
@@ -341,31 +414,47 @@ def delete_projects(project_id: int = Form(), decode_info: dict = Depends(verify
     logger.info(msg)
 
     project_name = db_HistoryProject.project_eng
+    logger.info(f'=======project_name:{project_name}')
 
-    obj=dict()
-    check_result = check_k_pid_api(project_name)
-    if check_result['status'] == 1:
-        project_id_k = check_result['project_id']
-        result_k = del_k_api(project_id_k)
-        print(result_k)
-        obj['Delete_k_Project_flag'] = result_k['Delete_k_Project_flag']
-    else:
-        obj['Delete_k_Project_flag']=False
+    try:
+        obj=dict()
+        check_result = check_k_pid_api(project_name)
+        if check_result['status'] == 1:
+            project_id_k = check_result['project_id']
+            result_k = del_k_api(project_id_k)
+            print(result_k)
+            obj['Delete_k_Project_flag'] = result_k['Delete_k_Project_flag']
+        else:
+            obj['Delete_k_Project_flag']=False
 
-    check_result = check_syn_pid_api(project_name)
-    if check_result['status'] == 1:
-        project_id_syn = check_result['project_id']
-        result_syn = del_syn_api(project_id_syn)
-        print(result_syn)
-        obj['Delete_syn_Project_flag']=result_syn['Delete_syn_Project_flag']
-    else:
-        obj['Delete_syn_Project_flag']=False
+        check_result = check_syn_pid_api(project_name)
+        if check_result['status'] == 1:
+            project_id_syn = check_result['project_id']
+            result_syn = del_syn_api(project_id_syn)
+            print(result_syn)
+            obj['Delete_syn_Project_flag']=result_syn['Delete_syn_Project_flag']
+        else:
+            obj['Delete_syn_Project_flag']=False
 
-    result_del = delete_folder(project_name)
-    print(result_del)
-    obj['Delete_folder_flag']=result_del
+        check_result = check_dp_pid_api(project_name)
+        if check_result['status'] == 1:
+            project_id_dp = check_result['project_id']
+            result_dp = del_dp_api(project_id_dp)
+            print(result_dp)
+            obj['Delete_dp_Project_flag']=result_dp['Delete_dp_Project_flag']
+        else:
+            obj['Delete_dp_Project_flag']=False
 
-    result = Result(msg=msg, MemberID=member_id, status=checked, obj=obj)
-    #result = Result(msg=msg, MemberID=member_id, status=checked) ##for check member id
-    #result = Result(msg=msg, obj=project_list, status=True) ##should be
-    return _result_wrapper(result, status_code=200)
+        result_del = delete_folder(project_name,db_HistoryProject.jointablename)
+        print(result_del)
+        obj['Delete_folder_flag']=result_del
+        result = Result(msg=msg, MemberID=member_id, status=checked, obj=obj)
+        return _result_wrapper(result, status_code=200)
+    
+    except Exception as e:
+        db.rollback()
+        msg = f"Member {useraccount} delete sub-system project {project_id} failed: {str(e)}"
+        logger.error(msg)
+        result = Result(msg=msg, status=False)
+        return _result_wrapper(result, status_code=400)
+

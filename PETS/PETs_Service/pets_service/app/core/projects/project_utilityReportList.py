@@ -51,8 +51,8 @@ def get_reportList(project_id_, db_):
     return reportList
 
 
-@Project_utilityReportList.get("/utilityReportList")
-def utilityReportList(project_id:int, db:Session = Depends(get_db)):
+@Project_utilityReportList.get("/utilityreportlist")
+def utilityreportlist(project_id:int, db:Session = Depends(get_db)):
     result = {}
     result['status'] = 1
     result['msg'] = "get utility report list"

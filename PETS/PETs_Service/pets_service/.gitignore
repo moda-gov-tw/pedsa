@@ -6,7 +6,6 @@
 # Node artifact files
 node_modules/
 dist/
-sftp_upload_floder/
 
 # Compiled Java class files
 *.class

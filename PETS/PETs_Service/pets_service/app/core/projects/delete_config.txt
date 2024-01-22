@@ -1,26 +1,30 @@
 [delete_config]
 
-ip=35.185.170.50
+ip=34.81.253.109
 port = 22
 user=ubuntu
 passwd=petspass@
 
 
-k_web_ip = 35.185.170.50
+k_web_ip = 34.81.253.109
 k_web_port = 11000
 
-syn_web_ip = 35.185.170.50
+syn_web_ip = 34.81.253.109
 syn_web_port = 11055
 
+dp_web_port = 11065
 
 
-pets_hadoop_in = '/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/data/input/'
-pets_hadoop_out = '/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/data/output/'
-pets_final_k_in = '/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/k/input/'
-pets_final_k_out = '/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/k/output/'
-pets_final_syn_in = '/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/input/'
-pets_final_syn_out = '/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/output/'
-pets_download_enc = '/home/ubuntu/PETS/pets_web/download_folder/enc/k/'
-pets_upload ='/home/ubuntu/PETS/pets_service/sftp_upload_floder/'
-user_upload_folder = '/home/ubuntu/PETS/pets_syn/pets_syn/sourceCode/webService/APP__/user_upload_folder/'
-folderForSynthetic = '/home/ubuntu/PETS/pets_syn/pets_syn/sourceCode/webService/APP__/folderForSynthetic/'
+pets_hadoop_in =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/data/input/
+pets_hadoop_out =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/data/output/
+pets_final_k_in =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/k/input/
+pets_final_k_out =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/k/output/
+pets_final_syn_in =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/input/
+pets_final_syn_out =/home/ubuntu/PETS/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/output/
+pets_download_enc =/home/ubuntu/PETS/pets_web/download_folder/enc/k/
+pets_upload =/home/ubuntu/PETS/pets_service/sftp_upload_folder/
+user_upload_folder =/home/ubuntu/PETS/pets_syn/pets_syn/sourceCode/webService/APP__/user_upload_folder/
+folderForSynthetic =/home/ubuntu/PETS/pets_syn/pets_syn/sourceCode/webService/APP__/folderForSynthetic/
+
+dp_file_path =/home/ubuntu/PETS/pets_dp/dp/de-identification/static/test/
+dp_upload_folder =/home/ubuntu/PETS/pets_dp/pets_dp/sourceCode/DP_webService/APP__/user_upload_folder/

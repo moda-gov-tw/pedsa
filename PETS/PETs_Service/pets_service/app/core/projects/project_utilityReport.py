@@ -58,8 +58,8 @@ def get_report(project_id_, privacy_type_, data_, db_):
     return report
 
 
-@Project_utilityReport.get("/utilityReport")
-def utilityReport(project_id:int, privacy_type:str, db:Session = Depends(get_db)):
+@Project_utilityReport.get("/utilityreport")
+def utilityreport(project_id:int, privacy_type:str, db:Session = Depends(get_db)):
     result = {}
     result['status'] = 1
     result['msg'] = "get ML utility report"

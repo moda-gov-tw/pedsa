@@ -10,17 +10,23 @@ services:
     restart: always
     ports:
       - 11016:8800
-      - 443:443
+        #- 4433:443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ../sftp_upload_floder:/usr/src/app/sftp_upload_floder
+      - ../sftp_upload_folder:/usr/src/app/sftp_upload_folder
       - ./log:/usr/src/app/log
       - ./dockerCliCert/ca.pem:/ca.pem
       - ./dockerCliCert/cert.pem:/cert.pem
       - ./dockerCliCert/key.pem:/key.pem
       - ./:/usr/src/app
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.238
+        aliases: 
+          - fastapi_service_compose 
 
-  redis:
+
+  redis_fastapi:
     container_name: redis
     build:
       context: .
@@ -29,6 +35,12 @@ services:
     restart: always
     ports:
       - 6379:6379
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.233
+        aliases: 
+          - redis_service_compose 
+
 
   celery:
     container_name: celery
@@ -38,7 +50,7 @@ services:
     image: "petsservice/celery:${IMAGE_TAG}"
     restart: always
     depends_on:
-      - redis
+      - redis_fastapi
     volumes:
       - /home/privacy/deid_v2_PET/citc_v2/sourceCode/hadoop/dataMac:/home/hadoop/proj_/dataMac
       - /home/privacy/deid_v2_PET/citc_v2/sourceCode/hadoop/data_check:/home/hadoop/proj_/data_check
@@ -46,6 +58,12 @@ services:
       - /home/privacy/deid_v2_PET/citc_v2/sourceCode/hadoop/data:/home/hadoop/proj_/data
       - /home/privacy/deid_v2_PET/citc_v2/sourceCode/hadoop/final_project:/home/hadoop/proj_/final_project
       - ./:/usr/src/app
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.232
+        aliases: 
+          - celery_service_compose 
+
 
   flower:
     container_name: flower
@@ -54,9 +72,18 @@ services:
       dockerfile: flower.dockerfile
     image: "petsservice/flower:${IMAGE_TAG}"
     environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis_fastapi:6379/0
     restart: always
     ports:
       - 11026:5555
     depends_on:
       - celery
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.236
+        aliases: 
+          - flower_compose 
+networks:
+  mynetwork:
+    external:
+      name: hadoopnet     

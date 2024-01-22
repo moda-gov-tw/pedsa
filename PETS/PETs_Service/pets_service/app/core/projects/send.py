@@ -145,7 +145,7 @@ def comparedata(project_id:int = 1,db :Session =Depends(get_db)):
 
 
 
-        data_path = "/usr/src/app/sftp_upload_floder/%s" %(project_eng)
+        data_path = "/usr/src/app/sftp_upload_folder/%s" %(project_eng)
         logger.info(f"*********** data_path: {data_path}*********")
 
         folder_list = os.listdir(data_path)

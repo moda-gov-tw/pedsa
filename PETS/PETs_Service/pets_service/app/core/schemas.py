@@ -286,6 +286,12 @@ class JoinFunc(BaseModel):
     class Config:
         from_attributes = True
 
+class YarnApplication(BaseModel):
+    yarn_application: str# = Field(default=None, examples=["w2_b.csv"])
+
+    class Config:
+        from_attributes = True        
+
 
 class Projectjoin(BaseModel):
     member_id: int = Field(default=None, examples=[1])

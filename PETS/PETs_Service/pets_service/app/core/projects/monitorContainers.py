@@ -18,7 +18,7 @@ from config.base64convert import getJsonParser
 from app.core.config import LogConfig
 from app.database import get_db
 from app.core.models import ProjectJoinFunc, Project
-from app.core.schemas import ProjectJoinFunct, Projectjoin
+from app.core.schemas import ProjectJoinFunct, Projectjoin, YarnApplication
 
 import subprocess
 from config.loginInfo import getConfig
@@ -73,6 +73,131 @@ def getcontainersStatus():
             "msg": f"ERROR: {e}"
         }
 
+@monitor.post("/gethadoopmode")
+def gethadoopmode():
+    logger.info(f"*********** gethadoopmode*********")
+    try:
+        logger.info(f"test 123 gethadoopmode")
+        checkContainersStatus_ = checkContainersStatus()
+        hadoop_mode_dict_ = checkContainersStatus_.getHadoopMode()
+
+        logger.info(hadoop_mode_dict_)
+        ###logger.info(container_dict_.keys())
+
+        return {
+            "status": 1,
+            "container_dict": hadoop_mode_dict_,
+            "msg":f"get {len(hadoop_mode_dict_)} namenode's hadoop mode"
+        }
+    
+
+        
+    except Exception as e:
+        return {
+            "status": -1,
+            "msg": f"ERROR: {e}"
+        }
+
+@monitor.post("/getyarnnodenum")
+def getyarnnodenum():
+    logger.info(f"*********** gethadoopmode*********")
+    try:
+        logger.info(f"test 123 getyarnnodenum")
+        checkContainersStatus_ = checkContainersStatus()
+        yarn_node_dict_ = checkContainersStatus_.getYarnNodes()
+
+        logger.info(yarn_node_dict_)
+        ###logger.info(container_dict_.keys())
+
+        return {
+            "status": 1,
+            "container_dict": yarn_node_dict_,
+            "msg":f"get {len(yarn_node_dict_)} namenode's yarn node number "
+        }
+    
+
+        
+    except Exception as e:
+        return {
+            "status": -1,
+            "msg": f"ERROR: {e}"
+        }
+
+@monitor.post("/getHadoopDataNodes")
+def getHadoopDataNodes():
+    logger.info(f"*********** getHadoopDataNodes*********")
+    try:
+        logger.info(f"test 123 getHadoopDataNodes")
+        checkContainersStatus_ = checkContainersStatus()
+        hadoop_data_node_dict_ = checkContainersStatus_.getHadoopDataNodes()
+
+        logger.info(hadoop_data_node_dict_)
+        ###logger.info(container_dict_.keys())
+
+        return {
+            "status": 1,
+            "container_dict": hadoop_data_node_dict_,
+            "msg":f"get {len(hadoop_data_node_dict_)} namenode's yarn node number "
+        }
+    
+
+        
+    except Exception as e:
+        return {
+            "status": -1,
+            "msg": f"ERROR: {e}"
+        }        
+
+@monitor.post("/getYarnApplications")
+def getYarnApplications():
+    logger.info(f"*********** getYarnApplications*********")
+    try:
+        logger.info(f"test 123 getYarnApplications")
+        checkContainersStatus_ = checkContainersStatus()
+        appliation_list_dict_ = checkContainersStatus_.getYarnApplications()
+
+        logger.info(appliation_list_dict_)
+        ###logger.info(container_dict_.keys())
+
+        return {
+            "status": 1,
+            "container_dict": appliation_list_dict_,
+            "msg":f"get {len(appliation_list_dict_)} namenode's all yarn application "
+        }
+    
+
+        
+    except Exception as e:
+        return {
+            "status": -1,
+            "msg": f"ERROR: {e}"
+        }
+
+@monitor.post("/rmYarnApplications")
+def getYarnApplications(rmjson: YarnApplication):
+    logger.info(f"*********** rmYarnApplications*********")
+    try:
+        logger.info(f"test 123 rmYarnApplications")
+        application_id=rmjson.yarn_application
+        checkContainersStatus_ = checkContainersStatus()
+        appliation_list_dict_ = checkContainersStatus_.rmYarnApplications(application_id)
+
+        logger.info(appliation_list_dict_)
+        ###logger.info(container_dict_.keys())
+
+        return {
+            "status": 1,
+            "container_dict": appliation_list_dict_,
+            "msg":f"get {len(appliation_list_dict_)} namenode's all yarn application "
+        }
+    
+
+        
+    except Exception as e:
+        return {
+            "status": -1,
+            "msg": f"ERROR: {e}"
+        }
 
 #@app.post("/joindata")
 def joindata(joinjson: Projectjoin, db :Session =Depends(get_db)):

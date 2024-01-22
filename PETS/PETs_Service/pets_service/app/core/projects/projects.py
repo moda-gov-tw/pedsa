@@ -19,7 +19,9 @@ from app.core.crud import user_login, gen_jwt_token, check_permissions, get_all_
 
 
 projects = APIRouter()
-
+from app.core.projects.projects_CheckProjEn import Project_CheckProjEn
+from app.core.projects.projects_CheckProjCht import Project_CheckProjCht
+from app.core.projects.projects_CheckGpProjNum import Project_CheckGpProjnum
 from app.core.projects.projects_listHistory import Project_listHistory
 from app.core.projects.projects_list import Project_List #Import此類別的.py裡宣告的router
 from app.core.projects.projects_reset import Project_Reset #Import此類別的.py裡宣告的router
@@ -30,6 +32,7 @@ from app.core.projects.projects_delete import Project_Delete #Import此類別的
 from app.core.projects.project_MLutility import Project_MLutility #Import此類別的.py裡宣告的router
 from app.core.projects.project_utilityReport import Project_utilityReport #Import此類別的.py裡宣告的router
 from app.core.projects.project_utilityReportList import Project_utilityReportList #Import此類別的.py裡宣告的router
+from app.core.projects.project_jobLogList import Project_jobLogList #Import此類別的.py裡宣告的router
 
 from app.core.projects.genkey import gen #Import此類別的.py裡宣告的router
 from app.core.projects.project_status import status #Import此類別的.py裡宣告的router
@@ -53,6 +56,9 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Security(security))
     return decode_info
 
 #將所有router串並加上prefix
+projects.include_router(Project_CheckProjEn,prefix='/projects')
+projects.include_router(Project_CheckProjCht,prefix='/projects')
+projects.include_router(Project_CheckGpProjnum,prefix='/projects')
 projects.include_router(Project_listHistory,prefix='/projects')
 projects.include_router(Project_List,prefix='/projects')
 projects.include_router(Project_Reset,prefix='/projects')
@@ -68,4 +74,6 @@ projects.include_router(Project_Delete,prefix='/projects')
 projects.include_router(Project_MLutility,prefix='/projects')
 projects.include_router(Project_utilityReport,prefix='/projects')
 projects.include_router(Project_utilityReportList,prefix='/projects')
+projects.include_router(Project_jobLogList,prefix='/projects')
 projects.include_router(monitor,prefix='/projects')
+

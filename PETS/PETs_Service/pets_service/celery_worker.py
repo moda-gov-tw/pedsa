@@ -13,8 +13,8 @@ import os
 
 celery = Celery(
     "tasks",
-    broker="redis://redis:6379/0",
-    backend="redis://redis:6379/0",
+    broker="redis://redis_service_compose:6379/0",
+    backend="redis://redis_service_compose:6379/0",
 )
 
 celery_log = get_task_logger(__name__)

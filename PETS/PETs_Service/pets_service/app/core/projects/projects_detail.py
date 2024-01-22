@@ -114,9 +114,11 @@ def get_project_detail(member_id, project_id, db: Session):
         
         else: ##GroupAdmin可以看到所有own group 的project
             logger.info(f"***********Group Admin**************")
-            user_get_project = db.query(Project).filter(Project.group_id==is_group_admin.group_id,
+            user_get_gp_project = db.query(Project).filter(Project.group_id==is_group_admin.group_id,
                                                    Project.project_id == project_id).first()
-            if not user_get_project:
+            user_get_project = db.query(MemberProjectRole).filter(MemberProjectRole.member_id == member_id,
+                                                             MemberProjectRole.project_id == project_id).first()
+            if not user_get_gp_project and not user_get_project:
                 msg = f"Project_Detail failed: The user {member_id} does not have this project {project_id}"
                 logger.error(msg)
                 return False,  msg 

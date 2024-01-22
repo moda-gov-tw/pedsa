@@ -66,7 +66,7 @@ def db_create_default_super_admin_permissions_if_not_exists(db):
 
 
 def db_create_default_group_admin_permissions_if_not_exists(db):
-    perms_list = ['set_admin', 'user_list', 'project_control', 'create_project', 'project_list','project_setting',
+    perms_list = ['set_admin', 'user_list', 'project_control', 'create_project','project_list', 'project_setting',
                   'project_report_dp', 'project_report_k', 'project_report_gan']
     perms = db.query(Permission).filter(Permission.name.in_(perms_list)).all()
 
