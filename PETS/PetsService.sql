@@ -252,3 +252,42 @@ left join (select tpmr.*,tpm.useraccount,tpm.username from `PetsService`.`T_Pets
 inner join `PetsService`.`T_Pets_Member` as tpm on tpmr.member_id = tpm.id ) as tpmr on tp.project_id = tpmr.project_id
 left join  `PetsService`.`T_Pets_ProjectJoinFunc` as tpjf on tp.project_id = tpjf.project_id )
 as projectlist 
+
+Alter table `PetsService`.`T_Pets_HistoryProject` add column group_name varchar(100);
+Alter table `PetsService`.`T_Pets_HistoryProject` add column useraccount varchar(100);
+
+create view `PetsService`.`V_Pets_ProjectJobList` as
+select tpjs.project_id,tpp.project_name,tpp.project_eng,'主系統' as project_env,tpjs.jobname,
+tpjs.percentage,tpjs.logcontent,tpm.useraccount,tpjs.createtime,tpjs.updatetime,
+ TIMESTAMPDIFF(SECOND, tpjs.createtime, tpjs.updatetime) as processtime
+ from `PetsService`.`T_Pets_JobSyslog` as tpjs
+left join `PetsService`.`T_Pets_Project` as tpp on tpjs.project_id = tpp.project_id
+left join `PetsService`.`T_Pets_Member` as tpm on tpjs.member_id=tpm.id
+union all
+select tpp.project_id,tpp.project_name,tpp.project_eng,'K匿名處理' as project_env,
+k_app.Application_Name,k_app.Progress,k_app.App_State as logcontent,tpm.useraccount,
+k_app.createtime,k_app.updatetime,
+ TIMESTAMPDIFF(SECOND, k_app.createtime, k_app.updatetime) as processtime 
+from `PetsService`.`T_Pets_Project` as tpp
+left join `PetsService`.`T_Pets_Member` as tpm on tpp.createMember_Id=tpm.id
+left join `spark_status`.`appStatus` as k_app on tpp.project_eng = k_app.dbName
+where k_app.Application_Name is NOT NULL
+union ALL
+select tpp.project_id,tpp.project_name,tpp.project_eng,'合成資料' as project_env,
+syn_gs.jobName,syn_gs.percentage,syn_gs.step as logcontent,tpm.useraccount,
+syn_gs.createtime,syn_gs.updatetime,
+ TIMESTAMPDIFF(SECOND, syn_gs.createtime, syn_gs.updatetime) as processtime 
+from `PetsService`.`T_Pets_Project` as tpp
+left join `PetsService`.`T_Pets_Member` as tpm on tpp.createMember_Id=tpm.id
+left join `SynService`.`T_GANStatus` as syn_gs on tpp.project_eng =syn_gs.pro_name
+where syn_gs.jobName is NOT NULL
+union all
+select tpp.project_id,tpp.project_name,tpp.project_eng,'差分隱私' as project_env,
+dp_ps.statusname as jobname,100 as percentage,dp_ps.statusname as logcontent,tpm.useraccount,
+dp_ps.createtime,dp_ps.updatetime,
+ TIMESTAMPDIFF(SECOND, dp_ps.createtime, dp_ps.updatetime) as processtime 
+from `PetsService`.`T_Pets_Project` as tpp
+left join `PetsService`.`T_Pets_Member` as tpm on tpp.createMember_Id=tpm.id
+left join `DpService`.`T_Project` as dpp on tpp.project_eng =dpp.project_name
+left join `DpService`.`T_ProjectStatus`  as dp_ps on dpp.project_id =dp_ps.project_id
+where dp_ps.statusname is NOT NULL

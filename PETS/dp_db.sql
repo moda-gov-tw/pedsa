@@ -260,6 +260,12 @@ INSERT INTO DpService.T_Project (projectowner_id,project_path,project_cht,projec
 
 INSERT INTO DpService.T_ProjectStatus (statusname,project_id,project_status,createtime) VALUES ('資料專案開啟','1','0',now());
 
+Alter table `DpService`.`T_Project` add column ftaskid int;
+Alter table `DpService`.`T_Project` add column sectaskid int;
+Alter table `DpService`.`T_Project` add column dp_id int;
+Alter table `DpService`.`T_Project` add column downloadpath varchar(255);
+Alter table `DpService`.`T_ProjectColumnType` add column selectcol longtext;
+Alter table `DpService`.`T_ProjectColumnType` add column selectcolvalue longtext;
 
     CREATE TABLE DpService.T_Project_FinalTable (
         id INT(11) NOT NULL auto_increment PRIMARY KEY,

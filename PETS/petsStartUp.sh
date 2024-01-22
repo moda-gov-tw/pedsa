@@ -57,22 +57,22 @@ export WORKINGDIR_PETS_WEB
 
 
 #######要改的 此文件所在的主機IP##############
-CURRENT_IP=35.201.239.123
+CURRENT_IP=34.81.71.21
 CURRENT_USER=ubuntu
 CURRENT_PASS=petspass@
 ####################################### test
 
 #########要改的 pets_syn 參數#########
 #指向合成 IP and port
-#sed -i 's#"DeIdWebAPI": .*#"DeIdWebAPI": {"URL": "http://35.201.239.123:5088"}#g' $WORKINGDIR_SYN_WEB/appsettings.json
-#sed -i 's#"Gan_WebAPI": .*#"Gan_WebAPI": {"URL": "http://35.201.239.123:11055"}#g' $WORKINGDIR_SYN_WEB/appsettings.json
+#sed -i 's#"DeIdWebAPI": .*#"DeIdWebAPI": {"URL": "http://34.81.71.21:5088"}#g' $WORKINGDIR_SYN_WEB/appsettings.json
+#sed -i 's#"Gan_WebAPI": .*#"Gan_WebAPI": {"URL": "http://34.81.71.21:11055"}#g' $WORKINGDIR_SYN_WEB/appsettings.json
 ######################
 
 
 
 #########要改的 pets_k 參數#########
 #指向deid IP and port
-#sed -i 's#"K_WebAPI": .*#"K_WebAPI": {"URL": "https://35.201.239.123:11000"}#g'  $WORKINGDIR_K_WEB/appsettings.json
+#sed -i 's#"K_WebAPI": .*#"K_WebAPI": {"URL": "https://34.81.71.21:11000"}#g'  $WORKINGDIR_K_WEB/appsettings.json
 ######################
 
 
@@ -97,7 +97,7 @@ PETS_SYN_WEBAPI_PORT=11055
 PETS_DP_HDFS_HOSTNAME=$CURRENT_IP
 PETS_DP_DEIDWEBAPI_PORT=5090
 PETS_DP_WEBAPI_PORT=11065
-PETS_DP_API_PORT=8086
+PETS_DP_API_PORT=8081
 ##############################
 
 #########Maria DB參數#############
@@ -111,13 +111,15 @@ export SSH_PORT
 #########FastAPI參數#############
 FASTAPI_HOSTNAME=$CURRENT_IP
 FASTAPI_PORT=11016
+FASTAPI_PORT_INNER=8800
 #######################
 
 
 #########pets_web 參數################
 #pets_web 參數
 #/home/ubuntu/PETS/pets_web
-NEXTAUTH_PORT=3000
+WEB_OUTER_PORT=80
+WEB_INNER_PORT=3000
 PERMISSION_SERVICE=$FASTAPI_HOSTNAME
 PERMISSION_SERVICE_PORT=$FASTAPI_PORT
 SUBSERVICE_K_HOST=$PETS_K_HDFS_HOSTNAME
@@ -126,7 +128,8 @@ SUBSERVICE_SYN_HOST=$PETS_SYN_HOSTNAME
 SUBSERVICE_SYN_PORT=$PETS_SYN_WEBAPI_PORT
 SUBSERVICE_DP_HOST=$PETS_DP_HDFS_HOSTNAME
 SUBSERVICE_DP_PORT=$PETS_DP_WEBAPI_PORT
-export NEXTAUTH_PORT
+export WEB_OUTER_PORT
+export WEB_INNER_PORT
 export PERMISSION_SERVICE
 export PERMISSION_SERVICE_PORT
 export SUBSERVICE_K_HOST
@@ -161,8 +164,8 @@ sed -i "s/hdfs_hostname = .*/hdfs_hostname = $PETS_K_HDFS_HOSTNAME/g" $WORKINGDI
 sed -i "s/hdfs_port = .*/hdfs_port = $PETS_K_HDFS_PORT/g" $WORKINGDIR_K_WEB/APP__/config/development.ini
 #for appsetting.json (1215) PETS_K_HADOOP_PORT=5997
 sed -i "s/https:.*:$SUBSERVICE_K_PORT/https:\/\/$SUBSERVICE_K_HOST:$SUBSERVICE_K_PORT/g" $WORKINGDIR_K_WEB/appsettings.json
-sed -i "s/https:.*:$PETS_K_HADOOP_PORT/https:\/\/$PETS_K_HDFS_HOSTNAME:$PETS_K_HADOOP_PORT/g" $WORKINGDIR_K_WEB/appsettings.json
-sed -i "s/https:.*:5088/https:\/\/$PETS_K_HDFS_HOSTNAME:$PETS_K_HADOOP_PORT/g" $WORKINGDIR_K_WEB/appsettings.json
+sed -i "s/https:.*:$PETS_K_HADOOP_PORT/http:\/\/flask5997_compose:5088/g" $WORKINGDIR_K_WEB/appsettings.json
+sed -i "s/https:.*:5088/http:\/\/flask5997_compose:5088/g" $WORKINGDIR_K_WEB/appsettings.json
 
 ############pets_syn###########
 sed -i "s/server=.*/server=$MARIA_IP;database=SynService;uid=deidadmin;pwd=citcw200;charset=utf8mb4;Port=$MARIA_PORT\"/g" $WORKINGDIR_SYN_WEB/appsettings.json
@@ -177,8 +180,9 @@ sed -i "s/hdfs_port = .*/hdfs_port = $PETS_K_HDFS_PORT/g" $WORKINGDIR_SYN_WEB/AP
 sed -i "s/ip=.*/ip=$PETS_HADOOP_IP/g" $WORKINGDIR_SYN_WEB/APP__/config/Hadoop_information.txt
 sed -i "s/hdfs_port =.*/hdfs_port = $PETS_HADOOP_PORT/g" $WORKINGDIR_SYN_WEB/APP__/config/Hadoop_information.txt
 #for appsetting.json
-sed -i "s/http:.*:$PETS_SYN_DEIDWEBAPI_PORT/http:\/\/$PETS_SYN_HOSTNAME:$PETS_SYN_DEIDWEBAPI_PORT/g" $WORKINGDIR_SYN_WEB/appsettings.json
-sed -i "s/http:.*:$SUBSERVICE_SYN_PORT/http:\/\/$SUBSERVICE_SYN_HOST:$SUBSERVICE_SYN_PORT/g" $WORKINGDIR_SYN_WEB/appsettings.json
+sed -i "s/http:.*:$PETS_SYN_DEIDWEBAPI_PORT/http:\/\/flask_syn_compose:$PETS_SYN_DEIDWEBAPI_PORT/g" $WORKINGDIR_SYN_WEB/appsettings.json
+sed -i "s/http:.*:$SUBSERVICE_SYN_PORT/https:\/\/$SUBSERVICE_SYN_HOST:$SUBSERVICE_SYN_PORT/g" $WORKINGDIR_SYN_WEB/appsettings.json
+sed -i "s/https:.*:$SUBSERVICE_SYN_PORT/https:\/\/$SUBSERVICE_SYN_HOST:$SUBSERVICE_SYN_PORT/g" $WORKINGDIR_SYN_WEB/appsettings.json
 #SUBSERVICE_SYN_HOST=$CURRENT_IP
 #SUBSERVICE_SYN_PORT=11055
 
@@ -196,9 +200,14 @@ sed -i "s/hdfs_port = .*/hdfs_port = $PETS_K_HDFS_PORT/g" $WORKINGDIR_DP_WEB/APP
 sed -i "s/ip=.*/ip=$PETS_HADOOP_IP/g" $WORKINGDIR_DP_WEB/APP__/config/Hadoop_information.txt
 sed -i "s/hdfs_port =.*/hdfs_port = $PETS_HADOOP_PORT/g" $WORKINGDIR_DP_WEB/APP__/config/Hadoop_information.txt
 #appsettings.json###########
-sed -i "s/http:.*:$PETS_DP_DEIDWEBAPI_PORT/http:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_DEIDWEBAPI_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
-sed -i "s/http:.*:$PETS_DP_WEBAPI_PORT/http:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_WEBAPI_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
-sed -i "s/http:.*:$PETS_DP_API_PORT/http:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_API_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
+sed -i "s/http:.*:$PETS_DP_DEIDWEBAPI_PORT/http:\/\/flaskdp_compose:5088/g" $WORKINGDIR_DP_WEB/appsettings.json
+sed -i "s/http:.*:$PETS_DP_WEBAPI_PORT/https:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_WEBAPI_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
+sed -i "s/http:.*:$PETS_DP_API_PORT/https:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_API_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
+sed -i "s/https:.*:$PETS_DP_WEBAPI_PORT/https:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_WEBAPI_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
+sed -i "s/https:.*:$PETS_DP_API_PORT/https:\/\/$PETS_DP_HDFS_HOSTNAME:$PETS_DP_API_PORT/g" $WORKINGDIR_DP_WEB/appsettings.json
+#PETS_DP_API_PORT=8081
+
+
 
 
 ############pets_hadoop for join###########
@@ -252,25 +261,26 @@ sed -i "s/pets_final_k_out = .*/pets_final_k_out = \'\/home\/$CURRENT_USER\/PETS
 sed -i "s/pets_final_syn_in = .*/pets_final_syn_in = \'\/home\/$CURRENT_USER\/PETS\/pets_hadoop\/pets_v1\/sourceCode\/hadoop\/final_project\/syn\/input\/\'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
 sed -i "s/pets_final_syn_out = .*/pets_final_syn_out = \'\/home\/$CURRENT_USER\/PETS\/pets_hadoop\/pets_v1\/sourceCode\/hadoop\/final_project\/syn\/output\/\'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
 sed -i "s/pets_download_enc = .*/pets_download_enc = \'\/home\/$CURRENT_USER\/PETS\/pets_web\/download_folder\/enc\/k\/\'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
-sed -i "s/pets_upload =.*/pets_upload =\'\/home\/$CURRENT_USER\/PETS\/pets_service\/sftp_upload_floder\/\'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
+sed -i "s/pets_upload =.*/pets_upload =\'\/home\/$CURRENT_USER\/PETS\/pets_service\/sftp_upload_folder\/\'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
 sed -i "s/user_upload_folder = .*/user_upload_folder = \'\/home\/$CURRENT_USER\/PETS\/pets_syn\/pets_syn\/sourceCode\/webService\/APP__\/user_upload_folder\/'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
 sed -i "s/folderForSynthetic = .*/folderForSynthetic = \'\/home\/$CURRENT_USER\/PETS\/pets_syn\/pets_syn\/sourceCode\/webService\/APP__\/folderForSynthetic\/'/g" $WORKINGDIR_PETS_SERVICES/petsservice/app/core/projects/delete_config.txt
 
 
 
 ###########pets_web###########
-sed -i "s/NEXTAUTH_URL=.*/NEXTAUTH_URL=\'http:\/\/localhost:$NEXTAUTH_PORT\/\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
+sed -i "s/DOCKER_WEB_OUTER_PORT=.*/DOCKER_WEB_OUTER_PORT=\'$WEB_OUTER_PORT\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
+sed -i "s/DOCKER_WEB_INNER_PORT=.*/DOCKER_WEB_INNER_PORT=\'$WEB_INNER_PORT\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 
-sed -i "s/PERMISSION_SERVICE=.*/PERMISSION_SERVICE=\'http:\/\/$PERMISSION_SERVICE\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
-sed -i "s/PERMISSION_SERVICE_PORT=.*/PERMISSION_SERVICE_PORT=\'$PERMISSION_SERVICE_PORT\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
+sed -i "s/PERMISSION_SERVICE=.*/PERMISSION_SERVICE=\'http:\/\/fastapi_service_compose\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
+sed -i "s/PERMISSION_SERVICE_PORT=.*/PERMISSION_SERVICE_PORT=\'$FASTAPI_PORT_INNER\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 
 sed -i "s/SUBSERVICE_K_HOST=.*/SUBSERVICE_K_HOST=\'https:\/\/$SUBSERVICE_K_HOST\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 sed -i "s/SUBSERVICE_K_PORT=.*/SUBSERVICE_K_PORT=\'$SUBSERVICE_K_PORT\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 
-sed -i "s/SUBSERVICE_SYN_HOST=.*/SUBSERVICE_SYN_HOST=\'http:\/\/$SUBSERVICE_SYN_HOST\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
+sed -i "s/SUBSERVICE_SYN_HOST=.*/SUBSERVICE_SYN_HOST=\'https:\/\/$SUBSERVICE_SYN_HOST\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 sed -i "s/SUBSERVICE_SYN_PORT=.*/SUBSERVICE_SYN_PORT=\'$SUBSERVICE_SYN_PORT\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 
-sed -i "s/SUBSERVICE_DP_HOST=.*/SUBSERVICE_DP_HOST=\'http:\/\/$SUBSERVICE_DP_HOST\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
+sed -i "s/SUBSERVICE_DP_HOST=.*/SUBSERVICE_DP_HOST=\'https:\/\/$SUBSERVICE_DP_HOST\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 sed -i "s/SUBSERVICE_DP_PORT=.*/SUBSERVICE_DP_PORT=\'$SUBSERVICE_DP_PORT\'/g" $WORKINGDIR_PETS_WEB/pets_web/.env
 
 
@@ -334,30 +344,7 @@ fi
 echo "finish deid_k service  in $PWD/pets_hadoop/pets_v1...."
 sleep 5
 
-#/home/ubuntu/PETS/pets_syn
-if [ -d "$WORKINGDIR/pets_syn/" ]; then
-    #檔案 /path/to/dir/filename存在
-    echo "$WORKINGDIR/pets_syn/ exists................"
-    cd $WORKINGDIR/pets_syn/pets_syn/sourceCode/webService
-    echo "current path is $PWD...."
-    echo "run docker-compose down...."
-    
-    docker-compose down
-    sleep 5
-    echo "run docker-compose up -d...."
-    docker-compose up -d
 
-
-    #sleep 5
-    #chown -R 999:999 /var/lib/mysql
-    cd $WORKINGDIR/
-else
-    #檔案 /path/to/dir/filename 不存在
-    echo "/home/ubuntu/PETS/pets_syn/ does not exists."
-    # exit bash script, but not quiting the terminal
-    cd $WORKINGDIR/
-    return
-fi
 
 ##pets_dp/ 20231221 add
 #WORKINGDIR_DP_WEB=$WORKINGDIR/pets_dp/pets_dp/sourceCode/DP_webService
@@ -440,6 +427,32 @@ if [ -d "$WORKINGDIR/pets_web/" ]; then
 else
     #檔案 /path/to/dir/filename 不存在
     echo "/home/ubuntu/PETS/pets_web/ does not exists."
+    # exit bash script, but not quiting the terminal
+    cd $WORKINGDIR/
+    return
+fi
+
+
+#/home/ubuntu/PETS/pets_syn
+if [ -d "$WORKINGDIR/pets_syn/" ]; then
+    #檔案 /path/to/dir/filename存在
+    echo "$WORKINGDIR/pets_syn/ exists................"
+    cd $WORKINGDIR/pets_syn/pets_syn/sourceCode/webService
+    echo "current path is $PWD...."
+    echo "run docker-compose down...."
+    
+    docker-compose down
+    sleep 5
+    echo "run docker-compose up -d...."
+    docker-compose up -d
+
+
+    #sleep 5
+    #chown -R 999:999 /var/lib/mysql
+    cd $WORKINGDIR/
+else
+    #檔案 /path/to/dir/filename 不存在
+    echo "/home/ubuntu/PETS/pets_syn/ does not exists."
     # exit bash script, but not quiting the terminal
     cd $WORKINGDIR/
     return
