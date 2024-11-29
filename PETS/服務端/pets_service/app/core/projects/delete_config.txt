@@ -1,0 +1,37 @@
+[delete_config]
+
+ip=34.81.119.49
+port = 22
+user=itri-pedsa
+passwd=
+
+
+hadoop_pwd=citcw200@
+
+k_web_ip = 34.81.119.49
+k_web_port = 11000
+
+syn_web_ip = 34.81.119.49
+syn_web_port = 11055
+
+dp_web_port = 22
+
+pets_hadoop_ip = 35.185.170.134 
+
+pets_hadoop_in =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/data/input/
+pets_hadoop_out =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/data/output/
+pets_final_k_in =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/k/input/
+pets_final_k_out =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/k/output/
+pets_final_syn_in =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/input/
+pets_final_syn_out =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/ouput/
+pets_download_enc =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_web/download_folder/enc/k/
+pets_upload =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_web/sftp_upload_floder/
+user_upload_folder =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_syn/pets_syn/sourceCode/webService/APP__/user_upload_folder/
+folderForSynthetic =
+
+dp_file_path =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_dp/dp/de-identification/static/test/
+dp_upload_folder =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_dp/pets_dp/sourceCode/DP_webService/APP__/user_upload_folder/
+dp_folderForSynthetic =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_dp/pets_dp/sourceCode/DP_webService/APP__/folderForSynthetic/
+
+pets_hadoop_import_path =/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_k/pets_v1/sourceCode/hadoop/data/input/
+

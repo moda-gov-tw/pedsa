@@ -1,0 +1,14 @@
+[setting]
+# if autoGen is True, for those value which is not defined below [rule] will replace by autoGenValue
+autoGen = True
+autoGenValue = others
+level = 1
+
+[information]
+rule_1 = 4443;Divorced;Single;*
+rule_2 = 10683;Never-married;Single;*
+rule_3 = 1025;Separated;Single;*
+rule_4 = 993;Widowed;Single;*
+rule_5 = 14976;Married-civ-spouse;Married;*
+rule_6 = 23;Married-AF-spouse;Married;*
+rule_7 = 418;Married-spouse-absent;Married;*

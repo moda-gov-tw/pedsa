@@ -1,0 +1,156 @@
+version: "3"
+services:
+  nginx:
+    #restart: always
+    image: pets_nginx:1.0
+    #container_name: nginx_https
+
+    deploy:
+      resources:
+        limits:
+          #cpus: '0.50'
+          memory: 500M
+        
+      #placement:
+      #  constraints: [node.hostname == pets-mvp]     
+
+    ports:
+     - "11055:11055"
+     - "11065:11065"
+     - "11016:11016"
+     - "11000:11000"
+     #- "4430:4430"
+     #dp privacy
+     #- "8081:8081"
+     - "443:443"
+     #- "4431:4431"
+     #../../../../pets_hadoop/pets_v1/sourceCode/hadoop/cert/
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf 
+      - ../../../../pets_hadoop/pets_v1/sourceCode/hadoop/cert/moda_server_no_pw.key:/etc/ssl/certs/server.key 
+      - ../../../../pets_hadoop/pets_v1/sourceCode/hadoop/cert/moda_cert_chain.pem:/etc/ssl/certs/server.crt 
+      - ../../../../pets_hadoop/pets_v1/sourceCode/hadoop/cert/eCA1_GTLSCA.crt:/etc/ssl/certs/ca.crt
+    
+    environment:
+    #  - PWD123:/run/secrets/my-pw2
+      - TZ=Asia/Taipei
+
+    #entrypoint: redis-server
+    #command:   --requirepass 'citcw200'
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.88
+        aliases: 
+          - nginx_compose  
+
+
+
+  web:
+    # for syn
+    #restart: always
+    image: pets_flask:1.0 #flask-redis_citc:05.1 #flask-redis_citc:04
+    ports:
+     - "5088:5088" 
+     - "3221:22"
+    volumes:
+      - ./APP__:/app/app/devp
+      - ./config.py:/app/config.py
+      # - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Taipei:/etc/localtime
+      #- ../../../../pets_dp/pets_dp/sourceCode/DP_webService/timezone:/etc/timezone       
+
+
+    entrypoint: gunicorn
+    command:  --log-level=debug --preload -w 1 -b 0.0.0.0:5088 app:app
+    #command: ["/bin/bash","-c", "python app.py /app/sqljdbc4-2.0.jar > /app/app/devp/log/flask_log.txt"]
+    environment:
+      - REDIS_HOST:redis_syn1
+      - REDIS_PORT:6380
+      - REDIS_PWD:"citcw200" 
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.3
+        aliases: 
+          - flask_syn_compose 
+    depends_on:
+      - redis_syn1
+
+  redis_syn1:
+    restart: always
+    image: pets_redis:1.0 #redis:4.0.1-alpine02
+    #ports:
+    # - "3220:22"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro  
+    
+    environment:
+    #   - PWD123:/run/secrets/my-pw2
+      - TZ=Asia/Taipei
+
+    entrypoint: redis-server
+    command:   --requirepass 'citcw200' --port 6380
+    #command:   --port 6380
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.2
+        aliases: 
+          - redis_compose
+
+  genSyncData_celery:
+    # restart: always
+    image: pets_gan_celery:2.1 #pets_gan_celery:1.0 #test/gan_celery:v1.0
+    #depends_on:
+    #  - redis
+    environment:
+      - REDIS_HOST:redis_syn1
+      - REDIS_PORT:6380
+      - REDIS_PWD:citcw200"       
+    # command: ["/bin/bash","-c", "celery -A app.celery worker --loglevel=info -f /app/app/devp/log/celery_log.txt"]
+    command: ["/bin/bash","-c", ". worker.sh"]
+    volumes:
+      - ./APP__:/app/app/devp
+      - ./config.py:/app/config.py
+        #- /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Taipei:/etc/localtime
+      #- ../../../../pets_dp/pets_dp/sourceCode/DP_webService/timezone:/etc/timezone       
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.6
+        aliases: 
+          - genSyncDataCelery_compose 
+    depends_on:
+      - redis_syn1 
+  
+
+  deidweb:
+    restart: always
+    image: pets_syn_deidweb:2.2 #pets_syn_deidweb:1.7 #cics_syn_deidweb:1.2 #pets_syn_deidweb:1.8  #syncweb_221:latest #syncweb:2.2
+    hostname: deidweb_syn_compose
+    #ports:
+    #  - "11055:11055"
+
+    volumes:
+      - ./syn_deidweb_log:/app/App_Log/servicelog
+      - ./appsettings.json:/app/appsettings.json
+      # - process_appsettings.py:/app/process_appsettings.py
+    environment:
+      - TZ=Asia/Taipei
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.10
+        aliases: 
+          - deidweb_syn_compose   
+
+
+networks:
+  mynetwork:
+    external:
+      name: hadoopnet_overlay     
+##docker stack deploy --detach=false --with-registry-auth -c docker-compose.yml pets_syn  
+#docker stack rm pets_syn
+# docker stack rm PETSYN

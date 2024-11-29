@@ -1,0 +1,69 @@
+-i https://pypi.org/simple
+alembic==1.12.0
+amqp==5.1.1
+annotated-types==0.5.0
+anyio==3.7.1
+async-timeout==4.0.2 ; python_version >= '3.6'
+bcrypt==4.0.1
+billiard==3.6.4.0
+celery==5.2.7
+cffi==1.16.0
+click==8.1.7
+click-didyoumean==0.3.0
+click-plugins==1.1.1
+click-repl==0.2.0
+cryptography==41.0.4
+deprecated==1.2.13 ; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
+ecdsa==0.18.0
+exceptiongroup==1.1.3
+fastapi==0.103.2
+flower==1.2.0
+greenlet==3.0.0
+gunicorn==21.2.0
+h11==0.14.0
+humanize==4.4.0
+idna==3.4
+iniconfig==2.0.0
+kombu==5.2.4
+Mako==1.2.4
+MarkupSafe==2.1.3
+packaging==23.2 ; python_version >= '3.6'
+passlib==1.7.4
+pluggy==1.3.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+pyasn1==0.5.0
+pycparser==2.21
+pydantic==2.4.2
+pydantic_core==2.10.1
+pydantic-settings==2.0.3
+PyMySQL==1.1.0
+pyparsing==3.0.9 ; python_full_version >= '3.6.8'
+pytest==7.4.2
+pytest-mock==3.11.1
+python-dotenv==1.0.0
+python-jose==3.3.0
+python-multipart==0.0.6
+pytz==2023.3.post1
+PyYAML==6.0.1
+paramiko
+redis==4.3.4
+rsa==4.9
+sanitize-filename==1.2.0
+six==1.16.0
+sniffio==1.3.0
+SQLAlchemy==2.0.21
+SQLAlchemy-Utils==0.41.1
+starlette==0.27.0
+tomli==2.0.1
+tornado==6.2
+typing_extensions==4.8.0
+urllib3==2.0.6
+uvicorn==0.23.2
+vine==5.0.0
+wcwidth==0.2.5
+wrapt==1.14.1 ; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
+docker==6.1.3
+marshmallow==3.21.3
+deepdiff==8.0.1
+orderly-set==5.2.2

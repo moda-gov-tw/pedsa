@@ -1,0 +1,20 @@
+[Hadoop_information]
+
+ip_join=168.17.8.252
+ip=34.81.119.49
+
+hdfs_port = 6922
+
+user=itri-pedsa
+
+passwd=
+
+from_path=/home/hadoop/proj_/final_project/syn/input/
+ 
+to_path =/home/hadoop/proj_/final_project/syn/output/
+
+rawData_path = /home/hadoop/proj_/data/output/
+
+privacyData_path = /home/hadoop/proj_/final_project/
+
+user_dir = /home/ubuntu/deploy_PEDSA/pedsa_s/pets_syn/pets_syn/sourceCode/webService/APP__/user_upload_folder/
