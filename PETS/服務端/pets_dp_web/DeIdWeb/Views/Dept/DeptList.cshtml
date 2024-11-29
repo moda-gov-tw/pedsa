@@ -1,0 +1,167 @@
+﻿@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "DeptList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="inside member_list">
+    <div class="container">
+        <h4 class="title">單位管理</h4>
+        <div class="col-sm-12">
+            <form class="search_form">
+                <input type="text" placeholder="輸入關鍵字"><a class="search-button" href="javascript:void(0);"></a>
+                <!--i.fa.fa-search-->
+            </form>
+            <button class="btn btn_mbs" id="new_dept">新增單位</button>
+            <div class="modal" id="dept">
+                <div class="textarea">
+                    <div class="close" id="dept_close">✖</div>
+                    <h4 class="title">新增單位</h4>
+
+                    <form class="form" action="" method="post" role="form">
+                        <input id="csrf_token" name="csrf_token" type="hidden" value="IjY1NTQzYzJjNWEwMzBlYWU5YmZjY2RiMTM5ZWZiNDg3ZTFhM2QxMWIi.DVv-gw.lB3kAc8_kwJv6Z2L-_mlgExWIcA">
+                        <div class="form-group required">
+                            <label class="control-label">單位名稱</label>
+                            <input class="form-control" id="a_id">
+                        </div>
+                        <input class="btn btn-default" id="submit_new_member" name="submit" type="submit" value="確定" onclick="adddept()">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-hover" id="member_active">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>單位</th>
+                        <th>建立日期</th>
+                        <th>修改日期</th>
+                        <th>刪除</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <label id="memberlst" style="display:none">@ViewData["memberlist"]</label>
+
+</section>
+<script>
+    var dept_modal = document.getElementById('dept');
+    var new_dept_btn = document.getElementById("new_dept");
+    var dept_close_span = document.getElementById("dept_close");
+
+    new_dept_btn.onclick = function () {
+        dept_modal.style.display = "block";
+    }
+
+    dept_close_span.onclick = function () {
+        dept_modal.style.display = "none";
+    }
+
+    var lstmember = $('#memberlst').text();
+    $("#member_active").append(lstmember);
+</script>
+<script>
+    function adddept() {
+        var dept_name = $('#a_id').val();
+       //alert(dept_name);
+        if (dept_name == "") {
+            alert('單位名稱不可重複');
+            return;
+        }
+        //$.ajax({
+        //    type: "get",
+        //    url: "/api/WebAPI/AddDept",
+        //    contentType: "application/json",
+        //    data: {
+        //        deptname: dept_name
+        //    },
+        //    success: function (status) {
+        //        if (status == 1) {
+        //            //頁面重整
+        //            var dept_modal = document.getElementById('dept');
+        //            dept_modal.style.display = "none";
+        //            location.reload();
+        //        }
+        //        else if (status == -1) {
+        //            alert('新增失敗');
+        //            return;
+        //        }
+        //        else if (status == -2) {
+        //            alert('單位名稱重複');
+        //            return;
+        //        }
+        //        else {
+        //            alert('新增失敗!');
+        //            return;
+        //        }
+        //    },
+        //    error: function (data, status) {
+
+        //    }
+        //});
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/AddDept",
+            contentType: "application/json",
+            async: false,
+            data: {
+                deptname: dept_name
+            },
+            success: function (response) {
+                if (response == "-2") {
+                    alert('名稱重複!');
+                    return false;
+                }
+                else if (response == "1") {
+                    //alert('2');
+                    //var member_modal = document.getElementById('member');
+                    //member_modal.style.display = "none";
+                    location.reload();
+                }
+                else {
+                    alert('新增失敗');
+                    return false;
+                }
+                
+				},
+            error: function (response) {
+                alert(response);
+            }
+        });
+    }
+
+    function deldept(depid) {
+
+        if (confirm('請確認是否要刪除單位!')) {
+            $.ajax({
+                type: "get",
+                url: "/api/WebAPI/delDept",
+                contentType: "application/json",
+                data: { depid: depid },
+                success: function (response) {
+                    if (response == 1) {
+                        alert('刪除成功!');
+                        location.reload();
+                    }
+                    else if (response == -1) {
+                        alert('目前此群組尚有使用者，無法刪除!!');
+                        return;
+                    }
+                    else {
+                        alert('刪除失敗!');
+                    }
+                },
+                error: function (response) {
+                    alert('刪除失敗!');
+                }
+            });
+        }
+        else {
+            return;
+        }
+    }
+</script>

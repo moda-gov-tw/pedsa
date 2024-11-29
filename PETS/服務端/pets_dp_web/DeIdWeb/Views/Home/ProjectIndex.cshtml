@@ -1,0 +1,707 @@
+﻿@model IEnumerable<ProjectList>
+@using System.Globalization
+@using Resources
+@using Microsoft.AspNetCore.Mvc;
+@using System.Security.Claims;
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "專案列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+
+    });
+</script>
+<script>
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("login");
+    var span = document.getElementsByClassName("close")[0];
+    //btn.onclick = function () {
+    //    modal.style.display = "block";
+    //}
+    //span.onclick = function () {
+    //    modal.style.display = "none";
+    //}
+    function checkVal(str) {
+        var regExp = /^[\d|a-zA-Z]+$/;
+        var regEn = /[`~!@@#$%^&*()+<>?:"{},.\/;'[\]]/;
+        var regEnNew = /\W/;
+        var pattern = new RegExp("[`~!@@#$^&*()=|{}':;',\\[\\].<>《》/?~！@@#￥……&*（）——|{}【】‘；：”“'。，、？]");
+        //if (pattern.test(str)) {
+        //    layer.msg("特殊字符", { icon: 5 });
+        //    alert(layer.msg("特殊字符", { icon: 5 }));
+        //    return true;
+        //}
+        //else {
+        //    alert('有底線');
+        //    return false;
+        //}
+
+
+        if (regEn.test(str)) {
+            // alert('有底線');
+            return false;
+            //alert('T'+str);
+            //if (regEn.test(str)) {
+            //    return true;
+            //}
+            //else {
+            //    return false;
+            //}
+        }
+        else {
+            //alert(str);
+            // alert('無底線');
+            return true;
+        }
+    }
+
+    function checkErrorStatus() {
+
+    }
+
+    function InsertNewProject() {
+        var pname = $("#p_name").val();
+        var p_dsname = $("#p_dataset_name").val();
+        var pdes = $("#p_des").val();
+        // var pinput = $("#p_input").val();
+        //var poutput = $("#p_output").val();
+        var powner = $("#p_owner option:selected").val();
+        if (pname == "") {
+            alert('請輸入專案名稱');
+            return false;
+        }
+        else {
+
+            if (!checkVal(pname)) {
+                alert('專案名稱必須要英文或數字組成!');
+                return false;
+            }
+        }
+
+        if (p_dsname == "") {
+            alert('請輸入專案資料集名稱!');
+            return false;
+        }
+
+        //  alert(pdes);
+        if (pdes == "") {
+            alert('請輸入專案描述!');
+            return false;
+        }
+        //if (pinput == "") {
+        //    alert('請輸入專案匯入路徑!');
+        //    return false;
+        //}
+        //if (poutput == "") {
+        //    alert('請輸入專案輸出路徑!');
+        //    return false;
+        //}
+
+        if (powner == 0) {
+            alert('請選擇專案管理人!');
+            return false;
+
+        }
+
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/InsertProject",
+            contentType: "application/json",
+            data: {
+                pname: pname,
+                prodesc: pdes,
+                pinput: "data/input",
+                poutput: "data/output",
+                powner: powner,
+                p_dsname: p_dsname
+            },
+            success: function (data, status) {
+                // alert('project load success');
+                //alert(data);
+                //    $("#projectlist").html(data);
+                if (data == "-2") {
+                    alert('專案名稱重複!');
+                    return false;
+                }
+
+                if (data == "-4") {
+                    alert('專案狀態錯誤!')
+                    return false;
+                }
+
+                if (data == "0") {
+                    alert("系統寫入出現錯誤");
+                }
+                var project_modal = document.getElementById('project');
+                project_modal.style.display = "none";
+                location.reload();
+            },
+            error: function (data, status) {
+                if (data == "-2") {
+                    alert('專案資料集名稱重複!');
+                    return false;
+                }
+
+                if (data == "-4") {
+                    alert('專案狀態錯誤!')
+                    return false;
+                }
+
+                if (data == "-5") {
+                    alert('專案名稱重複!')
+                    return false;
+                }
+
+                if (data == "0") {
+                    alert("系統寫入出現錯誤");
+                }
+
+
+            }
+
+        });
+
+        return false;
+    }
+</script>
+<section class="section_top">
+    <div class="container">
+
+        <ul class="bread_crumb">
+            @*<li>
+                    @Html.ActionLink(localizer.Text.home, "Index", "Home")
+
+                </li>*@
+            <li>
+                @* @Html.ActionLink(localizer.Text.project_list, "Index", "Home") *@
+                @Html.ActionLink(localizer.Text.project_list, "Index", "Home", null, new { @href = "/" })
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="inside project_list">
+    <div class="container">
+        <h4 class="title">@localizer.Text.project_list.ToUpper()</h4>
+        <div class="col-sm-12">
+            <form class="search_form">
+                <input type="text" id="searchtext" placeholder="@localizer.Text.key_words" aria-label="@localizer.Text.key_words">
+                <a class="search-button" href="javascript:void(0);" aria-label="search-button"></a>
+            </form>
+            <!--僅有admin有此權限-->
+            @{
+                var uacc = "";
+                var uadmin = "";
+                foreach (Claim claim in Context.User.Claims)
+                {
+                    if (claim.Type == "Account")
+                    {
+                        uacc = claim.Value;
+                    }
+                    else
+                    {
+                        uadmin = claim.Value;
+                    }
+                }
+            }
+            <button class="btn btn_mbs" id="new_project">@localizer.Text.new_project</button>
+            <div class="modal" id="project">
+                <div class="textarea">
+                    <div class="close" id="project_close">✖</div>
+                    <h4 class="title">@localizer.Text.add_project</h4>
+                    <form class="form" action="" method="post" role="form" id="np_form">
+                        <div class="form-group required">
+                            <label class="control-label">@localizer.Text.project_name</label>
+                            <input class="form-control" id="p_dataset_name" aria-label="@localizer.Text.project_name">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label">@localizer.Text.project_dataset_name</label>
+                            <input class="form-control" id="p_name" aria-label="@localizer.Text.project_dataset_name">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label">@localizer.Text.desc</label>
+                            <textarea class="form-control" id="p_des" aria-label="@localizer.Text.desc"></textarea>
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label">@localizer.Text.project_leader</label>
+                            @*<%= Html.DropDownList("專案負責人", ViewData["p_owner"] as SelectList) %>
+                                <%= Html.Encode(ViewData["p_owner"]) %>*@
+                            <select class="form-control" id="p_owner"
+                                    name="powner" asp-items="@(new SelectList(@ViewBag.listmember, "Id", "UserAccount"))" aria-label="@localizer.Text.project_leader"></select>
+                        </div>
+                        <input class="btn btn-default" id="submit_new_project" name="submit" type="submit" value="@localizer.Text.confirm" onclick="InsertNewProject(); return false;">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="projectlist">
+            @{
+                if (Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        var step = "";
+                        //                  var project_statusname = "";
+                        var process_html = "";
+                        var hreflink = "";
+                        var processname = "";
+                        var process_class = "info_text doing";
+                        string sysstatus = "";
+                        switch (item.project_status)
+                        {
+                            case 0:
+                                step = "Preview";
+                                sysstatus = item.project_status.ToString();
+                                //                                project_statusname = localizer.Text.data_processing;
+                                process_html = "<li class=\"in-progress\"></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = localizer.Text.Index_Project_Create;
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 1:
+                                step = "Preview";
+                                sysstatus = item.project_status.ToString();
+                                //                             project_statusname = localizer.Text.data_processing;
+                                process_html = "<li class=\"complete\"></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = localizer.Text.data_importing;
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 2:
+                                step = "DpSync";
+                                sysstatus = item.project_status.ToString();
+                                //                       project_statusname = localizer.Text.dataset_attr;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = localizer.Text.Index_Gan_Setting;
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 3: //資料生成中
+                                step = "Step3";
+                                sysstatus = item.project_status.ToString();
+                                //                    project_statusname = localizer.Text.g_setting;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "概化欄位設定";
+                                //http://localhost:5000/ProjectStep/Step3_2/?proj_id=7&project_name=2QDataMarketDeId&kvalue=3&selectqicountvalue=5,
+                              //  hreflink = "<a href=\"javascript:void(alert('資料生成中! 請稍後'))\">";
+                                 hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                             
+                                break;
+                            case 4:
+                                step = "Step3";
+                                sysstatus = item.project_status.ToString();
+                                //project_statusname = localizer.Text.gen_preview;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "概化與關聯資料處理中";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                             case 41:
+                                step = "Step3";
+                                sysstatus = item.project_status.ToString();
+                                //project_statusname = localizer.Text.gen_preview;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "概化與關聯資料處理中";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                              case 42:
+                                step = "Step3";
+                                sysstatus = item.project_status.ToString();
+                                //project_statusname = localizer.Text.gen_preview;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "概化與關聯資料處理中";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                              case 43:
+                                step = "Step3";
+                                sysstatus = item.project_status.ToString();
+                                //project_statusname = localizer.Text.gen_preview;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "概化與關聯資料處理中";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 5:
+                                step = "Dataassociation";
+                                sysstatus = item.project_status.ToString();
+                                //project_statusname = localizer.Text.gen_preview;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname ="可進行關聯欄位屬性設定";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 6:
+                                step = "MLutility"; //可用性分析中
+                                sysstatus = item.project_status.ToString();
+                                //   project_statusname = localizer.Text.deid_process;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "可進行隱私強化處理";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                           
+                               // hreflink = "<a href=\"javascript:void(alert('可用性分析中! 請稍後'))\">";
+                                break;
+                            case 7:
+                                step = "MLutility";
+                                process_class = "info_text done";
+                                sysstatus = item.project_status.ToString();
+                                //    project_statusname = localizer.Text.result_deid;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li>";
+                                processname = "隱私強化處理中";
+                                hreflink = "<a href=\"javascript:void(alert('隱私強化處理中! 請稍後'))\">";
+                               // hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                             case 8:
+                                step = "DataCheck";
+                                process_class = "info_text done";
+                                sysstatus = item.project_status.ToString();
+                                //    project_statusname = localizer.Text.result_deid;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li>";
+                                processname = "可進行資料相似度比對";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                             case 9:
+                                step = "DataCheck";
+                                process_class = "info_text done";
+                                sysstatus = item.project_status.ToString();
+                                //    project_statusname = localizer.Text.result_deid;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li>";
+                                processname = "資料相似度比對處理中";
+                                hreflink = "<a href=\"javascript:void(alert('資料相似度比對處理中! 請稍後'))\">";
+                                 break;
+                            case 10:
+                                step = "New_DpSyncReport";
+                                process_class = "info_text done";
+                                sysstatus = item.project_status.ToString();
+                                //    project_statusname = localizer.Text.result_deid;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li>";
+                                processname = "查看報表";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            //case 7:
+                            //    step = "ExportData";
+                            //    sysstatus = item.project_status.ToString();
+                            //    process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li>";
+                            //    processname = "資料相似度比對處理中";
+                            //    hreflink = "<a href=\"javascript:void(alert('資料匯出中! 請稍後'))\">";
+                            //    break;
+                            //case 8:
+                            //    step = "ExportData";
+                            //    process_class = "info_text done";
+                            //    sysstatus = item.project_status.ToString();
+                            //    // project_statusname = localizer.Text.export;
+                            //    process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li>";
+                            //    processname = localizer.Text.deid_finish;
+                            //    hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                            //    break;
+                            case 99: //Error
+                                step = "DpSync";
+                                sysstatus = item.project_status.ToString();
+                                process_class = "info_text wrong";
+                                //project_statusname = localizer.Text.export;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = localizer.Text.Index_Gan_Error;
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 97: //Error
+                                step = "DpSync";
+                                sysstatus = item.project_status.ToString();
+                                process_class = "info_text wrong";
+                                //project_statusname = localizer.Text.export;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = "資料概化錯誤";
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+                            case 98: //Error
+                                step = "MLutility";
+                                sysstatus = item.project_status.ToString();
+                                process_class = "info_text wrong";
+                                //project_statusname = localizer.Text.export;
+                                process_html = "<li class=\"complete\"></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"complete\"><span></span></li><li class=\"in-progress\"><span></span></li><li class=\"in-progress\"><span></span></li>";
+                                processname = localizer.Text.Index_ML_Error;
+                                hreflink = "<a href=\"@Url.Action(step, \"ProjectStep\", new { proj_id = item.project_id, project_name = item.project_name,project_cht=item.project_cht })\">";
+                                break;
+
+                        }
+                        var projectname = "";
+                        if (item.project_cht != null)
+                        {
+                            projectname = item.project_cht;
+                        }
+                        else
+                        {
+                            projectname = item.project_name;
+                        }
+                        var project_desc = item.project_desc;
+                        var pstatus = item.project_status;
+                        <div class="col-sm-12">
+                            <div class="project">
+                                @*<a href="@Url.Action(step, "ProjectStep", new { proj_id = item.project_id, project_name = item.project_name, stepstatus = sysstatus,project_cht=item.project_cht })">*@
+                                <a href="javascript:void()" onclick="redirectUrl('@item.project_status','@item.project_id','@item.project_name','@item.project_cht','@step')">
+                                    <div class="col-sm-6 name">
+                                        <h4>@projectname</h4>
+                                        <p class="prodesc">@project_desc</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-12 status">
+                                            <div class="circle">
+                                                <ul class="milestones_project-status-bar">
+                                                    @Html.Raw(process_html)
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 info">
+                                            <div class="col-sm-5">
+                                                <img src="~/images/list_status.png" alt=""><span>專案狀態</span>
+                                                <p class="@process_class">@processname</p>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <img src="~/images/list_owner.png" alt=""><span>擁有者</span>
+                                                <p class="info_text general">@item.useraccount</p>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <img src="~/images/list_time.png" alt=""><span>最後修改日期</span>
+                                                <p class="info_text general">@item.projecttime.ToString("yyyy-MM-dd")</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="more">
+                                    <ul class="nav navbar-more">
+                                        <li class="dropdown">
+                                            <img class="moreicon dropdown-toggle" data-toggle="dropdown" src="~/images/more.png" alt="">
+                                            <ul class="dropdown-menu">
+                                                @*<li class="dropdown-menu-item"><a href="#">@localizer.Text.add_member</a></li>*@
+                                                <li class="dropdown-menu-item"><a href="javascript:void(0)" onclick="getcancel('@item.project_id','@item.project_name','@item.project_status');">@localizer.Text.reset_project</a></li>
+                                                <li class="dropdown-menu-item"><a href="javascript:void(0)" onclick="delproject('@item.project_id','@item.project_name');">@localizer.Text.del_project</a></li>
+                                                @*<li class="dropdown-menu-item"><a href="@Url.Action("Step5_2", "ProjectStep", new { proj_id = item.project_id, project_name = item.project_name })">@localizer.Text.report_management</a></li>*@
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-sm-12">
+                        <div class="no_project">
+                            <div class="pn_wrapper">
+                                <img src="~/images/no_project.png" alt="">
+                                <h6>@localizer.Text.project_list</h6>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <label id="delconfirm" style="display:none">@localizer.Message.delete_project_confirm</label>
+    <label id="deleted" style="display:none">@localizer.Message.deleted</label>
+    <label id="delerror" style="display:none">@localizer.Message.deid_error</label>
+    <label id="resetconfirm" style="display:none">@localizer.Message.Check_reset</label>
+    <label id="resetfin" style="display:none">@localizer.Message.reset_finish</label>
+    <label id="reseterr" style="display:none">@localizer.Message.reset_error</label>
+</section>
+<script>
+    $(function () {
+        var len = 100; // 超過50個字以"..."取代
+        $(".prodesc").each(function (i) {
+            if ($(this).text().length > len) {
+                $(this).attr("title", $(this).text());
+                var text = $(this).text().substring(0, len - 1) + "...";
+                $(this).text(text);
+            }
+        });
+    });
+</script>
+<script>
+    //function GetRefreshData() {
+
+    //    $.ajax({
+    //        type: "get",
+    //        url: "/api/WebAPI/GetGanNotification",
+    //        contentType: "application/json",
+    //        async: false,
+    //        success: function (response) {
+    //            //成功
+    //            notcount = response;
+    //            //alert(response);
+    //        },
+    //        error: function (response) {
+    //            //alert(savecolerror);
+    //        }
+    //    });
+    //    if (notcount != "") {
+    //        if (notcount != "0") {
+
+    //            var notarr = notcount.split('*');
+    //            //alert(colqiarr.length);
+    //            if (notarr[0] > 0) {
+    //                location.reload();
+    //            }
+    //        }
+
+    //    }
+    //    else {
+    //        //   alert('111');
+    //        //$("#notcount").text(String(notcount));
+    //    }
+    //}
+
+
+    function delproject(pid, pname) {
+        var delconfirm = $('#delconfirm').text();
+        var deleted = $('#deleted').text();
+        var delerror = $('#delerror').text();
+
+        if (confirm(delconfirm)) {
+              //      alert('11');
+
+                      $.ajax({
+                            type: "get",
+                          url: "/api/WebAPI/DeleteProject",
+                    contentType: "application/json",
+                          data: { project_id: pid, pname:pname,project_status:2 },
+                    success: function (data, status) {
+                                //document.location.href = "@Url.Action("Step2", "ProjectStep")";
+                        alert(deleted);
+                        location.reload();
+                            },
+                    error: function (data, status) {
+                        alert(delerror);
+                            }
+
+                        });
+                       // alert('取消!')
+                    }
+                    else {
+                        //   alert('XX')
+                        return;
+
+                    }
+    }
+</script>
+<script>
+    function redirectUrl(pstatus, pid, pname, pname_cht,step) {
+        switch (pstatus) {
+            case "0":
+                location.href = "@Url.Action("Preview", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "1":
+                location.href = "@Url.Action("Preview", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "2":
+                location.href = "@Url.Action("DpSync", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "3":
+                location.href = "@Url.Action("Step3", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "4":
+                alert('資料概化與關聯資料處理中，請稍後!!');
+                return;
+                break
+                 case "41":
+                alert('資料概化與關聯資料處理中，請稍後!!');
+                return;
+                break
+                 case "42":
+                alert('資料概化與關聯資料處理中，請稍後!!');
+                return;
+                break
+                 case "43":
+                alert('資料概化與關聯資料處理中，請稍後!!');
+                return;
+                break
+            case "5":
+                location.href = "@Url.Action("Dataassociation", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "6":
+                location.href = "@Url.Action("MLutility", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "7":
+                alert('隱私強化處理中，請稍後!!');
+                return;
+                break
+            case "8":
+                location.href = "@Url.Action("DataCheck", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "9":
+               alert('資料相似度比對處理中');
+
+              //  location.href = "@Url.Action("New_DpSyncReport", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "10":
+                //alert('資料匯出中，請稍後!!');
+                location.href = "@Url.Action("New_DpSyncReport", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                return;
+                break
+            case "99":
+                location.href = "@Url.Action("DpSync", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "97":
+                location.href = "@Url.Action("DpSync", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+            case "98":
+                location.href = "@Url.Action("MLutility", "ProjectStep")/?proj_id=" + pid + "&project_name=" + pname + "&stepstatus=" + pstatus + "&project_cht=" + pname_cht;
+                break
+        }
+    }
+    function getcancel(pid, pname,pstatus) {
+        //alert('1111');
+        var resetconfirm = $('#resetconfirm').text();
+        var resetfin = $('#resetfin').text();
+        var reseterr = $('#reseterr').text();
+        if (parseInt(pstatus)<=1) {
+            alert('專案尚未匯入資料');
+            return false;
+        }
+        else if (parseInt(pstatus) <= 2 && parseInt(pstatus) > 1) {
+            alert('專案狀態階段尚未進行生成，可以不用重設專案!');
+            return false;
+        }
+        if (confirm(resetconfirm)) {
+              //      alert('11');
+
+                      $.ajax({
+                            type: "get",
+                          url: "/api/WebAPI/CancelProjectStatus",
+                    contentType: "application/json",
+                          data: { project_id: pid, pname:pname,project_status:2 },
+                    success: function (data, status) {
+                                //document.location.href = "@Url.Action("Step2", "ProjectStep")";
+                        alert(resetfin);
+                        location.reload();
+                            },
+                    error: function (data, status) {
+                        alert(reseterr);
+                            }
+
+                        });
+                       // alert('取消!')
+                    }
+                    else {
+                        //   alert('XX')
+                        return;
+
+                    }
+    }
+
+    function ProjectLink(step, pstatus) {
+
+    }
+</script>
+<script>
+    var project_modal = document.getElementById('project');
+    var new_project_btn = document.getElementById("new_project");
+    var project_close_span = document.getElementById("project_close");
+
+    new_project_btn.onclick = function () {
+        project_modal.style.display = "block";
+    }
+
+    project_close_span.onclick = function () {
+        project_modal.style.display = "none";
+    }
+
+    $(document).ready(function () {
+        //GetNotificationData();
+        //CheckJobStatus();
+        //setInterval("GetRefreshData()", 12000);
+    });
+</script>

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeIdWeb</name>
+    </assembly>
+    <members>
+        <member name="F:DeIdWeb.Controllers.HomeController.config">
+            <summary>
+            讀取組態用
+            </summary>
+        </member>
+        <member name="M:DeIdWeb.Controllers.HomeController.Login(System.String,System.String,System.String)">
+            <summary>
+            表單post提交，準備登入
+            </summary>
+            <param name="form"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Controllers.HomeController.Logout">
+            <summary>
+            登出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Controllers.ProjectStepController.Step3_2(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="proj_id"></param>
+            <param name="project_name"></param>
+            <param name="kvalue"></param>
+            <param name="base64selectqi"></param>
+            <param name="project_cht"></param>
+            <param name="loginname"></param>
+            <param name="returnurl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Controllers.WebAPIController.Generalizationasync(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pid"></param>
+            <param name="pname"></param>
+            <param name="selectqivalue"></param>
+            <param name="k_value"></param>
+            <param name="tablename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Controllers.WebAPIController.SaveDpGenService(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pid"></param>
+            <param name="pname"></param>
+            <param name="ob_col"></param>
+            <param name="selectcol"></param>
+            <param name="keyName"></param>
+            <param name="fname"></param>
+            <param name="col_data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Reposiotry.DeIdLogManager.StartLogger(System.String,System.String)">
+            <summary>
+            启动logger
+            </summary>
+            <param name="repository">repository名称</param>
+            <param name="fileName">配置文件名称</param>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Reposiotry.DeIdLogManager.StartLogger">
+            <summary>
+            启动logger
+            </summary>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Reposiotry.MD5Str.MD5(System.String)">
+            <summary>
+            字串MD5加密
+            </summary>
+            <param name="Text">要加密的字串</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Service.MySqlDBHelper.ExecuteDataTable(System.String,System.String)">
+            <summary>
+            利用MysqlDataReader曲线构造并填充DataTable
+            </summary>
+            <param name="connectionString"></param>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeIdWeb.Infrastructure.Service.ProjectSample_Service.InsertProjectSampleTableqi(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="proj_id"></param>
+            <param name="after_col_qi"></param>
+            <param name="tablekeycol"></param>
+            <param name="qi_settingvalue"></param>
+            <param name="tablename"></param>
+            <param name="pname"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DeIdWeb.Models.ProjectSampleDBData">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

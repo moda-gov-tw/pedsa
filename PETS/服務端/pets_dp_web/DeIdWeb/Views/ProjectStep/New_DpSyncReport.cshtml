@@ -1,0 +1,274 @@
+﻿@model IEnumerable<ProjectSampleDBData>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "New_DpSyncReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <!-- <li>
+
+            @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("GanSyncReport", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"], project_cht = ViewData["Project_Cht"] })">@ViewData["Project_Cht"]</a>
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <div class="project_title">
+                        <h4>@ViewData["Project_Cht"]</h4>
+                    </div>
+                <div class="status_bar">
+                        <h4 class="method">差分隱私流程</h4>
+                        <div class="status">
+                            <div class="status_no_line">
+                                <h6>欄位選擇及屬性判定</h6>
+                                <p>Data property settings</p>
+                                <h3>1</h3>
+                            </div>
+                        </div>
+                         <div class="status">
+                            <div class="status_notnow">
+                                <h6>概化欄位設定</h6>
+                                <p>Data generalization</p>
+                                <h3>2</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>關聯屬性欄位設定</h6>
+                                <p>Related attribute field settings</p>
+                                <h3>3</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>隱私強化處理</h6>
+                                <p>DP setting</p>
+                                <h3>4</h3>
+                            </div>
+                        </div>
+                         <div class="status">
+                            <div class="status_notnow">
+                                <h6>資料相似度比對</h6>
+                                <p>Report and data export</p>
+                                <h3>5</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow active">
+                                <h6>報表產生與資料匯出</h6>
+                                <p>Report and data export</p>
+                                <h3>6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <h4 class="title">報表產生與資料匯出<span class="step_inf">* 類別型顯示前五大類別數；數值型顯示最小值、最大值、平均值、中位數及標準差五個指標</span></h4>
+                    <div class="r_table">
+                        <div class="contents">
+                            @{
+
+                                var tablenm_raw = "tb_raw";
+                                var tablenm_syn = "tb_syn";
+                                var tb_desc = "";
+                                var tb_desc_raw = "raw / raw 由原始資料建模，原始資料做驗證";
+                                var tb_desc_syn = "dp / dp 由原始資料建模，原始資料做驗證";
+                                double dbep = (double)ViewData["ep"];
+                                int ep = (int)dbep;
+                                <div class="table_wapper">
+                                    <h5 class="thead-dark">專案Epsilon 值 : @ep</h5>
+                                    <table class="table table-bordered table_info table_utility" id="@tablenm_raw">
+                                        <thead class="thead-dark">
+                                            <h5 class="u_h5">原始資料與差分隱私後資料統計資訊比較</h5>
+                                            <tr>
+                                                <th>感興趣欄位名稱</th>
+                                                <th>欄位類型</th>
+                                                <th>原始資料統計資訊</th>
+                                                <th>差分後統計資訊</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                                //<div class="table_wapper">
+                                //    <table class="table table-bordered table_info table_utility" id="@tablenm_syn">
+                                //        <thead class="thead-dark">
+                                //            <h5 class="u_h5">差分隱私資料（dp）</h5>
+                                //            <tr>
+                                //                <th>感興趣欄位名稱</th>
+                                //                <th>欄位類型</th>
+                                //                <th>統計資訊</th>
+                                //            </tr>
+                                //        </thead>
+                                //        <tbody></tbody>
+                                //    </table>
+                                //</div>
+
+                            }
+                        </div>
+                    </div>
+                    <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
+                    <label id="loginname" style="display: none">@ViewData["loginname"]</label>
+                    <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
+                    <div class="btn btn_sbe btn_back" onclick="returnml()">重選感興趣欄位</div>
+                    @*<div class="btn btn_mbs btn_next">*@
+                   @* <div class="btn btn_mbs btn_next" onclick="exportFile()">
+                        匯出資料
+                        @*<a href="@Url.Action("ExportData", "ProjectStep", new { proj_id=@ViewData["ProjectId"],project_name = @ViewData["ProjectName"],project_cht=@ViewData["Project_Cht"],loginname=@ViewData["loginname"],returnurl=@ViewData["returnurl"] })">匯出資料</a>*@
+                    @*</div>*@
+                </div>
+            </div>
+        </div>
+					<!--資料無誤，成功-->
+                    <div class="modal fade" id="lessThanThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLongTitle">資料差分隱私處理中</h4>
+                                </div>
+                                <div class="modal-body">
+                                    資料匯出中，依資料大小不同需花費數分鐘到數小時不等，完成後將以狀態通知。
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				
+					<!--資料檢查中動畫-->
+                    <div class="modal fade" id="datachecking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+                        <svg id="dc-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width:"38="" height:"38="" viewBox="0 0 38 38" preserveAspectRatio="xMinYMin meet">
+                            <text x="14" y="21" font-size="2.5px" style="letter-spacing:0.2;" fill="grey">
+                                資料檢查中
+                                <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"></animate>
+                            </text>
+                            <path fill="#cccccc" d="M20,35c-8.271,0-15-6.729-15-15S11.729,5,20,5s15,6.729,15,15S28.271,35,20,35z M20,5.203    C11.841,5.203,5.203,11.841,5.203,20c0,8.159,6.638,14.797,14.797,14.797S34.797,28.159,34.797,20    C34.797,11.841,28.159,5.203,20,5.203z"></path>
+                            <path fill="#cccccc" d="M20,33.125c-7.237,0-13.125-5.888-13.125-13.125S12.763,6.875,20,6.875S33.125,12.763,33.125,20    S27.237,33.125,20,33.125z M20,7.078C12.875,7.078,7.078,12.875,7.078,20c0,7.125,5.797,12.922,12.922,12.922    S32.922,27.125,32.922,20C32.922,12.875,27.125,7.078,20,7.078z"></path>
+                            <path fill="#2AA198" stroke="#1890ff" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20    c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
+                                <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" calcMode="spline" keySplines="0.4, 0, 0.2, 1" keyTimes="0;1" dur="2s" repeatCount="indefinite"></animatetransform>
+                            </path>
+                            <path fill="#859900" stroke="#C2CFFE" stroke-width="0.5" stroke-miterlimit="10" d="M7.078,20    c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203    C12.875,32.922,7.078,27.125,7.078,20z">
+                                <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="1.8s" repeatCount="indefinite"></animatetransform>
+                            </path>
+                        </svg>
+                    </div>
+                    <!--勾選資料大於三筆後進入資料檢查-->
+
+
+        <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
+        <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
+        <label id="pname_cht" style="display: none">@ViewData["Project_Cht"]</label>
+        <label id="rp_count" style="display: none">@ViewData["RP_Count"]</label>
+        <label id="syn_data" style="display: none">@ViewData["syn_data"]</label>
+        <label id="raw_data" style="display: none">@ViewData["raw_data"]</label>
+        <label id="return_url" style="display:none">@ViewData["returnurl"]</label>
+        <label id="p_selectcsv" style="display:none">@ViewData["select_csvdata"]</label>
+        <label id="dataexport" style="display:none">@localizer.Message.export</label>
+        <label id="deiderror" style="display:none">@localizer.Message.deid_error</label>
+    </div>
+</section>
+<script>
+    // var syn_data = $('#syn_data').text();
+     var raw_data = $('#raw_data').text();
+    // alert(raw_data);
+     $('#tb_raw').append(raw_data);
+     //$('#tb_syn').append(syn_data);
+
+</script>
+<script>
+    $('.tabs').click(function(event){
+        let $tab = $(event.target).parent();
+        $(this).find('.active').removeClass("active");
+        $tab.addClass('active');
+        let index = $tab.index();
+        $(".contents .content").siblings('.active').removeClass('active').end().eq(index).addClass("active");
+    })
+
+    function returnml() {
+        var pname_cht = $('#pname_cht').text();
+        var pname = $('#pname').text();
+        var pid = $('#pid').text();
+          var returnurl = $('#returnurl').text();
+        var loginname = $('#loginname').text();
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/returnMLStatus",
+            contentType: "application/json",
+            async: false,
+            data:
+            {
+                pid: pid
+            },
+            success: function (response) {
+                //成功
+
+            },
+            error: function (response) {
+                //alert(savecolerror);
+            }
+        });
+        location.href = "@Url.Action("DataCheck", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname) + "&project_cht=" + encodeURIComponent(pname_cht) + "&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);
+
+    }
+</script>
+<script>
+    function exportFile()
+    {
+        //input json: {'projID': '123', 'userID': 'JOJO', 'projName': 'adult', 'dataName' : ['synthetic_transform_rmhit3.csv']}
+     var pid = $('#pid').text();;
+            var pname = $('#pname').text();
+        var p_selectcsv = $('#p_selectcsv').text();
+           var return_url =$('#return_url').text();
+            $('#datachecking').modal('show');
+        $('#datachecking').modal({ backdrop: 'static', keyboard: false });
+    
+    $.ajax({
+                    type: "get",
+                  url: "/api/WebAPI/ExportData",
+                    contentType: "application/json",
+                  data:
+                  {
+                      pid: pid, pname: pname, selectcsv: p_selectcsv
+                  },
+        success: function (status) {
+            //alert(status);
+                        //document.location.href = "@Url.Action("Index","Home")";
+                        if (status) {
+                               $('#datachecking').modal('hide'); 
+                $('#lessThanThree').modal({ backdrop: 'static', keyboard: false });
+                $('#lessThanThree').modal('show'); 
+                        }
+                        else {
+                            alert('匯出錯誤');
+                            return;
+                        }
+                    },
+                    error: function (status) {
+                        alert('匯出錯誤');
+                        return;
+                    }
+
+                });
+
+    }
+
+    function returntopage() {
+         // location.href = "/Home/ProjectIndex";
+           var return_url =$('#return_url').text();
+        location.href = return_url;
+    }
+</script>
