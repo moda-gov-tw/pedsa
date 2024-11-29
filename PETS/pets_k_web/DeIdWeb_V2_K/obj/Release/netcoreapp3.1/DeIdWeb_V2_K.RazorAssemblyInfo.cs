@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.RelatedAssemblyAttribute("DeIdWeb_V2_K.Views")]
 [assembly: Microsoft.AspNetCore.Razor.Hosting.RazorLanguageVersionAttribute("3.0")]
 [assembly: Microsoft.AspNetCore.Razor.Hosting.RazorConfigurationNameAttribute("MVC-3.0")]
-[assembly: Microsoft.AspNetCore.Razor.Hosting.RazorExtensionAssemblyNameAttribute("MVC-3.0", "Microsoft.AspNetCore.Mvc.Razor.Extensions")]
+[assembly: Microsoft.AspNetCore.Razor.Hosting.RazorExtensionAssemblyNameAttribute("MVC-3.0", "Microsoft.CodeAnalysis.Razor.Compiler")]
 
 // 由 MSBuild WriteCodeFragment 類別產生。
 

@@ -1,2 +1,0 @@
-subjectAltName = DNS:localhost,IP:10.140.0.7,IP:127.0.0.1
-extendedKeyUsage = serverAuth

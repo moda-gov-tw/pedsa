@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeIdWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+e5cbfd64cb49ca6cd99e61dfa85e109dc458e1de")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeIdWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeIdWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.2.0")]

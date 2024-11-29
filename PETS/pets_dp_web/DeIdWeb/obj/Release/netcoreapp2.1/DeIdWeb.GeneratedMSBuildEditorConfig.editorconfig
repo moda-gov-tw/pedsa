@@ -1,3 +1,5 @@
 is_global = true
 build_property.RootNamespace = DeIdWeb
-build_property.ProjectDir = F:\DeIdWeb\數位部\pets_dp\DeIdWeb\
+build_property.ProjectDir = E:\SourceCode\Privacy\Moda\PETS\pets_dp_web\DeIdWeb\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
