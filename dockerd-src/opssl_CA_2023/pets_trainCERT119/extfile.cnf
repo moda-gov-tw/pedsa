@@ -1,0 +1,10 @@
+subjectAltName = DNS:localhost,IP:34.80.113.119,IP:127.0.0.1
+extendedKeyUsage = serverAuth
+subjectAltName = DNS:localhost,IP:34.80.113.119,IP:127.0.0.1
+extendedKeyUsage = serverAuth
+subjectAltName = DNS:localhost,IP:34.80.113.119,IP:127.0.0.1
+extendedKeyUsage = serverAuth
+subjectAltName = DNS:localhost,IP:34.80.113.119,IP:127.0.0.1
+extendedKeyUsage = serverAuth
+subjectAltName = DNS:localhost,IP:34.80.113.119,IP:127.0.0.1
+extendedKeyUsage = serverAuth
