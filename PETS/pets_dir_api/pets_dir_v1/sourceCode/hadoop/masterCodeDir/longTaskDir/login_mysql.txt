@@ -1,9 +1,0 @@
-[Login_information]
-
-ip=140.96.178.108
-
-port=11100
-
-user=keyadmin
-
-password=citcw200

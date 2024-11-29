@@ -1,1 +1,0 @@
-pkill -f auto_upload

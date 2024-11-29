@@ -1,7 +1,0 @@
-[Hadoop_information]
-
-ip=140.96.178.108
-
-port=6922
- 
-out_path=/home/hadoop/proj_/final_project/k/input
