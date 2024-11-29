@@ -1,0 +1,275 @@
+﻿@model IEnumerable<ProjectSample5Data>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "MLutility";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <!-- <li>
+                @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("MLutility", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"],project_cht=ViewData["Project_cht"] })">@ViewData["Project_cht"]</a>
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <div class="project_title">
+                        <h4>@ViewData["Project_cht"]</h4>
+                    </div>
+                  <div class="status_bar">
+                        <h4 class="method">資料生成流程</h4>
+                        <div class="status">
+                            <div class="status_no_line">
+                                <h6>欄位選擇及屬性判定</h6>
+                                <p>@localizer.Text.step2_menu_list</p>
+                                <h3>1</h3>
+                            </div>
+                        </div>
+                         <div class="status">
+                            <div class="status_notnow">
+                                <h6>概化欄位設定</h6>
+                                <p>Data generalization</p>
+                                <h3>2</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>合成資料產生</h6>
+                                <p>@localizer.Text.step3_menu_list</p>
+                                <h3>3</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow  active">
+                                <h6>感興趣欄位設定</h6>
+                                <p>@localizer.Text.step4_menu_list</p>
+                                <h3>4</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>資料相似度比對</h6>
+                                <p>Data similarity comparison</p>
+                                <h3>5</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>報表產生與資料匯出</h6>
+                                <p>@localizer.Text.step6_menu_list</p>
+                                <h3>6</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="project_content">
+                        <h4 class="title">資料相似度比對<span class="step_inf">* 請選擇一至三個感興趣欄位</span></h4>
+                        <label id="project_id" style="display:none">@ViewData["ProjectId"]</label>
+                        <label id="project_name" style="display:none">@ViewData["ProjectName"]</label>
+                        <label id="pname_cht" style="display:none">@ViewData["project_cht"]</label>
+                        <label id="project_status" style="display:none">@ViewData["projectstatus"]</label>
+                        <div class="container">
+                            @{
+                                int x = 1;
+                                foreach (var item in Model)
+                                {
+                                    var tbname = "";
+                                    var tbcount = "";
+                                    string tablenum = "table_" + x.ToString();
+                                    string lbtable = "lbtable_" + x.ToString();
+                                    string lbtbid = "lbtbid_" + x.ToString();
+                                    string tb_col = "tbcol_" + x.ToString();
+                                    string tb_colcht = "tbcolcht_" + x.ToString();
+                                    string tbimport_col = "tbim_" + x.ToString();
+                                    string result_col = "tbresult_" + x.ToString();
+                                    string formaterr = "tbforerror_" + x.ToString();
+                                    string nofile = "nofile_" + x.ToString();
+                                    tbname = item.file_name.ToString();
+                                    tbcount = item.tableCount.ToString();
+                                    var tb_gan_col = item.select_colNames;
+                                    var gan_col_array = tb_gan_col.Split(',');
+                                    var tbdata = item.data;
+                                    // var datafield = "";
+
+                                    <div class="table_info">
+                                        <div class="col-sm-8 data_info">
+                                            <h6>
+                                                @localizer.Text.dataset_name：<label id="@lbtable">@tbname</label>
+                                                <label id="@lbtbid" style="display: none">@item.id</label>
+                                            </h6>
+                                            <h6>@localizer.Text.total_records：@tbcount</h6>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @*<button class="btn btn_sbe" id="import_config">@localizer.Text.load_config</button>*@
+                                            @*<button class="btn btn_sbe" id="@imp_col">@localizer.Text.load_config</button>*@
+                                            @*<div class="modal" id="config">*@
+                                        </div>
+                                        <table id="@tablenum" width="100%">
+                                            <thead>
+
+                                                <tr>
+                                                    <th data-field="title" align="center">選用欄位</th>
+                                                    @{
+                                                        for (int i = 0; i < gan_col_array.Length; i++)
+                                                        {
+                                                            var datafield = gan_col_array[i].ToString();
+                                                            var cbname = "cb" + datafield;
+
+                                                            <th data-field=@datafield><label class="data_label"><input type="checkbox" name="btSelectItem" id="@cbname" /><span>@gan_col_array[i].ToString()</span></label></th>
+                                                        }
+                                                        //row_id 拿掉 UI就不會出現
+
+                                                    }
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    string tbdatas = "tbData_" + x.ToString();
+                                    <label id="@tbdatas" style="display: none">@item.data</label>
+                                    x++;
+                                }
+                            }
+                        </div>
+                        <label id="tbDatacount" style="display: none">@Model.Count()</label>
+                        <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
+                        <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
+                        <label id="savecolerror" style="display: none">@localizer.Message.save_col_error</label>
+                        @*<div class="btn btn_sbe btn_back" id="back" onclick="javascript: history.back(-1)">@localizer.Text.back</div>*@
+
+                        <!--
+                            <div class="btn btn_mbs btn_next" id="next">
+                                <a class="a_unstyled" href="javascript:void(0)" onclick="SaveProjectTableStep();">@localizer.Text.next</a>
+                            </div>
+    -->
+                     
+                        <label id="returnurl" style="display: none">@ViewData["returnurl"]</label>
+                        <label id="loginname" style="display: none">@ViewData["loginname"]</label>
+                        
+                        <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
+                        <button type="button" class="btn btn_mbs btn_next" id="next" data-toggle="modal"  onclick="getMLutility()">
+                            下一步
+                        </button>
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLongTitle">資料相似度比對</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        資料相似度比對中，依資料大小不同需花費數分鐘到數小時不等，完成後將以狀態通知。
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- 這邊要連結到ProjectIndex -->
+                                        <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label id="fname" style="display: none">@ViewData["filename"]</label>
+    <label id="col_data" style="display: none">@ViewData["col_data"]</label>
+    <label id="gan_selectdata" style="display: none">@ViewData["ganselect_data"]</label>
+    <label id="gan_selectname" style="display: none">@ViewData["ganselect_colname"]</label>
+    <label id="obcolstr" style="display: none">@ViewData["ob_col_str"]</label>
+    <label id="idcol" style="display: none">@ViewData["old_idcol"]</label>
+
+</section>
+<script>
+
+    var tbDatacount = $('#tbDatacount').text();
+    for (i = 0; i < parseInt(tbDatacount); i++) {
+        var tbData = "#tbData_" + (i + 1).toString();
+        var tablenum = "#table_" + (i + 1).toString();
+        //         string formaterr = "tbforerror_" + x.ToString();
+
+        var tbDatas = JSON.parse($('#gan_selectdata').text());
+
+        $(tablenum).bootstrapTable({
+            data: tbDatas
+        });
+
+
+    }
+</script>
+<script>
+    function getMLutility() {
+        var cbcount = 0;
+        var cbcolname = "";
+        var tbcol = "#gan_selectname";
+        var col_data = $(tbcol).text();
+        var col_arr = new Array();
+        col_arr = col_data.split(',');
+        //alert('ff');
+        for (i = 0; i < col_arr.length; i++) {
+            // alert('ccccc');
+            var newcbnm = '#cb' + col_arr[i].toString();
+            
+            if ($(newcbnm).prop('checked')) {
+                // alert('ccfffffccc');
+                cbcount++;
+                cbcolname += col_arr[i].toString() + ',';
+            }
+            else {
+
+            }
+
+        }
+        //alert(cbcount);
+        if (cbcount > 3 || cbcount==0) {
+            alert('選擇欄位必須介於1~3個');
+            return;
+        }
+        if (cbcolname.length > 2) {
+            if (cbcolname.substring(cbcolname.length - 1, cbcolname.length) == ",") {
+                cbcolname = cbcolname.substring(0, cbcolname.length - 1);
+            }
+        }
+        //alert('111')
+        //準備call api
+        //recover 設定值
+        var pid = $('#project_id').text();
+        var fname = $('#fname').text();
+        var col_data = $('#col_data').text();
+       var pname = $('#project_name').text();
+        //alert('ML')
+        $.ajax({
+            type: "get",
+            url: "/api/WebAPI/SendMLutility",
+            contentType: "application/json",
+            async: false,
+            data:
+            {
+                pid: pid, pname: pname, fname: fname, targernm: cbcolname
+            },
+            success: function (response) {
+                //成功
+                $('#exampleModalCenter').modal({ backdrop: 'static', keyboard: false });
+                $('#exampleModalCenter').modal('show'); 
+            },
+            error: function (response) {
+                //alert(savecolerror);
+            }
+        });
+    }
+
+      function returntopage() {
+          //  location.href = "/Home/ProjectIndex";
+            var return_url =$('#returnurl').text();
+        location.href = return_url;
+    }
+</script>

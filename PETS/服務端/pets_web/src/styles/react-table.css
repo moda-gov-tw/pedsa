@@ -1,0 +1,19 @@
+.cell-center {
+  text-align: left;
+  padding-left: 20px;
+}
+.cell-center > * {
+  margin: 0 auto;
+}
+
+.cell-right {
+  text-align: right;
+}
+.cell-right > * {
+  margin: 0 0 0 auto;
+}
+
+.no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+}

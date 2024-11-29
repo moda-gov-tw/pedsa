@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nextjs:
+    container_name: pets-web-dep
+    build:
+      args:
+        IMPORT_IMAGE: "${DOCKER_IMPORT_IMAGE_NAME}:${DOCKER_IMPORT_IMAGE_TAG}"
+      context: .
+      dockerfile: deploy.dockerfile
+    image: pets_web:1.1 #"${DOCKER_BUILD_IMAGE_NAME}:${DOCKER_BUILD_IMAGE_TAG}"
+    restart: always
+    #ports:
+    # - "${DOCKER_WEB_OUTER_PORT}:${DOCKER_WEB_INNER_PORT}"
+    volumes:
+    - ./src:/app/src
+    - .env:/app/.env
+    - ../download_folder:/app/download_folder
+    command: 
+    - /bin/bash
+    - -c
+    - |
+      yarn build
+      yarn start
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.152
+        aliases: 
+          - nextjs_compose  
+networks:
+  mynetwork:
+    external:
+      name: hadoopnet_overlay  
