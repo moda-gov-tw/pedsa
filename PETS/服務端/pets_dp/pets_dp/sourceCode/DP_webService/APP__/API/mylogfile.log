@@ -1,0 +1,261 @@
+2019/10/21 01:20:21 - error__preview - DEBUG - connectToMysql fail: - NameError:name 'getConfig' is not defined
+2019/10/21 01:31:15 - error__preview - DEBUG - connectToMysql fail: - NameError:name 'ConfigParser' is not defined
+2019/10/21 01:34:52 - error__preview - DEBUG - connectToMysql fail: - NameError:name 'configParser' is not defined
+2019/10/21 01:37:08 - verify__preview - DEBUG - Connect SQL
+2019/10/21 01:38:28 - verify__preview - DEBUG - Connect SQL
+2019/10/21 01:38:28 - verify__preview - DEBUG - {'msg': 'create database if not exists SynService', 'fetchall': (), 'result': 1}
+2019/10/21 01:38:28 - verify__preview - DEBUG - {'msg': 'SHOW DATABASES', 'fetchall': [{'Database': 'information_schema'}, {'Database': 'DeIdService'}, {'Database': 'SynService'}, {'Database': 'key_db'}, {'Database': 'mysql'}, {'Database': 'performance_schema'}, {'Database': 'projAdult'}, {'Database': 'project'}, {'Database': 'projectAdult'}, {'Database': 'sys'}], 'result': 1}
+2019/10/21 01:38:28 - error__preview - DEBUG - create fail: - NameError:name 'db_projName' is not defined
+2019/10/21 01:40:41 - verify__preview - DEBUG - Connect SQL
+2019/10/21 01:40:41 - verify__preview - DEBUG - {'msg': 'create database if not exists SynService', 'fetchall': (), 'result': 1}
+2019/10/21 01:40:41 - verify__preview - DEBUG - {'msg': 'SHOW DATABASES', 'fetchall': [{'Database': 'information_schema'}, {'Database': 'DeIdService'}, {'Database': 'SynService'}, {'Database': 'key_db'}, {'Database': 'mysql'}, {'Database': 'performance_schema'}, {'Database': 'projAdult'}, {'Database': 'project'}, {'Database': 'projectAdult'}, {'Database': 'sys'}], 'result': 1}
+2019/10/21 01:40:41 - error__preview - DEBUG - create fail: - NameError:name 'data' is not defined
+2019/10/21 01:41:51 - verify__preview - DEBUG - Connect SQL
+2019/10/21 01:41:51 - verify__preview - DEBUG - {'msg': 'create database if not exists SynService', 'fetchall': (), 'result': 1}
+2019/10/21 01:41:51 - verify__preview - DEBUG - {'msg': 'SHOW DATABASES', 'fetchall': [{'Database': 'information_schema'}, {'Database': 'DeIdService'}, {'Database': 'SynService'}, {'Database': 'key_db'}, {'Database': 'mysql'}, {'Database': 'performance_schema'}, {'Database': 'projAdult'}, {'Database': 'project'}, {'Database': 'projectAdult'}, {'Database': 'sys'}], 'result': 1}
+2019/10/21 01:41:51 - verify__preview - DEBUG - {'msg': "create table if not exists SynService.T_crime_sample(`Pid` varchar(50) default 9527, `Status` varchar(50) NOT NULL COMMENT 'status' default 'Initial table', `time` INT NOT NULL COMMENT 'percentage' default '0',`createtime` varchar(50))", 'fetchall': (), 'result': 1}
+2019/10/21 01:41:51 - verify__preview - DEBUG - {'msg': 'SHOW TABLES from SynService', 'fetchall': [{'Tables_in_SynService': 'T_crime_sample'}], 'result': 1}
+2019/10/22 05:45:46 - verify__preview - DEBUG - Connect SQL
+2019/10/22 05:45:46 - verify__preview - DEBUG - {'msg': 'create database if not exists SynService', 'fetchall': (), 'result': 1}
+2019/10/22 05:45:46 - verify__preview - DEBUG - {'msg': 'SHOW DATABASES', 'fetchall': [{'Database': 'information_schema'}, {'Database': 'DeIdService'}, {'Database': 'SynService'}, {'Database': 'key_db'}, {'Database': 'mysql'}, {'Database': 'performance_schema'}, {'Database': 'projAdult'}, {'Database': 'project'}, {'Database': 'projectAdult'}, {'Database': 'sys'}], 'result': 1}
+2019/10/22 05:45:46 - verify__preview - DEBUG - {'msg': "create table if not exists SynService.T_crime_sample(`Pid` varchar(50) default 9527, `Status` varchar(50) NOT NULL COMMENT 'status' default 'Initial table', `time` INT NOT NULL COMMENT 'percentage' default '0',`createtime` varchar(50))", 'fetchall': (), 'result': 1}
+2019/10/22 05:45:46 - verify__preview - DEBUG - {'msg': 'SHOW TABLES from SynService', 'fetchall': [{'Tables_in_SynService': 'T_crime_sample'}], 'result': 1}
+2019/10/22 05:45:46 - error__preview - DEBUG - errTable: Sample fail. updateToMysql() missing 1 required positional argument: 'data'
+2019/10/22 05:46:46 - verify__preview - DEBUG - Connect SQL
+2019/10/22 05:46:46 - verify__preview - DEBUG - {'msg': 'create database if not exists SynService', 'fetchall': (), 'result': 1}
+2019/10/22 05:46:46 - verify__preview - DEBUG - {'msg': 'SHOW DATABASES', 'fetchall': [{'Database': 'information_schema'}, {'Database': 'DeIdService'}, {'Database': 'SynService'}, {'Database': 'key_db'}, {'Database': 'mysql'}, {'Database': 'performance_schema'}, {'Database': 'projAdult'}, {'Database': 'project'}, {'Database': 'projectAdult'}, {'Database': 'sys'}], 'result': 1}
+2019/10/22 05:46:46 - verify__preview - DEBUG - {'msg': "create table if not exists SynService.T_ProjectSampleData(`Pid` varchar(50) default 9527, `Status` varchar(50) NOT NULL COMMENT 'status' default 'Initial table', `time` INT NOT NULL COMMENT 'percentage' default '0',`createtime` varchar(50))", 'fetchall': (), 'result': 1}
+2019/10/22 05:46:46 - verify__preview - DEBUG - {'msg': 'SHOW TABLES from SynService', 'fetchall': [{'Tables_in_SynService': 'T_ProjectSampleData'}, {'Tables_in_SynService': 'T_crime_sample'}], 'result': 1}
+2019/10/22 05:46:46 - error__preview - DEBUG - errTable: Sample fail. updateToMysql() missing 1 required positional argument: 'data'
+2019/10/22 05:48:24 - verify__preview - DEBUG - Connect SQL
+2019/10/22 05:48:24 - verify__preview - DEBUG - {'msg': 'create database if not exists SynService', 'fetchall': (), 'result': 1}
+2019/10/22 05:48:24 - verify__preview - DEBUG - {'msg': 'SHOW DATABASES', 'fetchall': [{'Database': 'information_schema'}, {'Database': 'DeIdService'}, {'Database': 'SynService'}, {'Database': 'key_db'}, {'Database': 'mysql'}, {'Database': 'performance_schema'}, {'Database': 'projAdult'}, {'Database': 'project'}, {'Database': 'projectAdult'}, {'Database': 'sys'}], 'result': 1}
+2019/10/22 05:48:24 - verify__preview - DEBUG - {'msg': "create table if not exists SynService.T_ProjectSampleData(`Pid` varchar(50) default 9527, `Status` varchar(50) NOT NULL COMMENT 'status' default 'Initial table', `time` INT NOT NULL COMMENT 'percentage' default '0',`createtime` varchar(50))", 'fetchall': (), 'result': 1}
+2019/10/22 05:48:24 - verify__preview - DEBUG - {'msg': 'SHOW TABLES from SynService', 'fetchall': [{'Tables_in_SynService': 'T_ProjectSampleData'}, {'Tables_in_SynService': 'T_crime_sample'}], 'result': 1}
+2019/10/22 05:48:24 - error__preview - DEBUG - sampleStr_succeed.
+2019/10/22 06:13:28 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:16:08 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:17:35 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:17:35 - error__preview - DEBUG - create DB fail: - NameError:name 'createDB_SynService' is not defined
+2019/10/22 06:19:16 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:19:16 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 06:21:54 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:21:54 - verify__preview - DEBUG - 
+    CREATE DATABASE SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 06:21:54 - verify__preview - DEBUG - 
+    CREATE TABLE SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        dbname VARCHAR(255) NOT NULL,
+        tbname VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 06:21:54 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 06:54:25 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:54:25 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 06:54:25 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        dbname VARCHAR(255) NOT NULL,
+        tbname VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 06:54:25 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 06:55:13 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:55:13 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 06:55:13 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        dbname VARCHAR(255) NOT NULL,
+        tbname VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 06:55:13 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 06:58:34 - verify__preview - DEBUG - Connect SQL
+2019/10/22 06:58:34 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 06:58:34 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        dbname VARCHAR(255) NOT NULL,
+        tbname VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 06:58:34 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 07:12:47 - verify__preview - DEBUG - Connect SQL
+2019/10/22 07:12:47 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 07:12:47 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        dbname VARCHAR(255) NOT NULL,
+        tbname VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 07:12:47 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 07:16:19 - verify__preview - DEBUG - Connect SQL
+2019/10/22 07:16:19 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 07:16:19 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        dbname VARCHAR(255) NOT NULL,
+        tbname VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 07:16:19 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 08:39:09 - verify__preview - DEBUG - Connect SQL
+2019/10/22 08:39:09 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 08:39:09 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:39:09 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectColumnType (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        pro_col_en LONGTEXT,
+        pro_col_cht LONGTEXT,
+        tableCount INT(11),
+        ob_col LONGTEXT,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:39:09 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 08:39:09 - error__preview - DEBUG - errTable: insert column type fail. local variable 'resultSampleData' referenced before assignment
+2019/10/22 08:54:36 - verify__preview - DEBUG - Connect SQL
+2019/10/22 08:54:37 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 08:54:37 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:54:37 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectColumnType (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        pro_col_en LONGTEXT,
+        pro_col_cht LONGTEXT,
+        tableCount INT(11),
+        ob_col LONGTEXT,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:54:37 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 08:54:37 - error__preview - DEBUG - errTable: insert column type fail. name 'conn' is not defined
+2019/10/22 08:55:25 - verify__preview - DEBUG - Connect SQL
+2019/10/22 08:55:25 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 08:55:25 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:55:25 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectColumnType (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        pro_col_en LONGTEXT,
+        pro_col_cht LONGTEXT,
+        tableCount INT(11),
+        ob_col LONGTEXT,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:55:25 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 08:55:25 - error__preview - DEBUG - errTable: insert column type fail. name 'vlogger' is not defined
+2019/10/22 08:55:59 - verify__preview - DEBUG - Connect SQL
+2019/10/22 08:55:59 - verify__preview - DEBUG - 
+    CREATE DATABASE if not exists SynService DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    
+2019/10/22 08:55:59 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectSampleData (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        data LONGTEXT NOT NULL,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:55:59 - verify__preview - DEBUG - 
+    CREATE TABLE if not exists SynService.T_ProjectColumnType (
+        Id INT(11) NOT NULL auto_increment PRIMARY KEY,
+        project_id INT(11) NOT NULL,
+        pro_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        pro_col_en LONGTEXT,
+        pro_col_cht LONGTEXT,
+        tableCount INT(11),
+        ob_col LONGTEXT,
+        createtime DATETIME NOT NULL,
+        updatetime DATETIME
+    ) DEFAULT CHARSET=utf8;
+    
+2019/10/22 08:55:59 - verify__preview - DEBUG - sampleStr_succeed.
+2019/10/22 08:55:59 - verify__preview - DEBUG - insert column type succeed.

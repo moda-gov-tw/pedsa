@@ -1,0 +1,160 @@
+version: "3"
+services:
+  web:
+    # for syn
+    #restart: always
+    image: pets_flask:1.0 #flask-redis_citc:05.1 #flask-redis_citc:04
+    ports:
+     - "5090:5088" 
+     - "4421:22"
+    volumes:
+      - ./APP__:/app/app/devp
+      - ./config.py:/app/config.py
+      #- /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo/Asia/Taipei:/etc/localtime
+      - ./timezone:/etc/timezone 
+
+    entrypoint: gunicorn
+    command:  --log-level=debug --preload -w 1 -b 0.0.0.0:5088 app:app
+    #command: ["/bin/bash","-c", "python app.py /app/sqljdbc4-2.0.jar > /app/app/devp/log/flask_log.txt"]
+    environment:
+      - REDIS_HOST:redis_dp1
+      #-  REDIS_HOST:redis_compose
+      - REDIS_PORT:6381
+      - REDIS_PWD:"citcw200" 
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.117
+        aliases: 
+          - flaskdp_compose 
+    depends_on:
+      - redis_dp1
+
+  redis_dp1:
+    restart: always
+    image: pets_redis:1.0 #redis:4.0.1-alpine02
+    ports:
+     - "4420:22"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro  
+    environment:
+    #   - PWD123:/run/secrets/my-pw2
+      - TZ=Asia/Taipei         
+    
+    # environment:
+    #   - PWD123:/run/secrets/my-pw2
+
+    entrypoint: redis-server
+    command:   --requirepass 'citcw200' --port 6381
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.118
+        aliases: 
+          - redis_dp1_compose
+
+  
+  genSyncData_celery:
+    # restart: always
+    image: pets_dp_celery:1.0 #dp/celery:v1.0 #pets_gan_celery:1.0 #test/gan_celery:v1.0
+    depends_on:
+      - redis_dp1
+    environment:
+      - REDIS_HOST:redis_dp1
+      #- REDIS_HOST:redis_compose
+      - REDIS_PORT:6381
+      - REDIS_PWD:"citcw200"        
+    # command: ["/bin/bash","-c", "celery -A app.celery worker --loglevel=info -f /app/app/devp/log/celery_log.txt"]
+    command: ["/bin/bash","-c", ". worker.sh"]
+    volumes:
+      # - /home/ubuntu/PETS/pets_dp/dp/de-identification:/de-identification
+      - ./APP__:/app/app/devp
+      - ./config.py:/app/config.py  
+      #- /etc/localtime:/etc/localtime:ro
+      #- ../../../dp/de-identification/static/test/:/app/app/devp/static_test
+      - /usr/share/zoneinfo/Asia/Taipei:/etc/localtime
+      - ./timezone:/etc/timezone        
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.119
+        aliases: 
+          - genSyncDataCelery_dp_compose 
+
+  #clone_keyMysql_nrt:
+  #  # restart: always
+  #  image: mariadb/peihsuan:10.3
+  #  # user: root
+  #  ports:
+  #    - "11199:3306"
+      # - "3222:22"
+    #command: '--init-file /init.sql'
+    #/bin/bash -c "mysql --default-character-set=utf8 -u root -pcitcw200 </key_db.sql"
+    # command: ["/bin/bash","-c", ". start_ssh.sh"]
+    # command: ["/bin/bash","-c", "mysql --default-character-set=utf8 -u root -pcitcw200 < var/lib/mysql/syn_db.sql"]
+    
+    #command: ['chown','root:root', '/start_ssh1.sh']
+    #command: --init-file /key_db1.sql
+    #command: ['service', 'ssh', 'start']
+    #command: ["/usr/sbin/sshd", "-D"]
+    #command: 'mysqld --default-authentication-plugin=mysql_native_password'
+    # command: 'start_ssh1.sh'
+
+  #  environment: 
+  #    MYSQL_ROOT_PASSWORD: citcw200
+
+  #  volumes:
+  #    - '/etc/localtime:/etc/localtime:ro'
+  #    - './APP__/keymariadb:/var/lib/mysql'
+  #    - './initialDeIDServiceDBs_Tables.sh:/initialDeIDServiceDBs_Tables.sh'
+      # - './keymariadb/syn_db.sql:/syn_db.sql'
+      #- './start_ssh1.sh:/start_ssh1.sh'
+      #- './init.sql:/init.sql'
+    #stdin_open: true
+    #tty: true
+  #  networks:
+  #    mynetwork:
+  #      ipv4_address: 172.126.1.12  
+  deidweb:
+    restart: always
+    image: pets_dp_deidweb:3.1 #pets_dp_deidweb:2.7 #pets_syn_deidweb:1.5 #pets_dp_deidweb:1.0  #syncweb_221:latest #syncweb:2.2
+    hostname: deidwebdp_dp_compose
+    #ports:
+    #  - "11065:11065"
+
+    volumes:
+      - ./appsettings.json:/app/appsettings.json
+      #- ./WebAPIController.cs:/app/Controllers/WebAPIController.cs
+      # - process_appsettings.py:/app/process_appsettings.py
+    environment:
+      - TZ=Asia/Taipei 
+    networks:
+      mynetwork:
+        ipv4_address: 172.26.1.110
+        aliases: 
+          - deidwebdp_dp_compose
+
+  #differential_privacy:
+  #  restart: always
+  #  image: pets_dp:1.0 #robinlin/de-identification:latest 
+  #  ports:
+  #    - "8060:8080" #原始設定 http://ip:8060
+  #    #- "8081:8080" #在pets_syn的nginx設定 for https://ip:8081 
+  #
+  #  #volumes:
+  #    #- /home/ubuntu/PETS/pets_dp/dp/de-identification/static/test/:/opt/de-identification/static/test/ 
+  #    #- ../../../dp/de-identification/static/test/:/opt/de-identification/static/test/ 
+  #    #- ../../../dp/de-identification/log/:/opt/de-identification/log/ 
+  #    #- ../../../dp/de-identification/server/:/opt/de-identification/server/
+  #    #- ./appsettings.json:/app/appsettings.json
+  #    # - process_appsettings.py:/app/process_appsettings.py
+  #  networks:
+  #    mynetwork:
+  #      ipv4_address: 172.26.1.113
+  #      aliases: 
+  #        - DifferentialPrivacyCompose
+
+
+networks:
+  mynetwork:
+    external:
+      name: hadoopnet_overlay

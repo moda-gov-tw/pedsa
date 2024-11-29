@@ -1,0 +1,335 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct 18 13:56:16 2019
+
+@author: A70353
+"""
+
+import pandas as pd
+import numpy as np
+    
+import shutil
+
+from MyLib.connect_sql import ConnectSQL 
+
+from logging_tester import _getLogger
+import pymysql
+from mysql_create_api import createDB_SynService, createTbl_T_ProjectSample5Data
+from mysql_create_api import createTbl_T_ProjectColumnType, createTbl_T_GANStatus
+
+#check the type of column and drop column with some condition
+#return the columns have been dropped 
+#return the df after dropped some columns
+def check_columns(df):
+    id_col = []
+    missing_col =[]
+    unique_col = []
+        
+    row,_ = df.shape
+        
+    for i in (df.columns):
+        attr_nunique = df[i].nunique()
+        missing_count = df[i].isnull().sum()
+        #check ID column
+        if  attr_nunique >= (row*0.8):
+            id_col.append(i)
+            #print("id col: ",i)
+        #check wether #. NAN is greater than 60%
+        if  missing_count >= (row*0.6):
+            missing_col.append(i)
+                #print("missing col: ",i)
+        #check nunique attribute == 1
+        if  attr_nunique == 1:
+            unique_col.append(i)
+                #print("unique col: ",i)
+                
+    df.drop(id_col, axis = 1, inplace=True)
+    df.drop(missing_col, axis = 1, inplace=True)
+    df.drop(unique_col, axis = 1, inplace=True)
+    #print("id columns: ",id_col)
+    #print("missing columns: ",missing_col)
+    #print("att=1 columns: ",unique_col)
+    return id_col, missing_col, unique_col , df
+
+#check the type of column, then return categorical column
+def check_col_type(df):
+    ob_col = []
+    df_numeric = df.apply(pd.to_numeric, errors='coerce')
+    for col in df_numeric.columns:
+        f_nan_sum = df_numeric[col].isnull().sum()
+        if f_nan_sum >= int(df_numeric.shape[0]*0.3):
+            ob_col.append(col)
+    return ob_col
+
+#update mysql with sampling 5 data from the df after dropped some columns
+def updateToMysql_sample(conn,userID,projID, projName, table, data):
+
+    # insert to sample data
+    condisionSampleData = {
+            'project_id': projID,
+            'pro_name': projName,
+            'file_name': table
+        }
+
+    valueSampleData = {
+            'project_id': projID,
+            'user_id':userID,
+            'pro_name': projName,
+            'file_name': table,
+            'data': data
+        }
+
+    resultSampleData = conn.updateValueMysql('SynService',#'DeIdService',
+                                                 'T_ProjectSample5Data',
+                                                 condisionSampleData,
+                                                 valueSampleData)
+    if resultSampleData['result'] == 1:
+        #_logger.debug("Update mysql succeed. {0}".format(resultSampleData['msg']))
+        return None
+    else:
+        msg = resultSampleData['msg']
+        _logger.debug('insertSampleDataToMysql fail: ' + msg)
+        return None
+
+#update mysql with df information from the df after dropped some columns
+def updateToMysql_colType(conn,userID,projID, projName, table, pro_col_en,pro_col_cht,tableCount,ob_col,ID_column,pro_col_en_nunique):
+
+    print('COLTYPE')
+        # insert col type to sql
+    condisionSampleData = {
+            'project_id': projID,
+            'user_id':userID,
+            'pro_name': projName,
+            'file_name': table
+        }
+
+    valueSampleData = {
+            'project_id': projID,
+            'user_id':userID,
+            'pro_name': projName,
+            'file_name': table,
+            'pro_col_en': ','.join(pro_col_en),
+            'pro_col_cht':','.join(pro_col_cht),
+            'tableCount':tableCount,
+            'ob_col':','.join(ob_col), #drop_df's categorical columns
+            'ID_column':','.join(ID_column), #drop columns with some condition
+            'pro_col_en_nunique':','.join(pro_col_en_nunique)#pro_col_en_nunique count
+        }
+
+    resultSampleData = conn.updateValueMysql('SynService',#'DeIdService',
+                                            'T_ProjectColumnType',
+                                            condisionSampleData,
+                                            valueSampleData)
+    if resultSampleData['result'] == 1:
+        #_logger.debug("Update mysql succeed. {0}".format(resultSampleData['msg']))
+        return None
+    else:
+        msg = resultSampleData['msg']
+        _logger.debug('insertSampleDataToMysql fail: ' + msg)
+        return None
+
+def updateToMysql_status(conn,userID,projID, projName, table, step,percentage):
+    # update process status to mysql
+    condisionSampleData = {
+            'project_id': projID,
+            'pro_name': projName,
+            'file_name': table,
+            'jobName': "Preview"
+        }
+
+    valueSampleData = {
+            'jobName': "Preview",
+            'project_id': projID,
+            'user_id':userID,
+            'pro_name': projName,
+            'file_name': table,
+            'step': step,
+            'percentage':percentage
+        }
+
+    resultSampleData = conn.updateValueMysql('SynService',#'DeIdService',
+                                            'T_GANStatus',
+                                            condisionSampleData,
+                                            valueSampleData)
+    if resultSampleData['result'] == 1:
+        #_logger.debug("Update mysql succeed. {0}".format(resultSampleData['msg']))
+        return None
+    else:
+        msg = resultSampleData['msg']
+        _logger.debug('insertSampleDataToMysql fail: ' + msg)
+        return None
+
+def main(args):
+
+    global  _logger,_vlogger, check_conn     
+    # debug log
+    _logger  =_getLogger('error__preview')
+    # verify log
+    _vlogger =_getLogger('verify__preview')
+
+    #connect MYSQL
+    try:
+        check_conn = ConnectSQL()
+        _vlogger.debug("Connect SQL")
+
+    except Exception as e:
+        _logger.debug('connectToMysql fail: - %s:%s' %(type(e).__name__, e))
+        return None
+    #create DB AND table
+    try :
+        stepDict = {
+            '0': createDB_SynService(check_conn),
+            '1': createTbl_T_ProjectSample5Data(check_conn),
+            '2': createTbl_T_ProjectColumnType(check_conn),
+            '3': createTbl_T_GANStatus(check_conn)
+        }
+        for i in range(len(stepDict)):
+            print(i)
+            try:
+                result = stepDict[str(i)]
+                if result['result'] == 1:
+                    _vlogger.debug(result['msg'])
+                else:
+                    print('mysql fail:' + result['msg'])
+                    #return False
+            except:
+                pass
+    except Exception as e:
+        _logger.debug('create DB fail: - %s:%s' %(type(e).__name__, e))
+        return None
+
+    userID = args['userID']
+    projName = args['projName']
+    fileName = args['fileName']
+    projID = args['projID']
+    #Initial
+    try:
+        #updateToMysql_status(check_conn, projID, projName, fileName, step, percentage)
+        updateToMysql_status(check_conn,userID, projID, projName, fileName, 'Initial', 0)
+    except Exception as e:
+        _logger.debug('errTable: updateToMysql_status fail. {0}'.format(str(e)))
+        return
+    #cp data from user's upload folder to projectfolder
+    user_upload_path = "app/devp/user_upload_folder/"+projName+'/'
+    project_path = "app/devp/folderForSynthetic/"+projName+'/'
+    inputRawdata_path = project_path+'inputRawdata'+'/'
+
+    #Copy a file into projectfolder
+    userfile = user_upload_path+fileName
+    print('userfile: ',userfile)
+    projectfile = inputRawdata_path+fileName
+
+    try:
+        newPath = shutil.copy( userfile, projectfile)
+    except Exception as e:
+        #rint('copy file fail: - %s:%s' %(type(e).__name__, e))
+        _logger.debug('INsert fail: - %s:%s' %(type(e).__name__, e))
+        return None
+
+    try:
+
+        #load data
+        df = pd.read_csv(projectfile)
+        all_raw_col = df.columns.tolist()
+        # Take a look at the first entries
+        print("df.shape: ",df.shape)
+        print(df.tail(1))
+
+        '''
+        # Convert ch_col_name to en_col_name
+        header_ch = inputData.columns
+        tmp_num = str(hash(projName))[1:3] + str(hash(tblName))[1:3]
+        header_en = ['c_'+tmp_num+'_'+str(i) for i in range(len(header_ch))]
+        inputData = inputData.toDF(*header_en)
+        '''   
+                
+        id_col, missing_col, unique_col, df_drop = check_columns(df)
+        print("id columns: ",id_col)
+        print("missing columns: ",missing_col)
+        print("att=1 columns: ",unique_col)
+
+
+        join_drop_columns = id_col+missing_col+unique_col
+        try:
+            #updateToMysql_status(check_conn, projID, projName, fileName, step, percentage)
+            updateToMysql_status(check_conn,userID, projID, projName, fileName, 'drop_id_column', 30)
+            #_vlogger.debug('updateToMysql_status succeed.')
+        except Exception as e:
+            _logger.debug('errTable: updateToMysql_status fail. {0}'.format(str(e)))
+            return None
+        print("drop df shape: ", df_drop.shape)
+        
+        df_drop.fillna('UNknown',inplace=True)
+        #save file after preprocessing
+        #df_drop = df_drop.sample(n=1000)
+        df_drop.to_csv(inputRawdata_path+'df_preview.csv',index=False)
+        
+        #check file column type
+        all_col = df_drop.columns.tolist()
+        tableCount,_ = df_drop.shape
+        ob_col = check_col_type(df_drop)
+        print("ob_col columns: ",ob_col)
+        #print(df_drop.info())
+        pro_col_en_nunique=[]
+        for col_nunique in all_col:
+            count = df_drop[col_nunique].nunique()
+            print(col_nunique,count)
+            pro_col_en_nunique.append(str(count))
+
+        try:
+            #updateToMysql_status(check_conn, projID, projName, fileName, step, percentage)
+            updateToMysql_status(check_conn,userID, projID, projName, fileName, 'check_column', 80)
+            #_vlogger.debug('updateToMysql_status succeed.')
+        except Exception as e:
+            _logger.debug('errTable: updateToMysql_status fail. {0}'.format(str(e)))
+            return None
+    except Exception as e:
+        print('check columns type fail: - %s:%s' %(type(e).__name__, e))
+        #_logger.debug('INsert fail: - %s:%s' %(type(e).__name__, e))
+        return None
+
+
+    
+    #save df_drop.head() to sql
+    #data = df_drop.sample(n=5).to_json(orient='records')
+    data = df_drop.head(5).to_json(orient='records')
+    try:
+        updateToMysql_sample(check_conn,userID,projID, projName, fileName, data)
+        _vlogger.debug('sampleStr_succeed.')
+    except Exception as e:
+        _logger.debug('errTable: Sample fail. {0}'.format(str(e)))
+        return
+
+    #save df_drop.ob_columns to sql
+    try:
+        #list: pro_col_en,pro_col_cht,ob_col
+        #updateToMysql_colType(conn,projID, projName, fileName, pro_col_en,pro_col_cht,tableCount,ob_col)
+        updateToMysql_colType(check_conn,userID,projID, projName, fileName, all_raw_col, all_col,tableCount,ob_col,join_drop_columns,pro_col_en_nunique)
+        _vlogger.debug('insert column type succeed.')
+    except Exception as e:
+        _logger.debug('errTable: insert column type fail. {0}'.format(str(e)))
+        return
+    try:
+            #updateToMysql_status(check_conn, projID, projName, fileName, step, percentage)
+        updateToMysql_status(check_conn,userID, projID, projName, fileName, 'finish', 100)
+            #_vlogger.debug('updateToMysql_status succeed.')
+    except Exception as e:
+        _logger.debug('errTable: updateToMysql_status fail. {0}'.format(str(e)))
+        return None
+    print("citc____Mission Complete")
+
+
+
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-projName", "--projName", help='projName for make a folder')
+    parser.add_argument("-fileName", "--fileName", help='The name of dataset')
+    parser.add_argument("-projID", "--projID", help='projID for mysql')
+    parser.add_argument("-userID", "--userID", help='update user info to mysql')
+    args = vars(parser.parse_args())
+    print(args)
+    print ("in __main__")
+    main(args)

@@ -1,0 +1,26 @@
+[Hadoop_information]
+
+ip_join=168.17.8.252
+ip=34.81.119.49
+
+hdfs_port = 6922
+
+user=itri-pedsa
+
+passwd=
+
+
+from_path=/home/ubuntu/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/input/
+
+to_path =/home/ubuntu/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/output/
+
+rawData_path=/home/ubuntu/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/data/output/
+
+privacyData_path = /home/ubuntu/deploy_PEDSA/pedsa_s/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/
+
+user_dir = /home/jeremyho/Pets_sourcecode/pets_dp/pets_dp/sourceCode/DP_webService/APP__/user_upload_folder
+
+final_dir = /home/jeremyho/Pets_sourcecode/pets_hadoop/pets_v1/sourceCode/hadoop/final_project/syn/input
+
+dp_csv_dir = /home/jeremyho/Pets_sourcecode/pets_dp/dp/de-identification/static/test
+

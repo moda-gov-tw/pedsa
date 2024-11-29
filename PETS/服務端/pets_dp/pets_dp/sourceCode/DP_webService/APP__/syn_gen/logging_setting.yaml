@@ -1,0 +1,60 @@
+version: 1
+formatters:
+  simple_file:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y/%m/%d %I:%M:%S'
+  simple_console:
+    format: '%(name)s - %(levelname)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple_console
+    stream: ext://sys.stdout
+  file:
+    class : logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple_file
+    filename: /app/app/devp/log/GAN.log
+    maxBytes: 10485760
+    backupCount: 2
+loggers:
+  mylog:
+    level: ERROR
+    handlers: [console, file]
+    propagate: no
+  HiveLibs:
+    level: WARN
+    handlers: [file]
+    propagate: yes 
+  kchecking:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes 
+  udfEncUID:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes     
+  verify__genData:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes  
+  error__genData:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  getGenerationData_longTask_verify:
+    level: DEBUG
+    handler: [file]
+    propagate: yes
+  verify__DPData:
+    level: DEBUG
+    handlers: [ file ]
+    propagate: yes
+  error__DPData:
+    level: DEBUG
+    handlers: [ file ]
+    propagate: yes
+root:
+  level: INFO
+  handlers: [console]
