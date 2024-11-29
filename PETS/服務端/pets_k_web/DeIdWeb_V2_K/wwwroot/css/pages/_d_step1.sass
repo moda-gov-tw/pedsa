@@ -1,0 +1,99 @@
+//Step1資料匯入及處理
+.select_table
+  min-height: 300px
+  margin-bottom: 80px
+  li
+    margin: 10px
+    width: 95%
+    padding: 10px 20px
+    background-color: $color_white
+    box-shadow: 0 2px 7px rgba(51, 51, 51, 0.2)
+  .unstyled
+    margin: 0
+    padding: 0
+    list-style-type: none
+    img
+      +size(16px, 16px)
+      margin-right: 10px
+  .empty_status
+    img
+      width: 150px
+      padding: 30px 0 10px 0
+    h6
+      color: lighten($color_darkgray,50)
+.scene
+  display: flex
+  padding: 40px
+  align-items: center
+  justify-content: center
+  svg
+    width: 230px
+    height: 230px
+
+//匯入完成動畫
+.success-circle
+  .background
+    +size(100px, 100px)
+    border-radius: 50%
+    background: $color_sub
+    +rl_center
+  .checkmark
+    +size(100px, 100px)
+    position: absolute
+    left: 46%
+    top: 31%
+    transform: translate(-50%, -50%)
+    border-radius: 5px
+    &.draw:after
+      -webkit-animation-delay: 300ms
+      -moz-animation-delay: 300ms
+      animation-delay: 300ms
+      -webkit-animation-duration: 2s
+      -moz-animation-duration: 2s
+      animation-duration: 2s
+      -webkit-animation-timing-function: ease
+      -moz-animation-timing-function: ease
+      animation-timing-function: ease
+      -webkit-animation-name: checkmark
+      -moz-animation-name: checkmark
+      animation-name: checkmark
+      -webkit-transform: scaleX(-1) rotate(135deg)
+      -moz-transform: scaleX(-1) rotate(135deg)
+      -ms-transform: scaleX(-1) rotate(135deg)
+      -o-transform: scaleX(-1) rotate(135deg)
+      transform: scaleX(-1) rotate(135deg)
+      -webkit-animation-fill-mode: forwards
+      -moz-animation-fill-mode: forwards
+      animation-fill-mode: forwards
+    &:after
+      opacity: 1
+      -webkit-transform-origin: left top
+      -moz-transform-origin: left top
+      -ms-transform-origin: left top
+      -o-transform-origin: left top
+      transform-origin: left top
+      border-right: 5px solid white
+      border-top: 5px solid white
+      border-radius: 2.5px !important
+      content: ''
+      left: 25px
+      top: 70px
+      position: absolute
+
+//匯入警示
+.error-triangular, .warning-triangular
+  #exclamation
+    transition: transform .5s ease-out
+    stroke: $color_white
+    stroke-width: 1
+    .exclamation_mark
+      opacity: 0
+      stroke-dasharray: 100
+      stroke-dashoffset: 100
+      animation: excl 1s ease forwards -.6s
+    .dot
+      opacity: 0
+      animation: dot-fade .2s ease forwards .5s
+.error-triangular
+  h7
+    color: #f2d500

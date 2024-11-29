@@ -1,0 +1,155 @@
+2024-06-01 10:34:16,700 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Starting ProjectIndex
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,160 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : proj2 ,Project_Id :79
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,164 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,167 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo2_0531 ,Project_Id :78
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,170 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,174 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo3_0531 ,Project_Id :77
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,177 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,179 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test240531 ,Project_Id :76
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,182 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,186 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,189 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,192 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,195 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,198 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c1_test ,Project_Id :74
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,201 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,204 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo0530_single ,Project_Id :73
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,208 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,212 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_single ,Project_Id :70
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,216 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,220 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST3 ,Project_Id :69
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,223 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,227 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_3_killo ,Project_Id :68
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,231 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,235 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_tow_killo ,Project_Id :67
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,239 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,244 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one_killo ,Project_Id :66
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,248 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,252 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_ ,Project_Id :65
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,256 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,261 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2_2 ,Project_Id :63
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,266 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,270 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2 ,Project_Id :60
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,275 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,280 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : single_0528 ,Project_Id :59
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,284 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,289 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST1 ,Project_Id :53
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,294 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,298 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_two ,Project_Id :52
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,303 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,308 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_three ,Project_Id :51
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,313 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,319 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one ,Project_Id :50
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,324 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,328 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST10521 ,Project_Id :45
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,333 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,338 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST ,Project_Id :43
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,342 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,347 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,352 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,357 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,362 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,367 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0516_t2 ,Project_Id :37
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,372 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,378 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0515 ,Project_Id :31
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,383 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,388 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adult_0515 ,Project_Id :30
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,392 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,398 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_tx ,Project_Id :25
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,403 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,408 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_ma ,Project_Id :24
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,414 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,418 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adultinc ,Project_Id :23
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,424 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,430 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : bank_loan ,Project_Id :21
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,435 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,440 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_t2 ,Project_Id :19
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,445 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,450 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 240403_ ,Project_Id :16
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,455 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,461 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : hello ,Project_Id :15
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,466 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,471 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 112_caseC_1130325 ,Project_Id :14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:34:18,476 [8] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:07,327 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Starting ProjectIndex
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,155 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : proj2 ,Project_Id :79
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,160 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,165 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo2_0531 ,Project_Id :78
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,169 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,174 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo3_0531 ,Project_Id :77
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,178 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,182 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test240531 ,Project_Id :76
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,186 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,191 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,195 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,200 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,204 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,209 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c1_test ,Project_Id :74
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,214 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,219 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo0530_single ,Project_Id :73
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,225 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,230 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_single ,Project_Id :70
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,234 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,239 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST3 ,Project_Id :69
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,244 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,249 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_3_killo ,Project_Id :68
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,254 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,259 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_tow_killo ,Project_Id :67
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,265 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,270 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one_killo ,Project_Id :66
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,275 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,280 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_ ,Project_Id :65
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,284 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,289 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2_2 ,Project_Id :63
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,294 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,298 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2 ,Project_Id :60
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,302 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,307 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : single_0528 ,Project_Id :59
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,312 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,318 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST1 ,Project_Id :53
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,323 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,328 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_two ,Project_Id :52
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,333 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,337 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_three ,Project_Id :51
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,342 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,347 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one ,Project_Id :50
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,352 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,356 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST10521 ,Project_Id :45
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,361 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,366 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST ,Project_Id :43
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,370 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,375 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,380 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,384 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,389 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,394 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0516_t2 ,Project_Id :37
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,399 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,404 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0515 ,Project_Id :31
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,410 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,414 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adult_0515 ,Project_Id :30
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,419 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,424 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_tx ,Project_Id :25
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,429 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,433 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_ma ,Project_Id :24
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,438 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,443 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adultinc ,Project_Id :23
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,448 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,452 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : bank_loan ,Project_Id :21
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,457 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,462 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_t2 ,Project_Id :19
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,467 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,472 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 240403_ ,Project_Id :16
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,476 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,481 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : hello ,Project_Id :15
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,486 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,491 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 112_caseC_1130325 ,Project_Id :14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:08,497 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-06-01 10:48:11,425 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-06-01 10:48:11,432 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-06-01 10:48:11,481 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step6
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-06-01 10:48:11,487 [10] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :79
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-06-01 10:48:11,493 [10] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-06-01 10:48:11,521 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - final_html : <tr><td>48842</td><td>47488</td><td>1354</td><td>2.772200%</td><td>3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-06-01 10:48:11,546 [10] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :79
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-06-01 10:48:11,552 [10] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename

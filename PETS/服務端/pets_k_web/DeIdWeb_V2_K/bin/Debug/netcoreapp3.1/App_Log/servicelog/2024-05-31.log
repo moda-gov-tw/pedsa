@@ -1,0 +1,746 @@
+2024-05-31 09:41:34,370 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Starting ProjectIndex
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,977 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test240531 ,Project_Id :76
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,981 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 9
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,984 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,988 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,992 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,994 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:35,997 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c1_test ,Project_Id :74
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,000 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,003 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo0530_single ,Project_Id :73
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,006 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,010 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_single ,Project_Id :70
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,013 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,016 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST3 ,Project_Id :69
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,019 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,023 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_3_killo ,Project_Id :68
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,026 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,030 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_tow_killo ,Project_Id :67
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,034 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,038 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one_killo ,Project_Id :66
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,041 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,045 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_ ,Project_Id :65
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,049 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,054 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2_2 ,Project_Id :63
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,058 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,062 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2 ,Project_Id :60
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,066 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,072 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : single_0528 ,Project_Id :59
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,077 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,083 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST1 ,Project_Id :53
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,088 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,093 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_two ,Project_Id :52
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,099 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,104 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_three ,Project_Id :51
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,109 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,115 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one ,Project_Id :50
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,122 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,127 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST10521 ,Project_Id :45
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,132 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,138 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST ,Project_Id :43
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,143 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,148 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,153 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,160 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,165 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,170 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0516_t2 ,Project_Id :37
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,175 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,179 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0515 ,Project_Id :31
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,185 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,191 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adult_0515 ,Project_Id :30
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,196 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,201 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_tx ,Project_Id :25
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,206 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,211 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_ma ,Project_Id :24
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,217 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,224 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adultinc ,Project_Id :23
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,229 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,235 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : bank_loan ,Project_Id :21
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,240 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,246 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_t2 ,Project_Id :19
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,252 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,257 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 240403_ ,Project_Id :16
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,262 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,267 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : hello ,Project_Id :15
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,272 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,277 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 112_caseC_1130325 ,Project_Id :14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:36,281 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:41:42,716 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:42,723 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:42,773 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step6
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:42,781 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:41:42,787 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:41:42,815 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - final_html : <tr><td>10000</td><td>1238</td><td>8762</td><td>87.620000%</td><td>3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:42,841 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:41:42,847 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:41:51,609 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:51,615 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,086 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 Project_Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,095 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 ProjectName :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,100 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 kvalue :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,106 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 selectqicountvalue :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,210 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 k_col_name after :  UID_sys_P1,ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,340 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_data : after new [
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "0",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "6"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "2"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "14",
+    "RIDAGEYR_sys_P1": "33"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "14",
+    "DMDEDUC23_sys_P2": "16",
+    "RIDAGEYR_sys_P1": "65"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "13",
+    "DMDEDUC23_sys_P2": "17",
+    "RIDAGEYR_sys_P1": "61"
+  }
+]
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,350 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_data : after new [
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "0",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "6"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "2"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "14",
+    "RIDAGEYR_sys_P1": "33"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "14",
+    "DMDEDUC23_sys_P2": "16",
+    "RIDAGEYR_sys_P1": "65"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "13",
+    "DMDEDUC23_sys_P2": "17",
+    "RIDAGEYR_sys_P1": "61"
+  }
+]
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:41:55,359 [9] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 All Data :  <tr><td>RIDAGEYR_sys_P1</td><td> 下界 : 1<br /> 數字區間 : 5<br /> 上界 : 150</td></tr><tr><td>RIAGENDR_sys_P1</td><td>不處理</td></tr><tr><td>DMDCITZN_sys_P1</td><td>不處理</td></tr><tr><td>DMDEDUC23_sys_P2</td><td>不處理</td></tr><tr><td>INCOME_sys_P2</td><td>不處理</td></tr><tr><td>ZIP_sys_P2</td><td>擷取字串:3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:27,633 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:27,647 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:33,915 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 Project_Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:33,921 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 ProjectName :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:33,926 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 kvalue :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:33,927 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Starting ProjectIndex
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:33,931 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 selectqicountvalue :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:34,681 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 k_col_name after :  UID_sys_P1,ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:34,704 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test240531 ,Project_Id :76
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,717 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,722 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,727 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,732 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,744 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,749 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c1_test ,Project_Id :74
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,757 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,763 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo0530_single ,Project_Id :73
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,774 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_data : after new [
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "0",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "6"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "2"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "14",
+    "RIDAGEYR_sys_P1": "33"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "14",
+    "DMDEDUC23_sys_P2": "16",
+    "RIDAGEYR_sys_P1": "65"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "13",
+    "DMDEDUC23_sys_P2": "17",
+    "RIDAGEYR_sys_P1": "61"
+  }
+]
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:34,776 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,785 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_data : after new [
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "0",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "6"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "0",
+    "RIDAGEYR_sys_P1": "2"
+  },
+  {
+    "RIAGENDR_sys_P1": "1",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "6",
+    "DMDEDUC23_sys_P2": "14",
+    "RIDAGEYR_sys_P1": "33"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "c64a612791469f9e55a0341cba2459c17832dce92ecb36ee481eb056c5172d18",
+    "RIDRETH1_sys_P1": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "14",
+    "DMDEDUC23_sys_P2": "16",
+    "RIDAGEYR_sys_P1": "65"
+  },
+  {
+    "RIAGENDR_sys_P1": "2",
+    "DMDHHSIZ_sys_P2": "de63f30f6553092cf618ec6c5c088b873c1fd14f8e5665127fea3ab50380fed8",
+    "RIDRETH1_sys_P1": "5e83370d840d404c47e450e1a3d1e8641bcf7c6d396b4e0b79ef5ee831e93eac",
+    "DMDCITZN_sys_P1": "0",
+    "INCOME_sys_P2": "13",
+    "DMDEDUC23_sys_P2": "17",
+    "RIDAGEYR_sys_P1": "61"
+  }
+]
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:34,790 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_single ,Project_Id :70
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,795 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 All Data :  <tr><td>RIDAGEYR_sys_P1</td><td> 下界 : 1<br /> 數字區間 : 5<br /> 上界 : 150</td></tr><tr><td>RIAGENDR_sys_P1</td><td>不處理</td></tr><tr><td>DMDCITZN_sys_P1</td><td>不處理</td></tr><tr><td>DMDEDUC23_sys_P2</td><td>不處理</td></tr><tr><td>INCOME_sys_P2</td><td>不處理</td></tr><tr><td>ZIP_sys_P2</td><td>擷取字串:3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:34,799 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,809 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST3 ,Project_Id :69
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,814 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,820 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_3_killo ,Project_Id :68
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,825 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,832 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_tow_killo ,Project_Id :67
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,837 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,843 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one_killo ,Project_Id :66
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,849 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,854 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_ ,Project_Id :65
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,862 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,868 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2_2 ,Project_Id :63
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,873 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,879 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2 ,Project_Id :60
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,884 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,890 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : single_0528 ,Project_Id :59
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,965 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:34,995 [12] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST1 ,Project_Id :53
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:47,265 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Starting ProjectIndex
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,107 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test240531 ,Project_Id :76
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,113 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,118 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,123 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,128 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c2_test ,Project_Id :75
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,133 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,138 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : c1_test ,Project_Id :74
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,143 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,148 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo0530_single ,Project_Id :73
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,152 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,157 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_single ,Project_Id :70
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,162 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,166 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST3 ,Project_Id :69
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,171 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,175 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_3_killo ,Project_Id :68
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,180 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,184 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_tow_killo ,Project_Id :67
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,188 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,193 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one_killo ,Project_Id :66
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,197 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,202 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_2_ ,Project_Id :65
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,208 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,213 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2_2 ,Project_Id :63
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,220 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,227 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST2 ,Project_Id :60
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,233 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,238 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : single_0528 ,Project_Id :59
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,243 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,249 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST1 ,Project_Id :53
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,255 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,260 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_two ,Project_Id :52
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,266 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,272 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_three ,Project_Id :51
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,278 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,283 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : scenario_one ,Project_Id :50
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,288 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,293 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : TEST10521 ,Project_Id :45
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,299 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,304 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 0517TEST ,Project_Id :43
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,310 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,316 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,322 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,328 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : demo_0516_t1 ,Project_Id :38
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,333 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,339 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0516_t2 ,Project_Id :37
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,344 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,349 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_0515 ,Project_Id :31
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,354 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,359 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adult_0515 ,Project_Id :30
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,364 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 6
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,369 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_tx ,Project_Id :25
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,374 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,379 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : nist_ma ,Project_Id :24
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,385 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,390 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : adultinc ,Project_Id :23
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,395 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,400 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : bank_loan ,Project_Id :21
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,406 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,413 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test_t2 ,Project_Id :19
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,418 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,423 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 240403_ ,Project_Id :16
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,428 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,434 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : hello ,Project_Id :15
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,439 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,446 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : 112_caseC_1130325 ,Project_Id :14
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:48,451 [4] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-05-31 09:42:50,548 [13] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:50,556 [13] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:50,612 [13] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step6
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:50,620 [13] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:42:50,625 [13] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:42:50,653 [13] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - final_html : <tr><td>10000</td><td>1238</td><td>8762</td><td>87.620000%</td><td>3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:50,679 [13] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:42:50,686 [13] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:42:54,156 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:54,163 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:54,169 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Project Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:54,175 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Project Name :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:54,181 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:54,187 [4] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:42:54,193 [4] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:42:57,334 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:42:57,342 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,435 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 Project_Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,443 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 ProjectName :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,449 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 kvalue :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,456 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 selectqicountvalue :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,503 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_name : before UID_sys_P1,RIDAGEYR_sys_P1,RIAGENDR_sys_P1,DMDCITZN_sys_P1,DMDEDUC23_sys_P2,INCOME_sys_P2,ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,544 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :0: RIDAGEYR_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,553 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,559 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,566 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,572 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,581 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,586 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,596 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,605 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,611 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,617 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,625 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,631 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,640 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,645 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,656 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,661 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,670 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,675 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,686 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,692 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,699 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,705 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,710 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,715 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,721 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,730 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,736 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,745 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,751 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,759 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,764 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,770 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,777 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,783 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,794 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,800 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,805 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,811 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,821 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :1: RIAGENDR_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,827 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :2: DMDCITZN_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,836 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :3: DMDEDUC23_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,841 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :4: INCOME_sys_P2-2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,850 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :5: ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,856 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,866 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,872 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,880 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,886 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,896 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,901 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,911 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,916 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,924 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,930 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,935 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,941 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,947 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,955 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,961 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,971 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,977 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,984 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,989 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:01,995 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,001 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,006 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,015 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,021 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,030 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,036 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,044 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,050 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,055 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,061 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,067 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,076 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,082 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,090 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,095 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,104 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,110 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,117 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,124 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,130 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,136 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,143 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,151 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,157 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,165 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,170 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,179 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:02,237 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 All Data :  <tr><td>RIDAGEYR_sys_P1</td><td> 下界 : 1<br /> 數字區間 : 5<br /> 上界 : 150</td></tr><tr><td>RIAGENDR_sys_P1</td><td>不處理</td></tr><tr><td>DMDCITZN_sys_P1</td><td>不處理</td></tr><tr><td>DMDEDUC23_sys_P2</td><td>不處理</td></tr><tr><td>INCOME_sys_P2</td><td>不處理</td></tr><tr><td>ZIP_sys_P2</td><td>擷取字串 : 3</td></tr>,
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:17,682 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:17,689 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,467 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 Project_Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,475 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 ProjectName :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,481 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 kvalue :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,488 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 selectqicountvalue :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,532 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_name : before UID_sys_P1,RIDAGEYR_sys_P1,RIAGENDR_sys_P1,DMDCITZN_sys_P1,DMDEDUC23_sys_P2,INCOME_sys_P2,ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,540 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :0: RIDAGEYR_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,546 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,551 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,556 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,562 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,567 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:19,573 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:43:43,345 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:08,145 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:08,156 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:08,164 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:08,170 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:08,177 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:08,185 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:44:10,493 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:36,266 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:36,318 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:36,330 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:36,340 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:36,345 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:36,351 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:39,354 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,538 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,548 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,555 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,564 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,570 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,579 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,585 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,594 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,600 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,608 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,614 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,632 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,638 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,643 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,654 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,660 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,667 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,672 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :1: RIAGENDR_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,678 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :2: DMDCITZN_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,684 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :3: DMDEDUC23_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,690 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :4: INCOME_sys_P2-2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,699 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :5: ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,707 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,714 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,720 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,729 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,734 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,744 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,751 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,759 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,765 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,773 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,778 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,786 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,791 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,797 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,804 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,810 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,818 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,824 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,832 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,838 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,844 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,850 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,855 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,863 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,869 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,879 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,885 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,893 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,899 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,905 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,911 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,917 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,924 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,930 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,939 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,945 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,953 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,960 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,967 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,972 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,979 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,989 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:42,995 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:43,001 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:43,006 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:43,016 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:43,023 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:43,029 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:45:43,035 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 All Data :  <tr><td>RIDAGEYR_sys_P1</td><td> 下界 : 1<br /> 數字區間 : 5<br /> 上界 : 150</td></tr><tr><td>RIAGENDR_sys_P1</td><td>不處理</td></tr><tr><td>DMDCITZN_sys_P1</td><td>不處理</td></tr><tr><td>DMDEDUC23_sys_P2</td><td>不處理</td></tr><tr><td>INCOME_sys_P2</td><td>不處理</td></tr><tr><td>ZIP_sys_P2</td><td>擷取字串 : 3</td></tr>,
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:45,197 [18] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:45,205 [18] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:45,212 [18] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Project Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:45,219 [18] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Project Name :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:45,226 [18] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:45,233 [18] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:46:45,239 [18] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:46:45,997 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:46,005 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:46,033 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step6
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:46,041 [4] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:46:46,047 [4] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:46:46,073 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - final_html : <tr><td>10000</td><td>1238</td><td>8762</td><td>87.620000%</td><td>3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:46:46,098 [4] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:46:46,105 [4] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:46:48,462 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - Web API ExportData
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:46:48,470 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - pid 76
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:46:48,477 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - p_dsname test240531
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:46:48,518 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - WebAPI Json Gen Format : {"projID":"76", "projStep":"export","projName":"test240531","userAccount":"deidadmin","userId":"1","mainInfo": {"tbl_1":{"pro_tb":"test240531_inner","finaltblName":"g_test240531_inner_k_job1","location":"local"}}}
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:46:50,966 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - WebAPI Json Gen Json Base64 : {"jsonBase64":"eyJwcm9qSUQiOiI3NiIsICJwcm9qU3RlcCI6ImV4cG9ydCIsInByb2pOYW1lIjoidGVzdDI0MDUzMSIsInVzZXJBY2NvdW50IjoiZGVpZGFkbWluIiwidXNlcklkIjoiMSIsIm1haW5JbmZvIjogeyJ0YmxfMSI6eyJwcm9fdGIiOiJ0ZXN0MjQwNTMxX2lubmVyIiwiZmluYWx0YmxOYW1lIjoiZ190ZXN0MjQwNTMxX2lubmVyX2tfam9iMSIsImxvY2F0aW9uIjoibG9jYWwifX19"}
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:46:51,026 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.HttpHelper - web api url :https://34.81.119.49:5915/ExportFile_PETs
+ DeIdWeb_V2_K.Infrastructure.Service.HttpHelpername2024-05-31 09:47:14,963 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.HttpHelper - PostUrl result :{
+  "jsonBase64": "eyJzdGF0dXMiOiAiMSIsICJ0YmxOYW1lIjogImdfdGVzdDI0MDUzMV9pbm5lcl9rX2pvYjEiLCAiY2VsZXJ5SUQiOiAiMTlhNTMwYmYtMTlhMy00MDk2LTllOGEtNTEwYTVmNTNkODRlIiwgInByb2pTdGVwIjogImV4cG9ydCIsICJ0aW1lX2FzeW5jIjogIjIzLjY4ODI5MjAyNjUiLCAic3BhcmtBcHBJRCI6ICJhcHBsaWNhdGlvbl8xNzE2OTg5Nzc1NTc5XzAwMjQiLCAiZGJOYW1lIjogInRlc3QyNDA1MzEiLCAiZXJyTXNnIjogIiJ9"
+}
+
+ DeIdWeb_V2_K.Infrastructure.Service.HttpHelpername2024-05-31 09:47:14,973 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - WebAPI Json return Json Base64 : eyJzdGF0dXMiOiAiMSIsICJ0YmxOYW1lIjogImdfdGVzdDI0MDUzMV9pbm5lcl9rX2pvYjEiLCAiY2VsZXJ5SUQiOiAiMTlhNTMwYmYtMTlhMy00MDk2LTllOGEtNTEwYTVmNTNkODRlIiwgInByb2pTdGVwIjogImV4cG9ydCIsICJ0aW1lX2FzeW5jIjogIjIzLjY4ODI5MjAyNjUiLCAic3BhcmtBcHBJRCI6ICJhcHBsaWNhdGlvbl8xNzE2OTg5Nzc1NTc5XzAwMjQiLCAiZGJOYW1lIjogInRlc3QyNDA1MzEiLCAiZXJyTXNnIjogIiJ9
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:47:14,980 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - gen return json format : {"status": "1", "tblName": "g_test240531_inner_k_job1", "celeryID": "19a530bf-19a3-4096-9e8a-510a5f53d84e", "projStep": "export", "time_async": "23.6882920265", "sparkAppID": "application_1716989775579_0024", "dbName": "test240531", "errMsg": ""}
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:47:14,988 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - celeryID : 19a530bf-19a3-4096-9e8a-510a5f53d84e
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:47:14,996 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - sparkAppID : application_1716989775579_0024
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:47:15,003 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - step : export
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:47:15,011 [5] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - stepstatus : 5
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-05-31 09:47:15,082 [24] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:47:15,091 [24] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:47:15,120 [24] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step6
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:47:15,131 [24] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:47:15,141 [24] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:47:15,170 [24] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - final_html : <tr><td>10000</td><td>1238</td><td>8762</td><td>87.620000%</td><td>3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:47:15,199 [24] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:47:15,208 [24] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:38,187 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:38,204 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:38,267 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step6
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:38,276 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:38,283 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:38,311 [5] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - final_html : <tr><td>10000</td><td>1238</td><td>8762</td><td>87.620000%</td><td>3</td></tr>
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:38,338 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:38,345 [5] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:47,220 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:47,228 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:47,236 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Project Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:47,242 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Project Name :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:47,249 [10] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:47,257 [10] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - Project Id :76
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:47,264 [10] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Service - SelectProjSampleTB  :select tpst.ps_id,tpst.project_id,tpst.pro_db,tpst.pro_tb,tpst.pro_col_en,tpst.pro_col_cht,tpst.pro_path,tpst.tableCount,tpst.tableDisCount,tpst.minKvalue,tpst.supRate,tpst.supCount,tpst.finaltblName ,tpsd.data,tpsd.kdata,tpsd.distinctCount,tpst.after_col_cht,tpst.after_col_en,tpst.qi_col,tpst.tablekeycol,tpst.after_col_value,tpst.gen_qi_settingvalue,tpst.warning_col,tpst.k_risk,tpst.T1,tpst.T2,tpst.r_value,tpst.max_t from T_Project_SampleTable as tpst inner join T_Project as tp on tpst.project_id = tp.project_id and tpst.pro_db = tp.project_name inner join T_ProjectSampleData as tpsd on tpst.project_id = tpsd.project_id and tpst.pro_db = tpsd.dbname and  tpsd.tbname=tpst.pro_tb where tpst.project_id = @project_id
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectSample_Servicename2024-05-31 09:54:49,616 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 return url  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:49,626 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step2 loginname  :
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:51,901 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 Project_Id :76
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:51,911 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 ProjectName :test240531
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:51,918 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 kvalue :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:51,925 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 selectqicountvalue :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:51,972 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - Step3_2 k_col_name : before UID_sys_P1,RIDAGEYR_sys_P1,RIAGENDR_sys_P1,DMDCITZN_sys_P1,DMDEDUC23_sys_P2,INCOME_sys_P2,ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,013 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :0: RIDAGEYR_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,027 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,034 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,042 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,050 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,059 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,066 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,075 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,084 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,093 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,103 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,110 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,119 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,127 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,134 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,142 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,151 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,160 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,168 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,178 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,186 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,194 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,203 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,210 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,219 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,227 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,235 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,245 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,253 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,261 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,268 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,276 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,283 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,292 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,300 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:RIDAGEYR_sys_P1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,308 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 是數字
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,315 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :數字區間含上下界
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,322 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :1#5#150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,330 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :1,5,150
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,338 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :1: RIAGENDR_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,347 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :2: DMDCITZN_sys_P1-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,354 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :3: DMDEDUC23_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,362 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :4: INCOME_sys_P2-2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,369 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :5: ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,376 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,384 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,391 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,398 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,405 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,414 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,422 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,430 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,438 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,447 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,455 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,463 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,469 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,479 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,486 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,494 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,502 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,509 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,516 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,523 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,530 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,539 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,547 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,554 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,562 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,570 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,577 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,584 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,592 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,599 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,606 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,615 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,622 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,630 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,637 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,644 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,650 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,658 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,665 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,674 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 :test240531_inner*6,0,0,0,0,3*1#5#150,0,0,0,0,3|
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,682 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 1 :RIDAGEYR_sys_P1-1,RIAGENDR_sys_P1-1,DMDCITZN_sys_P1-1,DMDEDUC23_sys_P2-1,INCOME_sys_P2-2,ZIP_sys_P2-1
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,692 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - gen 資料 2:ZIP_sys_P2
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,699 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,706 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - isnull false
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,713 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,720 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第一層 :擷取字串
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,728 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定內容第二層 :3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,735 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController - 概化設定API內容第二層 :0_3
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername2024-05-31 09:54:52,792 [4] INFO  DeIdWeb_V2_K.Controllers.ProjectStepController -  Step3_2 All Data :  <tr><td>RIDAGEYR_sys_P1</td><td> 下界 : 1<br /> 數字區間 : 5<br /> 上界 : 150</td></tr><tr><td>RIAGENDR_sys_P1</td><td>不處理</td></tr><tr><td>DMDCITZN_sys_P1</td><td>不處理</td></tr><tr><td>DMDEDUC23_sys_P2</td><td>不處理</td></tr><tr><td>INCOME_sys_P2</td><td>不處理</td></tr><tr><td>ZIP_sys_P2</td><td>擷取字串 : 3</td></tr>,
+ DeIdWeb_V2_K.Controllers.ProjectStepControllername

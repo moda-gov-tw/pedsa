@@ -1,0 +1,25 @@
+2024-07-14 21:46:46,980 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - Starting ProjectIndex
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,757 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test07032 ,Project_Id :103
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,763 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 3
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,767 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test07140530 ,Project_Id :98
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,772 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 11
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,778 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test0713 ,Project_Id :97
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,783 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 90
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,788 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - Project : test0710 ,Project_Id :96
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:46:48,792 [9] INFO  DeIdWeb_V2_K.Controllers.HomeController - ProjectStatus : 90
+ DeIdWeb_V2_K.Controllers.HomeControllername2024-07-14 21:47:15,183 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - k_conn 串接子系統
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:47:15,198 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - WebAPI InsertProject Sql :select * from T_Project where project_name='test07141'
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:47:15,225 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - project name 重複筆數 :0
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:47:15,229 [7] INFO  DeIdWeb_V2_K.Infrastructure.Service.MySqlDBHelper - InsertDB InsertProjectDB :insert into T_Project(project_name,project_desc,project_path,export_path,projectowner_id,createtime,project_cht)values('test07141','test07141','test07141','test07141',(select Id from T_Member where useraccount='deidadmin'),Now(),'test07141');
+ DeIdWeb_V2_K.Infrastructure.Service.MySqlDBHelpername2024-07-14 21:47:15,286 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - WebAPI InsertProject Insert ProjectStatus 
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:47:15,291 [7] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectStatus_Service - statusname= 資料專案開啟
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectStatus_Servicename2024-07-14 21:47:15,295 [7] INFO  DeIdWeb_V2_K.Infrastructure.Service.ProjectStatus_Service - Insert ProjectStatus :insert into T_ProjectStatus(project_id,project_status,statusname,createtime)value(@project_id,@project_status,@statusname,now())
+ DeIdWeb_V2_K.Infrastructure.Service.ProjectStatus_Servicename2024-07-14 21:47:15,488 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - Import Json String :{"projName":"test07141","projStep":"import","projID":"106","userAccount":"deidadmin","userId":"1"}
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:47:17,610 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - Import File Json String {"jsonBase64":"eyJwcm9qTmFtZSI6InRlc3QwNzE0MSIsInByb2pTdGVwIjoiaW1wb3J0IiwicHJvaklEIjoiMTA2IiwidXNlckFjY291bnQiOiJkZWlkYWRtaW4iLCJ1c2VySWQiOiIxIn0="}
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:47:17,693 [7] INFO  DeIdWeb_V2_K.Infrastructure.Service.HttpHelper - web api url :https://34.80.134.144:5915/ImportFile_PETs
+ DeIdWeb_V2_K.Infrastructure.Service.HttpHelpername2024-07-14 21:48:58,458 [7] ERROR DeIdWeb_V2_K.Infrastructure.Service.HttpHelper - PostUrl :The operation was canceled.
+ DeIdWeb_V2_K.Infrastructure.Service.HttpHelpername2024-07-14 21:48:58,464 [7] INFO  DeIdWeb_V2_K.Infrastructure.Service.HttpHelper - PostUrl result :
+ DeIdWeb_V2_K.Infrastructure.Service.HttpHelpername2024-07-14 21:48:58,468 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - Import File Json  Return String 
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:49:00,231 [7] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - 刪除專案 成功
+ DeIdWeb_V2_K.Controllers.WebAPIControllername2024-07-14 21:49:00,238 [7] ERROR DeIdWeb_V2_K.Controllers.WebAPIController - ImportFile Return Json Error : Session Timeout
+ DeIdWeb_V2_K.Controllers.WebAPIControllername

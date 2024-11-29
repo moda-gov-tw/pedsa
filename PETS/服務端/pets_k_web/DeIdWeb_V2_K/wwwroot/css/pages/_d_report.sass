@@ -1,0 +1,165 @@
+//報表
+.report
+  h6
+    margin: 20px 0 10px 20px
+    font-weight: 600
+  h3
+    font-weight: 600
+    display: inline-block
+    font-size: $font_base_size*2
+    margin-bottom: 40px
+  table
+    margin: 20px 20px 50px 20px
+    th
+      background-color: $color_lightgray
+      font-size: 16px
+    td
+      font-size: 14px
+      .warning_red
+        color: red
+    &:first-of-type
+      margin-bottom: 30px
+  #print
+    float: right
+    margin: 10px 40px 0 0x
+#final_report, #final_report_sec
+  width: 100%
+  table-layout: fixed
+#r1r2
+  td
+    background-color: lighten($color_lightgray, 7)
+.u_h5
+  color: $color_main
+  padding: 20px 22px 10px 22px
+  margin: 0
+.table_wrapper
+  position: relative
+  min-height: 400px
+  height: 800px
+.table_utility
+  margin: 0 auto 20px auto
+  padding: 20px
+  width: 95%
+
+//de-id報表頁籤
+#panel-1-ctrl, #panel-2-ctrl
+  opacity: 0
+
+ul#tabs-list, ul#tabs-list_t
+  list-style: none
+  text-align: center
+  margin: 0
+  padding: 0
+
+label.panel-label
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  display: block
+  width: 100%
+  color: #bdc3c7
+  cursor: pointer
+  background-color: #ecf0f1
+  -webkit-transition-property: background-color, color
+  -o-transition-property: background-color, color
+  -moz-transition-property: background-color, color
+  transition-property: background-color, color
+  -webkit-transition-duration: 200ms
+  -moz-transition-duration: 200ms
+  -o-transition-duration: 200ms
+  transition-duration: 200ms
+  &:hover
+    color: $color_main
+
+.panel-radios
+  position: fixed
+  left: 50%
+  top: 10px
+  width: 20px
+  opacity: 0.5
+  z-index: 99
+  &:nth-child(1)
+    -webkit-transform: translateX(-50px)
+    -moz-transform: translateX(-50px)
+    -o-transform: translateX(-50px)
+    transform: translateX(-50px)
+  &:nth-child(2)
+    -webkit-transform: translateX(-30px)
+    -moz-transform: translateX(-30px)
+    -o-transform: translateX(-30px)
+    transform: translateX(-30px)
+  &:nth-child(3)
+    -webkit-transform: translateX(-10px)
+    -moz-transform: translateX(-10px)
+    -o-transform: translateX(-10px)
+    transform: translateX(-10px)
+  &:nth-child(4)
+    -webkit-transform: translateX(10px)
+    -moz-transform: translateX(10px)
+    -o-transform: translateX(10px)
+    transform: translateX(10px)
+  &:nth-child(5)
+    -webkit-transform: translateX(30px)
+    -moz-transform: translateX(30px)
+    -o-transform: translateX(30px)
+    transform: translateX(30px)
+  &:nth-child(6)
+    top: 30px
+    -webkit-transform: translateX(-10px)
+    -moz-transform: translateX(-10px)
+    -o-transform: translateX(-10px)
+    transform: translateX(-10px)
+    display: block
+
+#panels
+  background-color: white
+  tr, td, input
+    vertical-align: middle
+  th
+    line-height: 30px
+    font-size: $font_base_size*1.6
+  td
+    line-height: 15px
+    img
+      width: 70px
+      height: 26px
+      padding: 0 20px
+  h6
+    color: $color_main
+    margin-top: 20px
+  input
+    display: initial
+    width: 18px
+    height: 18px
+  section
+    header label.panel-label
+      padding: 12px 24px
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+    main
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      max-height: 0
+      opacity: 0
+      -webkit-transition: opacity 600ms
+      -o-transition: opacity 600ms
+      -moz-transition: opacity 600ms
+      transition: opacity 600ms
+      overflow-y: hidden
+  .container
+    margin: 0 auto
+    padding: 0
+    width: 100%
+  .text_right
+    text-align: right
+  .half_col
+    width: 49.5%
+
+#panel-1-ctrl:checked ~ #panels #panel-1 main,
+#panel-2-ctrl:checked ~ #panels #panel-2 main,
+#panel-3-ctrl:checked ~ #panels #panel-3 main,
+#panel-4-ctrl:checked ~ #panels #panel-4 main
+  max-height: initial
+  min-height: 800px
+  opacity: 1
+  padding: 20px 16px 80px 16px

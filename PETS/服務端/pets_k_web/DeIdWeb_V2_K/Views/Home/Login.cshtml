@@ -1,0 +1,91 @@
+﻿@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy" content=  "default-src 'self' 'unsafe-inline';style-src 'self' 'unsafe-inline'; img-src 'self' 'unsafe-inline'; frame-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+    <title>@localizer.Text.title</title>
+    <link rel="stylesheet prefetch" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap-table.min.css">
+    <script src="~/js/jquery-3.5.0.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/bootstrap-table.min.js"></script>
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+</head>
+<body>
+    <!--三特色區塊-->
+    <section class="main_area">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-xs-12 ill"><img src="~/images/index_pic.png" alt=""></div>
+                    <div class="col-sm-5 col-xs-12 login">
+                        <img src="~/images/logo.png" alt="">
+                        <form method="post"></form>
+                        <form class="form" action="" method="post" role="form">
+                            <input id="csrf_token" name="csrf_token" value="ImI1NjE2Yzk4MmQ2NDRkNDA0Y2QxMDQyOWUxMDE0MDJiZmVjNzU0MTki.DOU4Hw.WOVo5wynmis6ZU8Vblq8lvDqm0s" type="hidden">
+                            @using (Html.BeginForm("Login", "Home", new { ReturnUrl = Context.Request.Query["ReturnUrl"] }))
+                            {
+                                <div class="form-group required">
+                                    <label class="control-label" for="username">@localizer.Text.account</label>
+                                    @Html.TextBox("Account", "", new { @class = "form-control" })
+                                    @*<input class="form-control" id="username" name="username" required="" placeholder="User ID" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAmJJREFUWAntV7uKIkEUvbYGM4KID3wEIgjKRLLpKGLgFwiCfslGhkb7IbLgAzE1GhMxWxRRBEEwmEgDERWfW6fXuttq60a2wU6B1qlzb9U5fatsKROJVigUArvd7oeAyePx6Af3qGYymT7F2h8Wi+V7Pp+fmE7iv4Sw81GieusKIzNh4puCJzdaHIagCW1F4KSeQ4O4pPLoPb/3INBGBZ7avgz8fxWIxWIUCoX43Blegbe3NwoGg88zwMoncFUB8Yokj8dDdrv9MpfHVquV/H4/iVcpc1qgKAp5vV6y2WxaWhefreB0OimXy6kGkD0YDKhSqdB2u+XJqVSK4vE4QWS5XKrx0WjEcZ/PR9lslhwOh8p1Oh2q1Wp0OBw4RwvOKpBOp1kcSdivZPLvmxrjRCKhiiOOSmQyGXp5ecFQbRhLcRDRaJTe39//BHW+2cDr6ysFAoGrlEgkwpwWS1I7z+VykdvtliHuw+Ew40vABvb7Pf6hLuMk/rGY02ImBZC8dqv04lpOYjaw2WzUPZcB2WMPZet2u1cmZ7MZTSYTNWU+n9N4PJbp3GvXYPIE2ADG9Xqder2e+kTr9ZqazSa1222eA6FqtUoQwqHCuFgscgWQWC6XaTgcEiqKQ9poNOiegbNfwWq1olKppB6yW6cWVcDHbDarIuzuBBaLhWrqVvwy/6wCMnhLXMbR4wnvtX/F5VxdAzJoRH+2BUYItlotmk6nLGW4gX6/z+IAT9+CLwPPr8DprnZ2MIwaQBsV+DBKUEfnQ8EtFRdFneBDKWhCW8EVGbdUQfxESR6qKhaHBrSgCe3fbLTpPlS70M0AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%" type="text">*@
+                                </div>
+                                <div class="form-group required">
+                                    <label class="control-label" for="password">@localizer.Text.passwd</label>
+                                    @Html.Password("Passwd", "", new { @class = "form-control" })
+                                    @*<input class="form-control" id="password" name="password" required="" placeholder="Password" value="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAmJJREFUWAntV7uKIkEUvbYGM4KID3wEIgjKRLLpKGLgFwiCfslGhkb7IbLgAzE1GhMxWxRRBEEwmEgDERWfW6fXuttq60a2wU6B1qlzb9U5fatsKROJVigUArvd7oeAyePx6Af3qGYymT7F2h8Wi+V7Pp+fmE7iv4Sw81GieusKIzNh4puCJzdaHIagCW1F4KSeQ4O4pPLoPb/3INBGBZ7avgz8fxWIxWIUCoX43Blegbe3NwoGg88zwMoncFUB8Yokj8dDdrv9MpfHVquV/H4/iVcpc1qgKAp5vV6y2WxaWhefreB0OimXy6kGkD0YDKhSqdB2u+XJqVSK4vE4QWS5XKrx0WjEcZ/PR9lslhwOh8p1Oh2q1Wp0OBw4RwvOKpBOp1kcSdivZPLvmxrjRCKhiiOOSmQyGXp5ecFQbRhLcRDRaJTe39//BHW+2cDr6ysFAoGrlEgkwpwWS1I7z+VykdvtliHuw+Ew40vABvb7Pf6hLuMk/rGY02ImBZC8dqv04lpOYjaw2WzUPZcB2WMPZet2u1cmZ7MZTSYTNWU+n9N4PJbp3GvXYPIE2ADG9Xqder2e+kTr9ZqazSa1222eA6FqtUoQwqHCuFgscgWQWC6XaTgcEiqKQ9poNOiegbNfwWq1olKppB6yW6cWVcDHbDarIuzuBBaLhWrqVvwy/6wCMnhLXMbR4wnvtX/F5VxdAzJoRH+2BUYItlotmk6nLGW4gX6/z+IAT9+CLwPPr8DprnZ2MIwaQBsV+DBKUEfnQ8EtFRdFneBDKWhCW8EVGbdUQfxESR6qKhaHBrSgCe3fbLTpPlS70M0AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%" type="password">*@
+                                </div>
+                                <div>
+                                    <input class="btn btn-default" id="submit" name="submit" value="@localizer.Text.login" type="submit">
+                                </div>
+                                <div style="color:red;">
+                                    <!--顯示登入失敗訊息 -->
+                                    @ViewBag.errMsg
+                                </div>
+                            }
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-xs-2 features_box text-center col-lg-push-1">
+                        <img src="~/images/f01.png" alt="">
+                        <h6>@localizer.Text.index_feature_01</h6>
+                    </div>
+                    <div class="col-xs-2 features_box text-center col-lg-push-1">
+                        <img src="~/images/f03.png" alt="">
+                        <h6>@localizer.Text.index_feature_02</h6>
+                    </div>
+                    <div class="col-xs-2 features_box text-center col-lg-push-1">
+                        <img src="~/images/f02.png" alt="">
+                        <h6>@localizer.Text.index_feature_03</h6>
+                    </div>
+                    <div class="col-xs-2 features_box text-center col-lg-push-1">
+                        <img src="~/images/f04.png" alt="">
+                        <h6>@localizer.Text.index_feature_04</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_footer">
+        <div class="container">
+            <p>@localizer.Text.web_contentlist</p>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,366 @@
+﻿@model IEnumerable<ProjectSampleDBData>
+@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "Step6";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <!-- <li>
+            @Html.ActionLink(localizer.Text.project_list, "ProjectIndex", "Home")
+            </li>
+            <li>
+                <a href="@Url.Action("Step6", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"], project_cht = ViewData["Project_Cht"] })">@ViewData["Project_Cht"]</a>
+            </li> -->
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <div class="project_title">
+                        <h4>@ViewData["Project_Cht"]</h4>
+                    </div>
+                    <div class="status_bar">
+                        <h4 class="method">K匿名隱私強化流程</h4>
+                        <div class="status">
+                            <div class="status_no_line">
+                                <h6>@localizer.Text.step2</h6>
+                                <p>@localizer.Text.step2_menu_list</p>
+                                <h3>1</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>@localizer.Text.step3</h6>
+                                <p>@localizer.Text.step3_menu_list</p>
+                                <h3>2</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow">
+                                <h6>隱私強化處理</h6>
+                                <p>@localizer.Text.step4_menu_list</p>
+                                <h3>3</h3>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div class="status_notnow active">
+                                <h6>報表產生與資料匯出</h6>
+                                <p>@localizer.Text.step6_menu_list</p>
+                                <h3>4</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="project_content">
+                        <div class="tab-pane step05 col-sm-12">
+                            <h4 class="title">資料彙整與評估</h4>
+                            <h6>@localizer.Text.dataset_name：@ViewData["pro_tb"]</h6>
+                            @*<h4 class="title">@localizer.Text.step6<span class="step_inf">「資料實際重新識別機率」需小於「組織可接受之重新識別機率」(R1 < R) </span></h4>*@
+                            <table class="table table-hover table-bordered" id="final_report">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th style="width: 108px;">原資料筆數</th>
+                                        <th style="width: 164px;">隱私強化後資料筆數</th>
+                                        <th style="width: 90px;">刪除筆數</th>
+                                        <th style="width: 108px;">刪除資料佔比</th>
+                                        <th style="width: 108px;">風險基準值</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            @*<table class="table table-hover table-bordered" id="final_report_sec">
+                                <thead class="thead-dark">
+                                <tr>
+                                <th>@localizer.Text.t_value</th>
+                                <th>@localizer.Text.r_value</th>
+                                <th>@localizer.Text.r1_value</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                                </table>*@
+                        </div>
+                        <div class="tab-pane step05 col-sm-12">
+                            <h4 class="title">@localizer.Text.gen_setting</h4>
+                            @{
+                                int rpcount = 0;
+                                var rpcount_str = ViewData["RP_Count"];
+                                if (rpcount_str != null)
+                                {
+                                    rpcount = int.Parse(rpcount_str.ToString());
+
+                                    int x = 1;
+                                    foreach (var item in Model)
+                                    {
+                                        string tb = "tb_" + x.ToString();
+                                        <h6>@localizer.Text.tb：@item.pro_tb</h6>
+                                        <table class="table table-hover table-bordered" id="@tb">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>@localizer.Text.ch_col_name</th>
+                                                    <th>@localizer.Text.data_attr</th>
+                                                    <th>@localizer.Text.process_flow</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        x++;
+                                    }
+                                }
+                            }
+                        </div>
+                        <div class="tab-pane step05 col-sm-12">
+                            <h4 class="title">@localizer.Text.warning_info</h4>
+                            <h5 class="title">針對非直接與間接之欄位也就是將敏感與不處理欄位進行隱私洩漏檢查，低於風險值(K值)的資料筆數數量加總顯示，提供使用者進行隱私洩漏風險判定</h5>
+                            @*<h6>驚嘆號顯示內容為:</h6>*@
+                            @{
+                                int y = 1;
+                                foreach (var item in Model)
+                                {
+                                    string tb = "warn_" + y.ToString();
+                                    <h6>@localizer.Text.dataset_name：@item.pro_tb</h6>
+                                    <table class="table table-hover table-bordered" id="@tb">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>@localizer.Text.col_name</th>
+                                                <th>@localizer.Text.data_count</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                }
+                                y++;
+                            }
+                        </div>
+                        
+                        <label id="tbcount" style="display:none">@Model.Count()</label>
+                        <label id="projectlist" style="display:none">@ViewData["projectlist"]</label>
+                        <label id="pid" style="display:none">@ViewData["ProjectId"]</label>
+                        <label id="pname" style="display:none">@ViewData["ProjectName"]</label>
+                        <label id="pname_cht" style="display:none">@ViewData["Project_Cht"]</label>
+                        <label id="projectlist_sec" style="display:none">@ViewData["projectlist_sec"]</label>
+                        <label id="projectqitable" style="display:none">@ViewData["projectqitable"]</label>
+                        <label id="warningtablelist" style="display:none">@ViewData["warningtablelist"]</label>
+
+                        <!--資料無誤，成功-->
+                        <div class="modal fade" id="lessThanThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLongTitle">資料匯出</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        資料匯出中，依資料大小不同需花費數分鐘到數小時不等，完成後將以狀態通知。
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn_mbs" data-dismiss="modal" onclick="returntopage()">確定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--資料檢查中動畫-->
+                        <div class="modal fade" id="datachecking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <svg id="dc-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width:"38="" height:"38="" viewBox="-100 -20 238 238" preserveAspectRatio="xMinYMin meet">
+                                <text x="14" y="21" font-size="2.5px" style="letter-spacing:0.2;" fill="grey">
+                                    資料檢查中
+                                    <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"></animate>
+                                </text>
+                                <path fill="#cccccc" d="M20,35c-8.271,0-15-6.729-15-15S11.729,5,20,5s15,6.729,15,15S28.271,35,20,35z M20,5.203    C11.841,5.203,5.203,11.841,5.203,20c0,8.159,6.638,14.797,14.797,14.797S34.797,28.159,34.797,20    C34.797,11.841,28.159,5.203,20,5.203z"></path>
+                                <path fill="#cccccc" d="M20,33.125c-7.237,0-13.125-5.888-13.125-13.125S12.763,6.875,20,6.875S33.125,12.763,33.125,20    S27.237,33.125,20,33.125z M20,7.078C12.875,7.078,7.078,12.875,7.078,20c0,7.125,5.797,12.922,12.922,12.922    S32.922,27.125,32.922,20C32.922,12.875,27.125,7.078,20,7.078z"></path>
+                                <path fill="#2AA198" stroke="#1890ff" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20    c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
+                                    <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" calcMode="spline" keySplines="0.4, 0, 0.2, 1" keyTimes="0;1" dur="2s" repeatCount="indefinite"></animatetransform>
+                                </path>
+                                <path fill="#859900" stroke="#C2CFFE" stroke-width="0.5" stroke-miterlimit="10" d="M7.078,20    c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203    C12.875,32.922,7.078,27.125,7.078,20z">
+                                    <animatetransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="1.8s" repeatCount="indefinite"></animatetransform>
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="btn btn_sbe btn_back" id="backpet" onclick="returntopage()">回主系統</div>
+                        <div class="btn btn_mbs btn_next" onclick="getexport()">匯出資料</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--勾選資料大於三筆後進入資料檢查-->
+    <label id="rp_count" style="display: none">@ViewData["RP_Count"]</label>
+    <label id="ifred" style="display: none">@ViewData["ifred"]</label>
+    <label id="rp_11" style="display: none">@ViewData["rp_tab_lst_1_1"]</label>
+    <label id="rp_12" style="display: none">@ViewData["rp_tab_lst_1_2"]</label>
+    <label id="rp_13" style="display: none">@ViewData["rp_tab_lst_1_3"]</label>
+    <label id="rp_21" style="display: none">@ViewData["rp_tab_lst_2_1"]</label>
+    <label id="rp_22" style="display: none">@ViewData["rp_tab_lst_2_2"]</label>
+    <label id="rp_23" style="display: none">@ViewData["rp_tab_lst_2_3"]</label>
+    <label id="rp_31" style="display: none">@ViewData["rp_tab_lst_3_1"]</label>
+    <label id="rp_32" style="display: none">@ViewData["rp_tab_lst_3_2"]</label>
+    <label id="rp_33" style="display: none">@ViewData["rp_tab_lst_3_3"]</label>
+    <label id="riskcount" style="display: none">@ViewData["riskcount"]</label>
+    <label id="risklist" style="display: none">@ViewData["risklist"]</label>
+    <label id="dataexport" style="display:none">@localizer.Message.export</label>
+    <label id="deiderror" style="display:none">@localizer.Message.deid_error</label>
+    <label id="return_url" style="display:none">@ViewData["returnurl"]</label>
+    <label id="loginname" style="display: none">@ViewData["loginname"]</label>
+</section>
+
+<script>
+    var current_value = $('#projectlist').text();
+    var current_value_sec = $('#projectlist_sec').text();
+    $("#final_report").append(current_value);
+    //$("#final_report_sec").append(current_value_sec);
+</script>
+<script>
+    var tbcount = $('#tbcount').text();
+    var projectqitable = $('#projectqitable').text();
+    var warningtablelist = $('#warningtablelist').text();
+    var tbarray = new Array();
+    var warnarray = new Array();
+    tbarray = projectqitable.split(',');
+    warnarray = warningtablelist.split(',');
+    for (var i = 0; i < parseInt(tbcount); i++) {
+        var tbname = '#tb_' + (i + 1).toString();
+        var warnname = '#warn_' + (i + 1).toString();
+        $(tbname).append(tbarray[i]);
+        $(warnname).append(warnarray[i]);
+    }
+
+    var tbcount = $('#rp_count').text();
+    var rp_11 = $('#rp_11').text();
+    var rp_12 = $('#rp_12').text();
+
+    var rp_21 = $('#rp_21').text();
+    var rp_22 = $('#rp_22').text();
+
+    var rp_31 = $('#rp_31').text();
+    var rp_32 = $('#rp_32').text();
+
+    var z = 3;
+    var utility_html = "<tr><td>{{model_name}}</td><td>{{ts}}</td><td>{{vs}}</td></tr>";
+    var utility01 = "";
+    var count_nm = parseInt(tbcount);
+    for (var x = 0; x < count_nm; x++) {
+        //外層tab
+        //alert(x);
+        for (var y = 1; y < z; y++) {
+            var tblenm = '#tb' + (x + 1).toString() + '_utility0' + y.toString();
+            //alert('33');
+            // alert(tblenm);
+            //alert(y);
+            //alert(rp_11);
+            if (x == 0 && y == 1) {
+                //     alert('44');
+                utility01 = rp_11;
+            } else if (x == 0 && y == 2) {
+                //  alert('55');
+                utility01 = rp_12;
+            }
+             else if (x == 1 && y == 1) {
+                utility01 = rp_21;
+            } else if (x == 1 && y == 2) {
+                utility01 = rp_22;
+            } else if (x == 2 && y == 1) {
+                utility01 = rp_31;
+            } else if (x == 2 && y == 2) {
+                utility01 = rp_32;
+            }
+            //alert(utility01.list)
+            $(tblenm).append(utility01);
+            //alert('333');
+        }
+
+    }
+
+    function getexport() {
+
+       var ifred = $('#ifred').text();
+       var pid = $('#pid').text();
+       var pname = $('#pname').text();
+       var pname_cht = $('#pname_cht').text();
+       var returnurl = $('#return_url').text();
+        var loginname = $('#loginname').text();
+
+       if(ifred=="Y")
+       {
+           alert('資料重新識別機率大於組織可接受之重新識別機率，無法匯出資料!');
+           return;
+       }
+       else
+       {
+           //export
+           exportFile();
+
+           //location.href = "@Url.Action("Step7", "ProjectStep")/?proj_id=" + encodeURIComponent(pid) + "&project_name=" + encodeURIComponent(pname)+ "&project_cht=" + encodeURIComponent(pname_cht) + "&loginname=" + encodeURIComponent(loginname) + "&returnurl=" + encodeURIComponent(returnurl);
+       }
+
+    }
+
+     function exportFile() {
+        $('#datachecking').modal('show');
+        $('#datachecking').modal({ backdrop: 'static', keyboard: false });
+
+     var pid = $('#pid').text();;
+     var pname = $('#pname').text();
+     var tbcount = $('#tbcount').text();
+     var deiderror = $('#deiderror').text();
+     var dataexport = $('#data_export').text();
+        var returnurl = $('#return_url').text();
+        var loginname = $('#loginname').text();
+
+     $.ajax({
+        type: "get",
+        url: "/api/WebAPI/ExportData",
+        contentType: "application/json",
+        data:
+              {
+            pid: pid, p_dsname: pname
+              },
+        success: function (status) {
+            //alert(status);
+            //document.location.href = "@Url.Action("Index","Home")";
+            if (status) {
+                //exampleModalCenter
+   $('#datachecking').modal('hide'); 
+                $('#lessThanThree').modal({ backdrop: 'static', keyboard: false });
+                $('#lessThanThree').modal('show'); 
+                location.href = returnurl;
+            }
+            else {
+                $('#datachecking').modal('hide');
+                alert(deiderror);
+
+            }
+        },
+        error: function (status) {
+            $('#datachecking').modal('hide');
+                    alert(deiderror);
+            }
+
+        });
+
+    }
+
+    function returntopage() {
+         // location.href = "/Home/ProjectIndex";
+           var return_url =$('#return_url').text();
+        location.href = return_url;
+    }
+</script>
+
+<script>
+    $('.tabs').click(function(event){
+        let $tab = $(event.target).parent();
+        $(this).find('.active').removeClass("active");
+        $tab.addClass('active');
+        let index = $tab.index();
+        $(".contents .content").siblings('.active').removeClass('active').end().eq(index).addClass("active");
+    })
+</script>
