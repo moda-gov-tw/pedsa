@@ -1,0 +1,28 @@
+summary: "專案重設: cancelProjectStatus_Sync" #modify
+description: "專案重設" #modify
+tags:
+  - cancelProjectStatus_Sync
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "cancelProjectStatus_Sync" #modify
+  description: "p_dsname:專案資料集名稱<br/> " #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      p_dsname:
+        type: "string"
+        example : 'DeId_adult_autohash'
+
+    required:
+      - p_dsname
+
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

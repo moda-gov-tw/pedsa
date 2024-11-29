@@ -1,0 +1,162 @@
+version: "3.1"
+services:
+  web:
+    #restart: always
+    image: flask-redis_citc:05.1
+    secrets:
+      - maria_file
+      - hadoop_file
+    ports:
+     - "6915:5088"
+     #- "3321:22"
+    volumes:
+      - ./APP__:/app/app/devp
+      - /etc/localtime:/etc/localtime:ro
+      - ../hadoop/dataConfig:/home/hadoop/proj_/dataConfig
+      - ../hadoop/dataMac:/home/hadoop/proj_/dataMac
+      - ../hadoop/data_check:/home/hadoop/proj_/data_check
+      - ../hadoop/data_error:/home/hadoop/proj_/data_error
+
+    entrypoint: gunicorn
+    command:  --log-level=debug --preload -w 1 -b 0.0.0.0:5088 --timeout 600 app:app
+    environment:
+      - REDIS_HOST:redis
+      - REDIS_PORT:6379
+      #- REDIS_PWD:/run/secrets/my-pw2
+      - REDIS_PWD:"citcw200" 
+  
+    networks:
+      mynetwork:
+        #ipv4_address: 172.28.1.3
+        aliases: 
+          - flask_compose 
+    depends_on:
+      - redis 
+
+  OpenApi_web:
+    #restart: always
+    image: flask-redis_citc:05.1
+    secrets:
+      - maria_file
+
+
+    ports:
+     - "5997:5088"
+       # - "18088:5088"
+     - "3341:22"
+    volumes:
+      - ./APP__:/app/app/devp
+      - /etc/localtime:/etc/localtime:ro
+      - ../hadoop/dataConfig:/home/hadoop/proj_/dataConfig
+        #- /home/myuser/jc_swagger_ui/flasgger:/usr/local/lib/python2.7/dist-packages/flasgger
+      - ../hadoop/dataMac:/home/hadoop/proj_/dataMac
+      - ../hadoop/data_check:/home/hadoop/proj_/data_check
+      - ../hadoop/data_error:/home/hadoop/proj_/data_error  
+      - /etc/hostname:/host_name
+
+    entrypoint: gunicorn
+    command:  --certfile /app/app/devp/cert.pem --keyfile /app/app/devp/key.pem  --ssl-version 2 --ciphers AES256-GCM-SHA384 --log-level=debug --preload -w 1 -b 0.0.0.0:5088 --timeout 600 app:app
+    #gunicorn --certfile cert.pem --keyfile key.pem -b 0.0.0.0:8000 hello:app
+    environment:
+      - REDIS_HOST:"redis"
+      - REDIS_PORT:6379
+      - REDIS_PWD:"citcw200"
+    networks:
+      mynetwork:
+        ipv4_address: 172.27.1.13
+        aliases:
+          - flask5997_compose
+    depends_on:
+      - redis
+
+
+  worker:
+    restart: always
+    image: celery-redis_citc:06.2_ch_term
+    depends_on:
+      - redis
+    secrets:
+      - maria_file
+      - hadoop_file
+      - ahcitcww
+    environment:
+      - REDIS_HOST:redis
+      - REDIS_PORT:6379
+      - REDIS_PWD:"citcw200" 
+      - MYSQL_PASSWORD_FILE:/run/secrets/db_dba_password 
+      #- REDIS_PWD:/run/secrets/my-pw2  
+
+    volumes:
+      - ./APP__:/app/app/devp
+      - /etc/localtime:/etc/localtime:ro
+      - ../hadoop/dataConfig:/home/hadoop/proj_/dataConfig
+      - ../hadoop/dataMac:/home/hadoop/proj_/dataMac
+      - ../hadoop/data_check:/home/hadoop/proj_/data_check
+      - ../hadoop/data_error:/home/hadoop/proj_/data_error
+
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.28.1.4
+        aliases: 
+          - celery_compose    
+  
+  redis:
+    #restart: always
+    image: redis:4.0.1-alpine02
+    #ports:
+    # - "3320:22"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro  
+    
+    environment:
+      - PWD123:/run/secrets/my-pw2
+
+    entrypoint: redis-server
+    command:   --requirepass 'citcw200'
+
+    networks:
+      mynetwork:
+        ipv4_address: 172.28.1.2
+        aliases: 
+          - redis  
+  deidweb:
+    restart: always
+    image: deidwebv2_k:1.5 #deidwebv2:1.4 #deidwebv2:1.2.2 #deidwebv2:1.2  #deidwebml:2.3 #deidweb:2.4.6 #deidwebinteragent:1.2 #deidweb:2.4.1 #deidwebinteragent:1.3
+    secrets:
+      - ahcitcww 
+      #- maria_file 
+    ports:
+     - "61000:11000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:11000;
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=citcw200
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=./server.pfx
+    volumes:
+      - ./appsettings.json:/app/appsettings.json
+      - ./process_appsettings.py:/app/process_appsettings.py
+      - ./server.pfx:/app/server.pfx
+      - ./WebAPI.xml:/app/WebAPI.xml
+      - ./WebAPI.xml:/app/bin/Debug/netcoreapp3.1/WebAPI.xml
+      - ./WebAPI.xml:/app/bin/Release/netcoreapp3.1/WebAPI.xml
+    networks:
+      mynetwork:
+          ipv4_address: 172.28.1.10
+          aliases: 
+            - deidweb_compose
+secrets:
+  maria_file:
+    external: true
+  hadoop_file:
+    external: true
+  ahcitcww:
+    external: true
+
+networks:
+  mynetwork:
+    external:
+      name: hadoopnet_pet_overlay  
+
+#docker network create --subnet=172.98.8.0/16 hadoopnet_pet_overlay
+#- "6915:5088"   

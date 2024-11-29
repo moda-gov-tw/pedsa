@@ -1,0 +1,89 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import time
+from funniest.logging_tester import _getLogger
+from config.ssh_hdfs import ssh_hdfs
+from config.loginInfo import getConfig
+
+#citc, 20181022 add for SSH login into local hadoop cluster
+from mylib.loginInfo import getLoginLoacalHadoop
+
+_logger=_getLogger('SparkManager')
+
+
+def parseStatusResult(stdout_):
+    buf = stdout_
+    meta_ ={}
+    while True:
+        line = buf.readline()
+        #print line
+        if line == '':
+            break
+        #stdout_.write(line)
+        # #stdout_.flush()
+
+        if("Application-Id" in  line) or ("Progress" in  line) or ("Start-Time" in  line) \
+             or ("Finish-Time" in  line)or ("State" in  line):
+            strList = line.split(':')
+
+            meta_[strList[0].strip()] = strList[1].strip()
+            #break;
+    print(meta_)
+    return meta_
+
+
+def getSparkJobStatus(applicationID):
+    start = time.time()
+    meta={}
+
+    try:
+        PATH = getConfig().getSparkPath()
+        cmdStr = '''
+        export PATH={0}
+
+        source .bashrc
+        
+        yarn application -status {1}
+        '''.format(PATH, applicationID)
+        ssh_for_bash = ssh_hdfs()
+        stdin, stdout, stderr = ssh_for_bash.callCommand_output(cmdStr, addPath=True)
+        meta = parseStatusResult(stdout)
+    except Exception as e:
+        _logger.debug(str(e))
+        meta['err']=str(e)
+
+    end = time.time()
+    print("total time="+str((end - start)))
+    return meta
+    
+    
+def killSparkJob(applicationID):
+    start = time.time()
+    meta ={} #dict
+
+    try:
+        PATH = getConfig().getSparkPath()
+        cmdStr = '''
+        export PATH={0}
+
+        source .bashrc
+
+        yarn application -kill {1}
+        '''.format(PATH, applicationID)
+        ssh_for_bash = ssh_hdfs()
+        stdin, stdout, stderr = ssh_for_bash.callCommand_output(cmdStr, addPath=True)
+
+        while True:
+            line = stdout.readline()
+            # print line
+            if line == '':
+                break
+            meta['result'] = line.strip()
+
+    except Exception as e:
+        _logger.debug(str(e))
+        meta['err']=str(e)
+
+    end = time.time()
+    print("total time="+str((end - start)))
+    return meta    

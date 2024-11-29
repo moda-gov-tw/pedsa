@@ -1,0 +1,29 @@
+summary: "回傳執行完成的專案報表內容: getReport_Sync" #modify
+description: "API 以Json格式回傳執行完成的專案報表內容" #modify
+tags:
+  - getReport_Sync
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "getReport_Sync" #modify
+  description: "projName:專案名稱" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      projName:
+        type: "string"
+        example : '2QDataMarketDeId'
+      
+    required:
+      - projName
+
+  
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

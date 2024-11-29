@@ -1,0 +1,190 @@
+version: 1
+formatters:
+  simple_file:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y/%m/%d %I:%M:%S'
+  simple_console:
+    format: '%(name)s - %(levelname)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple_console
+    stream: ext://sys.stdout
+  file:
+    class : logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
+    formatter: simple_file
+    when: D
+    filename: app/devp/log/webService/webService.log
+    backupCount: 1000
+loggers:
+  mylog:
+    level: ERROR
+    handlers: [console, file]
+    propagate: no
+  HiveLibs:
+    level: WARN
+    handlers: [file]
+    propagate: yes 
+  decodeBase64:
+    level: WARN
+    handlers: [file]
+    propagate: yes 
+  kchecking:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes 
+  udfEncUID:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify_udfEncUID:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  getGenNumLevel:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes     
+  verify_getGenNumLevel:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes      
+  getGenNumUdf:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes     
+  getGenNumUdf:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes     
+  generalization:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes  
+  verify__generalization:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes 
+  export:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes  
+  verify__export:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes 
+  import:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify__import:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  SparkManager:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes 
+  celery__getJoinData:
+    level: DEBUG
+    handlers: [file] 
+    propagate: yes
+  celery__getDistinctData:
+    level: DEBUG
+    handlers: [file] 
+    propagate: yes
+  verify__getJoinData:
+    level: DEBUG
+    handlers: [file] 
+    propagate: yes
+  verify__getDistinctData:
+    level: DEBUG
+    handlers: [file] 
+    propagate: yes
+  verify__MLutility_longTask:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  error__MLutility_longTask:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  kchecking:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify__kchecking:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  kchecking4join:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify__kchecking4join:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  getRiskAnalysis_longTask:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  getRiskAnalysis_longTask_verify:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  error_GetConfigList:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify_GetConfigList:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  error_CheckProjStatus:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify_CheckProjStatus:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify_DeIdAsync:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  error__DeIdAsync:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify_HashMacAsync:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  error__HashMacAsync:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify__DeidGenAsync:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  error__DeidGenAsync:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  setJP:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+  verify__setJP:
+    level: DEBUG
+    handlers: [file]
+    propagate: yes
+
+    
+root:
+  level: INFO
+  handlers: [console]

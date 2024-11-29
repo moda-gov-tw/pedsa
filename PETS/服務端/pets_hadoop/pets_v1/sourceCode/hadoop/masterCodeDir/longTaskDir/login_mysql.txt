@@ -1,0 +1,9 @@
+[Login_information]
+
+ip=MariaDB_nrtS
+
+port=3306
+
+user=deidadmin
+
+password=citcw200
