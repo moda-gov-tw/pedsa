@@ -1,0 +1,34 @@
+summary: "資料匯出:ExportData_Async_PETs"
+description: "資料匯出"
+tags:
+- ExportData_Async_PETs
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" #cannot change
+  name: "ExportData_Async_PETs" #can change
+  description: "projName : 專案名稱"
+  required: true
+  schema:
+    type: "object"
+    properties:
+      projName:
+        type: "string"
+        example : "2QDataMarketDeId"
+      userId:
+        type: "string"
+        example : '1'
+      userAccount:
+        type: "string"
+        example : 'deidadmin'
+    required:
+      - projName
+      - userId
+      - userAccount
+responses:
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

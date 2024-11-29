@@ -1,0 +1,39 @@
+summary: "step: getDistinctData_async" #modify
+description: "Deid API : getDistinctData_async" #modify
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "distinct" #modify
+  description: "Accepts a input dictionary of inputs" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      projStep: 
+        type: "string"
+        example : "distinct"
+      projID:
+        type: "string"
+        example : '8'
+      projName:
+        type: "string"
+        example : "2QDataMarketDeId"  
+      jobName:         
+        type: "string"
+        example : "job02"
+      mainInfo:
+        type: "object"
+        example: {"origColNames":["marital_status","hours_per_week"],"colNames":["c_2737_6","c_2737_13"],"tableName":"udfmacuid_adult_id","dbName":"2qdatamarketdeid","reqFunc":0}
+                          
+    required:
+      - userID
+      - projStep
+
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

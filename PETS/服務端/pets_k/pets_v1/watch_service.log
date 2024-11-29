@@ -1,0 +1,2301 @@
+HELLO DOCKER 1c26b23234c8
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+文件列表: [u't2', u't3']
+Config列表: [u't2', u'test_modifiedTime', u't1']
+有命名相符的資料: [u't2']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: [u'class']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2_20220520155102 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-20 15:51:02
+(INT)原時間戳 in json: 1653033062 
+現在時間 = 2022-05-23 16:06:02
+(INT)現在時間 = 1653293162
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't2_20220523160602', 'hashkey': 'HSM used', 'pname': u't2_20220523160602', 'configName': u't2.json', 'sep': ',', 'hashTableName': u't2', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t2.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 1c26b23234c8
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+文件列表: [u't2', u't3']
+Config列表: [u't2', u'test_modifiedTime', u't1']
+有命名相符的資料: [u't2']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: [u'class']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2_20220523160602 列表狀態 (5, 去欄位屬性判定) 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 1c26b23234c8
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+文件列表: [u't2', u't3']
+Config列表: [u't2', u'test_modifiedTime', u't1']
+有命名相符的資料: [u't2']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: [u'class']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2_20220523160602 列表狀態 (11, k checking finished) 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 1c26b23234c8
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+文件列表: [u't2', u't3']
+Config列表: [u't2', u'test_modifiedTime', u't1']
+有命名相符的資料: [u't2']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: [u'class']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2_20220523160602 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-23 16:06:02
+(INT)原時間戳 in json: 1653293162 
+現在時間 = 2022-05-23 16:12:02
+(INT)現在時間 = 1653293522
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't2_20220523161202', 'hashkey': 'HSM used', 'pname': u't2_20220523161202', 'configName': u't2.json', 'sep': ',', 'hashTableName': u't2', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t2.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 1c26b23234c8
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+文件列表: [u't2', u't3']
+Config列表: [u't2', u'test_modifiedTime', u't1']
+有命名相符的資料: [u't2']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: [u'class']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2_20220523161202 列表狀態 (6, 概化規則設定中....) 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't5', u't1', u't10', u't4', u't2', u't3']
+Config列表: [u't2', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't1', u't5', u't10']
+有命名相符的資料: [u't4', u't5', u't2', u't3', u't1', u't10']
+有命名相符的資料，最早被修改的: t4.csv, t4.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t4.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t4.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t7 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 14:30:02
+(INT)現在時間 = 1653373802
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't4', 'hashkey': 'HSM used', 'pname': u't4', 'configName': u't4.json', 'sep': ',', 'hashTableName': u't4', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t4.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't5', u't1', u't10', u't2', u't3']
+Config列表: [u't2', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't1', u't5', u't10']
+有命名相符的資料: [u't10', u't5', u't2', u't3', u't1']
+有命名相符的資料，最早被修改的: t10.csv, t10.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t10.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t10.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t4 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 14:35:02
+(INT)現在時間 = 1653374102
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't10', 'hashkey': 'HSM used', 'pname': u't10', 'configName': u't10.json', 'sep': ',', 'hashTableName': u't10', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t10.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't5', u't1', u't2', u't3']
+Config列表: [u't2', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't1', u't5']
+有命名相符的資料: [u't5', u't2', u't3', u't1']
+有命名相符的資料，最早被修改的: t5.csv, t5.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t5.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t5.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t10 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 14:40:01
+(INT)現在時間 = 1653374401
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't5', 'hashkey': 'HSM used', 'pname': u't5', 'configName': u't5.json', 'sep': ',', 'hashTableName': u't5', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t5.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't1', u't2', u't3']
+Config列表: [u't2', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't1']
+有命名相符的資料: [u't2', u't3', u't1']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t5 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 14:45:01
+(INT)現在時間 = 1653374701
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't2', 'hashkey': 'HSM used', 'pname': u't2', 'configName': u't2.json', 'sep': ',', 'hashTableName': u't2', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t2.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't1', u't3']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't1']
+有命名相符的資料: [u't3', u't1']
+有命名相符的資料，最早被修改的: t3.csv, t3.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t3.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t3.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 14:50:02
+(INT)現在時間 = 1653375002
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't3', 'hashkey': 'HSM used', 'pname': u't3', 'configName': u't3.json', 'sep': ',', 'hashTableName': u't3', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t3.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't1']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't1']
+有命名相符的資料: [u't1']
+有命名相符的資料，最早被修改的: t1.csv, t1.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t1.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t1.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t3 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 14:55:02
+(INT)現在時間 = 1653375302
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't1', 'hashkey': 'HSM used', 'pname': u't1', 'configName': u't1.json', 'sep': ',', 'hashTableName': u't1', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t1.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't13', u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u't11', u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: [u't11']
+有命名相符的資料，最早被修改的: t11.csv, t11.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t11.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t11.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t1 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 15:25:01
+(INT)現在時間 = 1653377101
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't11', 'hashkey': 'HSM used', 'pname': u't11', 'configName': u't11.json', 'sep': ',', 'hashTableName': u't11', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t11.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13', u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't13']
+有命名相符的資料: [u't12', u't13']
+有命名相符的資料，最早被修改的: t12.csv, t12.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t12.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t12.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t11 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 15:30:01
+(INT)現在時間 = 1653377401
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't12', 'hashkey': 'HSM used', 'pname': u't12', 'configName': u't12.json', 'sep': ',', 'hashTableName': u't12', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t12.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't13', u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't13']
+有命名相符的資料: [u't13']
+有命名相符的資料，最早被修改的: t13.csv, t13.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+step1 check: 檢查欄位命名對應 [ERROR]
+命名欄位有誤: set([u'class_error'])
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t13.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t13.json
+資料有誤，請至error folder檢查.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 77fa52c3c05a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 4acaef5690db
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't16', u't14', u't15']
+有命名相符的資料: [u't14', u't15', u't16']
+有命名相符的資料，最早被修改的: t14.csv, t14.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+step1 check: 檢查欄位命名對應 [ERROR]
+命名欄位有誤: set([u'class_error'])
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+資料有誤，請至error folder檢查.
+HELLO DOCKER 4acaef5690db
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't15', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't16', u't15']
+有命名相符的資料: [u't15', u't16']
+有命名相符的資料，最早被修改的: t15.csv, t15.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t15.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t15.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+最近一次的專案 t2_20220524092103 列表狀態 (15, export data finished) 
+目前沒有正在執行的專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-24 16:35:01
+(INT)現在時間 = 1653381301
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't15', 'hashkey': 'HSM used', 'pname': u't15', 'configName': u't15.json', 'sep': ',', 'hashTableName': u't15', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t15.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 4acaef5690db
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't16', u't17', u't18', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't16']
+有命名相符的資料: [u't16']
+有命名相符的資料，最早被修改的: t16.csv, t16.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+step1 check: 檢查欄位命名對應 [ERROR]
+命名欄位有誤: set([u'class_error'])
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+資料有誤，請至error folder檢查.
+HELLO DOCKER 4acaef5690db
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't17', u't18', u't19', u't20']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER 73832fbeff2a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't8', u't11', u't12', u't5', u't1', u't10', u't13', u't16', u't17', u't18', u't4', u't9', u't15', u't2', u't14', u't6', u't19', u't20', u't7', u't3']
+Config列表: [u't11', u't2', u't7', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't16', u't6', u't9', u't12', u't14', u't1', u't17', u't20', u't8', u't5', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't8', u't9', u't6', u't7', u't4', u't5', u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t8.csv, t8.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t8.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t8.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+***errTable: check_watchFolder error-2. tuple index out of range
+HELLO DOCKER 73832fbeff2a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't8', u't11', u't12', u't5', u't1', u't10', u't13', u't16', u't17', u't18', u't4', u't9', u't15', u't2', u't14', u't6', u't19', u't20', u't7', u't3']
+Config列表: [u't11', u't2', u't7', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't16', u't6', u't9', u't12', u't14', u't1', u't17', u't20', u't8', u't5', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't8', u't9', u't6', u't7', u't4', u't5', u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t8.csv, t8.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t8.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t8.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+***errTable: check_watchFolder error-2. tuple index out of range
+HELLO DOCKER 73832fbeff2a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't8', u't11', u't12', u't5', u't1', u't10', u't13', u't16', u't17', u't18', u't4', u't9', u't15', u't2', u't14', u't6', u't19', u't20', u't7', u't3']
+Config列表: [u't11', u't2', u't7', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't16', u't6', u't9', u't12', u't14', u't1', u't17', u't20', u't8', u't5', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't8', u't9', u't6', u't7', u't4', u't5', u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t8.csv, t8.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t8.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t8.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+***errTable: check_watchFolder error-2. tuple index out of range
+HELLO DOCKER 73832fbeff2a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't5', u't1', u't10', u't13', u't16', u't17', u't18', u't4', u't9', u't15', u't2', u't14', u't6', u't19', u't20', u't7', u't3']
+Config列表: [u't11', u't2', u't7', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't16', u't6', u't9', u't12', u't14', u't1', u't17', u't20', u't5', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't9', u't6', u't7', u't4', u't5', u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t9.csv, t9.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t9.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t9.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[7, 0, 1, 11] 
+Progress :[7, 0, 1, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 11:00:02
+(INT)現在時間 = 1653879602
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't9', 'hashkey': 'HSM used', 'pname': u't9', 'configName': u't9.json', 'sep': ',', 'hashTableName': u't9', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t9.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 73832fbeff2a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't5', u't1', u't10', u't13', u't16', u't17', u't18', u't4', u't15', u't2', u't14', u't6', u't19', u't20', u't7', u't3']
+Config列表: [u't11', u't2', u't7', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't16', u't6', u't12', u't14', u't1', u't17', u't20', u't5', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't6', u't7', u't4', u't5', u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t6.csv, t6.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t6.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t6.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 8, 0, 1, 11] 
+Progress :[1, 8, 0, 1, 11] 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER 73832fbeff2a
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't5', u't1', u't10', u't13', u't16', u't17', u't18', u't4', u't15', u't2', u't14', u't19', u't20', u't7', u't3']
+Config列表: [u't11', u't2', u't7', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't4', u't16', u't12', u't14', u't1', u't17', u't20', u't5', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't7', u't4', u't5', u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t7.csv, t7.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t7.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t7.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[5, 15, 0, 1, 11] 
+Progress :[5, 0, 1, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 11:04:03
+(INT)現在時間 = 1653879843
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't7', 'hashkey': 'HSM used', 'pname': u't7', 'configName': u't7.json', 'sep': ',', 'hashTableName': u't7', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t7.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't1', u't10', u't13', u't16', u't17', u't18', u't15', u't2', u't14', u't19', u't20', u't3']
+Config列表: [u't11', u't2', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't16', u't12', u't14', u't1', u't17', u't20', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't2', u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t2.csv, t2.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t2.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t2.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[] 
+Progress :[] 
+目前尚可執行 5 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 13:38:01
+(INT)現在時間 = 1653889081
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't2', 'hashkey': 'HSM used', 'pname': u't2', 'configName': u't2.json', 'sep': ',', 'hashTableName': u't2', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t2.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't1', u't10', u't13', u't16', u't17', u't18', u't15', u't14', u't19', u't20', u't3']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't3', u't16', u't12', u't14', u't1', u't17', u't20', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't3', u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t3.csv, t3.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t3.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t3.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[6] 
+Progress :[6] 
+目前尚可執行 4 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 13:40:02
+(INT)現在時間 = 1653889202
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't3', 'hashkey': 'HSM used', 'pname': u't3', 'configName': u't3.json', 'sep': ',', 'hashTableName': u't3', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t3.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't1', u't10', u't13', u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't16', u't12', u't14', u't1', u't17', u't20', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't1', u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t1.csv, t1.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t1.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t1.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 8] 
+Progress :[1, 8] 
+目前尚可執行 3 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 13:42:02
+(INT)現在時間 = 1653889322
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't1', 'hashkey': 'HSM used', 'pname': u't1', 'configName': u't1.json', 'sep': ',', 'hashTableName': u't1', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t1.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't10', u't13', u't16', u't17', u't18', u't15', u't14', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't16', u't12', u't14', u't17', u't20', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't14', u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t14.csv, t14.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class', u'class_error']
+step1 check: 檢查欄位命名對應 [ERROR]
+命名欄位有誤: set([u'class_error'])
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+資料有誤，請至error folder檢查.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't10', u't13', u't16', u't17', u't18', u't15', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't16', u't12', u't17', u't20', u't13', u't18', u't10', u't15']
+有命名相符的資料: [u't15', u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t15.csv, t15.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t15.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t15.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[15, 15, 15] 
+Progress :[] 
+目前尚可執行 5 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:27:02
+(INT)現在時間 = 1653892022
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't15', 'hashkey': 'HSM used', 'pname': u't15', 'configName': u't15.json', 'sep': ',', 'hashTableName': u't15', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t15.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't10', u't13', u't16', u't17', u't18', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't16', u't12', u't17', u't20', u't13', u't18', u't10']
+有命名相符的資料: [u't16', u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t16.csv, t16.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t16.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t16.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 15, 15, 15] 
+Progress :[1] 
+目前尚可執行 4 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:28:02
+(INT)現在時間 = 1653892082
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't16', 'hashkey': 'HSM used', 'pname': u't16', 'configName': u't16.json', 'sep': ',', 'hashTableName': u't16', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t16.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't10', u't13', u't17', u't18', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't17', u't20', u't13', u't18', u't10']
+有命名相符的資料: [u't17', u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t17.csv, t17.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t17.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t17.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[40, 5, 15, 15, 15] 
+Progress :[40, 5] 
+目前尚可執行 3 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:29:02
+(INT)現在時間 = 1653892142
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't17', 'hashkey': 'HSM used', 'pname': u't17', 'configName': u't17.json', 'sep': ',', 'hashTableName': u't17', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t17.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't10', u't13', u't18', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't20', u't13', u't18', u't10']
+有命名相符的資料: [u't10', u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t10.csv, t10.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t10.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t10.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 3, 7, 15, 15] 
+Progress :[0, 3, 7] 
+目前尚可執行 2 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:30:02
+(INT)現在時間 = 1653892202
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't10', 'hashkey': 'HSM used', 'pname': u't10', 'configName': u't10.json', 'sep': ',', 'hashTableName': u't10', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t10.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't13', u't18', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't20', u't13', u't18']
+有命名相符的資料: [u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t11.csv, t11.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t11.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t11.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 1, 5, 8, 15] 
+Progress :[0, 1, 5, 8] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:31:02
+(INT)現在時間 = 1653892262
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't11', 'hashkey': 'HSM used', 'pname': u't11', 'configName': u't11.json', 'sep': ',', 'hashTableName': u't11', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t11.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13', u't18', u't19', u't20']
+Config列表: [u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't20', u't13', u't18']
+有命名相符的資料: [u't20', u't18', u't19', u't12', u't13']
+有命名相符的資料，最早被修改的: t20.csv, t20.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t20.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t20.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 40, 5, 7, 11] 
+Progress :[0, 40, 5, 7, 11] 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13', u't18', u't19']
+Config列表: [u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't13', u't18']
+有命名相符的資料: [u't18', u't19', u't12', u't13']
+有命名相符的資料，最早被修改的: t18.csv, t18.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t18.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t18.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 1, 5, 8, 11] 
+Progress :[0, 1, 5, 8, 11] 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't11', u't12', u't13', u't18', u't19', u't20']
+Config列表: [u't11', u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't20', u't13', u't18']
+有命名相符的資料: [u't11', u't12', u't13', u't20', u't18', u't19']
+有命名相符的資料，最早被修改的: t11.csv, t11.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t11.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t11.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 1, 5, 11, 15] 
+Progress :[0, 1, 5, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-30 14:31:02
+(INT)原時間戳 in json: 1653892262 
+現在時間 = 2022-05-30 14:32:02
+(INT)現在時間 = 1653892322
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't11', 'hashkey': 'HSM used', 'pname': u't11', 'configName': u't11.json', 'sep': ',', 'hashTableName': u't11', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t11.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13', u't19']
+Config列表: [u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't13']
+有命名相符的資料: [u't19', u't12', u't13']
+有命名相符的資料，最早被修改的: t19.csv, t19.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t19.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t19.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 1, 5, 11, 15] 
+Progress :[0, 1, 5, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:35:02
+(INT)現在時間 = 1653892502
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't19', 'hashkey': 'HSM used', 'pname': u't19', 'configName': u't19.json', 'sep': ',', 'hashTableName': u't19', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t19.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't13']
+有命名相符的資料: [u't12', u't13']
+有命名相符的資料，最早被修改的: t12.csv, t12.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t12.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t12.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 1, 5, 11, 11] 
+Progress :[0, 1, 5, 11, 11] 
+JOB Wait, 還有專案尚未執行完畢.
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13', u't19']
+Config列表: [u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't13']
+有命名相符的資料: [u't19', u't12', u't13']
+有命名相符的資料，最早被修改的: t19.csv, t19.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t19.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t19.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 1, 7, 11, 15] 
+Progress :[1, 1, 7, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-30 14:35:02
+(INT)原時間戳 in json: 1653892502 
+現在時間 = 2022-05-30 14:36:01
+(INT)現在時間 = 1653892561
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't19', 'hashkey': 'HSM used', 'pname': u't19', 'configName': u't19.json', 'sep': ',', 'hashTableName': u't19', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t19.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't12', u't13', u't19']
+Config列表: [u't19', u'g_mac_t2_k_job1', u'test_modifiedTime', u't12', u't13']
+有命名相符的資料: [u't19', u't12', u't13']
+有命名相符的資料，最早被修改的: t19.csv, t19.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t19.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t19.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 5, 7, 11, 15] 
+Progress :[1, 5, 7, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-30 14:36:01
+(INT)原時間戳 in json: 1653892561 
+現在時間 = 2022-05-30 14:37:02
+(INT)現在時間 = 1653892622
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't19', 'hashkey': 'HSM used', 'pname': u't19', 'configName': u't19.json', 'sep': ',', 'hashTableName': u't19', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t19.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't13']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't13']
+有命名相符的資料: [u't13']
+有命名相符的資料，最早被修改的: t13.csv, t13.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t13.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t13.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[0, 5, 7, 11, 15] 
+Progress :[0, 5, 7, 11] 
+目前尚可執行 1 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-24 09:51:09
+(INT)原時間戳 in json: 1653357069.37 
+現在時間 = 2022-05-30 14:39:02
+(INT)現在時間 = 1653892742
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't13', 'hashkey': 'HSM used', 'pname': u't13', 'configName': u't13.json', 'sep': ',', 'hashTableName': u't13', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t13.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't13']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't13']
+有命名相符的資料: [u't13']
+有命名相符的資料，最早被修改的: t13.csv, t13.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t13.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t13.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 5, 7, 15, 15] 
+Progress :[1, 5, 7] 
+目前尚可執行 2 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-30 14:39:02
+(INT)原時間戳 in json: 1653892742 
+現在時間 = 2022-05-30 14:40:02
+(INT)現在時間 = 1653892802
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't13', 'hashkey': 'HSM used', 'pname': u't13', 'configName': u't13.json', 'sep': ',', 'hashTableName': u't13', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t13.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't13']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't13']
+有命名相符的資料: [u't13']
+有命名相符的資料，最早被修改的: t13.csv, t13.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t13.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t13.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 5, 7, 15, 15] 
+Progress :[1, 5, 7] 
+目前尚可執行 2 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-30 14:40:02
+(INT)原時間戳 in json: 1653892802 
+現在時間 = 2022-05-30 14:41:02
+(INT)現在時間 = 1653892862
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't13', 'hashkey': 'HSM used', 'pname': u't13', 'configName': u't13.json', 'sep': ',', 'hashTableName': u't13', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t13.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: [u't13']
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime', u't13']
+有命名相符的資料: [u't13']
+有命名相符的資料，最早被修改的: t13.csv, t13.json
+讀取config檔案內容▼▼▼
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+targetCols_: ['None']
+after_col_value_: [u'3', u'1', u'0', u'2', u'1', u'2', u'1', u'4', u'4', u'4', u'4', u'4', u'0', u'0', u'4', u'0']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+C_flag: True
+檢查資料和config是否符合資料規則▼▼▼
+df_cols_: ['id', 'age', 'workclass', 'fnlwgt', 'education', 'education_num', 'marital_status', 'occupation', 'relationship', 'race', 'sex', 'capital_gain', 'capital_loss', 'hours_per_week', 'country', 'class']
+col_cht_: [u'id', u'age', u'workclass', u'fnlwgt', u'education', u'education_num', u'marital_status', u'occupation', u'relationship', u'race', u'sex', u'capital_gain', u'capital_loss', u'hours_per_week', u'country', u'class']
+step1 check: 檢查欄位命名對應 [OK]
+step2 check: 檢查ML欄位<=3 [OK]
+step3-1 check: 檢查去識別欄位有設定間接識別欄位 [OK]
+tmp_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+qi_col_: [u'age-1', u'fnlwgt-2', u'education-1', u'education_num-2', u'marital_status-1']
+step3-2 check: 檢查去識別欄位有對應去識別化條件 [OK]
+dataToDoPath_new: /home/hadoop/proj_/dataMac/input/t13.csv
+configToDoPath_new: /home/hadoop/proj_/dataConfig/t13.json
+maria_file
+10
+/run/secrets/maria_file
+23
+citcw200
+8
+-------
+user=deidadmin
+ip=MariaDB_nrtS
+pwd=citcw200
+Progress :[1, 7, 11, 15, 15] 
+Progress :[1, 7, 11] 
+目前尚可執行 2 個專案，準備執行資料去識別化.
+原時間戳 in json: 2022-05-30 14:41:02
+(INT)原時間戳 in json: 1653892862 
+現在時間 = 2022-05-30 14:42:02
+(INT)現在時間 = 1653892922
+('DeidAPI_para: ', {'dataHash': 'yes', 'p_dsname': u't13', 'hashkey': 'HSM used', 'pname': u't13', 'configName': u't13.json', 'sep': ',', 'hashTableName': u't13', 'columns_mac': u'id', 'prodesc': 'describe: DeId-project  t13.'})
+
+----完 成 1 次 監 控----
+
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.
+HELLO DOCKER bc6ad6534349
+
+----WatchFolder Service ON----
+
+datapath: /home/hadoop/proj_/data_check/
+dataerrorpath: /home/hadoop/proj_/data_error/
+文件列表: []
+Config列表: [u'g_mac_t2_k_job1', u'test_modifiedTime']
+有命名相符的資料: []
+***在監控資料夾中，沒有相符命名的資料.

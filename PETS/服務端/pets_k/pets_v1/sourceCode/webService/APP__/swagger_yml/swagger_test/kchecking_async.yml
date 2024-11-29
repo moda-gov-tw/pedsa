@@ -1,0 +1,44 @@
+summary: "step 3: kchecking_async" #modify
+description: "Deid API : kchecking_async" #modify
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "kchecking_async" #modify
+  description: "Accepts a input dictionary of inputs" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: #modify
+      userID:
+        type: "string"
+        example : 'Bruce'
+      projStep: 
+        type: "string"
+        example : "kchecking_one"
+      projID:
+        type: "string"
+        example : '1'
+      projName:
+        type: "string"
+        example : '2QDataMarketDeId'
+      jobName:
+        type: "string"
+        example : 'job01' 
+      kchecking:
+        type: "string"
+        example : '1'     
+      mainInfo:
+        type: "object"
+        example: {"joinType":"inner","kValue":"3","publicTableName":"g_adult_deid","dataInfo":[{"QIcols":["c_9810_7","c_9810_10"],"colNames":["c_9810_0","c_9810_1","c_9810_2","c_9810_3","c_9810_4","c_9810_5","c_9810_6","c_9810_7","c_9810_8","c_9810_9","c_9810_10","c_9810_11","c_9810_12","c_9810_13","c_9810_14","c_9810_15"],"tableName":"g_adult_deid","dbName":"demomuticsv","keyNames":["c_9810_1","c_9810_2"]}]}                  
+    required:
+      - userID
+      - projStep
+
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"

@@ -1,0 +1,46 @@
+summary: "針對特定欄位做Join" #modify
+description: "將3個database針對欄位做inner join 或 outer join" #modify
+tags:
+  - Join
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body" 
+  name: "Join" #modify
+  description: "
+  member_id: member_id<br/>
+  join_type: inner:0 outer:1<br/>
+  join_func_encoded: join_func 編碼<br/>
+  project_eng: 專案名稱<br/>
+  project_id: 專案ID" #modify
+  required: true
+  schema:
+    type: "object"
+    properties: 
+      member_id:
+        type: "string"
+        example : "0"
+      join_type:
+        type: "string"
+        example : "0"
+      join_func_encoded:
+        type: "string"
+        example : "IFsKICAgICAgewogICAgICAgICJsZWZ0X2RhdGFzZXQiOiAidzFfYS5jc3YiLAogICAgICAgICJsZWZ0X2NvbCI6ICJhZ2UiLAogICAgICAgICJyaWdodF9kYXRhc2V0IjogIncyX2IuY3N2IiwKICAgICAgICAicmlnaHRfY29sIjogImFnZSIKICAgICAgfSwKICAgICB7CiAgICAgICAgImxlZnRfZGF0YXNldCI6ICJ3MV9hLmNzdiIsCiAgICAgICAgImxlZnRfY29sIjogImlkIiwKICAgICAgICAicmlnaHRfZGF0YXNldCI6ICJ3M19jLmNzdiIsCiAgICAgICAgInJpZ2h0X2NvbCI6ICJpZCIKICAgICAgfQpd"
+      project_eng:
+        type: "string"
+        example : "join_test"
+      project_id:
+        type: "string"
+        example : "0"
+
+    required:
+      # - pname
+      # - prodesc
+      - jsonbase64
+responses: #modify
+  200:
+    description: "OK"
+  405:
+    description: "Invalid input"
