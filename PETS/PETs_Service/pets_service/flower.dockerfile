@@ -1,1 +1,0 @@
-FROM mher/flower:1.2
