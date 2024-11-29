@@ -1,0 +1,103 @@
+2024/07/26 08:33:45 - AES_Enc - DEBUG - spark_import_dbName_enc_output
+2024/07/26 08:33:45 - AES_Enc - DEBUG - spark_import_projName_enc_output
+2024/07/26 08:33:45 - AES_Enc - DEBUG - spark_import_projID_999
+2024/07/26 08:33:45 - AES_Enc - DEBUG - MAC_columns_mac:ID
+2024/07/26 08:33:45 - AES_Enc - DEBUG - AES_columns_mac:EmployeID,Name
+2024/07/26 08:33:45 - AES_Enc - DEBUG - onlyHash:Y
+2024/07/26 08:33:45 - AES_Enc - DEBUG - spark_import_userAccount_deidadmin
+2024/07/26 08:33:45 - AES_Enc - DEBUG - spark_import_userId_1
+2024/07/26 08:33:45 - AES_Enc - DEBUG - spark_import_service_ip_34.81.71.21
+2024/07/26 08:33:45 - AES_Enc - DEBUG - project_cert = eyJncm91cF90eXBlIjoic3lzIiwiZW5jX2tleSI6IkJBNjNEMjQzOUEwNkVGNjdDQUYwMjQ4RTZFMDg5OEY0NkIyQzA4QTJCMjQ3Q0M4MTAzOEM1NDE2QzUzMENBNjYiLCJwcm9qZWN0X25hbWUiOiJ0ZXN0MDcyNjEiLCJwcm9qZWN0X2ZvbGRlciI6InRlc3QwNzI2MSIsInBldHNfc2VydmljZV9pcCI6IjM0LjgxLjcxLjIxIn0=
+2024/07/26 08:33:45 - AES_Enc - DEBUG - group_type = sys
+2024/07/26 08:33:45 - AES_Enc - DEBUG - Mac_hashkey:BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:33:45 - AES_Enc - DEBUG - AES_hashkey:BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:33:45 - AES_Enc - DEBUG - AES key : BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:33:45 - AES_Enc - DEBUG - Mac key : BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:33:45 - AES_Enc - DEBUG - projName: test07261
+2024/07/26 08:33:45 - AES_Enc - DEBUG - project_folder: test07261
+2024/07/26 08:33:45 - AES_Enc - DEBUG - pets_service_ip : 34.81.71.21
+2024/07/26 08:33:45 - AES_Enc - DEBUG - AES password ok
+2024/07/26 08:33:45 - AES_Enc - DEBUG - Mac password ok
+2024/07/26 08:33:45 - AES_Enc - DEBUG - AES columns name will be maced: ['EmployeID', 'Name']
+2024/07/26 08:33:45 - AES_Enc - DEBUG - MAC columns name will be maced: ['ID']
+2024/07/26 08:33:58 - AES_Enc - DEBUG - cmd is echo "citcw200@" | sudo -S chown hadoop:hadoop /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/07/26 08:33:58 - AES_Enc - DEBUG - run result is 0
+2024/07/26 08:33:58 - AES_Enc - DEBUG - Input path: /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/07/26 08:33:58 - AES_Enc - DEBUG - ----for decry----isEnc: 0
+2024/07/26 08:33:58 - AES_Enc - DEBUG - ============start======================
+2024/07/26 08:33:58 - AES_Enc - DEBUG - input file: /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/07/26 08:33:58 - AES_Enc - DEBUG - MAC columns name will be maced: ['ID']
+2024/07/26 08:33:58 - AES_Enc - DEBUG - AES columns name will be maced: ['EmployeID', 'Name']
+2024/07/26 08:33:58 - AES_Enc - DEBUG - remove hdfs_path = /tmp/TP_3000.csv
+2024/07/26 08:34:00 - AES_Enc - DEBUG - remove hdfs file result = 
+2024/07/26 08:34:00 - AES_Enc - DEBUG -  AAAAAAAAAA-TP_3000.csv exist before , rm ok
+2024/07/26 08:34:00 - AES_Enc - DEBUG - In readFrom_csv_wit_NA_Normalize
+2024/07/26 08:34:00 - AES_Enc - DEBUG - path_: /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/07/26 08:34:00 - AES_Enc - DEBUG - sep: ,
+2024/07/26 08:34:00 - AES_Enc - DEBUG - BBBB hdfs_path = /tmp/TP_3000.csv
+2024/07/26 08:34:01 - AES_Enc - DEBUG - BBBBresult = 
+2024/07/26 08:34:01 - AES_Enc - DEBUG - In readLocalData
+2024/07/26 08:34:04 - AES_Enc - DEBUG - header valuse = ['EmployeID', 'ID', 'Name', 'DoB', 'PhoneNumber', 'Email', 'Sex', 'Address', 'MaritalStatus', 'Height', 'NoOfChildren', 'AddtionalIncome', 'IncomePerMonth', 'PoliticalSpectrum', 'RandomCode']
+2024/07/26 08:34:05 - AES_Enc - DEBUG - In checkListQuotes header
+2024/07/26 08:34:05 - AES_Enc - DEBUG - In checkListQuotes record
+2024/07/26 08:34:05 - AES_Enc - DEBUG - Check headerRaw and headerTmp
+2024/07/26 08:34:05 - AES_Enc - DEBUG - {'col_0': 'EmployeID', 'col_4': 'PhoneNumber', 'col_10': 'NoOfChildren', 'col_1': 'ID', 'col_5': 'Email', 'col_2': 'Name', 'col_13': 'PoliticalSpectrum', 'col_11': 'AddtionalIncome', 'col_7': 'Address', 'col_14': 'RandomCode', 'col_8': 'MaritalStatus', 'col_6': 'Sex', 'col_12': 'IncomePerMonth', 'col_3': 'DoB', 'col_9': 'Height'}
+2024/07/26 08:34:05 - AES_Enc - DEBUG - ['EmployeID', 'ID', 'Name', 'DoB', 'PhoneNumber', 'Email', 'Sex', 'Address', 'MaritalStatus', 'Height', 'NoOfChildren', 'AddtionalIncome', 'IncomePerMonth', 'PoliticalSpectrum', 'RandomCode']
+2024/07/26 08:34:05 - AES_Enc - DEBUG - ['col_0', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'col_7', 'col_8', 'col_9', 'col_10', 'col_11', 'col_12', 'col_13', 'col_14']
+2024/07/26 08:34:05 - AES_Enc - DEBUG -  readFrom_csv OK
+2024/07/26 08:34:05 - AES_Enc - DEBUG - ============start2======================
+2024/07/26 08:34:05 - AES_Enc - DEBUG - ###################out udfMac table name
+2024/07/26 08:34:05 - AES_Enc - DEBUG - citc____TP_3000
+2024/07/26 08:34:05 - AES_Enc - DEBUG - ###################sc.applicationId
+2024/07/26 08:34:05 - AES_Enc - DEBUG - citc____application_1721953524151_0001
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---++++--cols: ['col_0', 'col_2']
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---++++--AES key_: BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---++++--isEnc: 0
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---++++--MAC cols: ['col_1']
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---++++--MAC key_: BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:34:06 - AES_Enc - DEBUG - enter
+2024/07/26 08:34:06 - AES_Enc - DEBUG - enter
+2024/07/26 08:34:06 - AES_Enc - DEBUG - in udfMacCols
+2024/07/26 08:34:06 - AES_Enc - DEBUG - col finishy
+2024/07/26 08:34:06 - AES_Enc - DEBUG - AES and MAC = ['col_0', 'col_2'] ['col_1']
+2024/07/26 08:34:06 - AES_Enc - DEBUG - col name before
+2024/07/26 08:34:06 - AES_Enc - DEBUG - MAC_KEY = BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66
+2024/07/26 08:34:06 - AES_Enc - DEBUG - df3 head =['col_0', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'col_7', 'col_8', 'col_9', 'col_10', 'col_11', 'col_12', 'col_13', 'col_14']
+2024/07/26 08:34:06 - AES_Enc - DEBUG - before extend
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ['col_0', 'col_2']
+2024/07/26 08:34:06 - AES_Enc - DEBUG - before tmpList
+2024/07/26 08:34:06 - AES_Enc - DEBUG - after tmpList
+2024/07/26 08:34:06 - AES_Enc - DEBUG - before tmpList
+2024/07/26 08:34:06 - AES_Enc - DEBUG - after tmpList
+2024/07/26 08:34:06 - AES_Enc - DEBUG - finish
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---2--dataHash: Y
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---2--onlyHash: Y
+2024/07/26 08:34:06 - AES_Enc - DEBUG - ---33333--tableName_: sys_TP_3000
+2024/07/26 08:34:06 - AES_Enc - DEBUG - Output path: /home/hadoop/proj_/dataMac/output
+2024/07/26 08:34:06 - AES_Enc - DEBUG - header : ['col_0', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'col_7', 'col_8', 'col_9', 'col_10', 'col_11', 'col_12', 'col_13', 'col_14']
+2024/07/26 08:34:13 - AES_Enc - DEBUG - export data succeed.
+2024/07/26 08:34:13 - AES_Enc - DEBUG - column name: EmployeID
+2024/07/26 08:34:14 - AES_Enc - DEBUG - anormal count: 3000 normal count: 0 total count: 3000
+2024/07/26 08:34:14 - AES_Enc - DEBUG - column name: Name
+2024/07/26 08:34:14 - AES_Enc - DEBUG - anormal count: 3000 normal count: 0 total count: 3000
+2024/07/26 08:34:14 - AES_Enc - DEBUG - column name: ID
+2024/07/26 08:34:14 - AES_Enc - DEBUG - anormal count: 0 normal count: 3000 total count: 3000
+2024/07/26 08:34:14 - AES_Enc - DEBUG - out_json: {'col_name': 'EmployeID,ID,Name,DoB,PhoneNumber,Email,Sex,Address,MaritalStatus,Height,NoOfChildren,AddtionalIncome,IncomePerMonth,PoliticalSpectrum,RandomCode', 'enc_datasetname': 'sys_TP_3000.csv', 'col_setting': 'AES,AES,AES,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting', 'ds_count': '3000', 'enc_key': 'BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66,BA63D2439A06EF67CAF0248E6E0898F46B2C08A2B247CC81038C5416C530CA66'}
+2024/07/26 08:34:14 - AES_Enc - DEBUG - ============end=======================/home/hadoop/proj_/dataMac/output/test07261
+2024/07/26 08:34:14 - AES_Enc - DEBUG - remove hdfs_path = /tmp/TP_3000.csv
+2024/07/26 08:34:15 - AES_Enc - DEBUG - remove hdfs file result = b'24/07/26 00:34:15 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.\n'
+2024/07/26 08:34:15 - AES_Enc - DEBUG -  AAAAAAAAAA-TP_3000.csv rm ok
+2024/07/26 08:34:15 - AES_Enc - DEBUG - ubuntu
+2024/07/26 08:34:15 - AES_Enc - DEBUG - /home/ubuntu/mohw0724/PETS/pets_service/sftp_upload_folder
+2024/07/26 08:34:15 - AES_Enc - DEBUG - %%%%%%%%%%%%%%%%%%
+2024/07/26 08:34:15 - AES_Enc - DEBUG - ============cmd_send=======================
+2024/07/26 08:34:15 - AES_Enc - DEBUG - cmd_send:scp -i /home/hadoop/proj_/longTaskDir/sftp_keys/sftp_key.pem -P 22 -r /home/hadoop/proj_/dataMac/output/test07261 ubuntu@34.81.71.21:/home/ubuntu/mohw0724/PETS/pets_service/sftp_upload_folder
+2024/07/26 08:34:15 - AES_Enc - DEBUG - mod_str:chmod 755 /home/ubuntu/mohw0724/PETS/pets_service/sftp_upload_folder/test07261
+2024/07/26 08:34:15 - AES_Enc - DEBUG - ============ cmd_chmod =======================
+2024/07/26 08:34:15 - AES_Enc - DEBUG - cmd_chmod:ssh -i /home/hadoop/proj_/longTaskDir/sftp_keys/sftp_key.pem ubuntu@34.81.71.21 'chmod 755 /home/ubuntu/mohw0724/PETS/pets_service/sftp_upload_folder/test07261'
+2024/07/26 08:34:16 - AES_Enc - DEBUG - b''
+2024/07/26 08:34:16 - AES_Enc - DEBUG - b"Warning: Permanently added '34.81.71.21' (ECDSA) to the list of known hosts.\r\nchmod: cannot access '/home/ubuntu/mohw0724/PETS/pets_service/sftp_upload_folder/test07261': No such file or directory\n"
+2024/07/26 08:34:16 - AES_Enc - DEBUG - b''
+2024/07/26 08:34:16 - AES_Enc - DEBUG - b"Warning: Permanently added '34.81.71.21' (ECDSA) to the list of known hosts.\r\n"
+2024/07/26 08:34:16 - AES_Enc - DEBUG - ============AES_Enc end=======================
+2024/07/26 08:34:16 - AES_Enc - DEBUG - insert T_Pets_ProjectStatus fail: errTable: Insert to PetsService.T_Pets_ProjectStatus fail: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`PetsService`.`T_Pets_ProjectStatus`, CONSTRAINT `T_Pets_ProjectStatus_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `T_Pets_Project` (`project_id`))')

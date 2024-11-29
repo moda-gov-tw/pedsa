@@ -1,0 +1,166 @@
+﻿@using System.Globalization
+@using Resources
+@inject ILocalizer localizer
+@{
+    ViewData["Title"] = "FileUploadState";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta charset="UTF-8">
+<section class="section_top">
+    <div class="container">
+        <ul class="bread_crumb">
+            <!-- <li><a href="@Url.Action("ProjectIndex","Home")">@localizer.Text.project_list</a></li>
+            <li><a href="@Url.Action("StepUpload", "ProjectStep", new { proj_id = ViewData["ProjectId"], project_name = ViewData["ProjectName"],project_cht=ViewData["Project_cht"] })">@ViewData["Project_cht"]</a></li> -->
+        </ul>
+    </div>
+</section>
+<section class="project_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <!-- <div class="project_title">
+                        <h4>先來個名字撐起高度</h4>
+                    </div> -->
+                    <div class="status_bar">
+                        <h4 class="method">查詢PEDSA系統上傳檔案狀況</h4>
+                        <div class="status">
+                            <div class="status_no_line active">
+                                <h6>查詢系統上傳檔案狀況</h6>
+                                <p>Data Upload Status</p>
+                                <h3></h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-9 upload">
+                    <div class="project_content">
+                        <h4 class="title">查詢PEDSA系統上傳檔案狀況<span class="step_inf"></span></h4>
+                    </div>
+                    <div class="col-sm-12">
+                        @* <table class="table table-hover"  id="dept_active">*@
+                        @*<table id="dept_active" class="table table-hover table_info" data-toggle="table" data-show-header="true" data-pagination="true" data-search="true" data-sortable="true" data-page-list="[10, 25, 50, 100, All]" data-page-size="10">*@
+                        <table id="file_upload" class="table table-hover table_info" data-toggle="table" data-show-header="true" data-pagination="true" data-search="true" data-sortable="true" data-page-list="[10, 25, 50, 100, All]" data-page-size="10">
+                            @*<th data-field="Id" data-sortable="true">ID</th>
+                                <th data-field="group_ad_name" data-sortable="true">機關</th>
+                                <th data-field="group_name" data-sortable="true">群組名稱</th>
+                                <th data-field="keydate" data-sortable="true">金鑰時間</th>
+                                <th data-field="keyname" data-sortable="true">金鑰類型</th>
+                                <th data-field="group_key" data-sortable="true">金鑰</th>*@
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <label id="logdata" style="display: none">@ViewData["app_list"]</label>
+    <label id="pid" style="display: none">@ViewData["ProjectId"]</label>
+    <label id="pcht" style="display: none">@ViewData["Project_cht"]</label>
+    <label id="pname" style="display: none">@ViewData["ProjectName"]</label>
+    <label id="memberAcc" style="display:none">@ViewData["memberAcc"]</label>
+    <label id="memberId" style="display:none">@ViewData["memberId"]</label>
+</section>
+<script>
+
+    function truncateFormatter(value, row, index) {
+        if (value.length > 15) {
+            return value.substring(0, 6) + "..." + value.substr(-6);
+        } else {
+            return value;
+        }
+    }
+    //project_id,service_ip,dataset_name,project_status,statusname,createtime
+    var appdata = JSON.parse($('#logdata').text());
+    $('#file_upload').bootstrapTable({
+        columns: [{
+            field: 'service_ip',
+            title: '使用端IP'
+        },
+        {
+            field: 'dataset_name',
+            title: '上傳檔案名稱'
+        },
+        {
+            field: 'statusname',
+            title: '上傳狀態'
+        },
+        {
+            field: 'createtime',
+            title: '上傳時間'
+        },
+        {
+            field: 'ps_id',
+            title: 'PS ID',
+            visible: false // 隱藏該欄位
+        },
+    {
+      field: 'key_code',
+      title: '',
+      formatter: function(value, row, index) {
+        // 將 key_code 轉換為按鈕，並在按下按鈕時觸發事件
+        return '<button class="btn btn-primary btn-sm" onclick="handleKeyCode(\'' + value + '\')">資料續傳</button>';
+      }
+    }
+        ],
+        classes: 'table',
+        data: appdata,
+        pagination: true, //使否要分頁
+
+        //可於ToolBar上顯示的按鈕
+        showColumns: false, //顯示/隱藏哪些欄位
+        showToggle: false, //名片式/table式切換
+        showPaginationSwitch: false, //分頁/不分頁切換
+        showRefresh: false, //重新整理
+        search: true, //查詢
+
+        onPageChange: function (currentPage, pageSize) {
+            console.log("目前頁數:" + currentPage + ",一頁顯示:" + pageSize + "筆");
+        },
+        pageSize: 20, //一頁顯示幾筆
+        //pageList : [ 5,10, 20, 50, 100], //一頁顯示幾筆的選項
+
+        formatRecordsPerPage: function (pageSize) {
+            return '&nbsp;&nbsp;每頁顯示' + pageSize + '筆';
+        },
+        formatShowingRows: function (fromIndex, toIndex, totalSize) {
+            //目前第幾頁
+            var currentPage = Math.ceil(fromIndex / this.pageSize);
+            //總共幾頁
+            var totalPageCount = Math.ceil(totalSize / this.pageSize);
+            return '第' + currentPage + '頁&nbsp;&nbsp;共' + totalPageCount + '頁';
+        }
+    });
+
+    // 定義按鈕的點擊事件
+function handleKeyCode(key_code) {
+  //alert('Key Code: ' + key_code);
+  var checkstate="0";
+          $.ajax({
+            type: "get",
+            url: "/api/WebAPI/resend",
+            contentType: "application/json",
+            async: false,
+            data:
+            {
+                key_code:key_code
+            },
+            success: function (data, status) {
+             // alert('return data :'+ data);
+             //  alert('return status :'+ status);
+              if(!data)
+              {
+                  alert('資料續傳失敗，識別碼已經更新，請重新上傳資料!');
+              }
+            },
+            error: function (data, status) {
+                //alert(savecolerror);
+                //alert('err')
+                checkstate ="-1"
+            }
+        });
+
+        //alert('資料已重新續傳!');
+}
+</script>

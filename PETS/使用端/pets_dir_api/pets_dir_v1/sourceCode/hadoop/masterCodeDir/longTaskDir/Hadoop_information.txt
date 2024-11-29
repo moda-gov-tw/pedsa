@@ -1,0 +1,13 @@
+[Hadoop_information]
+
+ip=34.81.119.49
+
+port=6922
+ 
+out_path=/home/hadoop/proj_/final_project/k/input
+
+user_name=itri-pedsa
+
+sftp_folder=/home/itri-pedsa/deploy_PEDSA/pedsa_s/pets_service/sftp_upload_folder
+
+password= citcw200@

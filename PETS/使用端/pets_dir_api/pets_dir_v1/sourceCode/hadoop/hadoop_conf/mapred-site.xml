@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+
+  <property>
+	  <name>mapreduce.jobhistory.address</name>
+	  <value>nodemasterSCLIENT:10020</value>
+  </property> 
+  <property>
+	  <name>mapreduce.jobhistory.webapp.address</name>
+	  <value>nodemasterSCLIENT:19888</value>
+  </property>
+  <property>
+    <name>mapreduce.map.memory.mb</name>
+    <value>4096</value>
+  </property>
+  <property>
+    <name>mapreduce.reduce.memory.mb</name>
+    <value>4096</value>
+  </property>
+  <property>
+    <name>mapreduce.map.java.opts</name>
+    <value>-Xmx3276m</value>
+  </property>
+  <property>
+    <name>mapreduce.reduce.java.opts</name>
+    <value>-Xmx3276m</value>
+  </property>
+  <property>
+  <name>mapred.child.java.opts</name>
+  <value>-Xmx2000m</value>
+  <final>true</final>
+  </property>  
+  <property>
+    <name>mapreduce.map.cpu.vcores
+    </name><value>8</value>
+    <source>mapred-default.xml</source>
+  </property>
+  <property>
+      <name>yarn.app.mapreduce.am.resource.mb</name>
+      <value>4096</value>
+  </property>
+  <property>
+    <name>yarn.app.mapreduce.am.command-opts</name>
+    <value>-Xmx3276m</value>
+  </property>  
+  <property>
+    <name>yarn.app.mapreduce.am.staging-dir</name>
+    <value>/tmp/hadoop-yarn/staging</value>
+  </property>
+
+  <property>
+   <name>mapreduce.jobhistory.done-dir</name>
+        <value>
+         ${yarn.app.mapreduce.am.staging-dir}/history/done
+        </value><source>mapred-default.xml</source>
+  </property>
+
+  <property>
+       <name>mapreduce.jobhistory.intermediate-done-dir</name>
+       <value>
+            ${yarn.app.mapreduce.am.staging-dir}/history/done_intermediate
+       </value>
+  </property>  
+
+</configuration>
+

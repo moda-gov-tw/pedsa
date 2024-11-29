@@ -1,0 +1,143 @@
+//Step3概化規則設定
+.project_content
+  position: relative
+  .container
+    line-height: 1.6
+    width: 840px
+    margin: 30px 0 100px 0
+    padding: 0 26px 0 0
+    min-height: 300px
+  .m_input
+    padding: 4px 10px
+    font-size: $font_base_size*1.4
+    width: 240px
+    input::placeholder 
+      color: #ababab
+.btn_next
+  float: right
+  margin: 20px
+.btn_back
+  margin: 20px
+.list-tabs
+  float: left
+  width: 25%
+.content-tabs-body
+  float: right
+  width: 610px
+  .n, .a, .m, .v
+    font-weight: bold
+    padding-left: 4px
+  .n
+    width: 25%
+  .a
+    width: 15%
+  .m
+    width: 25%
+  .v
+    width: 35%
+  .form_title
+    margin: 0
+.g_form
+  input
+    width: 220px
+  input::placeholder
+    color: #ababab
+    font-size: 12px
+    padding-left: 10px
+.g_colname, .g_attr
+  width: 25%
+  font-size: $font_base_size*1.4
+  padding-left: 6px
+.g_attr
+  width: 15%
+  font-size: $font_base_size*1.4
+  padding-left: 6px
+.label_step3
+  font-size: $font_base_size*1.7
+  width: 280px
+  margin-bottom: 10px
+
+ul.tabs
+  margin: 0px
+  padding: 0px
+  list-style: circle
+  width: 100%
+  font-size: $font_base_size*1.4
+  li
+    display: inline-block
+    padding: 10px 15px
+    cursor: pointer
+    width: 100%
+    position: relative
+    background: $color_white
+    color: $color_darkgray
+    border: $base_border
+    &.current
+      background-color: $color_main
+      color: $color_white
+      border: 1px solid $color_white
+  .fa-caret-right
+    width: 20px
+    height: 20px
+    position: absolute
+    right: 0
+    top: 15px
+
+.tab-content
+  padding: 10px 20px
+  margin-bottom: 80px
+  font-size: $font_base_size*1.4
+  opacity: 0
+  display: none
+  background-color: $color_white
+  box-shadow: 0 2px 7px rgba($color_darkgray,0.2)
+  .table_step3
+    font-size: $font_base_size*1.6
+    margin: 10px
+    width: 100%
+  .method
+    width: 180px
+    height: 27px
+    margin: 5px 10px 5px 4px
+  .value
+    width: 220px
+    height: 27px
+  &.current
+    display: block
+    opacity: 1
+
+.no_g_data
+  min-height: 260px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  img
+    width: 140px
+    margin-bottom: 20px
+  h6
+    color: #999999
+    font-size: $font_base_size*1.4
+.g_data
+  min-height: 260px
+
+//step3_02
+.gene_preview
+  h6
+    font-weight: 700
+  table
+    width: 810px
+    margin: 20px 10px 60px 0
+  th
+    background-color: $color_lightgray
+    font-size: 16px
+  td
+    background-color: $color_white
+    font-size: 14px
+.data_info
+  padding: 0 0 20px 0
+  h5
+    padding: 10px 0 20px 0
+    color: $color_main
+  h6
+    margin: 4px 0 0 0

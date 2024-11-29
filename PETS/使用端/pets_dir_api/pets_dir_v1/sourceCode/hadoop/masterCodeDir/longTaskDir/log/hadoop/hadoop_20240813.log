@@ -1,0 +1,248 @@
+2024/08/13 05:47:24 - AES_Enc - DEBUG - spark_import_dbName_enc_output
+2024/08/13 05:47:24 - AES_Enc - DEBUG - spark_import_projName_enc_output
+2024/08/13 05:47:24 - AES_Enc - DEBUG - spark_import_projID_999
+2024/08/13 05:47:24 - AES_Enc - DEBUG - MAC_columns_mac:ID
+2024/08/13 05:47:24 - AES_Enc - DEBUG - AES_columns_mac:EmployeID,Name
+2024/08/13 05:47:24 - AES_Enc - DEBUG - onlyHash:Y
+2024/08/13 05:47:24 - AES_Enc - DEBUG - spark_import_userAccount_deidadmin
+2024/08/13 05:47:24 - AES_Enc - DEBUG - spark_import_userId_1
+2024/08/13 05:47:24 - AES_Enc - DEBUG - spark_import_service_ip_130.211.246.188
+2024/08/13 05:47:24 - AES_Enc - DEBUG - project_cert = eyJncm91cF90eXBlIjoic3lzIiwiZW5jX2tleSI6IjAyMTU2NzNERjFBQkQwM0FDMDc0QTA4QzBFQTE5MDkzMUU3MjAwQzVFMDVCOEJBMzEyODMxODcyRUI0QkU2RkUiLCJwcm9qZWN0X25hbWUiOiJ0ZXN0MDgxMzEiLCJwcm9qZWN0X2ZvbGRlciI6InRlc3QwODEzMSIsInBldHNfc2VydmljZV9pcCI6IjEzMC4yMTEuMjQ2LjE4OCJ9
+2024/08/13 05:47:24 - AES_Enc - DEBUG - group_type = sys
+2024/08/13 05:47:24 - AES_Enc - DEBUG - Mac_hashkey:0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 05:47:24 - AES_Enc - DEBUG - AES_hashkey:0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 05:47:24 - AES_Enc - DEBUG - AES key : 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 05:47:24 - AES_Enc - DEBUG - Mac key : 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 05:47:24 - AES_Enc - DEBUG - projName: test08131
+2024/08/13 05:47:24 - AES_Enc - DEBUG - project_folder: test08131
+2024/08/13 05:47:24 - AES_Enc - DEBUG - pets_service_ip : 130.211.246.188
+2024/08/13 05:47:24 - AES_Enc - DEBUG - AES password ok
+2024/08/13 05:47:24 - AES_Enc - DEBUG - Mac password ok
+2024/08/13 05:47:24 - AES_Enc - DEBUG - AES columns name will be maced: ['EmployeID', 'Name']
+2024/08/13 05:47:24 - AES_Enc - DEBUG - MAC columns name will be maced: ['ID']
+2024/08/13 05:47:26 - AES_Enc - DEBUG - <class 'py4j.protocol.Py4JJavaError'>
+2024/08/13 05:47:26 - AES_Enc - DEBUG - An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.net.ConnectException: Call From nodemasterSCLIENT/168.138.8.227 to nodemasterSCLIENT:9000 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.apache.hadoop.net.NetUtils.wrapWithMessage(NetUtils.java:792)
+	at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:732)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1479)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1412)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy12.mkdirs(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:558)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:191)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy13.mkdirs(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3000)
+	at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:2970)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$21.doCall(DistributedFileSystem.java:1047)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$21.doCall(DistributedFileSystem.java:1043)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1061)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1036)
+	at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1881)
+	at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:600)
+	at org.apache.spark.deploy.yarn.Client.prepareLocalResources(Client.scala:429)
+	at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:869)
+	at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:169)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:57)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:164)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:500)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:495)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:614)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:712)
+	at org.apache.hadoop.ipc.Client$Connection.access$2900(Client.java:375)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1528)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1451)
+	... 38 more
+
+2024/08/13 05:47:26 - AES_Enc - DEBUG - 3
+2024/08/13 05:47:26 - AES_Enc - DEBUG - error in fundation of MAC_AES_Enc : An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.net.ConnectException: Call From nodemasterSCLIENT/168.138.8.227 to nodemasterSCLIENT:9000 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.apache.hadoop.net.NetUtils.wrapWithMessage(NetUtils.java:792)
+	at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:732)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1479)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1412)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy12.mkdirs(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:558)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:191)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy13.mkdirs(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3000)
+	at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:2970)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$21.doCall(DistributedFileSystem.java:1047)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$21.doCall(DistributedFileSystem.java:1043)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1061)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1036)
+	at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1881)
+	at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:600)
+	at org.apache.spark.deploy.yarn.Client.prepareLocalResources(Client.scala:429)
+	at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:869)
+	at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:169)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:57)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:164)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:500)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:495)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:614)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:712)
+	at org.apache.hadoop.ipc.Client$Connection.access$2900(Client.java:375)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1528)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1451)
+	... 38 more
+
+2024/08/13 05:47:26 - AES_Enc - DEBUG - errTable_errSC
+2024/08/13 06:14:09 - AES_Enc - DEBUG - spark_import_dbName_enc_output
+2024/08/13 06:14:09 - AES_Enc - DEBUG - spark_import_projName_enc_output
+2024/08/13 06:14:09 - AES_Enc - DEBUG - spark_import_projID_999
+2024/08/13 06:14:09 - AES_Enc - DEBUG - MAC_columns_mac:ID
+2024/08/13 06:14:09 - AES_Enc - DEBUG - AES_columns_mac:EmployeID,Name
+2024/08/13 06:14:09 - AES_Enc - DEBUG - onlyHash:Y
+2024/08/13 06:14:09 - AES_Enc - DEBUG - spark_import_userAccount_deidadmin
+2024/08/13 06:14:09 - AES_Enc - DEBUG - spark_import_userId_1
+2024/08/13 06:14:09 - AES_Enc - DEBUG - spark_import_service_ip_130.211.246.188
+2024/08/13 06:14:09 - AES_Enc - DEBUG - project_cert = eyJncm91cF90eXBlIjoic3lzIiwiZW5jX2tleSI6IjAyMTU2NzNERjFBQkQwM0FDMDc0QTA4QzBFQTE5MDkzMUU3MjAwQzVFMDVCOEJBMzEyODMxODcyRUI0QkU2RkUiLCJwcm9qZWN0X25hbWUiOiJ0ZXN0MDgxMzEiLCJwcm9qZWN0X2ZvbGRlciI6InRlc3QwODEzMSIsInBldHNfc2VydmljZV9pcCI6IjEzMC4yMTEuMjQ2LjE4OCJ9
+2024/08/13 06:14:09 - AES_Enc - DEBUG - group_type = sys
+2024/08/13 06:14:09 - AES_Enc - DEBUG - Mac_hashkey:0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:09 - AES_Enc - DEBUG - AES_hashkey:0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:09 - AES_Enc - DEBUG - AES key : 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:09 - AES_Enc - DEBUG - Mac key : 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:09 - AES_Enc - DEBUG - projName: test08131
+2024/08/13 06:14:09 - AES_Enc - DEBUG - project_folder: test08131
+2024/08/13 06:14:09 - AES_Enc - DEBUG - pets_service_ip : 130.211.246.188
+2024/08/13 06:14:09 - AES_Enc - DEBUG - AES password ok
+2024/08/13 06:14:09 - AES_Enc - DEBUG - Mac password ok
+2024/08/13 06:14:09 - AES_Enc - DEBUG - AES columns name will be maced: ['EmployeID', 'Name']
+2024/08/13 06:14:09 - AES_Enc - DEBUG - MAC columns name will be maced: ['ID']
+2024/08/13 06:14:25 - AES_Enc - DEBUG - cmd is echo "citcw200@" | sudo -S chown hadoop:hadoop /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/08/13 06:14:25 - AES_Enc - DEBUG - run result is 0
+2024/08/13 06:14:25 - AES_Enc - DEBUG - Input path: /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/08/13 06:14:25 - AES_Enc - DEBUG - ----for decry----isEnc: 0
+2024/08/13 06:14:25 - AES_Enc - DEBUG - ============start======================
+2024/08/13 06:14:25 - AES_Enc - DEBUG - input file: /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/08/13 06:14:25 - AES_Enc - DEBUG - MAC columns name will be maced: ['ID']
+2024/08/13 06:14:25 - AES_Enc - DEBUG - AES columns name will be maced: ['EmployeID', 'Name']
+2024/08/13 06:14:25 - AES_Enc - DEBUG - remove hdfs_path = /tmp/TP_3000.csv
+2024/08/13 06:14:26 - AES_Enc - DEBUG - remove hdfs file result = 
+2024/08/13 06:14:26 - AES_Enc - DEBUG -  AAAAAAAAAA-TP_3000.csv exist before , rm ok
+2024/08/13 06:14:26 - AES_Enc - DEBUG - In readFrom_csv_wit_NA_Normalize
+2024/08/13 06:14:26 - AES_Enc - DEBUG - path_: /home/hadoop/proj_/dataMac/input/TP_3000.csv
+2024/08/13 06:14:26 - AES_Enc - DEBUG - sep: ,
+2024/08/13 06:14:26 - AES_Enc - DEBUG - BBBB hdfs_path = /tmp/TP_3000.csv
+2024/08/13 06:14:28 - AES_Enc - DEBUG - BBBBresult = 
+2024/08/13 06:14:28 - AES_Enc - DEBUG - In readLocalData
+2024/08/13 06:14:32 - AES_Enc - DEBUG - header valuse = ['EmployeID', 'ID', 'Name', 'DoB', 'PhoneNumber', 'Email', 'Sex', 'Address', 'MaritalStatus', 'Height', 'NoOfChildren', 'AddtionalIncome', 'IncomePerMonth', 'PoliticalSpectrum', 'RandomCode']
+2024/08/13 06:14:32 - AES_Enc - DEBUG - In checkListQuotes header
+2024/08/13 06:14:32 - AES_Enc - DEBUG - In checkListQuotes record
+2024/08/13 06:14:32 - AES_Enc - DEBUG - Check headerRaw and headerTmp
+2024/08/13 06:14:32 - AES_Enc - DEBUG - {'col_0': 'EmployeID', 'col_1': 'ID', 'col_2': 'Name', 'col_3': 'DoB', 'col_4': 'PhoneNumber', 'col_5': 'Email', 'col_6': 'Sex', 'col_7': 'Address', 'col_8': 'MaritalStatus', 'col_9': 'Height', 'col_10': 'NoOfChildren', 'col_11': 'AddtionalIncome', 'col_12': 'IncomePerMonth', 'col_13': 'PoliticalSpectrum', 'col_14': 'RandomCode'}
+2024/08/13 06:14:32 - AES_Enc - DEBUG - ['EmployeID', 'ID', 'Name', 'DoB', 'PhoneNumber', 'Email', 'Sex', 'Address', 'MaritalStatus', 'Height', 'NoOfChildren', 'AddtionalIncome', 'IncomePerMonth', 'PoliticalSpectrum', 'RandomCode']
+2024/08/13 06:14:32 - AES_Enc - DEBUG - ['col_0', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'col_7', 'col_8', 'col_9', 'col_10', 'col_11', 'col_12', 'col_13', 'col_14']
+2024/08/13 06:14:32 - AES_Enc - DEBUG -  readFrom_csv OK
+2024/08/13 06:14:32 - AES_Enc - DEBUG - ============start2======================
+2024/08/13 06:14:32 - AES_Enc - DEBUG - ###################out udfMac table name
+2024/08/13 06:14:32 - AES_Enc - DEBUG - citc____TP_3000
+2024/08/13 06:14:32 - AES_Enc - DEBUG - ###################sc.applicationId
+2024/08/13 06:14:32 - AES_Enc - DEBUG - citc____application_1723529488339_0001
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---++++--cols: ['col_0', 'col_2']
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---++++--AES key_: 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---++++--isEnc: 0
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---++++--MAC cols: ['col_1']
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---++++--MAC key_: 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:33 - AES_Enc - DEBUG - enter
+2024/08/13 06:14:33 - AES_Enc - DEBUG - enter
+2024/08/13 06:14:33 - AES_Enc - DEBUG - in udfMacCols
+2024/08/13 06:14:33 - AES_Enc - DEBUG - col finishy
+2024/08/13 06:14:33 - AES_Enc - DEBUG - AES and MAC = ['col_0', 'col_2'] ['col_1']
+2024/08/13 06:14:33 - AES_Enc - DEBUG - col name before
+2024/08/13 06:14:33 - AES_Enc - DEBUG - MAC_KEY = 0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE
+2024/08/13 06:14:33 - AES_Enc - DEBUG - df3 head =['col_0', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'col_7', 'col_8', 'col_9', 'col_10', 'col_11', 'col_12', 'col_13', 'col_14']
+2024/08/13 06:14:33 - AES_Enc - DEBUG - before extend
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ['col_0', 'col_2']
+2024/08/13 06:14:33 - AES_Enc - DEBUG - before tmpList
+2024/08/13 06:14:33 - AES_Enc - DEBUG - after tmpList
+2024/08/13 06:14:33 - AES_Enc - DEBUG - before tmpList
+2024/08/13 06:14:33 - AES_Enc - DEBUG - after tmpList
+2024/08/13 06:14:33 - AES_Enc - DEBUG - finish
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---2--dataHash: Y
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---2--onlyHash: Y
+2024/08/13 06:14:33 - AES_Enc - DEBUG - ---33333--tableName_: sys_TP_3000
+2024/08/13 06:14:33 - AES_Enc - DEBUG - Output path: /home/hadoop/proj_/dataMac/output
+2024/08/13 06:14:33 - AES_Enc - DEBUG - header : ['col_0', 'col_1', 'col_2', 'col_3', 'col_4', 'col_5', 'col_6', 'col_7', 'col_8', 'col_9', 'col_10', 'col_11', 'col_12', 'col_13', 'col_14']
+2024/08/13 06:14:41 - AES_Enc - DEBUG - export data succeed.
+2024/08/13 06:14:41 - AES_Enc - DEBUG - column name: EmployeID
+2024/08/13 06:14:42 - AES_Enc - DEBUG - anormal count: 3000 normal count: 0 total count: 3000
+2024/08/13 06:14:42 - AES_Enc - DEBUG - column name: Name
+2024/08/13 06:14:43 - AES_Enc - DEBUG - anormal count: 3000 normal count: 0 total count: 3000
+2024/08/13 06:14:43 - AES_Enc - DEBUG - column name: ID
+2024/08/13 06:14:44 - AES_Enc - DEBUG - anormal count: 0 normal count: 3000 total count: 3000
+2024/08/13 06:14:44 - AES_Enc - DEBUG - out_json: {'enc_key': '0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE,0215673DF1ABD03AC074A08C0EA190931E7200C5E05B8BA312831872EB4BE6FE', 'col_name': 'EmployeID,ID,Name,DoB,PhoneNumber,Email,Sex,Address,MaritalStatus,Height,NoOfChildren,AddtionalIncome,IncomePerMonth,PoliticalSpectrum,RandomCode', 'col_setting': 'AES,AES,AES,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting,No_setting', 'enc_datasetname': 'sys_TP_3000.csv', 'ds_count': '3000'}
+2024/08/13 06:14:44 - AES_Enc - DEBUG - ============end=======================/home/hadoop/proj_/dataMac/output/test08131
+2024/08/13 06:14:44 - AES_Enc - DEBUG - remove hdfs_path = /tmp/TP_3000.csv
+2024/08/13 06:14:45 - AES_Enc - DEBUG - remove hdfs file result = b'24/08/13 06:14:45 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.\n'
+2024/08/13 06:14:45 - AES_Enc - DEBUG -  AAAAAAAAAA-TP_3000.csv rm ok
+2024/08/13 06:14:45 - AES_Enc - DEBUG - itri-pedsa
+2024/08/13 06:14:45 - AES_Enc - DEBUG - /home/itri-pedsa/PETS/pets_service/sftp_upload_folder
+2024/08/13 06:14:45 - AES_Enc - DEBUG - %%%%%%%%%%%%%%%%%%
+2024/08/13 06:14:45 - AES_Enc - DEBUG - ============cmd_send=======================
+2024/08/13 06:14:45 - AES_Enc - DEBUG - cmd_send:scp -i /home/hadoop/proj_/longTaskDir/sftp_keys/sftp_key.pem -P 22 -r /home/hadoop/proj_/dataMac/output/test08131 itri-pedsa@130.211.246.188:/home/itri-pedsa/PETS/pets_service/sftp_upload_folder
+2024/08/13 06:14:45 - AES_Enc - DEBUG - mod_str:chmod 755 /home/itri-pedsa/PETS/pets_service/sftp_upload_folder/test08131
+2024/08/13 06:14:45 - AES_Enc - DEBUG - ============ cmd_chmod =======================
+2024/08/13 06:14:45 - AES_Enc - DEBUG - cmd_chmod:ssh -i /home/hadoop/proj_/longTaskDir/sftp_keys/sftp_key.pem itri-pedsa@130.211.246.188 'chmod 755 /home/itri-pedsa/PETS/pets_service/sftp_upload_folder/test08131'
+2024/08/13 06:14:47 - AES_Enc - DEBUG - b''
+2024/08/13 06:14:47 - AES_Enc - DEBUG - b"Warning: Permanently added '130.211.246.188' (ED25519) to the list of known hosts.\r\nchmod: cannot access '/home/itri-pedsa/PETS/pets_service/sftp_upload_folder/test08131': No such file or directory\n"
+2024/08/13 06:14:47 - AES_Enc - DEBUG - b''
+2024/08/13 06:14:47 - AES_Enc - DEBUG - b"Warning: Permanently added '130.211.246.188' (ED25519) to the list of known hosts.\r\n"
+2024/08/13 06:14:47 - AES_Enc - DEBUG - ============AES_Enc end=======================
+2024/08/13 06:14:47 - AES_Enc - DEBUG - insert T_Pets_ProjectStatus fail: errTable: Insert to PetsService.T_Pets_ProjectStatus fail: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`PetsService`.`T_Pets_ProjectStatus`, CONSTRAINT `T_Pets_ProjectStatus_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `T_Pets_Project` (`project_id`))')

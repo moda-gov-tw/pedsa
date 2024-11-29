@@ -1,0 +1,91 @@
+#load docker images
+#docker rm -f old_container
+#docker network rm hadoopnet
+
+# 建立swarm node​
+$ docker swarm init --advertise-addr (host IP)
+
+NOTE:
+	ERR: "Pool overlaps with other one on this address space" 
+	sol:改subnet address 
+	docker swarm leave --force (刪掉 overlay network)
+	docker network create -d overlay --subnet=172.78.0.0/27 --gateway=172.78.0.1 --attachable=true hadoopnet_overlay 
+
+
+#建立網路​
+$ docker network create -d overlay --subnet=172.28.0.0/27 --gateway=172.28.0.1 --attachable=true hadoopnet_overlay
+
+#重建系統資料夾、修改權限
+$ cd ~/sourceCode/hadoop/
+$ rm -rf MariaDBdata masterDirD masterDirN
+$ mkdir MariaDBdata masterDirD masterDirN
+$ mkdir hiveMetaDB_postgre
+$ chown 999:999 MariaDBdata
+$ chmod 775 start_ssh1.sh
+$ chmod 775 key_db1.sql 
+$ chown 1000:1000 -R ssh_conf
+$ chmod 664 ssh_conf/config
+$ chmod 664 ssh_conf/authorized_keys
+$ chmod 600 ssh_conf/id_rsa
+
+#確認dataConfig資料夾mount路徑修改
+#$ vi ~/sourceCode/webService/docker-compose.yml
+#eg. ../hadoop/dataConfig : 改sourceCode前的路徑
+
+#初次安裝
+$docker stack rm CITCHadoop 
+$docker stack rm CITCWebservice 
+$source ./rm_swarm_secret.sh           (刪除docker secret) 
+$source ./initialSystem.sh
+$docker service ls                  (需等到所有service 啟動) 
+$source ./initialSecrets.sh  (需等到所有service 啟動, 再執行) 
+
+#系統啟動確認
+$docker secret ls (至少要有5個secrets) 
+EX: 
+ako1ivkd6uimwmo7dmitb4qui   8fFF5Bcb                                29 minutes ago      29 minutes ago
+g2ifp5ir3xlq8nk4hpz4p1tej   Cf2ECB52                                About an hour ago   About an hour ago
+tr8dheerwa4shk0k9tu3jlwl0   ahcitcww                                17 minutes ago      17 minutes ago
+b80p71lnxeec4551rcswv48pn   digestF_Hdfs                            22 minutes ago      22 minutes ago
+ttxn9lov6ae601s121dhriy3q   digestF_Maria                           15 minutes ago      15 minutes ago
+
+
+NOTE: ahcitcww for deidweb 
+
+
+
+ 
+
+#系統啟動確認
+DeID web: localhost:11000
+swagger open API: localhost:5097/swagger 
+hadoop web: localhost:5188 
+hdfs web: localhost:5970
+
+#進入nodemaster測試
+(host)$ ssh hadoop@hostIP -p 5922 (orig passwd: citcw200@)
+(master)$ cd /home/hadoop/proj_/longTaskDir/
+# sha256
+(master)$ spark-submit --jars udfHmac256_1.jar,myLogging_1.jar,mysql-connector-java-8.0.13.jar udfMacUID.py adult_id BASRsdfs456465 "^|" 2 age workclass
+
+#(master)$ spark-submit --jars udfEncrypt_7.jar,myLogging_1.jar,mysql-connector-java-8.0.13.jar udfMacUID.py adult_id BASRsdfs456465 "^|" 2 age workclass
+
+#修改hadoop密碼 (orig : citcw200@)
+$ bash update_nodemaster_secret.sh
+
+#修改mariaDB密碼(orig : citcw200)
+$ bash update_mariaDB_secret.sh
+
+#確認deidadmin密碼修改成功
+$ docker exec -it (deidweb container) bash
+$ cat /run/secrets/ahcitcww
+
+#確認hadoop密碼修改成功
+$ docker exec -it (nodemaster container) bash
+$ cd /run/secrets
+
+
+#重開機
+$ reboot
+$ sudo dockerd --data-root (dir_)
+$ bash recoverSystemPwd.sh​ (輸入關機前hadoop、mariaDB密碼)

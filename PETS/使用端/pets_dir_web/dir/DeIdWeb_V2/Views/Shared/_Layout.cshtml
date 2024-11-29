@@ -1,0 +1,88 @@
+﻿@using System.Globalization
+@using Resources
+@using Microsoft.AspNetCore.Mvc;
+@using DeIdWeb_V2.Infrastructure.Reposiotry;
+@using Microsoft.AspNetCore.Http;
+@using System.Security.Claims;
+@inject ILocalizer localizer;
+
+@removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<!--import bootstrap/wtf.html-->
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    @*<meta charset="UTF-8" http-equiv="Content-Security-Policy" content="{Policy}">*@
+    @*<title>@localizer.Text.title</title>*@
+    <title>直接識別處理工具</title>
+
+    <link rel="stylesheet prefetch" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="~/css/iconfont.css">
+    <script nonce="iclw200" src="~/js/jquery-3.6.3.min.js"></script>
+    <script nonce="iclw200" src="~/js/jquery-ui.min.js"></script>
+    <script nonce="iclw200" src="~/js/bootstrap.min.js"></script>
+    <script nonce="iclw200" src="~/js/bootstrap-table.min.js"></script>
+    <script nonce="iclw200" src="~/js/layout.js"></script>
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top at_top">
+        <div class="container">
+            <div class="navbar-header navbar-brand">
+                <img src="~/images/logo_b.png" alt="">
+            </div>
+            <div id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                 <li><a href="@Url.Action("FileUploadState", "Home")">查詢使用端上傳狀況</a></li>
+                 <li><a href="@Url.Action("StepUpload", "Home")">回到上傳頁面</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    <script>
+           $(document).ready(function () {
+            //GetNotificationData();
+            //CheckJobStatus();
+          //  setInterval("GetNotificationData()", 30000);
+        });
+
+        function GetNotificationData() {
+            $.ajax({
+                type: "get",
+                url: "/api/WebAPI/GetNotificationData",
+                contentType: "application/json",
+                //async: false,
+                //data:
+                //{
+                //    filename:filename,project_cert:project_cert,aes_col:aes_col,hash_col:hash_col
+                //    //,r_value:rvalue,t1:t1value,t2:t2value
+                //},
+                success: function (response) {
+                   // alert(response);
+                    if (response=="0") {
+                     
+                    }
+                    else if(response=="Error"){
+                    
+                    }
+                    else
+                    {
+                      alert('上傳資料集成功!!'+response);
+                    }
+
+                },
+                error: function (response) {
+                   // alert('Error');
+
+
+                }
+            });
+        }
+    </script>
+</body>
+</html>

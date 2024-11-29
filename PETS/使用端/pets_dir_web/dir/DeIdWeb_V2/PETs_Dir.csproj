@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>fca88124-ae5b-4ba0-8858-0a2dc05cefbb</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExportReport\**" />
+    <Content Remove="ExportReport\**" />
+    <EmbeddedResource Remove="ExportReport\**" />
+    <None Remove="ExportReport\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\uploads\airbnb_raw.csv" />
+    <Content Remove="wwwroot\uploads\fcst_MLdata_config_46301.csv" />
+    <Content Remove="wwwroot\uploads\g_mac_MLv2test_enc.csv" />
+    <Content Remove="wwwroot\uploads\g_mac_testfile_k_job1.csv" />
+    <Content Remove="wwwroot\uploads\g_udfMacUID_adult_id_k_job1.csv" />
+    <Content Remove="wwwroot\uploads\kyc_NEW.csv" />
+    <Content Remove="wwwroot\uploads\Titanic.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Haukcode.DinkToPdf" Version="1.1.2" />
+    <PackageReference Include="log4net" Version="2.0.14" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App_Log\servicelog\" />
+    <Folder Include="uploads\" />
+    <Folder Include="wwwroot\download\G92\" />
+    <Folder Include="wwwroot\ExportReport\" />
+    <Folder Include="wwwroot\ExportMLReport\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Locializer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Locializer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Locializer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Locializer.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
