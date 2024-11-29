@@ -1,3 +1,0 @@
-a;a,b,c,d
-b;e,f,g
-c;g,h,i,j

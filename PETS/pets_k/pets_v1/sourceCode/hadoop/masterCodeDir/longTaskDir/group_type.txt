@@ -1,3 +1,0 @@
-[GroupType_information]
-
-group_type=w1

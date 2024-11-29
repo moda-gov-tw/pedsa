@@ -1,9 +1,0 @@
-[Login_information]
-
-ip=MariaDB_nrtS
-
-port=
-
-user=keyadmin
-
-password=citcw200

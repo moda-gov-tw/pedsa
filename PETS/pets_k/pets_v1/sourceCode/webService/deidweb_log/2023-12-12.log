@@ -1,4 +1,0 @@
-2023-12-12 14:57:40,861 [46] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - k_checkstatus 查詢狀態 WebAPI
- DeIdWeb_V2_K.Controllers.WebAPIControllername2023-12-12 14:57:40,868 [46] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - project_name :test1234
- DeIdWeb_V2_K.Controllers.WebAPIControllername2023-12-12 14:57:41,117 [46] INFO  DeIdWeb_V2_K.Controllers.WebAPIController - check K status :{"status":1,"msg":"","obj":{"project_id":37,"project_status":11,"status_name":"資料下載","return_url":"https://35.201.239.123:11000/ProjectStep/Step6?proj_id=37&project_name=test1234&stepstatus=11&project_cht=test1234"}}
- DeIdWeb_V2_K.Controllers.WebAPIControllername
